@@ -1,0 +1,7 @@
+# Ignore experimental/temporary files
+x_*
+bootstrap-sandbox
+
+# Ignore local credentials
+secrets.js
+firebase.js
