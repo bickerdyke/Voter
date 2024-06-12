@@ -47,4 +47,8 @@ export default {
 .text-vue2 {
   color: rgb(65, 184, 131);
 }
+
+.debuginfo {
+  display: inline; /* inline or none */
+}
 </style>

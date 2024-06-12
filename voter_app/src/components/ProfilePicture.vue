@@ -1,5 +1,5 @@
 <template>
-  <img :src="getProfilePicUrl" />
+  <img :src="getProfilePicUrl" class="rounded-4" :style="imgSizeStyle" />
 </template>
 
 <script>
@@ -32,11 +32,18 @@ export default {
         ].includes(value);
       },
     },
-    imageUrl: String,
+    imageUrl: {
+      type: String,
+      required: false,
+    },
   },
   computed: {
     getProfilePicUrl() {
       return this.imageUrl ? this.imageUrl : this.getGravatarURL();
+    },
+    imgSizeStyle() {
+      return `width: ${this.size.toString()}px; height: ${this.size.toString()}px; object-fit: cover;`;
+      //return `width: 75%; height: auto; object-fit: cover;`;
     },
   },
   methods: {

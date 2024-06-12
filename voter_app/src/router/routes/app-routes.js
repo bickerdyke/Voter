@@ -1,5 +1,5 @@
 /* import store from "../../store"; */
-import ShowResultPage from "@/pages/ShowResultPage";
+import ResultPage from "@/pages/ResultPage";
 const appRoutes = [
   {
     path: "/",
@@ -18,8 +18,8 @@ const appRoutes = [
     }, */
   },
   {
-    path: "/showresult/:voteId",
-    component: ShowResultPage,
+    path: "/showresult/:sessionId",
+    component: ResultPage,
     props: true,
   },
 ];

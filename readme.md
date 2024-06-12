@@ -20,10 +20,11 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 
 ## ToDos
 
-- @todo auth-modul aus store entfernen
+- @todo auth-modul aus store entfernen (oder für Admin-Tools nutzen)
 - @todo aufrufe des auth-moduls im Router entfernen
 - @todo store aufräumen
 - @todo alte Transitions raus - schöne neue rein
+- @todo ordentliche Sklaierung der Profil- und Voting-Bilder auch bei rechteckigen Bildvorlagen. Mit vernünftiger Dynamik
 
 ## Features
 
@@ -34,6 +35,7 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 
 - verschiedene Bewertungssysteme (Schulnoten, Punkte 1-10, Dafür/Dagegen/Enthaltung)
 - CSV-Download der Ergebnisse
+- lokalisierung / Übersetzungen
 - verstecken der Ergebnisse bis alle Stimmen oder Stimmanteil abgegeben sind
 - Erzeugung druckbarer/klickbarer Liste mit Links zu den einzelnen Positionen für jeden Stimmberechtigten
 - Offene Abstimmung (kein vorheriges Anlegen der Stimmberechtigten)
