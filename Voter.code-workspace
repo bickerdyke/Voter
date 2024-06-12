@@ -1,8 +1,20 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": ".",
+      "ignore": ["/bootstrap-sandbox", "/voter_app"]
+    },
+    {
+      "path": "voter_app"
+    },
+    {
+      "path": "bootstrap-sandbox"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "voter_app": true,
+      "bootstrap-sandbox": true
+    }
+  }
 }
