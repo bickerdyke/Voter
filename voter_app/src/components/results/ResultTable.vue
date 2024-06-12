@@ -35,17 +35,20 @@
             v-if="voting.imgUrl"
           />
           <div class="m-3">
-            <p class="fw-bolder">
+            <p class="fw-bolder d-none d-sm-block">
               <span class="debuginfo">({{ voting.id }})</span>
               {{ voting.title }}
             </p>
-            <p>{{ voting.description }}</p>
+            <p class="d-none d-md-block">{{ voting.description }}</p>
           </div>
         </td>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
+        <td v-for="user in session.users" :key="user.id">
+          <SingleVote
+            :sessionId="sessionId"
+            :votingId="voting.id"
+            :userId="user.id"
+          />
+        </td>
         <th>6,5</th>
       </tr>
     </tbody>
@@ -54,11 +57,13 @@
 
 <script>
 import ProfilePicture from "@/components/ProfilePicture";
+import SingleVote from "@/components/results/SingleVote";
 
 export default {
   name: "ResultTable",
   components: {
     ProfilePicture,
+    SingleVote,
   },
   props: {
     sessionId: String,

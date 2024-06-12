@@ -112,7 +112,7 @@ const state = {
       },
       {
         id: "jl7as",
-        name: "Heinz",
+        name: "Gustav",
         email: "heinz@invalid.com",
         imgUrl: "",
       },
@@ -154,12 +154,12 @@ const actions = {
 const getters = {
   session: (state) => state.session,
   sessionIdStoreCurrent: (state) => state.session.id,
-  /*vote: (state) => (sessionId, votingId, userId) => {
-    const session = state.session.find((session) => session.id === sessionId);
-    return session.votings
+  vote: (state) => (sessionId, votingId, userId) => {
+    const vote = state.session.votings
       .find((v) => v.id === votingId)
-      .find((vo) => vo.userId === userId);
-  },*/
+      .votes.find((vo) => vo.userId === userId);
+    return vote ? vote.vote : "";
+  },
 };
 
 const votingModule = {

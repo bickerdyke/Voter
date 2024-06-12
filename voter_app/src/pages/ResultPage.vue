@@ -3,7 +3,7 @@
     <div>
       <h1 class="text-center display-2">{{ session.title }}</h1>
       <h3 class="text-center">{{ session.subtitle }}</h3>
-      <div><ResultTable :sessionId="sessionId" /></div>
+      <div class="col-12"><ResultTable :sessionId="sessionId" /></div>
       <div>
         <img
           :src="session.imgUrl"

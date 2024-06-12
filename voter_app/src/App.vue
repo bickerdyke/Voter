@@ -49,6 +49,6 @@ export default {
 }
 
 .debuginfo {
-  display: inline; /* inline or none */
+  display: none; /* inline or none */
 }
 </style>
