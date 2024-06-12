@@ -10,39 +10,44 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 
 ## Benötigte Elemente
 
-* Startseite
-* Abstimmseite (Standalone)
-* Ergebnisseite (Standalone)
-* Session anlegen (Navigation/Übersicht in linker Spalte, einzelne Features rechts)
-* Abstimmungslinks (druckbar)
-* Impressum/About/Contact
-* NotFoundPage überarbeiten oder löschen
+- Startseite
+- Abstimmseite (Standalone)
+- Ergebnisseite (Standalone)
+- Session anlegen (Navigation/Übersicht in linker Spalte, einzelne Features rechts)
+- Abstimmungslinks (druckbar)
+- Impressum/About/Contact
+- NotFoundPage überarbeiten oder löschen
 
 ## ToDos
-* @todo auth-modul aus store entfernen
-* @todo aufrufe des auth-moduls im Router entfernen
-* @todo store aufräumen
+
+- @todo auth-modul aus store entfernen
+- @todo aufrufe des auth-moduls im Router entfernen
+- @todo store aufräumen
+- @todo alte Transitions raus - schöne neue rein
 
 ## Features
 
-* Begrenzte Lebenszeit der Abstimmsessions (Älter als einen Monat wird nicht geladen)
-* Backend-Anbindung
+- Begrenzte Lebenszeit der Abstimmsessions (Älter als einen Monat wird nicht geladen)
+- Backend-Anbindung
 
 ## Wunschfeatures
 
-* verschiedene Bewertungssysteme (Schulnoten, Punkte 1-10, Dafür/Dagegen/Enthaltung)
-* CSV-Download der Ergebnisse
-* verstecken der Ergebnisse bis alle Stimmen oder Stimmanteil abgegeben sind
-* Erzeugung druckbarer/klickbarer Liste mit Links zu den einzelnen Positionen für jeden Stimmberechtigten
-* Offene Abstimmung (kein vorheriges Anlegen der Stimmberechtigten)
-* externe Profilbilder für die Stimmberechtigten
-* Ersatz-"einloggen". Namen des Abstimmenden wird einmalig festgelegt und in einem Cookie gespeichert. Alle Abstimmenden können dann den selben Link zum abstimmen nutzen.
-* Admin-Feature: Besitzer einer Session kann nachträglich Parameter ändern
+- verschiedene Bewertungssysteme (Schulnoten, Punkte 1-10, Dafür/Dagegen/Enthaltung)
+- CSV-Download der Ergebnisse
+- verstecken der Ergebnisse bis alle Stimmen oder Stimmanteil abgegeben sind
+- Erzeugung druckbarer/klickbarer Liste mit Links zu den einzelnen Positionen für jeden Stimmberechtigten
+- Offene Abstimmung (kein vorheriges Anlegen der Stimmberechtigten)
+- externe Profilbilder für die Stimmberechtigten
+- Ersatz-"einloggen". Namen des Abstimmenden wird einmalig festgelegt und in einem Cookie gespeichert. Alle Abstimmenden können dann den selben Link zum abstimmen nutzen.
+- Admin-Feature: Besitzer einer Session kann nachträglich Parameter ändern
+- Admin-Feature: Mit firebase-Authentication übersicht über alle Votings, alte löschen
 
 ### Serverseitig
-* (!) starke Limitierung der zu speichernden Daten. (API-Key zum schreiben ist in der App und keine Benutzer-Authentifizierung geplant!!)
-* starke Längenbeschränkung, es dürfen nur bestimmte Felder angelegt werden. (NoSQL-DB)
-* (!) serverseitige Prüfung und Validierung der ankommenden Daten
-* serverseitige Berechnung der Ergebnisse (keine Einzelergebnisse an Client schicken)
-* automatisches Aufräumen der DB
-* Rate Limit beim Anlegen von Sessions
+
+- (!) starke Limitierung der zu speichernden Daten. (API-Key zum schreiben ist in der App und keine Benutzer-Authentifizierung geplant!!)
+- starke Längenbeschränkung, es dürfen nur bestimmte Felder angelegt werden. (NoSQL-DB)
+- (!) serverseitige Prüfung und Validierung der ankommenden Daten
+- serverseitige Berechnung der Ergebnisse (keine Einzelergebnisse an Client schicken)
+- automatisches Aufräumen der DB
+- nur Abruf einzelner Votings möglich
+- Rate Limit beim Anlegen von Sessions

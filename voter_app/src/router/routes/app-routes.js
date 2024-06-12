@@ -1,4 +1,5 @@
 /* import store from "../../store"; */
+import ShowResultPage from "@/pages/ShowResultPage";
 const appRoutes = [
   {
     path: "/",
@@ -15,6 +16,11 @@ const appRoutes = [
         next();
       }
     }, */
+  },
+  {
+    path: "/showresult/:voteId",
+    component: ShowResultPage,
+    props: true,
   },
 ];
 

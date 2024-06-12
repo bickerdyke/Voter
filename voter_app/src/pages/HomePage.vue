@@ -16,8 +16,12 @@
         Officiis, perspiciatis?
       </p>
       <button class="col-4">Abstimmung anlegen</button>
-      <p>
+      <div>
         Für Zugang zu bestehenden Abstimmungen bitte Abstimmungs-Link verwenden.
+      </div>
+      <p>
+        Beispiel-Abstimmung:
+        <a href="/showresult/4711" class="btn-success">#4711</a>
       </p>
     </div>
   </TheHomeLayout>
