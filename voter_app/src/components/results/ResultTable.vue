@@ -42,14 +42,20 @@
             <p class="d-none d-md-block">{{ voting.description }}</p>
           </div>
         </td>
-        <td v-for="user in session.users" :key="user.id">
-          <SingleVote
+        <td
+          v-for="user in session.users"
+          :key="user.id"
+          class="text-center align-middle display-6"
+        >
+          <VoteDisplay
             :sessionId="sessionId"
             :votingId="voting.id"
             :userId="user.id"
           />
         </td>
-        <th>6,5</th>
+        <td class="text-center align-middle display-6 fw-bold">
+          <VoteAverage :sessionId="sessionId" :votingId="voting.id" />
+        </td>
       </tr>
     </tbody>
   </table>
@@ -57,13 +63,15 @@
 
 <script>
 import ProfilePicture from "@/components/ProfilePicture";
-import SingleVote from "@/components/results/SingleVote";
+import VoteDisplay from "@/components/results/VoteDisplay";
+import VoteAverage from "@/components/results/VoteAverage";
 
 export default {
   name: "ResultTable",
   components: {
     ProfilePicture,
-    SingleVote,
+    VoteDisplay,
+    VoteAverage,
   },
   props: {
     sessionId: String,

@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "SingleVote",
+  name: "VoteDisplay",
   props: {
     sessionId: String,
     votingId: String,

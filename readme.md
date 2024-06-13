@@ -21,12 +21,15 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 ## ToDos
 
 - @todo auth-modul aus store entfernen (oder für Admin-Tools nutzen)
+- @todo App.vue aufräumen (autologin, fetch products, eigenes css)
 - @todo aufrufe des auth-moduls im Router entfernen
 - @todo store aufräumen
 - @todo alte Transitions raus - schöne neue rein
 - @todo ordentliche Sklaierung der Profil- und Voting-Bilder auch bei rechteckigen Bildvorlagen. Mit vernünftiger Dynamik
+- @todo sanitize user input (html/Javascript incection)
+- @todo ordentliche lokalisierung (Dezimaltrennzeichen in Ergebnisliste ist mal Punkt und mal Komma)
 
-## Features
+## Benötigte Features
 
 - Begrenzte Lebenszeit der Abstimmsessions (Älter als einen Monat wird nicht geladen)
 - Backend-Anbindung
@@ -39,7 +42,7 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 - verstecken der Ergebnisse bis alle Stimmen oder Stimmanteil abgegeben sind
 - Erzeugung druckbarer/klickbarer Liste mit Links zu den einzelnen Positionen für jeden Stimmberechtigten
 - Offene Abstimmung (kein vorheriges Anlegen der Stimmberechtigten)
-- externe Profilbilder für die Stimmberechtigten
+- externe Profilbilder für die Stimmberechtigten: https://github.com/eldimious/network-avatar-picker
 - Ersatz-"einloggen". Namen des Abstimmenden wird einmalig festgelegt und in einem Cookie gespeichert. Alle Abstimmenden können dann den selben Link zum abstimmen nutzen.
 - Admin-Feature: Besitzer einer Session kann nachträglich Parameter ändern
 - Admin-Feature: Mit firebase-Authentication übersicht über alle Votings, alte löschen

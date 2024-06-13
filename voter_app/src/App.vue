@@ -5,6 +5,10 @@
 <script>
 export default {
   name: "App",
+  /* data() {
+    return {
+    };
+  }, */
   computed: {
     token() {
       return this.$store.getters.token;
@@ -12,7 +16,6 @@ export default {
   },
   created() {
     this.$store.dispatch("autoSignin");
-    console.log(this.$store);
   },
   watch: {
     token: {

@@ -12,7 +12,7 @@ const state = {
        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut 
        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.`,
-    imgUrl: "https://picsum.photos/300",
+    imgUrl: "https://picsum.photos/200",
     //imgUrl: "",
     votings: [
       {
@@ -30,7 +30,7 @@ const state = {
           },
           {
             userId: "0816",
-            vote: "2",
+            vote: "2.51",
           },
           {
             userId: "jl7as",
@@ -45,7 +45,7 @@ const state = {
       {
         id: "2",
         title:
-          "testdings mit sehr langen Namen der vielleicht umbrechen sollte",
+          "Testdings mit sehr langen Namen der vielleicht umbrechen sollte",
         description: "hier nur kurzer Text",
         imgUrl: "https://picsum.photos/50/90",
         votes: [
@@ -67,7 +67,7 @@ const state = {
         id: "A",
         title: "Test 3",
         description: "",
-        imgUrl: "https://placeholder.com/50/100",
+        imgUrl: "https://placeholder.com/50",
         votes: [
           {
             userId: "0816",
@@ -85,7 +85,7 @@ const state = {
       },
       {
         id: "z87b324",
-        title: "was geheimnisvolles",
+        title: "Unbekannte Option",
         description: "",
         imgUrl: "",
         votes: [],
@@ -152,13 +152,50 @@ const actions = {
   },
 };
 const getters = {
-  session: (state) => state.session,
   sessionIdStoreCurrent: (state) => state.session.id,
+
+  session: (state) => state.session,
+
   vote: (state) => (sessionId, votingId, userId) => {
-    const vote = state.session.votings
-      .find((v) => v.id === votingId)
-      .votes.find((vo) => vo.userId === userId);
+    if (!state.session || state.session.id !== sessionId) {
+      console.error(`Incorrect session Id ${sessionId}`);
+      return null;
+    }
+    const voting = state.session.votings.find((v) => v.id === votingId);
+
+    if (!voting) {
+      console.error(`Incorrect voting Id ${votingId} for session ${sessionId}`);
+      return null;
+    }
+
+    if (!voting.votes || voting.votes.length == 0) {
+      console.log(
+        `No votes available for voting Id ${votingId} in session ${sessionId}`
+      );
+    }
+
+    const vote = voting.votes.find((vo) => vo.userId === userId);
     return vote ? vote.vote : "";
+  },
+
+  votes: (state) => (sessionId, votingId) => {
+    if (!state.session || state.session.id !== sessionId) {
+      console.error(`Incorrect session Id ${sessionId}`);
+      return null;
+    }
+    const voting = state.session.votings.find((v) => v.id === votingId);
+
+    if (!voting) {
+      console.error(`Incorrect voting Id ${votingId} for session ${sessionId}`);
+      return null;
+    }
+
+    if (!voting.votes || voting.votes.length == 0) {
+      console.log(
+        `No votes available for voting Id ${votingId} in session ${sessionId}`
+      );
+    }
+    return voting.votes.map((v) => v.vote);
   },
 };
 
