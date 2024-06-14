@@ -27,11 +27,15 @@
         </div>
         <p>
           Beispiel-Ergebnis:
-          <a href="/showresult/4711" class="btn-success">Session #4711</a>
+          <router-link to="/showresult/4711" class="btn-success"
+            >Session #4711</router-link
+          >
         </p>
         <p>
           Beispiel-Voting:
-          <a href="/vote/4711/0815/1" class="btn-success">Stimme abgeben</a>
+          <router-link to="/vote/4711/0815/1" class="btn-success"
+            >Stimme abgeben</router-link
+          >
         </p>
       </div>
     </div>

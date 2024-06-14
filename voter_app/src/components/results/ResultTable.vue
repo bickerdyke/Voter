@@ -44,9 +44,9 @@
         </td>
         <td v-for="user in session.users" :key="user.id">
           <div class="text-right align-bottom">
-            <a :href="voteLink(sessionId, voting.id, user.id)"
+            <router-link :to="voteLink(sessionId, voting.id, user.id)"
               ><font-awesome-icon icon="circle-arrow-right" class="fa-2xs"
-            /></a>
+            /></router-link>
           </div>
           <div class="text-center align-middle display-6">
             <VoteDisplay

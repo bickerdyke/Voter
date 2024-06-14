@@ -14,7 +14,7 @@
       <!-- Bereits Stimme abgegeben? -->
       <div class="card text-center noborder" v-if="vote">
         <div class="card-title display-6 m-3">
-          Sie haben bereits für <i>{{ voting.title }}</i> abgestimmt:
+          Sie haben für <i>{{ voting.title }}</i> abgestimmt:
         </div>
         <div class="card-body display-4 fw-bold">
           <VoteDisplay
@@ -26,6 +26,12 @@
       </div>
 
       <!-- Abstimmen -->
+      <div class="alert alert-danger" v-if="errorMessage">
+        <strong>Fehler</strong>
+        <br />
+        {{ errorMessage }}
+      </div>
+
       <div class="card text-center nobor" v-if="!vote">
         <div class="card-title display-6 m-3">
           Bitte ihre Meinung für <i>{{ voting.title }}</i> abgeben:
@@ -35,8 +41,12 @@
 
       <!-- Footer-Features-->
       <div class="row my-3">
-        <a href="/" class="btn btn-primary">Neue Abstimmung anlegen</a>
-        <a href="/showresult/4711" class="btn btn-primary">Ergebnis</a>
+        <router-link to="/" class="btn btn-primary"
+          >Neue Abstimmung anlegen</router-link
+        >
+        <router-link to="/showresult/4711" class="btn btn-primary"
+          >Ergebnis</router-link
+        >
       </div>
     </div>
   </TheHomeLayout>
@@ -58,6 +68,11 @@ export default {
     SlideVoteSelect,
     ImageAndDescription,
   },
+  data() {
+    return {
+      errorMessage: "",
+    };
+  },
   props: {
     sessionId: String,
     votingId: String,
@@ -77,14 +92,26 @@ export default {
   },
   methods: {
     voted(vote) {
+      this.clearError();
       const payload = {
         sId: this.sessionId,
         vId: this.votingId,
         uId: this.userId,
         vote: vote,
       };
-      // @todo: von mutation auf action umstellen
-      this.$store.commit("castVote", payload);
+
+      this.$store
+        .dispatch("castVote", payload)
+        .then((value) => {
+          console.log(value);
+        })
+        .catch((err) => {
+          this.errorMessage = err;
+          console.error(err);
+        });
+    },
+    clearError() {
+      this.errorMessage = "";
     },
   },
 };

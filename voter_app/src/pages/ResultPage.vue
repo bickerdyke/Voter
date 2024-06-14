@@ -15,7 +15,9 @@
 
       <!-- Footer-Features-->
       <div class="row my-3">
-        <a href="/" class="btn btn-primary">Neue Abstimmung anlegen</a>
+        <router-link to="/" class="btn btn-primary"
+          >Neue Abstimmung anlegen</router-link
+        >
       </div>
     </div>
   </TheHomeLayout>
