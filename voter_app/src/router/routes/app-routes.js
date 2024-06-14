@@ -1,14 +1,12 @@
 /* import store from "../../store"; */
-import ResultPage from "@/pages/ResultPage";
+
 const appRoutes = [
   {
     path: "/",
     alias: "/home",
     /* component: HomePage, */
     component: () =>
-      import(
-        /*webpackChunkName: 'component-homepage' */ "@/pages/HomePage.vue"
-      ),
+      import(/*webpackChunkName: 'page-homepage' */ "@/pages/HomePage.vue"),
     /* beforeEnter: (to, from, next) => {
       if (store.getters.isAuthenticated) {
         next("/shop");
@@ -19,7 +17,14 @@ const appRoutes = [
   },
   {
     path: "/showresult/:sessionId",
-    component: ResultPage,
+    component: () =>
+      import(/*webpackChunkName: 'page-results' */ "@/pages/ResultPage.vue"),
+    props: true,
+  },
+  {
+    path: "/vote/:sessionId/:userId/:votingId",
+    component: () =>
+      import(/*webpackChunkName: 'page-vote' */ "@/pages/VotePage.vue"),
     props: true,
   },
 ];

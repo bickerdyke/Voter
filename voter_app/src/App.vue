@@ -33,7 +33,7 @@ export default {
 
 <style>
 @import "~bootstrap/dist/css/bootstrap.min.css";
-@import "~@fortawesome/fontawesome-free/css/all.min.css";
+/* @import "~@fortawesome/fontawesome-free/css/all.min.css"; */
 @import "~animate.css/animate.min.css";
 
 .bg-vue {
@@ -53,5 +53,8 @@ export default {
 
 .debuginfo {
   display: none; /* inline or none */
+}
+.card.noborder {
+  border: none;
 }
 </style>

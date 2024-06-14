@@ -2,26 +2,16 @@
   <TheHomeLayout>
     <div>
       <!-- Header -->
-      <div class="row my-3">
-        <h1 class="text-center display-2">{{ session.title }}</h1>
-        <h3 class="text-center">{{ session.subtitle }}</h3>
-      </div>
+      <SessionHeadline :sessionId="sessionId" />
 
       <!-- Results-->
       <div class="row my-3"><ResultTable :sessionId="sessionId" /></div>
 
       <!-- Session description -->
-      <div class="row my-3 card">
-        <div class="card-body">
-          <img
-            :src="session.imgUrl"
-            v-if="session.imgUrl"
-            class="rounded-4 float-start me-3 img-fluid"
-            style="width: 200px; height: 200px; object-fit: cover"
-          />
-          <div class="m-5 mw-25">{{ session.description }}</div>
-        </div>
-      </div>
+      <ImageAndDescription
+        :imgUrl="session.imgUrl"
+        :description="session.description"
+      ></ImageAndDescription>
 
       <!-- Footer-Features-->
       <div class="row my-3">
@@ -34,12 +24,16 @@
 <script>
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import ResultTable from "@/components/results/ResultTable";
+import SessionHeadline from "@/components/SessionHeadline";
+import ImageAndDescription from "@/components/ImageAndDescription";
 
 export default {
   name: "ResultPage",
   components: {
     TheHomeLayout,
     ResultTable,
+    SessionHeadline,
+    ImageAndDescription,
   },
   props: {
     sessionId: String,

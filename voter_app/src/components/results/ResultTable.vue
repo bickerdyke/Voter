@@ -42,16 +42,19 @@
             <p class="d-none d-md-block">{{ voting.description }}</p>
           </div>
         </td>
-        <td
-          v-for="user in session.users"
-          :key="user.id"
-          class="text-center align-middle display-6"
-        >
-          <VoteDisplay
-            :sessionId="sessionId"
-            :votingId="voting.id"
-            :userId="user.id"
-          />
+        <td v-for="user in session.users" :key="user.id">
+          <div class="text-right align-bottom">
+            <a :href="voteLink(sessionId, voting.id, user.id)"
+              ><font-awesome-icon icon="circle-arrow-right" class="fa-2xs"
+            /></a>
+          </div>
+          <div class="text-center align-middle display-6">
+            <VoteDisplay
+              :sessionId="sessionId"
+              :votingId="voting.id"
+              :userId="user.id"
+            />
+          </div>
         </td>
         <td class="text-center align-middle display-6 fw-bold">
           <VoteAverage :sessionId="sessionId" :votingId="voting.id" />
@@ -82,6 +85,11 @@ export default {
     },
     sessionIdStore() {
       return this.$store.getters.sessionIdStoreCurrent;
+    },
+  },
+  methods: {
+    voteLink(sId, vId, uId) {
+      return `/vote/${sId}/${uId}/${vId}`;
     },
   },
 };
