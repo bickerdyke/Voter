@@ -8,7 +8,7 @@
       <ImageAndDescription
         :imgUrl="voting.imgUrl"
         :description="voting.description"
-        imageRight="true"
+        :imageRight="true"
       ></ImageAndDescription>
 
       <!-- Bereits Stimme abgegeben? -->
