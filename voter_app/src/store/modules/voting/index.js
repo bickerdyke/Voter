@@ -1,9 +1,11 @@
-//import axios from "axios";
+import { firebaseConfig } from "@/config/firebase";
+import axios from "axios";
 
 import { state } from "./state";
 import { getters } from "./getters";
 
 const mutations = {
+  // Referenz auf state wird im payload durch die action mitgegeben
   castVote(state, payload) {
     console.log("mutate vote:" + payload.target);
     // @todo: Session-ID prüfen

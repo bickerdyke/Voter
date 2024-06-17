@@ -1,1 +1,1 @@
-export const FIREBASE_API_KEY = "AIzaSyDEcpG_8CKQBiYRtxa-Psg574_zhinNnio";
+export const FIREBASE_API_KEY = "dvuhnbsd9vhb####Random-Key###n98SBNDVnbsdv";
