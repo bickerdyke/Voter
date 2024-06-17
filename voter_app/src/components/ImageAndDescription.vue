@@ -1,14 +1,15 @@
 <template>
-  <div class="my-3 card noborder">
-    <div class="card-body">
+  <div class="row bg-light my-5">
+    <div class="col-md-3 pb-3" :class="imageOrderClass">
       <img
         :src="imgUrl"
         v-if="imgUrl"
-        class="rounded-4 me-3 img-fluid"
-        :class="floatStyle"
-        style="width: 200px; height: 200px; object-fit: cover"
+        class="rounded-4 img-fluid d-block mx-auto"
+        style="width: 100%; max-width: 100%; object-fit: cover"
       />
-      <div class="m-5 mw-25">{{ description }}</div>
+    </div>
+    <div class="col-md-7 offset-md-1 pb-3">
+      {{ description }}
     </div>
   </div>
 </template>
@@ -20,12 +21,16 @@ export default {
   props: {
     imgUrl: String,
     description: String,
-    floatStyle: {
-      type: String,
-      default: "float-start",
+    imageRight: {
+      type: Boolean,
+      default: false,
     },
   },
-  computed: {},
+  computed: {
+    imageOrderClass() {
+      return this.imageRight ? "order-2" : "";
+    },
+  },
   methods: {},
 };
 </script>
