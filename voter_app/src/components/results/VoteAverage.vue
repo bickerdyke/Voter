@@ -1,5 +1,4 @@
 <template>
-  <p class="debuginfo">(Session: {{ sessionId }} - Voting: {{ votingId }})</p>
   <p>{{ voteAverage }}</p>
 </template>
 
@@ -7,7 +6,6 @@
 export default {
   name: "VoteAverage",
   props: {
-    sessionId: String,
     votingId: String,
     minDecimals: {
       type: Number,
@@ -20,11 +18,10 @@ export default {
   },
   computed: {
     voteAverage() {
-      const votes = this.$store.getters.votes(this.sessionId, this.votingId);
+      const votes = this.$store.getters.votes(this.votingId);
       if (!votes || votes.length == 0) {
         return "";
       }
-
       return this.format(
         votes.reduce((summe, wert) => summe + Number(wert), 0) / votes.length
       );

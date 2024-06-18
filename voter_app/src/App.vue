@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "App",
   /* data() {
@@ -10,27 +12,35 @@ export default {
     };
   }, */
   computed: {
-    token() {
-      return this.$store.getters.token;
-    },
-  },
-  created() {
-    this.$store.dispatch("autoSignin");
+    ...mapGetters([
+      "currentSessionId",
+      "currentSessionData",
+      "isAuthenticated",
+      "isSessionLoaded",
+    ]),
   },
   watch: {
-    token: {
+    currentSessionId: {
       handler() {
-        //@todo: brauchen wir das am Ende noch?
-        if (this.token) {
-          //this.$store.dispatch("fetchProducts");
+        // SessionId in Store has been updated. Reload Session Data from Database
+        if (!this.currentSessionId) {
+          // Session-ID hat sich auf null geändert
+          return;
+        }
+
+        if (!this.isAuthenticated) {
+          this.$store.dispatch("autoSignin").then(() => {
+            this.$store.dispatch("loadSession");
+          });
+        } else {
+          this.$store.dispatch("loadSession");
         }
       },
-      immediate: true,
+      immediate: false,
     },
   },
 };
 </script>
-<!-- @todo: Reste vom auth-System ausbauen (watcher, store, token, autosignin...) -->
 
 <style>
 @import "~bootstrap/dist/css/bootstrap.min.css";

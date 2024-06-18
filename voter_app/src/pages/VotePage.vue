@@ -2,42 +2,41 @@
   <TheHomeLayout>
     <div>
       <!-- Header -->
-      <SessionHeadline :sessionId="sessionId" />
+      <SessionHeadline v-if="isSessionLoaded" />
 
       <!-- Voting description -->
       <ImageAndDescription
         :imgUrl="voting.imgUrl"
         :description="voting.description"
         :imageRight="true"
+        v-if="isSessionLoaded"
       ></ImageAndDescription>
 
-      <!-- Bereits Stimme abgegeben? -->
-      <div class="card text-center noborder" v-if="vote">
-        <div class="card-title display-6 m-3">
-          Sie haben für <i>{{ voting.title }}</i> abgestimmt:
+      <template v-if="isSessionLoaded">
+        <!-- Bereits Stimme abgegeben? -->
+        <div class="card text-center noborder" v-if="vote">
+          <div class="card-title display-6 m-3">
+            Sie haben für <i>{{ voting.title }}</i> abgestimmt:
+          </div>
+          <div class="card-body display-4 fw-bold">
+            <VoteDisplay :votingId="votingId" :userId="userId" />
+          </div>
         </div>
-        <div class="card-body display-4 fw-bold">
-          <VoteDisplay
-            :sessionId="sessionId"
-            :votingId="votingId"
-            :userId="userId"
-          />
-        </div>
-      </div>
 
-      <!-- Abstimmen -->
-      <div class="alert alert-danger" v-if="errorMessage">
-        <strong>Fehler</strong>
-        <br />
-        {{ errorMessage }}
-      </div>
-
-      <div class="card text-center nobor" v-if="!vote">
-        <div class="card-title display-6 m-3">
-          Bitte ihre Meinung für <i>{{ voting.title }}</i> abgeben:
+        <!-- Abstimmen -->
+        <div class="alert alert-danger" v-if="errorMessage">
+          <strong>Fehler</strong>
+          <br />
+          {{ errorMessage }}
         </div>
-        <SlideVoteSelect @voted="voted" />
-      </div>
+
+        <div class="card text-center nobor" v-if="!vote">
+          <div class="card-title display-6 m-3">
+            Bitte ihre Meinung für <i>{{ voting.title }}</i> abgeben:
+          </div>
+          <SlideVoteSelect @voted="voted" />
+        </div>
+      </template>
 
       <!-- Footer-Features-->
       <div class="row my-3">
@@ -53,6 +52,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import VoteDisplay from "@/components/results/VoteDisplay";
@@ -74,27 +75,31 @@ export default {
     };
   },
   props: {
-    sessionId: String,
     votingId: String,
     userId: String,
   },
   computed: {
     voting() {
-      return this.$store.getters.voting(this.sessionId, this.votingId);
+      return this.isAuthenticated
+        ? this.$store.getters.voting(this.votingId)
+        : "";
     },
     vote() {
-      return this.$store.getters.vote(
-        this.sessionId,
-        this.votingId,
-        this.userId
-      );
+      return this.isAuthenticated
+        ? this.$store.getters.vote(this.votingId, this.userId)
+        : "";
     },
+    ...mapGetters([
+      "currentSessionId",
+      "currentSessionData",
+      "isAuthenticated",
+      "isSessionLoaded",
+    ]),
   },
   methods: {
     voted(vote) {
       this.clearError();
       const payload = {
-        sId: this.sessionId,
         vId: this.votingId,
         uId: this.userId,
         vote: vote,
@@ -102,9 +107,7 @@ export default {
 
       this.$store
         .dispatch("castVote", payload)
-        .then((value) => {
-          console.log(value);
-        })
+        .then(() => {})
         .catch((err) => {
           this.errorMessage = err;
           console.error(err);

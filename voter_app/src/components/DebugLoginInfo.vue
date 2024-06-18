@@ -8,17 +8,17 @@
     <tr>
       <th>User Id</th>
       <td>{{ userId }}</td>
-      <td>{{ lsUserId }}</td>
+      <td>{{ lsUserId() }}</td>
     </tr>
     <tr>
       <th>Token</th>
       <td>{{ token }}</td>
-      <td>{{ lsToken }}</td>
+      <td>{{ lsToken() }}</td>
     </tr>
     <tr>
       <th>expires</th>
       <td>-</td>
-      <td>{{ lsExpiresAt }}</td>
+      <td>{{ lsExpiresAt() }}</td>
     </tr>
     <tr>
       <th>is logged in</th>
@@ -45,16 +45,6 @@ export default {
     userId() {
       return this.$store.getters.userId;
     },
-
-    lsToken() {
-      return localStorage.getItem("token") ? "OK" : "Empty";
-    },
-    lsUserId() {
-      return localStorage.getItem("userId");
-    },
-    lsExpiresAt() {
-      return new Date(Number(localStorage.getItem("expiresAt")));
-    },
   },
 
   methods: {
@@ -66,6 +56,16 @@ export default {
     },
     refresh() {
       this.$store.dispatch("refresh");
+    },
+
+    lsToken() {
+      return localStorage.getItem("token") ? "OK" : "Empty";
+    },
+    lsUserId() {
+      return localStorage.getItem("userId");
+    },
+    lsExpiresAt() {
+      return new Date(Number(localStorage.getItem("expiresAt")));
     },
   },
 };

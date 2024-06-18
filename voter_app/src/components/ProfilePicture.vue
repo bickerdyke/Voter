@@ -10,7 +10,7 @@ export default {
   props: {
     email: {
       type: String,
-      required: true,
+      required: false,
     },
     size: {
       type: Number,
@@ -51,13 +51,14 @@ export default {
       // Trim leading and trailing whitespace from
       // an email address and force all characters
       // to lower case
-      const address = String(this.email).trim().toLowerCase();
-
-      // Create a SHA256 hash of the final string
-      const hash = sha256(address);
+      const address = this.email
+        ? String(this.email).trim().toLowerCase()
+        : "forceFallbackOption";
+      const hash = sha256(address); // Create a SHA256 hash of the final string
+      const fallbackOption = this.email ? this.fallback : "mp"; //"Mystery Person" Profilbild wenn ganz ohne email
 
       // Grab the actual image URL https://docs.gravatar.com/api/avatars/images/
-      return `https://www.gravatar.com/avatar/${hash}?s=${this.size}&d=${this.fallback}`;
+      return `https://www.gravatar.com/avatar/${hash}?s=${this.size}&d=${fallbackOption}`;
     },
   },
 };

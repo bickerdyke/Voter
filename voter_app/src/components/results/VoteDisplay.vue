@@ -1,15 +1,13 @@
 <template>
-  <p class="debuginfo">
-    (Session: {{ sessionId }} - Voting: {{ votingId }} - User: {{ userId }})
-  </p>
   <p>{{ voteFormatted }}</p>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "VoteDisplay",
   props: {
-    sessionId: String,
     votingId: String,
     userId: String,
     minDecimals: {
@@ -23,15 +21,18 @@ export default {
   },
   computed: {
     vote() {
-      return this.$store.getters.vote(
-        this.sessionId,
-        this.votingId,
-        this.userId
-      );
+      return this.$store.getters.vote(this.votingId, this.userId);
     },
     voteFormatted() {
       return this.vote ? this.format(Number(this.vote)) : "";
     },
+
+    ...mapGetters([
+      "currentSessionId",
+      "currentSessionData",
+      "isAuthenticated",
+      "isSessionLoaded",
+    ]),
   },
   methods: {
     format(num) {

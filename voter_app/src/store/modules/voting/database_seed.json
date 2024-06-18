@@ -1,6 +1,7 @@
 {
   "sessions": {
     "4711": {
+      "id": "4711",
       "title": "Testing-Session",
       "subtitle": "Testing-Session vom 11.11.2011",
       "description": "Anwesend waren alle stimmberechtigten Personen. lorem Ipsum und so weiter...  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.          Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut          labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.          Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
@@ -72,8 +73,15 @@
         },
         {
           "id": "z87b324",
-          "title": "Unbekannte Option",
+          "title": "geheimnisvolle Option",
           "description": "",
+          "imgUrl": "",
+          "votes": []
+        },
+        {
+          "id": "z87sd3b324",
+          "title": "",
+          "description": "ohne Titel",
           "imgUrl": "",
           "votes": []
         }
@@ -88,7 +96,6 @@
         {
           "id": "0816",
           "name": "Herbert",
-          "email": "herbert@foobar.invalid",
           "imgUrl": "https://picsum.photos/100/200"
         },
         {
@@ -106,6 +113,7 @@
       ]
     },
     "4712": {
+      "id": "4712",
       "title": "Zweite Testsession",
       "subtitle": "Default mit <b>interessanten</b> Eigenschaften. Drei User, Erste Abstimmung hat alle Stimmen abgegeben, zweite nur 1 (<50%), dritte keine.",
       "votings": [
@@ -124,7 +132,7 @@
               "vote": "3"
             },
             {
-              "userId": "jl7as",
+              "userId": "abc",
               "vote": "2"
             }
           ]
@@ -132,7 +140,7 @@
         {
           "id": "bier#2",
           "title": "Test-Subjekt breit",
-          "description": "Abstimmungsposten mit breiotem Bild und weniger als der Hälfte der Stimmen",
+          "description": "Abstimmungsposten mit breitem Bild und weniger als der Hälfte der Stimmen",
           "imgUrl": "https://picsum.photos/200/100",
           "votes": [
             {
@@ -171,6 +179,7 @@
       ]
     },
     "4713": {
+      "id": "4713",
       "title": "Frische Session",
       "subtitle": "Alles neu macht der Mai",
       "description": "Frische Session ohne Votes in der Standardeinstellung",

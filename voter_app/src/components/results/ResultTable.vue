@@ -2,12 +2,8 @@
   <table class="table table-bordered">
     <thead>
       <tr class="text-center">
-        <th>
-          <span class="debuginfo">SessionId (Prop): {{ sessionId }}</span
-          ><br />
-          <span class="debuginfo">SessionId (Store): {{ sessionIdStore }}</span>
-        </th>
-        <th v-for="user in session.users" :key="user.id">
+        <th></th>
+        <th v-for="user in currentSessionData.users" :key="user.id">
           <div class="my-1">
             <ProfilePicture
               :email="user.email"
@@ -26,7 +22,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="voting in session.votings" :key="voting.id">
+      <tr v-for="voting in currentSessionData.votings" :key="voting.id">
         <td>
           <img
             :src="voting.imgUrl"
@@ -42,22 +38,18 @@
             <p class="d-none d-md-block">{{ voting.description }}</p>
           </div>
         </td>
-        <td v-for="user in session.users" :key="user.id">
+        <td v-for="user in currentSessionData.users" :key="user.id">
           <div class="text-right align-bottom">
-            <router-link :to="voteLink(sessionId, voting.id, user.id)"
+            <router-link :to="voteLink(currentSessionId, voting.id, user.id)"
               ><font-awesome-icon icon="circle-arrow-right" class="fa-2xs"
             /></router-link>
           </div>
           <div class="text-center align-middle display-6">
-            <VoteDisplay
-              :sessionId="sessionId"
-              :votingId="voting.id"
-              :userId="user.id"
-            />
+            <VoteDisplay :votingId="voting.id" :userId="user.id" />
           </div>
         </td>
         <td class="text-center align-middle display-6 fw-bold">
-          <VoteAverage :sessionId="sessionId" :votingId="voting.id" />
+          <VoteAverage :votingId="voting.id" />
         </td>
       </tr>
     </tbody>
@@ -65,6 +57,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import ProfilePicture from "@/components/ProfilePicture";
 import VoteDisplay from "@/components/results/VoteDisplay";
 import VoteAverage from "@/components/results/VoteAverage";
@@ -76,16 +70,13 @@ export default {
     VoteDisplay,
     VoteAverage,
   },
-  props: {
-    sessionId: String,
-  },
   computed: {
-    session() {
-      return this.$store.getters.session;
-    },
-    sessionIdStore() {
-      return this.$store.getters.sessionIdStoreCurrent;
-    },
+    ...mapGetters([
+      "currentSessionId",
+      "currentSessionData",
+      "isAuthenticated",
+      "isSessionLoaded",
+    ]),
   },
   methods: {
     voteLink(sId, vId, uId) {

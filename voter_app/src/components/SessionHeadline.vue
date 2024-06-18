@@ -1,25 +1,34 @@
 <template>
   <div class="row my-3">
     <h1 class="text-center display-2">
-      <slot name="headline">{{ session.title }}</slot>
+      <slot name="headline"
+        ><template v-if="currentSessionData.title">{{
+          currentSessionData.title
+        }}</template></slot
+      >
     </h1>
     <h3 class="text-center">
-      <slot name="subtitle">{{ session.subtitle }}</slot>
+      <slot name="subtitle"
+        ><template v-if="currentSessionData.subtitle">{{
+          currentSessionData.subtitle
+        }}</template></slot
+      >
     </h3>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "SessionHeadline",
-  components: {},
-  props: {
-    sessionId: String,
-  },
   computed: {
-    session() {
-      return this.$store.getters.session;
-    },
+    ...mapGetters([
+      "currentSessionId",
+      "currentSessionData",
+      "isAuthenticated",
+      "isSessionLoaded",
+    ]),
   },
 };
 </script>
