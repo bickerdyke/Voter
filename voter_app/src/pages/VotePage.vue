@@ -12,31 +12,31 @@
         v-if="isSessionLoaded"
       ></ImageAndDescription>
 
-      <template v-if="isSessionLoaded">
+      <div class="row" v-if="isSessionLoaded">
         <!-- Bereits Stimme abgegeben? -->
-        <div class="card text-center noborder" v-if="vote">
+        <div class="col-12 text-center" v-if="vote">
           <div class="card-title display-6 m-3">
             Sie haben für <i>{{ voting.title }}</i> abgestimmt:
           </div>
-          <div class="card-body display-4 fw-bold">
+          <div class="display-4 fw-bold">
             <VoteDisplay :votingId="votingId" :userId="userId" />
           </div>
         </div>
 
         <!-- Abstimmen -->
-        <div class="alert alert-danger" v-if="errorMessage">
+        <div class="alert alert-danger col-12" v-if="errorMessage">
           <strong>Fehler</strong>
           <br />
           {{ errorMessage }}
         </div>
 
-        <div class="card text-center nobor" v-if="!vote">
-          <div class="card-title display-6 m-3">
+        <div class="text-center col-12" v-if="!vote">
+          <div class="display-6 m-3">
             Bitte ihre Meinung für <i>{{ voting.title }}</i> abgeben:
           </div>
           <SlideVoteSelect @voted="voted" />
         </div>
-      </template>
+      </div>
 
       <!-- Footer-Features-->
       <div class="row my-3">
@@ -71,7 +71,7 @@ export default {
   },
   data() {
     return {
-      errorMessage: "",
+      errorMessage: "test",
     };
   },
   props: {

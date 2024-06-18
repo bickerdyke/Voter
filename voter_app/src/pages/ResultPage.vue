@@ -5,7 +5,9 @@
       <SessionHeadline v-if="isSessionLoaded" />
 
       <!-- Results-->
-      <div class="row my-3"><ResultTable v-if="isSessionLoaded" /></div>
+      <div class="row my-3">
+        <div class="col-12"><ResultTable v-if="isSessionLoaded" /></div>
+      </div>
 
       <!-- Session description -->
       <ImageAndDescription
