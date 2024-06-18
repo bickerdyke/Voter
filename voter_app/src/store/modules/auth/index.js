@@ -1,4 +1,8 @@
-import { firebaseConfig } from "@/config/firebase";
+import {
+  firebaseConfig,
+  FIREBASE_AUTH_URL,
+  FIREBASE_REFRESH_URL,
+} from "@/config/firebase";
 import axios from "axios";
 
 let timer;
@@ -15,36 +19,38 @@ const mutations = {
 };
 const actions = {
   auth(context, payload) {
+    const authDO = {
+      email: payload.email ? payload.email : "",
+      password: payload.password ? payload.password : "",
+      returnSecureToken: true,
+    };
+
     let url = "";
     if (payload.mode === "signin") {
-      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${firebaseConfig.apiKey}`;
+      url = `${FIREBASE_AUTH_URL}:signInWithPassword?key=${firebaseConfig.apiKey}`;
     } else if (payload.mode === "signup") {
-      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${firebaseConfig.apiKey}`;
+      url = `${FIREBASE_AUTH_URL}:signUp?key=${firebaseConfig.apiKey}`;
+    } else if (payload.mode === "anonymous") {
+      url = `${FIREBASE_AUTH_URL}:signUp?key=${firebaseConfig.apiKey}`;
+      delete authDO.email;
+      delete authDO.password;
     } else {
       return;
     }
-
-    const authDO = payload.email ? {
-      email: payload.email,
-      password: payload.password,
-      returnSecureToken: true,
-    } : {
-      returnSecureToken: true,
-    };
 
     return axios
       .post(url, authDO)
       .then((response) => {
         // Daten im LocalStorage speichern
-        const expiresIn = Number(response.data.expiresIn) * 1000;
-        // const expiresIn = 3 * 1000;
-        const expDate = new Date().getTime() + expiresIn;
+        const expiresIn = Number(response.data.expiresIn) * 1000; // Lebensdauer in ms
 
         localStorage.setItem("token", response.data.idToken);
         localStorage.setItem("userId", response.data.localId);
-        localStorage.setItem("expiresIn", expDate);
+        localStorage.setItem("refreshToken", response.data.refreshToken);
+        localStorage.setItem("expiresAt", new Date().getTime() + expiresIn);
 
         timer = setTimeout(() => {
+          //@todo: auto-refresh statt auto-Signout. Könnte ewig neue anonyme Nutzer in der Nutzerverwaltung anlegen
           context.dispatch("autoSignout");
         }, expiresIn);
 
@@ -61,51 +67,82 @@ const actions = {
         throw errorMessage;
       });
   },
-  /*signup(context, payload) {
+  refresh(context) {
+    const refreshToken = localStorage.getItem("refreshToken");
+    if (!refreshToken) {
+      return;
+    }
+
+    const refreshDO = {
+      grant_type: "refresh_token",
+      refresh_token: refreshToken,
+    };
+
+    let url = `${FIREBASE_REFRESH_URL}?key=${firebaseConfig.apiKey}`;
+
+    return axios
+      .post(url, refreshDO)
+      .then((response) => {
+        console.log(response);
+        // Daten im LocalStorage speichern
+        const expiresIn = Number(response.data.expires_in) * 1000;
+
+        localStorage.setItem("token", response.data.id_token);
+        localStorage.setItem("userId", response.data.user_id);
+        localStorage.setItem("expiresAt", new Date().getTime() + expiresIn);
+
+        timer = setTimeout(() => {
+          context.dispatch("refresh");
+        }, expiresIn);
+
+        context.commit("setUser", {
+          userId: response.data.user_id,
+          token: response.data.id_token,
+        });
+      })
+      .catch((error) => {
+        const errorMessage = new Error(
+          error.response.data.error.message || "UNKNOWN_ERROR"
+        );
+        throw errorMessage;
+      });
+  },
+  signup(context, payload) {
     const signupDO = {
       ...payload,
       mode: "signup",
     };
     return context.dispatch("auth", signupDO);
-  },*/
-  /*signin(context, payload) {
+  },
+  signin(context, payload) {
     const signinDO = {
       ...payload,
       mode: "signin",
     };
     return context.dispatch("auth", signinDO);
-  },*/
+  },
   signinAnonymous(context) {
     const signinDO = {
-      mode: "signin",
+      mode: "anonymous",
     };
     return context.dispatch("auth", signinDO);
   },
+  // called at start from App.vue
+  // checks for login token in local browser storage and moves it to vues-auth store,
   autoSignin(context) {
-    const token = localStorage.getItem("token");
-    const userId = localStorage.getItem("userId");
-    const expiresIn = localStorage.getItem("expiresIn");
-    const timeLeft = Number(expiresIn) - new Date().getTime();
+    const refreshToken = localStorage.getItem("refreshToken");
 
-    if (timeLeft < 0) {
+    if (refreshToken) {
+      context.dispatch("refresh");
+    } else {
       context.dispatch("signinAnonymous");
-    }
-
-    timer = setTimeout(() => {
-      context.dispatch("autoSignout");
-    }, expiresIn);
-
-    if (token && userId) {
-      context.commit("setUser", {
-        token: token,
-        userId: userId,
-      });
     }
   },
   signout(context) {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
-    localStorage.removeItem("expiresIn");
+    localStorage.removeItem("expiresAt");
+    localStorage.removeItem("refreshToken");
 
     clearTimeout(timer);
 
@@ -123,6 +160,7 @@ const actions = {
 const getters = {
   isAuthenticated: (state) => !!state.token,
   token: (state) => state.token,
+  userId: (state) => state.userId,
 };
 
 const authModule = {

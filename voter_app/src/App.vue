@@ -20,8 +20,9 @@ export default {
   watch: {
     token: {
       handler() {
+        //@todo: brauchen wir das am Ende noch?
         if (this.token) {
-          this.$store.dispatch("fetchProducts");
+          //this.$store.dispatch("fetchProducts");
         }
       },
       immediate: true,

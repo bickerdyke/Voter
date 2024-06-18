@@ -20,7 +20,7 @@
           voluptate? Eum corporis ut voluptatum, dolore esse consequatur
           eveniet? Officiis, perspiciatis?
         </p>
-        <button class="col-4">Abstimmung anlegen</button>
+        <button class="btn btn-primary">Abstimmung anlegen</button>
         <div>
           Für Zugang zu bestehenden Abstimmungen bitte Abstimmungs-Link
           verwenden.
@@ -38,6 +38,7 @@
           >
         </p>
       </div>
+      <div><DebugLoginInfo /></div>
     </div>
   </TheHomeLayout>
 </template>
@@ -45,12 +46,14 @@
 <script>
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
+import DebugLoginInfo from "@/components/DebugLoginInfo";
 
 export default {
   name: "HomePage",
   components: {
     TheHomeLayout,
     SessionHeadline,
+    DebugLoginInfo,
   },
 };
 </script>
