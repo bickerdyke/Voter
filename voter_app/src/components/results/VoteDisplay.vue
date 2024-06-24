@@ -16,7 +16,7 @@ export default {
     },
     maxDecimals: {
       type: Number,
-      default: 1,
+      default: 4,
     },
   },
   computed: {

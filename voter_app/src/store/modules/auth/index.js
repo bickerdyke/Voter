@@ -141,9 +141,20 @@ const actions = {
       const refreshToken = localStorage.getItem("refreshToken");
 
       if (refreshToken) {
-        context.dispatch("refresh").then(() => {
-          resolve();
-        });
+        context
+          .dispatch("refresh")
+          .then(() => {
+            resolve();
+          })
+          .catch(() => {
+            // Problem beim Token-Refresh beim Anmeldungsstart.
+            // z.B. User-Account in Firebase gelöscht oder Session beendet
+            // --> doch wieder neu anonym anmelden um eine Session zu bekommen
+            // @todo: evtl. unangemeldeten Status einführen
+            context.dispatch("signinAnonymous").then(() => {
+              resolve();
+            });
+          });
       } else {
         context.dispatch("signinAnonymous").then(() => {
           resolve();

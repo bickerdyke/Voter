@@ -7,19 +7,36 @@ import { getters } from "./getters";
 const mutations = {
   // Referenz auf state wird im payload durch die action mitgegeben
   castVote(state, payload) {
-    payload.target.push({ userId: payload.uId, vote: payload.vote });
+    if (!state.currentSessionData.votings[payload.vId].votes) {
+      state.currentSessionData.votings[payload.vId].votes = {};
+    }
+    state.currentSessionData.votings[payload.vId].votes[payload.uId] =
+      payload.votingitem;
   },
-  openAndCastVote(state, payload) {
-    const voting = state.currentSessionData.votings.find(
-      (v) => v.id === payload.vId
-    );
-    voting.votes = [{ userId: payload.uId, vote: payload.vote }];
-  },
+
   setSessionId(state, payload) {
     state.currentSessionId = payload;
   },
 
   setSessionData(state, payload) {
+    // Make sure that voters and users are objects instead of arrays
+    // https://firebase.blog/posts/2014/04/best-practices-arrays-in-firebase/
+    // firebase sometimes mixes that up...
+
+    if (Array.isArray(payload.votings)) {
+      payload.votings = payload.votings.reduce(
+        (a, v, i) => (v ? { ...a, [i]: v } : { ...a }),
+        {}
+      );
+    }
+
+    if (Array.isArray(payload.users)) {
+      payload.users = payload.users.reduce(
+        (a, v, i) => (v ? { ...a, [i]: v } : { ...a }),
+        {}
+      );
+    }
+
     state.currentSessionData = payload;
   },
 };
@@ -37,7 +54,10 @@ const actions = {
         reject(new Error("Voting not available or SessionId-Missmatch"));
       }
 
-      if (voting.votes && voting.votes.find((v) => v.userId == payload.uId)) {
+      if (
+        voting.votes &&
+        Object.keys(voting.votes).find((v) => v == payload.uId)
+      ) {
         reject(new Error("User already voted"));
       }
 
@@ -48,32 +68,30 @@ const actions = {
       }
 
       const votingItem = {
-        userId: payload.uId,
         vote: payload.vote,
         author: getters.userId,
+        timestamp: Date.now(),
       };
-      const url = `${FIREBASE_RTDB_URL}/sessions/${getters.currentSessionId}/votings/${payload.vId}/votes.json?auth=${token}`;
+      const url = `${FIREBASE_RTDB_URL}/sessions/${getters.currentSessionId}/votings/${payload.vId}/votes/${payload.uId}.json/?auth=${token}`;
       console.log("RTDB-Url: " + url);
       console.log("Data: " + votingItem);
 
-      axios
-        .post(url, votingItem)
+      return axios
+        .put(url, votingItem)
         .then((response) => {
           console.log("success i think");
           console.log(response);
+
+          // update local state
+          payload.votingitem = votingItem;
+          commit("castVote", payload);
+
+          resolve();
         })
         .catch((error) => {
           console.log(error);
+          reject(error);
         });
-
-      if (voting.votes) {
-        payload.target = voting.votes;
-        commit("castVote", payload);
-      } else {
-        console.log("Adding a new set of votes");
-        commit("openAndCastVote", payload);
-      }
-      resolve();
     });
   },
 

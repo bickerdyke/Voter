@@ -1,234 +1,193 @@
 {
   "sessions": {
     "4711": {
-      "id": "4711",
       "title": "Testing-Session",
       "subtitle": "Testing-Session vom 11.11.2011",
       "description": "Anwesend waren alle stimmberechtigten Personen. lorem Ipsum und so weiter...  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.          Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut          labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.          Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
       "imgUrl": "https://picsum.photos/200",
-      "votings": [
-        {
-          "id": "1",
+      "votings": {
+        "1": {
           "title": "Test-Subjekt 1",
           "description": "Lorem Ipsum und so weiter... Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.             Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
           "imgUrl": "https://picsum.photos/350",
-          "votes": [
-            {
-              "userId": "0815",
+          "votes": {
+            "0815": {
               "vote": "1"
             },
-            {
-              "userId": "0816",
-              "vote": "2.51"
+            "0816": {
+              "vote": "2.51647"
             },
-            {
-              "userId": "jl7as",
+            "jl7as": {
               "vote": "4"
             },
-            {
-              "userId": "abc",
+            "abc": {
               "vote": "3"
             }
-          ]
+          }
         },
-        {
-          "id": "2",
+        "2": {
           "title": "Testdings mit sehr langen Namen der vielleicht umbrechen sollte",
           "description": "hier nur kurzer Text",
           "imgUrl": "https://picsum.photos/50/90",
-          "votes": [
-            {
-              "userId": "0815",
+          "votes": {
+            "0815": {
               "vote": "1"
             },
-            {
-              "userId": "0816",
+            "0816": {
               "vote": "2"
             },
-            {
-              "userId": "abc",
+            "abc": {
               "vote": "3"
             }
-          ]
+          }
         },
-        {
-          "id": "A",
+        "A": {
           "title": "Test 3",
           "description": "",
           "imgUrl": "https://placeholder.com/50",
-          "votes": [
-            {
-              "userId": "0816",
+          "votes": {
+            "0816": {
               "vote": "2"
             },
-            {
-              "userId": "jl7as",
+            "jl7as": {
               "vote": "4"
             },
-            {
-              "userId": "abc",
+            "abc": {
               "vote": "3"
             }
-          ]
+          }
         },
-        {
-          "id": "z87b324",
+        "z87b324": {
           "title": "geheimnisvolle Option",
           "description": "",
           "imgUrl": "",
-          "votes": []
+          "votes": {}
         },
-        {
-          "id": "z87sd3b324",
+        "kj983jdvc0942": {
           "title": "",
           "description": "ohne Titel",
-          "imgUrl": "",
-          "votes": []
+          "votes": {}
         }
-      ],
-      "users": [
-        {
-          "id": "0815",
+      },
+      "users": {
+        "0815": {
           "name": "Heinz",
           "email": "heinz@foobar.invalid",
           "imgUrl": "https://picsum.photos/200"
         },
-        {
-          "id": "0816",
+        "0816": {
           "name": "Herbert",
           "imgUrl": "https://picsum.photos/100/200"
         },
-        {
-          "id": "abc",
+        "abc": {
           "name": "Marcel",
           "email": "bickerdyke@gmail.com",
           "imgUrl": ""
         },
-        {
-          "id": "jl7as",
+        "jl7as": {
           "name": "Gustav",
           "email": "heinz@invalid.com",
           "imgUrl": ""
         }
-      ]
+      }
     },
     "4712": {
-      "id": "4712",
       "title": "Zweite Testsession",
       "subtitle": "Default mit <b>interessanten</b> Eigenschaften. Drei User, Erste Abstimmung hat alle Stimmen abgegeben, zweite nur 1 (<50%), dritte keine.",
-      "votings": [
-        {
-          "id": "bier#1",
+      "votings": {
+        "bier-1": {
           "title": "Test-Subjekt lang",
           "description": "Abstimmungsposten mit langem Bild und allen abgegebenen Stimmen",
           "imgUrl": "https://picsum.photos/100/200",
-          "votes": [
-            {
-              "userId": "0815",
+          "votes": {
+            "0815": {
               "vote": "4"
             },
-            {
-              "userId": "0816",
+            "0816": {
               "vote": "3"
             },
-            {
-              "userId": "abc",
+            "abc": {
               "vote": "2"
             }
-          ]
+          }
         },
-        {
-          "id": "bier#2",
+        "bier-2": {
           "title": "Test-Subjekt breit",
           "description": "Abstimmungsposten mit breitem Bild und weniger als der Hälfte der Stimmen",
           "imgUrl": "https://picsum.photos/200/100",
-          "votes": [
-            {
-              "userId": "abc",
+          "votes": {
+            "abc": {
               "vote": "5"
             }
-          ]
+          }
         },
-        {
-          "id": "bier#3",
+        "bier-3": {
           "title": "Test-Subjekt Quadrat",
           "description": "Abstimmungsposten mit quadratischem Bild und ohne Stimmen",
           "imgUrl": "https://picsum.photos/100/",
-          "votes": []
+          "votes": {}
         }
-      ],
-      "users": [
-        {
-          "id": "0815",
+      },
+      "users": {
+        "0815": {
           "name": "Heinz",
           "email": "heinz@foobar.invalid",
           "imgUrl": "https://picsum.photos/200"
         },
-        {
-          "id": "0816",
+        "0816": {
           "name": "Herbert",
           "email": "herbert@foobar.invalid",
           "imgUrl": "https://picsum.photos/100/200"
         },
-        {
-          "id": "abc",
+        "abc": {
           "name": "Marcel",
           "email": "bickerdyke@gmail.com",
           "imgUrl": ""
         }
-      ]
+      }
     },
     "4713": {
-      "id": "4713",
       "title": "Frische Session",
       "subtitle": "Alles neu macht der Mai",
       "description": "Frische Session ohne Votes in der Standardeinstellung",
       "imgUrl": "https://picsum.photos/200",
-      "votings": [
-        {
-          "id": "1",
+      "votings": {
+        "1": {
           "title": "Test-Subjekt 1",
           "description": "Test #1",
           "imgUrl": "https://placeholder.com/50",
-          "votes": []
+          "votes": {}
         },
-        {
-          "id": "2",
+        "2": {
           "title": "Test-Subjekt 2",
           "description": "Test #2",
-          "imgUrl": "https://placeholder.com/50",
-          "votes": []
+          "imgUrl": "https://placeholder.com/50"
         },
-        {
-          "id": "3",
-          "title": "Test-Subjekt 2",
-          "description": "Test #1",
+        "4": {
+          "title": "Test-Subjekt 3",
+          "description": "Test #3 mit Id 4",
           "imgUrl": "https://placeholder.com/50",
-          "votes": []
+          "votes": {}
         }
-      ],
-      "users": [
-        {
-          "id": "0815",
+      },
+      "users": {
+        "0815": {
           "name": "Heinz",
           "email": "heinz@foobar.invalid"
         },
-        {
-          "id": "0816",
+        "0816": {
           "name": "Herbert",
           "email": "herbert@foobar.invalid"
         },
-        {
-          "id": "abc",
+        "abc": {
           "name": "Marcel",
           "email": "bickerdyke@gmail.com",
           "imgUrl": ""
         },
-        {
-          "id": "jl7as",
+        "joief": {
           "name": "Gustav"
         }
-      ]
+      }
     }
   }
 }
