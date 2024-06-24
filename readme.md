@@ -47,6 +47,7 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 - Ersatz-"einloggen". Namen des Abstimmenden wird einmalig festgelegt und in einem Cookie gespeichert. Alle Abstimmenden können dann den selben Link zum abstimmen nutzen.
 - Admin-Feature: Besitzer einer Session kann nachträglich Parameter ändern
 - Admin-Feature: Mit firebase-Authentication übersicht über alle Votings, alte löschen
+- Umstellung von firebase REST-API auf npm-Bibliothek um direkte Updates bei Änderungen zu bekommen
 
 ### Serverseitig
 
