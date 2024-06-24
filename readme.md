@@ -21,14 +21,14 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 
 ## ToDos
 
-- @todo auth-modul aus store entfernen (oder für Admin-Tools nutzen)
-- @todo App.vue aufräumen (autologin, fetch products, eigenes css)
-- @todo aufrufe des auth-moduls im Router entfernen
-- @todo store aufräumen
-- @todo alte Transitions raus - schöne neue rein
-- @todo ordentliche Skalierung der Profil- und Voting-Bilder auch bei rechteckigen Bildvorlagen. Mit vernünftiger Dynamik
-- @todo sanitize user input (html/Javascript incection)
-- @todo ordentliche lokalisierung (Dezimaltrennzeichen in Ergebnisliste ist mal Punkt und mal Komma)
+- @todo #1 auth-modul aus store entfernen (oder für Admin-Tools nutzen)
+- @todo #2 App.vue aufräumen (autologin, fetch products, eigenes css)
+- @todo #3 aufrufe des auth-moduls im Router entfernen
+- @todo #4 store aufräumen
+- @todo #5 alte Transitions raus - schöne neue rein
+- @todo #6 ordentliche Skalierung der Profil- und Voting-Bilder auch bei rechteckigen Bildvorlagen. Mit vernünftiger Dynamik
+- @todo #7 sanitize user input (html/Javascript incection)
+- @todo #8 ordentliche lokalisierung (Dezimaltrennzeichen in Ergebnisliste ist mal Punkt und mal Komma)
 
 ## Benötigte Features
 
