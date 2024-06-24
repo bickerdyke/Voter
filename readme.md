@@ -40,7 +40,7 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 
 - verschiedene Bewertungssysteme (Schulnoten, Punkte 1-10, Dafür/Dagegen/Enthaltung)
 - CSV-Download der Ergebnisse
-- lokalisierung / Übersetzungen
+- @todo: #10 lokalisierung / Übersetzungen
 - verstecken der Ergebnisse bis alle Stimmen oder Stimmanteil abgegeben sind
 - Erzeugung druckbarer/klickbarer Liste mit Links zu den einzelnen Positionen für jeden Stimmberechtigten
 - Offene Abstimmung (kein vorheriges Anlegen der Stimmberechtigten)
