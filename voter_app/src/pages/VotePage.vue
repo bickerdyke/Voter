@@ -71,7 +71,7 @@ export default {
   },
   data() {
     return {
-      errorMessage: "test",
+      errorMessage: "",
     };
   },
   props: {

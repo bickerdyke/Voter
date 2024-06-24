@@ -42,7 +42,29 @@ const actions = {
       }
 
       // firebase-DB updaten
-      //@todo firebase anbindung
+      const token = getters.token;
+      if (!token) {
+        reject(new Error("No Database connection"));
+      }
+
+      const votingItem = {
+        userId: payload.uId,
+        vote: payload.vote,
+        author: getters.userId,
+      };
+      const url = `${FIREBASE_RTDB_URL}/sessions/${getters.currentSessionId}/votings/${payload.vId}/votes.json?auth=${token}`;
+      console.log("RTDB-Url: " + url);
+      console.log("Data: " + votingItem);
+
+      axios
+        .post(url, votingItem)
+        .then((response) => {
+          console.log("success i think");
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
 
       if (voting.votes) {
         payload.target = voting.votes;

@@ -16,6 +16,7 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 - Session anlegen (Navigation/Übersicht in linker Spalte, einzelne Features rechts)
 - Abstimmungslinks (druckbar)
 - Impressum/About/Contact
+- Wartungsseite (mit script zum aktivieren)
 - NotFoundPage überarbeiten oder löschen
 
 ## ToDos
@@ -25,7 +26,7 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 - @todo aufrufe des auth-moduls im Router entfernen
 - @todo store aufräumen
 - @todo alte Transitions raus - schöne neue rein
-- @todo ordentliche Sklaierung der Profil- und Voting-Bilder auch bei rechteckigen Bildvorlagen. Mit vernünftiger Dynamik
+- @todo ordentliche Skalierung der Profil- und Voting-Bilder auch bei rechteckigen Bildvorlagen. Mit vernünftiger Dynamik
 - @todo sanitize user input (html/Javascript incection)
 - @todo ordentliche lokalisierung (Dezimaltrennzeichen in Ergebnisliste ist mal Punkt und mal Komma)
 

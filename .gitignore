@@ -5,3 +5,6 @@ bootstrap-sandbox
 # Ignore local credentials
 secrets.js
 firebase.js
+
+# Ignore local caching
+.firebase/*.cache
