@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     format(num) {
-      return num.toLocaleString("de-DE", {
+      return num.toLocaleString(this.$i18n.locale, {
         minimumFractionDigits: this.minDecimals,
         maximumFractionDigits: this.maxDecimals,
       });
