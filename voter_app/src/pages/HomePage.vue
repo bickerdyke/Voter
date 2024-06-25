@@ -8,6 +8,9 @@
       </SessionHeadline>
 
       <div>
+        <h1>{{ $t("welcome") }}</h1>
+        <p><LanguageSwitcher /></p>
+        <p>{{ $t("hello") }}</p>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ea
           aliquam deserunt, dolore incidunt reiciendis modi doloremque labore
@@ -47,6 +50,7 @@
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import DebugLoginInfo from "@/components/DebugLoginInfo";
+import LanguageSwitcher from "@/components/basics/LanguageSwitcher";
 
 export default {
   name: "HomePage",
@@ -54,6 +58,7 @@ export default {
     TheHomeLayout,
     SessionHeadline,
     DebugLoginInfo,
+    LanguageSwitcher,
   },
 };
 </script>
