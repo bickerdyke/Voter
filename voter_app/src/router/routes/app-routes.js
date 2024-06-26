@@ -12,6 +12,15 @@ const appRoutes = [
         next();
       }
     }, */
+    props: false,
+  },
+  {
+    path: "/create",
+    component: () =>
+      import(
+        /*webpackChunkName: 'page-homepage' */ "@/pages/CreateSessionPage.vue"
+      ),
+    props: false,
   },
   {
     path: "/showresult/:sessionId",
