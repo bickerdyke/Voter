@@ -121,6 +121,18 @@ const actions = {
       });
   },
 
+  dummy() {
+    return new Promise((resolve, reject) => {
+      if (Math.random() > 0.3) {
+        console.log("Fake OK");
+        setTimeout(resolve(), 4000);
+      } else {
+        console.log("Fake ERROR");
+        setTimeout(reject(new Error("Randumm Dummy Error")), 7000);
+      }
+    });
+  },
+
   loadSession(context) {
     return new Promise((resolve, reject) => {
       console.log("loading upodated session information");

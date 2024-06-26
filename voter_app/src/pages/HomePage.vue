@@ -24,7 +24,7 @@
           eveniet? Officiis, perspiciatis?
         </p>
         <router-link to="/create" class="btn btn-success"
-          >Session #4711</router-link
+          >Session anlegen</router-link
         >
         <div>
           Für Zugang zu bestehenden Abstimmungen bitte Abstimmungs-Link
