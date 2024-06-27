@@ -123,12 +123,18 @@ const actions = {
 
   dummy() {
     return new Promise((resolve, reject) => {
+      var start = Date.now(),
+        now = start;
+      while (now - start < 4000) {
+        now = Date.now();
+      }
+
       if (Math.random() > 0.3) {
         console.log("Fake OK");
-        setTimeout(resolve(), 4000);
+        resolve();
       } else {
         console.log("Fake ERROR");
-        setTimeout(reject(new Error("Randumm Dummy Error")), 7000);
+        reject(new Error("Randumm Dummy Error"));
       }
     });
   },
