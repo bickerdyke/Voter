@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "translation:report": "vue-i18n-extract --vueFiles ./src/**/*.vue --languageFiles ./src/lang/**/*.json",
+    "translation:update": "vue-i18n-extract --add --remove --noEmptyTranslation --vueFiles ./src/**/*.vue --languageFiles ./src/lang/**/*.json"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
@@ -34,6 +36,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "vue-i18n-extract": "^2.0.7"
   }
 }
