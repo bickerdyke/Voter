@@ -1,5 +1,6 @@
 {
     "welcome": "Willkommen",
+    "hello": "Hallo"
     "CreateSession": {
         "introduction": "Erstellen sie eine neue Abstimmungssession. Geben sie dazu die wichtigsten Daten wie einen aussagekräftigen Namen und Beschreibung ein, sowie eine Liste der Abstimmungsposten und stimmberechtigten Nutzern."
     }
