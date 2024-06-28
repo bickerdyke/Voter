@@ -1,7 +1,11 @@
 <template>
   <div>
     <div class="col-md-8 offset-md-2">
-      <p>{{ $t("createSession.introduction") }}</p>
+      <ImageAndDescription
+        :description="$t('CreateSession.introduction')"
+        :imgUrl="session.imgUrl ? session.imgUrl : placeholderImage"
+        imageRight="true"
+      ></ImageAndDescription>
     </div>
 
     <div class="alert alert-danger col-md-8 offset-md-2" v-if="error">
@@ -101,6 +105,7 @@
             name="sessionimgurl"
             class="form-control"
             id="sessionimgurl"
+            v-model="sessionImage"
           ></Field>
 
           <small class="text-danger" v-if="errors.sessionimgurl">{{
@@ -144,12 +149,14 @@
 <script>
 import { Form, Field } from "vee-validate";
 import * as yup from "yup";
+import ImageAndDescription from "@/components/ImageAndDescription";
 
 export default {
   name: "CreateSession",
   components: {
     Form,
     Field,
+    ImageAndDescription,
   },
   data() {
     const sessionValidationSchema = yup.object().shape({
@@ -187,13 +194,16 @@ export default {
       sessionValidationSchema,
       error: "",
       isLoading: false,
+      placeholderImage: "https://placeholder.com/300",
       sessionQuorum: 50,
+      sessionImage: "",
       session: {
         id: this.createGuid(),
         title: "Frische Session",
         subtitle: "Alles neu macht der Mai",
         description: "Frische Session ohne Votes in der Standardeinstellung",
-        imgUrl: "https://picsum.photos/200",
+        imgUrl: "",
+        quorum: 50,
         votings: [
           {
             id: 1,
