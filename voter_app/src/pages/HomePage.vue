@@ -23,7 +23,9 @@
           voluptate? Eum corporis ut voluptatum, dolore esse consequatur
           eveniet? Officiis, perspiciatis?
         </p>
-        <button class="btn btn-primary">Abstimmung anlegen</button>
+        <router-link to="/create" class="btn btn-success"
+          >Session anlegen</router-link
+        >
         <div>
           Für Zugang zu bestehenden Abstimmungen bitte Abstimmungs-Link
           verwenden.
