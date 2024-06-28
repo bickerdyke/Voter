@@ -121,6 +121,24 @@ const actions = {
       });
   },
 
+  dummy() {
+    return new Promise((resolve, reject) => {
+      var start = Date.now(),
+        now = start;
+      while (now - start < 4000) {
+        now = Date.now();
+      }
+
+      if (Math.random() > 0.3) {
+        console.log("Fake OK");
+        resolve();
+      } else {
+        console.log("Fake ERROR");
+        reject(new Error("Randumm Dummy Error"));
+      }
+    });
+  },
+
   loadSession(context) {
     return new Promise((resolve, reject) => {
       console.log("loading upodated session information");

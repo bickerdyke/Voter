@@ -151,6 +151,7 @@
       "subtitle": "Alles neu macht der Mai",
       "description": "Frische Session ohne Votes in der Standardeinstellung",
       "imgUrl": "https://picsum.photos/200",
+      "quorum": 50,
       "votings": {
         "1": {
           "title": "Test-Subjekt 1",
