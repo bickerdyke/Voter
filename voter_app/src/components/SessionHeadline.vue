@@ -7,13 +7,13 @@
         }}</template></slot
       >
     </h1>
-    <h3 class="text-center">
+    <h2 class="text-center">
       <slot name="subtitle"
         ><template v-if="currentSessionData.subtitle">{{
           currentSessionData.subtitle
         }}</template></slot
       >
-    </h3>
+    </h2>
   </div>
 </template>
 

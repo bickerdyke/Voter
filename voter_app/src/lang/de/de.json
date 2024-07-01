@@ -1,7 +1,12 @@
 {
-    "welcome": "Willkommen",
-    "hello": "Hallo"
-    "CreateSession": {
-        "introduction": "Erstellen sie eine neue Abstimmungssession. Geben sie dazu die wichtigsten Daten wie einen aussagekräftigen Namen und Beschreibung ein, sowie eine Liste der Abstimmungsposten und stimmberechtigten Nutzern."
+  "welcome": "Willkommen",
+  "hello": "Hallo",
+  "CreateSession": {
+    "introduction": "Erstellen sie eine neue Abstimmungssession. Geben sie dazu die wichtigsten Daten wie einen aussagekräftigen Namen und Beschreibung ein, sowie eine Liste der Abstimmungsposten und stimmberechtigten Nutzern.",
+    "form": {
+      "hint": {
+        "quorum": "Legt das Minimum der abgegebenen Stimmen fest bis die ersten Ergebnisse angezeigt werden. Dabei bedeuten 0% alle Ergebnisse werden sofort angezeigt und 100% erst wenn alle Stimmen abgegeben wurden, werden Ergebnisse angezeigt"
+      }
     }
+  }
 }

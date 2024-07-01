@@ -4,7 +4,7 @@
       <ImageAndDescription
         :description="$t('CreateSession.introduction')"
         :imgUrl="session.imgUrl ? session.imgUrl : placeholderImage"
-        imageRight="true"
+        :imageRight="true"
       ></ImageAndDescription>
     </div>
 
@@ -17,121 +17,185 @@
       v-slot="{ errors }"
       :validation-schema="sessionValidationSchema"
     >
-      <div class="form-row">
-        <div class="form-group col-md-8 offset-md-2">
-          <label for="sessiontitle"> <strong>SessionTitle</strong></label>
-          <Field
-            as="input"
-            name="sessiontitle"
-            class="form-control"
-            id="sessiontitle"
-          ></Field>
-
-          <small class="text-danger" v-if="errors.sessiontitle">{{
-            errors.sessiontitle
-          }}</small>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-8 offset-md-2">
-          <label for="sessionsubtitle"> <strong>SessionSubtitle</strong></label>
-          <Field
-            as="input"
-            name="sessionsubtitle"
-            class="form-control"
-            id="sessionsubtitle"
-          ></Field>
-
-          <small class="text-danger" v-if="errors.sessionsubtitle">{{
-            errors.sessionsubtitle
-          }}</small>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-8 offset-md-2">
-          <label for="sessiondescription"> <strong>Description</strong></label>
-          <Field
-            as="textarea"
-            name="sessiondescription"
-            class="form-control"
-            id="sessiondescription"
-            rows="5"
-          ></Field>
-
-          <small class="text-danger" v-if="errors.sessiondescription">{{
-            errors.sessiondescription
-          }}</small>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-8 offset-md-2">
-          <label for="sessionquorum"> <strong>Quorum</strong></label>
-          <div class="form-row d-flex">
+      <div class="col-md-8 offset-md-2">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sessiontitle"> <strong>SessionTitle</strong></label>
             <Field
               as="input"
-              type="range"
-              name="sessionquorum"
-              class="form-range"
-              id="sessionquorum"
-              min="0"
-              max="100"
-              :value="sessionQuorum"
-              v-model="sessionQuorum"
+              name="sessiontitle"
+              class="form-control"
+              id="sessiontitle"
             ></Field>
-            <div class="d-flex ms-3">{{ sessionQuorum }}%</div>
+
+            <small class="text-danger" v-if="errors.sessiontitle">{{
+              errors.sessiontitle
+            }}</small>
           </div>
+        </div>
 
-          <small class="text-danger" v-if="errors.sessionquorum">{{
-            errors.sessionquorum
-          }}</small>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sessionsubtitle">
+              <strong>SessionSubtitle</strong></label
+            >
+            <Field
+              as="input"
+              name="sessionsubtitle"
+              class="form-control"
+              id="sessionsubtitle"
+            ></Field>
 
-          <small class="form-row"
-            >Legt das Minimum der abgegebenen Stimmen fest bis die ersten
-            Ergebnisse angezeigt werden. Dabei bedeuten 0% alle Ergebnisse
-            werden sofort angezeigt und 100% erst wenn alle Stimmen abgegeben
-            wurden, werden Ergebnisse angezeigt</small
-          >
+            <small class="text-danger" v-if="errors.sessionsubtitle">{{
+              errors.sessionsubtitle
+            }}</small>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sessiondescription">
+              <strong>Description</strong></label
+            >
+            <Field
+              as="textarea"
+              name="sessiondescription"
+              class="form-control"
+              id="sessiondescription"
+              rows="3"
+            ></Field>
+
+            <small class="text-danger" v-if="errors.sessiondescription">{{
+              errors.sessiondescription
+            }}</small>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sessionquorum"> <strong>Quorum</strong></label>
+            <div class="form-row d-flex">
+              <Field
+                as="input"
+                type="range"
+                name="sessionquorum"
+                class="form-range"
+                id="sessionquorum"
+                min="0"
+                max="100"
+                :value="sessionQuorum"
+                v-model="sessionQuorum"
+              ></Field>
+              <div class="d-flex ms-3">{{ sessionQuorum }}%</div>
+            </div>
+
+            <small class="text-danger" v-if="errors.sessionquorum">{{
+              errors.sessionquorum
+            }}</small>
+
+            <small
+              class="form-row"
+              v-t="'CreateSession.form.hint.quorum'"
+            ></small>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sessionimgurl"> <strong>ImageUrl</strong></label>
+            <Field
+              as="input"
+              name="sessionimgurl"
+              class="form-control"
+              id="sessionimgurl"
+              v-model="sessionImage"
+            ></Field>
+
+            <small class="text-danger" v-if="errors.sessionimgurl">{{
+              errors.sessionimgurl
+            }}</small>
+          </div>
+        </div>
+
+        <div class="form-row" v-show="showIds">
+          <div class="form-group">
+            <label for="sessionid"> <strong>SessionId</strong></label>
+            <Field
+              as="input"
+              name="sessionid"
+              class="form-control"
+              id="sessionid"
+              :value="sessionid"
+              :disabled="!editIds"
+            ></Field>
+
+            <small class="text-danger" v-if="errors.sessionid">{{
+              errors.sessionid
+            }}</small>
+          </div>
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group col-md-8 offset-md-2">
-          <label for="sessionimgurl"> <strong>ImageUrl</strong></label>
-          <Field
-            as="input"
-            name="sessionimgurl"
-            class="form-control"
-            id="sessionimgurl"
-            v-model="sessionImage"
-          ></Field>
+      <!-- Votings -->
+      <hr class="form-group mt-5 col-md-8 offset-md-2" />
 
-          <small class="text-danger" v-if="errors.sessionimgurl">{{
-            errors.sessionimgurl
-          }}</small>
+      <div class="d-flex flex-row col-md-8 offset-md-2">
+        <h3 class="me-auto">{{ $t("CreateSession.Headline.Votings") }}</h3>
+        <button class="btn btn-primary">{{ $t("Add") }}</button>
+      </div>
+
+      <div class="row py-3">
+        <div
+          class="offset-md-2 col-md-2 bg-light p-3 col-4 offset-4 text-center"
+        >
+          <img
+            class="rounded-4 img-fluid d-block mx-auto d-fill"
+            style="width: 100%; max-width: 100%; object-fit: cover"
+            src="https://placeholder.com/300"
+          />
+          <button class="btn btn-danger mt-3">
+            {{ $t("Remove") }}
+          </button>
+        </div>
+        <div class="col-md-6 bg-light">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
+          dolore nulla reiciendis ex quos debitis consectetur facilis fuga
+          exercitationem asperiores consequatur corporis quisquam, ducimus
+          molestiae fugit saepe doloremque sint soluta.
         </div>
       </div>
 
-      <div class="form-row" v-show="showIds">
-        <div class="form-group col-md-8 offset-md-2">
-          <label for="sessionid"> <strong>SessionId</strong></label>
-          <Field
-            as="input"
-            name="sessionid"
-            class="form-control"
-            id="sessionid"
-            :value="session.id"
-            :disabled="!editIds"
-          ></Field>
+      <!-- User -->
 
-          <small class="text-danger" v-if="errors.sessionid">{{
-            errors.sessionid
-          }}</small>
+      <hr class="form-group mt-5 col-md-8 offset-md-2" />
+
+      <div class="d-flex flex-row col-md-8 offset-md-2">
+        <h3 class="me-auto">{{ $t("CreateSession.Headline.User") }}</h3>
+        <button class="btn btn-primary">{{ $t("Add") }}</button>
+      </div>
+
+      <div class="row py-3">
+        <div
+          class="offset-md-2 col-md-2 bg-light p-3 col-4 offset-4 text-center"
+        >
+          <img
+            class="rounded-4 img-fluid d-block mx-auto d-fill"
+            style="width: 100%; max-width: 100%; object-fit: cover"
+            src="https://placeholder.com/300"
+          />
+          <button class="btn btn-danger mt-3">
+            {{ $t("Remove") }}
+          </button>
+        </div>
+        <div class="col-md-6 bg-light">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
+          dolore nulla reiciendis ex quos debitis consectetur facilis fuga
+          exercitationem asperiores consequatur corporis quisquam, ducimus
+          molestiae fugit saepe doloremque sint soluta.
         </div>
       </div>
 
+      <!-- Save-Button -->
       <div class="form-row mt-3">
         <div class="form-group">
           <div class="d-grid">
@@ -197,13 +261,8 @@ export default {
       placeholderImage: "https://placeholder.com/300",
       sessionQuorum: 50,
       sessionImage: "",
+      sessionid: this.createGuid(),
       session: {
-        id: this.createGuid(),
-        title: "Frische Session",
-        subtitle: "Alles neu macht der Mai",
-        description: "Frische Session ohne Votes in der Standardeinstellung",
-        imgUrl: "",
-        quorum: 50,
         votings: [
           {
             id: 1,
@@ -248,25 +307,32 @@ export default {
     createSession(values) {
       this.isLoading = true;
       this.error = "";
-      console.log(values);
+
+      // make sure we are authenticated for DB access
+      if (!this.isAuthenticated) {
+        this.$store.dispatch("autoSignin");
+      }
+
+      const payload = {
+        id: values.sessionid,
+        title: values.sessiontitle,
+        subtitle: values.sessionsubtitle,
+        description: values.sessiondescription,
+        imgUrl: values.sessionImage,
+        quorum: values.sessionquorum,
+      };
       this.$store
-        .dispatch("dummy", {
-          //email: values.email,
-          //password: values.password,
-        })
+        .dispatch("addSession", payload)
         .then(() => {
           this.isLoading = false;
-          console.log("Received Fake OK");
-          // console.log(this.$store.state);
           // Weiter zu Bestätigungsseite/Zugangslinks anzeigen this.changeComponent("login");
         })
         .catch((error) => {
-          console.log("Received Fake ERROR");
           this.error = error.message;
           this.isLoading = false;
         });
-      //this.$store.dispatch("storeSession", this.session);
     },
+
     createGuid() {
       return self.crypto.randomUUID();
     },

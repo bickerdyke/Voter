@@ -96,7 +96,8 @@ const actions = {
   },
 
   // Store current Session to firestore-DB
-  storeSession(context /*, payload */) {
+  /*
+  storeSession(context ) {
     const token = context.rootState.auth.token;
 
     const sessionItem = {
@@ -119,6 +120,39 @@ const actions = {
       .catch((error) => {
         console.log(error);
       });
+  },*/
+
+  // add a new session to firebase DB
+  addSession({ getters }, payload) {
+    return new Promise((resolve, reject) => {
+      console.log(getters);
+      const token = getters.token;
+      if (!token) {
+        reject(new Error("No token available for backend access"));
+      }
+
+      const sessionId = payload.id;
+      delete payload.id;
+
+      const sessionItem = {
+        ...payload,
+        author: getters.userId,
+        timestamp: Date.now(),
+      };
+
+      const url = `${FIREBASE_RTDB_URL}/sessions/${sessionId}.json?auth=${token}`;
+      console.log("RTDB-Url: " + url);
+      console.log("Data: " + sessionItem);
+
+      axios
+        .put(url, sessionItem)
+        .then((/*response*/) => {
+          resolve();
+        })
+        .catch((error) => {
+          reject(new Error(error));
+        });
+    });
   },
 
   dummy() {
