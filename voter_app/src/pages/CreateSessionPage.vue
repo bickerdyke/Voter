@@ -4,7 +4,9 @@
       <!-- Header -->
       <SessionHeadline>
         <template v-slot:headline>{{ $t("Voter-Service") }}</template>
-        <template v-slot:subtitle>{{ $t("Create Session Headline") }}</template>
+        <template v-slot:subtitle>{{
+          $t("CreateSession.Headline.Page Sub-Headline")
+        }}</template>
       </SessionHeadline>
 
       <!-- Create Session Block-->

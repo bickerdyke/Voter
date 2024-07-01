@@ -8,6 +8,7 @@
             <ProfilePicture
               :email="user.email"
               :imageUrl="user.imgUrl"
+              :size="80"
               fallback="wavatar"
             />
           </div>
