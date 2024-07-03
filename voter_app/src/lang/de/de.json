@@ -5,9 +5,41 @@
     "introduction": "Erstellen sie eine neue Abstimmungssession. Geben sie dazu die wichtigsten Daten wie einen aussagekräftigen Namen und Beschreibung ein, sowie eine Liste der Abstimmungsposten und stimmberechtigten Nutzern.",
     "form": {
       "hint": {
-        "useremail": "Die angegebene Emailadresse wird nicht übermittelt oder gespeichert. Sie dient lediglich zur Suche nach einem eventuell bereits vorhandenen Profilbild.",
-        "quorum": "Legt das Minimum der abgegebenen Stimmen fest bis die ersten Ergebnisse angezeigt werden. Dabei bedeuten 0% alle Ergebnisse werden sofort angezeigt und 100% erst wenn alle Stimmen abgegeben wurden, werden Ergebnisse angezeigt"
-      }
+        "useremail": "Die angegebene Emailadresse wird nicht übermittelt oder gespeichert. Sie dient lediglich zur Suche nach einem vorhandenen Profilbild.",
+        "quorum": "Legt das Minimum der abgegebenen Stimmen fest bis die ersten Ergebnisse angezeigt werden. Dabei bedeuten 0% alle Ergebnisse werden sofort angezeigt und 100% erst wenn alle Stimmen abgegeben wurden, werden Ergebnisse angezeigt."
+      },
+      "Session": {
+        "Title": "Titel der Abstimmung",
+        "Subtitle": "Kurzbeschreibung",
+        "Description": "Beschreibung",
+        "Quorum": "Quorum",
+        "Image": "Bild-Url",
+        "Id": "Abstimmungs-Code"
+      },
+      "CreateSessionData": "Abstimmung anlegen",
+      "User": {
+        "Name": "Name",
+        "Email": "E-Mail-Adresse",
+        "Image": "Profilbild (Url)",
+        "Id": "Nutzer-Code"
+      },
+      "CreateUserData": "Nutzer anlegen",
+      "Voting": {
+        "Title": "Bezeichnung",
+        "Description": "Beschreibung",
+        "Image": "Bild-Url",
+        "Id": "Id"
+      },
+      "Create Session Button": "Abstimmung speichern und weiter"
+    },
+    "Headline": {
+      "Page Sub-Headline": "Abstimmung anlegen",
+      "Votings": "Abstimmungsposten",
+      "User": "Stimmberechtigte"
     }
-  }
+  },
+  "Edit": "Bearbeiten",
+  "Remove": "Entfernen",
+  "Voter-Service Title": "Easy-Vote",
+  "Add": "Hinzufügen"
 }

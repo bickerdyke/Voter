@@ -1,4 +1,45 @@
 {
   "welcome": "Welcome!",
-  "hello": "Hello"
+  "hello": "Hello",
+  "CreateSession": {
+    "form": {
+      "Session": {
+        "Title": "",
+        "Subtitle": "",
+        "Description": "",
+        "Quorum": "",
+        "Image": "",
+        "Id": ""
+      },
+      "hint": {
+        "quorum": "",
+        "useremail": ""
+      },
+      "CreateSessionData": "",
+      "User": {
+        "Name": "",
+        "Email": "",
+        "Image": "",
+        "Id": ""
+      },
+      "CreateUserData": "",
+      "Voting": {
+        "Title": "",
+        "Description": "",
+        "Image": "",
+        "Id": ""
+      },
+      "Create Session Button": ""
+    },
+    "Headline": {
+      "Page Sub-Headline": "",
+      "Votings": "",
+      "User": ""
+    },
+    "introduction": ""
+  },
+  "Edit": "",
+  "Remove": "",
+  "Voter-Service Title": "",
+  "Add": ""
 }
