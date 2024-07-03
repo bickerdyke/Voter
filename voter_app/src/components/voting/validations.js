@@ -1,5 +1,4 @@
 import * as yup from "yup";
-import { setLocale } from "yup";
 
 export const sessionValidationSchema = yup.object().shape({
   sessiontitle: yup.string().required().trim().max(50),
@@ -7,7 +6,7 @@ export const sessionValidationSchema = yup.object().shape({
   sessiondescription: yup.string().trim().max(2000),
   sessionimgurl: yup.string().trim().url(),
   sessionquorum: yup.number().truncate().min(0).max(100),
-  sessionid: yup.string().required().trim().min(5).max(50),
+  sessionid: yup.string().required().trim().min(5).max(50).uuid(),
 });
 
 export const votingValidationSchema = yup.object().shape({
@@ -24,17 +23,26 @@ export const userValidationSchema = yup.object().shape({
   userid: yup.string().required().trim().min(4).max(30),
 });
 
-setLocale({
+//@todo: fix localized error messages.
+// Manchmal funktioniert dieser Code, aber nicht consistent
+export const localErrorMessages = yup.setLocale({
   // use constant translation keys for messages without values
   mixed: {
-    required: "required_field",
-    default: "field_invalid",
-    url: "invalid_url",
-    email: "invalid_email",
+    required: "CreateSession.errors.required_field",
+    default: "CreateSession.errors.field_invalid",
   },
   // use functions to generate an error object that includes the value from the schema
   string: {
-    min: ({ min }) => ({ key: "field_too_short", values: { min } }),
-    max: ({ max }) => ({ key: "field_too_large", values: { max } }),
+    url: "CreateSession.errors.invalid_url",
+    email: "CreateSession.errors.invalid_email",
+    min: ({ min }) => ({
+      key: "CreateSession.errors.field_too_short",
+      values: { min },
+    }),
+    max: ({ max }) => ({
+      key: "CreateSession.errors.field_too_large",
+      values: { max },
+    }),
+    uuid: "invalid_GUID",
   },
 });

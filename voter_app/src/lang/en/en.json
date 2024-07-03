@@ -1,6 +1,4 @@
 {
-  "welcome": "Welcome!",
-  "hello": "Hello",
   "CreateSession": {
     "form": {
       "Session": {
@@ -38,12 +36,18 @@
       "User": ""
     },
     "errors": {
-      "votings and users required": ""
+      "votings and users required": "",
+      "required_field": "This field is required",
+      "field_invalid": "",
+      "invalid_url": "",
+      "invalid_email": "",
+      "field_too_short": "{min}",
+      "field_too_large": "{max}"
     },
     "introduction": ""
   },
   "Edit": "",
   "Remove": "",
-  "Voter-Service Title": "",
+  "Voter-Service Title": "Easy-Vote",
   "Add": ""
 }

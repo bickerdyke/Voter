@@ -1,6 +1,4 @@
 {
-  "welcome": "Willkommen",
-  "hello": "Hallo",
   "CreateSession": {
     "introduction": "Erstellen sie eine neue Abstimmungssession. Geben sie dazu die wichtigsten Daten wie einen aussagekräftigen Namen und Beschreibung ein, sowie eine Liste der Abstimmungsposten und stimmberechtigten Nutzern.",
     "form": {
@@ -39,7 +37,14 @@
       "User": "Stimmberechtigte"
     },
     "errors": {
-      "votings and users required": "Mindestens je ein Abstimmungsposten und -berechtigter benötigt."
+      "votings and users required": "Mindestens je ein Abstimmungsposten und -berechtigter erforderlich",
+      "required_field": "ist ein Pflichtfeld",
+      "field_invalid": "ungültiges Feld",
+      "invalid_url": "Keine gültige Url",
+      "invalid_email": "Keine gültige E-Mail-Adresse",
+      "field_too_short": "{min}",
+      "field_too_large": "{path} {max}",
+      "invalid_GUID": "Muss eine gültige GUID sein"
     }
   },
   "Edit": "Bearbeiten",

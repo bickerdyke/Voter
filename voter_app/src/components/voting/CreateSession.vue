@@ -18,7 +18,7 @@
         ></Field>
 
         <small class="text-danger" v-if="errors.sessiontitle">{{
-          errors.sessiontitle
+          $t(errors.sessiontitle)
         }}</small>
       </div>
 
@@ -128,7 +128,7 @@
 
 <script>
 import { Form, Field } from "vee-validate";
-import { sessionValidationSchema } from "./validations";
+import { sessionValidationSchema, localErrorMessages } from "./validations";
 
 export default {
   name: "CreateSession",
@@ -144,6 +144,7 @@ export default {
   data() {
     return {
       sessionValidationSchema,
+      localErrorMessages,
       sessionQuorum: 100,
     };
   },
