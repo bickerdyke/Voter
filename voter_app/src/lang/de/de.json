@@ -5,7 +5,7 @@
     "introduction": "Erstellen sie eine neue Abstimmungssession. Geben sie dazu die wichtigsten Daten wie einen aussagekräftigen Namen und Beschreibung ein, sowie eine Liste der Abstimmungsposten und stimmberechtigten Nutzern.",
     "form": {
       "hint": {
-        "useremail": "Die angegebene Emailadresse wird nicht übermittelt oder gespeichert. Sie dient lediglich zur Suche nach einem vorhandenen Profilbild.",
+        "useremail": "Die angegebene Emailadresse wird nicht übermittelt oder gespeichert. Sie dient lediglich zur Suche nach einem eventuell bereits vorhandenen Profilbild.",
         "quorum": "Legt das Minimum der abgegebenen Stimmen fest bis die ersten Ergebnisse angezeigt werden. Dabei bedeuten 0% alle Ergebnisse werden sofort angezeigt und 100% erst wenn alle Stimmen abgegeben wurden, werden Ergebnisse angezeigt"
       }
     }
