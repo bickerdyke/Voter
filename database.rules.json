@@ -1,8 +1,8 @@
 {
- "rules": {
-   "sessions": {
-     ".read": "auth != null",
-     ".write": "auth != null",
-   }
- }
+  "rules": {
+    "sessions": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    }
+  }
 }

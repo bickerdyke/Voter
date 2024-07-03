@@ -7,12 +7,14 @@
           <div class="my-1">
             <ProfilePicture
               :email="user.email"
+              :emailHash="user.emailHash"
               :imageUrl="user.imgUrl"
+              :size="80"
               fallback="wavatar"
             />
           </div>
           <div class="my-1">
-            <span class="debuginfo">({{ userId }})</span> {{ user.name }}
+            <span v-if="showIds">({{ userId }})</span> {{ user.name }}
           </div>
         </th>
         <th>
@@ -34,7 +36,7 @@
           />
           <div class="m-3">
             <p class="fw-bolder d-none d-sm-block">
-              <span class="debuginfo">({{ votingId }})</span>
+              <span v-if="showIds">({{ votingId }})</span>
               {{ voting.title }}
             </p>
             <p class="d-none d-md-block">{{ voting.description }}</p>
@@ -79,6 +81,12 @@ export default {
       "isAuthenticated",
       "isSessionLoaded",
     ]),
+  },
+  props: {
+    showIds: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     voteLink(sId, vId, uId) {

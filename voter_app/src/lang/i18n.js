@@ -6,6 +6,8 @@ import de from "@/lang/de/de.json";
 // @todo: lazy loading of languaneg files
 // @todo: get locale from http request headers
 
+console.log("Applying locale settings");
+
 const i18n = createI18n({
   legacy: false,
   locale: localStorage.getItem("lang") || "en",

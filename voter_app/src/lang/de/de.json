@@ -1,7 +1,54 @@
 {
-  "welcome": "Willkommen",
-  "hello": "Hallo",
   "CreateSession": {
-    "introduction": "Erstellen sie eine neue Abstimmungssession. Geben sie dazu die wichtigsten Daten wie einen aussagekräftigen Namen und Beschreibung ein, sowie eine Liste der Abstimmungsposten und stimmberechtigten Nutzern."
-  }
+    "introduction": "Erstellen sie eine neue Abstimmungssession. Geben sie dazu die wichtigsten Daten wie einen aussagekräftigen Namen und Beschreibung ein, sowie eine Liste der Abstimmungsposten und stimmberechtigten Nutzern.",
+    "form": {
+      "hint": {
+        "useremail": "Die angegebene Emailadresse wird nicht übermittelt oder gespeichert. Sie dient lediglich zur Suche nach einem vorhandenen Profilbild.",
+        "quorum": "Legt das Minimum der abgegebenen Stimmen fest bis die ersten Ergebnisse angezeigt werden. Dabei bedeuten 0% alle Ergebnisse werden sofort angezeigt und 100% erst wenn alle Stimmen abgegeben wurden, werden Ergebnisse angezeigt."
+      },
+      "Session": {
+        "Title": "Titel der Abstimmung",
+        "Subtitle": "Kurzbeschreibung",
+        "Description": "Beschreibung",
+        "Quorum": "Quorum",
+        "Image": "Bild-Url",
+        "Id": "Abstimmungs-Code"
+      },
+      "CreateSessionData": "Abstimmung anlegen",
+      "CreateVotingData": "Posten anlegen",
+      "User": {
+        "Name": "Name",
+        "Email": "E-Mail-Adresse",
+        "Image": "Profilbild (Url)",
+        "Id": "Nutzer-Code"
+      },
+      "CreateUserData": "Nutzer anlegen",
+      "Voting": {
+        "Title": "Bezeichnung",
+        "Description": "Beschreibung",
+        "Image": "Bild-Url",
+        "Id": "Id"
+      },
+      "Create Session Button": "Abstimmung abspeichern und weiter"
+    },
+    "Headline": {
+      "Page Sub-Headline": "Abstimmung anlegen",
+      "Votings": "Abstimmungsposten",
+      "User": "Stimmberechtigte"
+    },
+    "errors": {
+      "votings and users required": "Mindestens je ein Abstimmungsposten und -berechtigter erforderlich",
+      "required_field": "ist ein Pflichtfeld",
+      "field_invalid": "ungültiges Feld",
+      "invalid_url": "Keine gültige Url",
+      "invalid_email": "Keine gültige E-Mail-Adresse",
+      "field_too_short": "{min}",
+      "field_too_large": "{path} {max}",
+      "invalid_GUID": "Muss eine gültige GUID sein"
+    }
+  },
+  "Edit": "Bearbeiten",
+  "Remove": "Entfernen",
+  "Voter-Service Title": "Easy-Vote",
+  "Add": "Hinzufügen"
 }

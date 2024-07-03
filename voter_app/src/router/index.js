@@ -18,6 +18,11 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
+  // make sure we are authenticated for DB access
+  if (!store.getters.isAuthenticated) {
+    store.dispatch("autoSignin");
+  }
+
   console.log("Check for Routeupdate");
   const sessionId = to.params.sessionId;
   if (!sessionId) {

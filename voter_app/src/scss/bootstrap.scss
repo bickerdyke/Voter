@@ -1,20 +1,25 @@
 //@todo: einmal bootstrap komplett designmässig anpassen, d.h. dieses File überarbeiten
 
 // Font
-$font-family-sans-serif: 'Open Sans', sans-serif;
+//$font-family-sans-serif: 'Open Sans', sans-serif;
 
 // Colors
+/*
 $primary: #c167ef;
 $secondary: #10bcee;
 $dark: #2b3041;
 $light: #f3f6f9;
+*/
 
 // Navbar
+/*
 $navbar-padding-y: 1rem;
 $navbar-dark-color: #fff;
 $navbar-dark-hover-color: $secondary;
+*/
 
 // Buttons
+/*
 $button-radius: 50px;
 $button-padding-x: 30px;
 $button-padding-y: 10px;
@@ -29,8 +34,10 @@ $btn-padding-y: $button-padding-y;
 $btn-padding-y-sm: $button-padding-y;
 $btn-padding-y-lg: $button-padding-y;
 $navbar-toggler-border-radius: 5px;
+*/
 
 // Spacers
+/*
 $spacer: 1rem !default;
 $spacers: (
   0: 0,
@@ -46,7 +53,6 @@ $spacers: (
 
 $line-height-base: 1.7;
 $headings-margin-bottom: $spacer * 1;
+*/
 
-$enable-negative-margins: true;
-
-@import '../../node_modules/bootstrap/scss/bootstrap';
+@import "../../node_modules/bootstrap/scss/bootstrap";
