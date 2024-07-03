@@ -167,7 +167,6 @@ export default {
       this.editingUser = true;
     },
     createVoting(values) {
-      console.log(values);
       const newVoting = {
         id: values.id,
         title: values.title,

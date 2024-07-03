@@ -141,9 +141,6 @@ const actions = {
       };
 
       const url = `${FIREBASE_RTDB_URL}/sessions/${sessionId}.json?auth=${token}`;
-      console.log("RTDB-Url: " + url);
-      console.log("Data: " + sessionItem);
-
       axios
         .put(url, sessionItem)
         .then((/*response*/) => {

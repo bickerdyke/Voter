@@ -176,7 +176,7 @@ export default {
         title: values.sessiontitle,
         subtitle: values.sessionsubtitle,
         description: values.sessiondescription,
-        quorum: values.sessionQuorum,
+        quorum: values.sessionquorum,
         imgUrl: values.sessionimgurl,
       };
       this.$emit("sessionSubmit", sessiondata);
