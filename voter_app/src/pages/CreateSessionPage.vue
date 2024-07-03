@@ -14,6 +14,7 @@
           {{ $t("CreateSession.introduction") }}
         </p>
 
+        <!-- Create Session Block -->
         <div>
           <ImageAndDescription
             :description="newSession.description"
@@ -26,11 +27,9 @@
             }}</template></ImageAndDescription
           >
         </div>
+        <CreateSession @sessionSubmit="createSession" v-if="!readyToShow" />
 
-        <!-- Create Session Block -->
-        <CreateSession @sessionSubmit="updateSession" v-if="!readyToShow" />
-
-        <!-- Create votings and users -->
+        <!-- Create votings -->
 
         <div v-if="readyToShow">
           <hr class="form-group mt-5" />
@@ -47,7 +46,15 @@
           </div>
         </div>
 
-        <CreateVoting v-if="editingVoting"></CreateVoting>
+        <template v-for="voting in newVotings" :key="voting.id">
+          <CreateVoting :votingRecord="voting"></CreateVoting>
+        </template>
+        <CreateVoting
+          v-if="editingVoting"
+          @votingSubmit="createVoting"
+        ></CreateVoting>
+
+        <!-- Create users -->
 
         <div v-if="readyToShow">
           <hr class="form-group mt-5" />
@@ -80,6 +87,7 @@
           class="btn btn-primary"
           :disabled="isLoading || !readyToShow"
           v-if="readyToShow"
+          @click="saveSession"
         >
           <span v-if="!isLoading">{{
             $t("CreateSession.form.Create Session Button")
@@ -95,8 +103,11 @@
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import CreateSession from "@/components/voting/CreateSession";
+import CreateVoting from "@/components/voting/CreateVoting";
 import CreateUser from "@/components/voting/CreateUser";
 import ImageAndDescription from "@/components/ImageAndDescription";
+
+const sha256 = require("js-sha256");
 
 export default {
   name: "CreateSesionPage",
@@ -104,6 +115,7 @@ export default {
     TheHomeLayout,
     SessionHeadline,
     CreateSession,
+    CreateVoting,
     CreateUser,
     ImageAndDescription,
   },
@@ -140,7 +152,7 @@ export default {
     },
   },
   methods: {
-    updateSession(values) {
+    createSession(values) {
       this.newSession.id = values.id;
       this.newSession.title = values.title;
       this.newSession.subtitle = values.subtitle;
@@ -149,38 +161,73 @@ export default {
       this.newSession.imgUrl = values.imgUrl;
     },
     addVotingButton() {
-      this.editingVoting = !this.editingVoting;
+      this.editingVoting = true;
     },
     addUserButton() {
       this.editingUser = true;
     },
-    createUser(values) {
+    createVoting(values) {
       console.log(values);
+      const newVoting = {
+        id: values.id,
+        title: values.title,
+        description: values.description,
+        imgUrl: values.imgUrl,
+      };
+      this.newVotings.push(newVoting);
+      this.editingVoting = false;
+    },
+    createUser(values) {
       const newUser = {
         id: values.id,
         name: values.name,
         email: values.email,
         imgUrl: values.imgUrl,
       };
-      console.log(newUser);
       this.newUsers.push(newUser);
       this.editingUser = false;
     },
-    createSession() {
+    saveSession() {
       this.isLoading = true;
       this.error = "";
 
-      // make sure we are authenticated for DB access
-      if (!this.isAuthenticated) {
-        this.$store.dispatch("autoSignin");
+      if (this.newUsers.length < 1 || this.newVotings.length < 1) {
+        this.error = this.$t("CreateSession.errors.votings and users required");
+        this.isLoading = false;
+        return;
       }
 
-      const payload = {}; // use "newSession"
+      if (!this.newSession.votings) {
+        this.newSession.votings = {};
+      }
+
+      if (!this.newSession.users) {
+        this.newSession.users = {};
+      }
+
+      const payload = { ...this.newSession };
+
+      this.newVotings.forEach((v) => {
+        this.newSession.votings[v.id] = {
+          title: v.title,
+          description: v.description,
+          imgUrl: v.imgUrl,
+        };
+      });
+      this.newUsers.forEach((u) => {
+        const emailHash = u.email ? sha256(u.email) : null;
+        this.newSession.users[u.id] = {
+          name: u.name,
+          imgUrl: u.imgUrl,
+          emailHash: emailHash,
+        };
+      });
+
       this.$store
         .dispatch("addSession", payload)
         .then(() => {
           this.isLoading = false;
-          // Weiter zu Bestätigungsseite/Zugangslinks anzeigen this.changeComponent("login");
+          this.$router.push("/showresult/" + this.newSession.id);
         })
         .catch((error) => {
           this.error = error.message;

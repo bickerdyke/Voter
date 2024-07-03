@@ -16,6 +16,7 @@
         "useremail": ""
       },
       "CreateSessionData": "",
+      "CreateVotingData": "",
       "User": {
         "Name": "",
         "Email": "",
@@ -35,6 +36,9 @@
       "Page Sub-Headline": "",
       "Votings": "",
       "User": ""
+    },
+    "errors": {
+      "votings and users required": ""
     },
     "introduction": ""
   },

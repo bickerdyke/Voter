@@ -17,6 +17,7 @@
         "Id": "Abstimmungs-Code"
       },
       "CreateSessionData": "Abstimmung anlegen",
+      "CreateVotingData": "Posten anlegen",
       "User": {
         "Name": "Name",
         "Email": "E-Mail-Adresse",
@@ -30,12 +31,15 @@
         "Image": "Bild-Url",
         "Id": "Id"
       },
-      "Create Session Button": "Abstimmung speichern und weiter"
+      "Create Session Button": "Abstimmung abspeichern und weiter"
     },
     "Headline": {
       "Page Sub-Headline": "Abstimmung anlegen",
       "Votings": "Abstimmungsposten",
       "User": "Stimmberechtigte"
+    },
+    "errors": {
+      "votings and users required": "Mindestens je ein Abstimmungsposten und -berechtigter benötigt."
     }
   },
   "Edit": "Bearbeiten",

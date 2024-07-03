@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Display existing user -->
     <div class="row py-3" v-if="!isEditing">
       <div class="bg-light p-3 col-4 text-center">
         <ProfilePicture
@@ -29,6 +30,7 @@
       </div>
     </div>
 
+    <!-- Edit user -->
     <Form
       @submit="updateUser"
       v-slot="{ errors }"
@@ -39,14 +41,6 @@
       <div class="row py-3">
         <div class="bg-light p-3 col-4 text-center">
           <ProfilePicture fallback="wavatar" email="" imageUrl="" :size="0" />
-          <div v-if="!isEditing">
-            <button class="btn btn-primary m-3">
-              {{ $t("Edit") }}
-            </button>
-            <button class="btn btn-danger m-3">
-              {{ $t("Remove") }}
-            </button>
-          </div>
         </div>
         <div class="col-8 bg-light">
           <div class="form-row form-group">

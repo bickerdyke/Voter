@@ -40,10 +40,7 @@
 
       <!-- Footer-Features-->
       <div class="row my-3">
-        <router-link to="/" class="btn btn-primary"
-          >Neue Abstimmung anlegen</router-link
-        >
-        <router-link to="/showresult/4711" class="btn btn-primary"
+        <router-link :to="resultPage" class="btn btn-primary"
           >Ergebnis</router-link
         >
       </div>
@@ -88,6 +85,9 @@ export default {
       return this.isAuthenticated
         ? this.$store.getters.vote(this.votingId, this.userId)
         : "";
+    },
+    resultPage() {
+      return "/showresult/" + this.currentSessionId;
     },
     ...mapGetters([
       "currentSessionId",

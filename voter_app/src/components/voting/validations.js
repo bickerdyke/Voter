@@ -11,7 +11,7 @@ export const sessionValidationSchema = yup.object().shape({
 });
 
 export const votingValidationSchema = yup.object().shape({
-  votingtitle: yup.string().trim().max(50),
+  votingtitle: yup.string().required().trim().max(50),
   votingimgurl: yup.string().trim().url(),
   votingdescription: yup.string().trim().max(2000),
   votingid: yup.string().required().trim().min(5).max(50),

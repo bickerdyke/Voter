@@ -1,10 +1,41 @@
 <template>
   <div>
+    <!-- Display existing voting -->
+    <div class="row py-3" v-if="!isEditing">
+      <div class="bg-light p-3 col-4 text-center">
+        <img
+          :src="votingRecord.imgUrl"
+          v-if="votingRecord.imgUrl"
+          class="rounded-4 img-fluid d-block mx-auto d-fill"
+          style="width: 100%; max-width: 100%; object-fit: cover"
+        />
+      </div>
+      <div class="col-8 bg-light">
+        <h4>{{ votingRecord.title }}</h4>
+        <template v-if="votingRecord.description"
+          ><p>
+            {{ votingRecord.description }}
+          </p>
+        </template>
+        <p v-if="showIds">
+          {{ $t("CreateSession.form.Voting.Id") }}: {{ votingRecord.id }}
+        </p>
+        <button class="btn btn-primary m-1" v-if="showIds" disabled>
+          {{ $t("Edit") }}
+        </button>
+        <button class="btn btn-danger m-1" v-if="showIds" disabled>
+          {{ $t("Remove") }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Edit User -->
     <Form
-      @submit="createSession"
+      @submit="updateVoting"
       v-slot="{ errors }"
-      :validation-schema="sessionValidationSchema"
-      class="col-md-8 offset-md-2"
+      :validation-schema="votingValidationSchema"
+      v-if="isEditing"
+      :initialValues="initialValues"
     >
       <div class="row py-3">
         <div class="bg-light p-3 col-4 text-center">
@@ -13,9 +44,6 @@
             style="width: 100%; max-width: 100%; object-fit: cover"
             src="https://placeholder.com/150"
           />
-          <button class="btn btn-danger mt-3">
-            {{ $t("Remove") }}
-          </button>
         </div>
         <div class="col-8 bg-light">
           <div class="form-row form-group">
@@ -29,7 +57,6 @@
               name="votingtitle"
               class="form-control"
               id="votingTitle"
-              :value="votingtitle"
             ></Field>
 
             <small class="text-danger" v-if="errors.votingtitle">{{
@@ -48,7 +75,6 @@
               name="votingdescription"
               class="form-control"
               id="votingDescription"
-              :value="votingdescription"
               rows="3"
             ></Field>
 
@@ -68,7 +94,6 @@
               name="votingimgurl"
               class="form-control"
               id="votingImgurl"
-              :value="votingimgurl"
             ></Field>
 
             <small class="text-danger" v-if="errors.votingimgurl">{{
@@ -85,7 +110,6 @@
               name="votingid"
               class="form-control"
               id="votingId"
-              :value="votingid"
               :disabled="!editIds"
             ></Field>
 
@@ -93,6 +117,9 @@
               $t(errors.votingid)
             }}</small>
           </div>
+          <button class="btn btn-primary" type="submit">
+            {{ $t("CreateSession.form.CreateVotingData") }}
+          </button>
         </div>
       </div>
 
@@ -112,15 +139,13 @@ export default {
     Field,
   },
   emits: {
-    sessionSubmit(payload) {
+    votingSubmit(payload) {
       return payload ? true : false;
     },
   },
   data() {
     return {
       votingValidationSchema,
-      placeholderImage: "https://placeholder.com/150",
-      sessionQuorum: 50,
     };
   },
   props: {
@@ -132,12 +157,45 @@ export default {
       type: Boolean,
       default: false,
     },
+    votingRecord: {
+      type: Object,
+      default: null,
+    },
   },
-  computed: {},
+  computed: {
+    initialValues() {
+      return {
+        votingid: this.makeid(6),
+        votingimgurl: "https://picsum.photos/100",
+      };
+    },
+    isEditing() {
+      return this.votingRecord ? false : true;
+    },
+  },
   methods: {
-    voted() {
-      const sessiondata = {};
-      this.$emit("sessionSubmit", sessiondata);
+    updateVoting(values) {
+      const votingdata = {
+        id: values.votingid,
+        title: values.votingtitle,
+        description: values.votingdescription,
+        imgUrl: values.votingimgurl,
+      };
+
+      this.$emit("votingSubmit", votingdata);
+    },
+    makeid(length) {
+      let result = "";
+      const characters = "ABCDEFGHJKLMNPQRSTUVWXYZ123456789";
+      const charactersLength = characters.length;
+      let counter = 0;
+      while (counter < length) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+        counter += 1;
+      }
+      return result;
     },
   },
 };
