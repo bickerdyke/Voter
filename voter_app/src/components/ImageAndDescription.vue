@@ -1,3 +1,5 @@
+import SessionHeadline from '@/components/SessionHeadline'; import
+SlideVoteSelect from '@/components/voting/SlideVoteSelect';
 <template>
   <div class="row bg-light my-5">
     <div class="col-md-3 p-3 d-flex" :class="imageOrderClass">
@@ -9,7 +11,8 @@
       />
     </div>
     <div class="col-md-7 offset-md-1 p-3">
-      {{ description }}
+      <h4 v-if="$slots.headline"><slot name="headline"></slot></h4>
+      <p>{{ description }}</p>
     </div>
   </div>
 </template>
