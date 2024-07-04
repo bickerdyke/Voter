@@ -14,12 +14,13 @@
           as="input"
           name="sessiontitle"
           class="form-control"
+          :class="{ 'is-invalid': errors.sessiontitle }"
           id="sessiontitle"
         ></Field>
 
-        <small class="text-danger" v-if="errors.sessiontitle">{{
+        <ErrorMessage name="sessiontitle" class="text-danger" as="p">{{
           $t(errors.sessiontitle)
-        }}</small>
+        }}</ErrorMessage>
       </div>
 
       <div class="form-row form-group">
@@ -32,12 +33,13 @@
           as="input"
           name="sessionsubtitle"
           class="form-control"
+          :class="{ 'is-invalid': errors.sessionsubtitle }"
           id="sessionsubtitle"
         ></Field>
 
-        <small class="text-danger" v-if="errors.sessionsubtitle">{{
+        <ErrorMessage name="sessionsubtitle" class="text-danger" as="p">{{
           $t(errors.sessionsubtitle)
-        }}</small>
+        }}</ErrorMessage>
       </div>
 
       <div class="form-row form-group">
@@ -50,13 +52,14 @@
           as="textarea"
           name="sessiondescription"
           class="form-control"
+          :class="{ 'is-invalid': errors.sessiondescription }"
           id="sessiondescription"
           rows="3"
         ></Field>
 
-        <small class="text-danger" v-if="errors.sessiondescription">{{
+        <ErrorMessage name="sessiondescription" class="text-danger" as="p">{{
           $t(errors.sessiondescription)
-        }}</small>
+        }}</ErrorMessage>
       </div>
 
       <div class="form-row form-group">
@@ -69,6 +72,7 @@
             type="range"
             name="sessionquorum"
             class="form-range"
+            :class="{ 'is-invalid': errors.sessionquorum }"
             id="sessionquorum"
             min="0"
             max="100"
@@ -77,13 +81,15 @@
           <div class="d-flex ms-3">{{ sessionQuorum }}%</div>
         </div>
 
-        <small class="text-danger" v-if="errors.sessionquorum">{{
+        <ErrorMessage name="sessionquorum" class="text-danger" as="p">{{
           $t(errors.sessionquorum)
-        }}</small>
+        }}</ErrorMessage>
 
-        <small class="form-row">{{
-          $t("CreateSession.form.hint.quorum")
-        }}</small>
+        <p>
+          <small class="form-row">{{
+            $t("CreateSession.form.hint.quorum")
+          }}</small>
+        </p>
       </div>
 
       <div class="form-row form-group">
@@ -94,12 +100,13 @@
           as="input"
           name="sessionimgurl"
           class="form-control"
+          :class="{ 'is-invalid': errors.sessionimgurl }"
           id="sessionimgurl"
         ></Field>
 
-        <small class="text-danger" v-if="errors.sessionimgurl">{{
+        <ErrorMessage name="sessionimgurl" class="text-danger" as="p">{{
           $t(errors.sessionimgurl)
-        }}</small>
+        }}</ErrorMessage>
       </div>
 
       <div class="form-row form-group" v-show="showIds">
@@ -110,24 +117,30 @@
           as="input"
           name="sessionid"
           class="form-control"
+          :class="{ 'is-invalid': errors.sessionid }"
           id="sessionid"
-          :disabled="!editIds"
+          :readonly="!editIds"
         ></Field>
 
-        <small class="text-danger" v-if="errors.sessionid">{{
+        <ErrorMessage name="sessionid" class="text-danger" as="p">{{
           $t(errors.sessionid)
-        }}</small>
+        }}</ErrorMessage>
       </div>
 
-      <button class="btn btn-primary" type="submit">
-        {{ $t("CreateSession.form.CreateSessionData") }}
-      </button>
+      <div class="mt-3">
+        <button class="col-3 btn btn-primary" type="submit">
+          {{ $t("CreateSession.form.CreateSessionData") }}
+        </button>
+        <button class="col-3 offset-1 btn btn-primary" type="reset">
+          {{ $t("Reset") }}
+        </button>
+      </div>
     </Form>
   </div>
 </template>
 
 <script>
-import { Form, Field } from "vee-validate";
+import { Form, Field, ErrorMessage } from "vee-validate";
 import { sessionValidationSchema, localErrorMessages } from "./validations";
 
 export default {
@@ -135,6 +148,7 @@ export default {
   components: {
     Form,
     Field,
+    ErrorMessage,
   },
   emits: {
     sessionSubmit(payload) {
