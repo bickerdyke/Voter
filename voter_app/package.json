@@ -11,6 +11,7 @@
     "translation:update": "vue-i18n-extract --add --remove --noEmptyTranslation --vueFiles ./src/**/*.vue --languageFiles ./src/lang/**/*.json"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.0.18",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
@@ -32,8 +33,8 @@
     "@intlify/vue-i18n-loader": "^4.2.0",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-unit-mocha": "^5.0.8",
     "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-unit-mocha": "^5.0.8",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/test-utils": "^2.0.0-0",
@@ -46,8 +47,8 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^8.0.3",
     "prettier": "^2.4.1",
-    "vue-i18n-extract": "^2.0.7",
-	"sass": "^1.32.7",
-    "sass-loader": "^12.0.0"
+    "sass": "^1.32.7",
+    "sass-loader": "^12.0.0",
+    "vue-i18n-extract": "^2.0.7"
   }
 }
