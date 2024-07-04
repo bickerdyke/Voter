@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!--  <TheNavbar /> -->
     <main>
       <div class="container">
         <div class="row">
@@ -17,12 +16,20 @@
         </div>
       </div>
     </main>
+    <footer class="footer">
+      <TheNavBar />
+    </footer>
   </div>
 </template>
 
 <script>
+import TheNavBar from "@/components/basics/TheNavBar";
+
 export default {
   name: "TheHomeLayout",
+  components: {
+    TheNavBar,
+  },
 };
 </script>
 
