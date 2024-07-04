@@ -2,7 +2,7 @@
   <div>
     <!-- Display existing user -->
     <div class="row py-3" v-if="!isEditing">
-      <div class="bg-light p-3 col-4 text-center">
+      <div class="p-3 col-4 text-center bg-light">
         <ProfilePicture
           fallback="wavatar"
           :email="userRecord.email"
@@ -10,7 +10,7 @@
           :size="0"
         />
       </div>
-      <div class="col-8 bg-light">
+      <div class="col-8 p-3 bg-light">
         <h4>{{ userRecord.name }}</h4>
         <template v-if="userRecord.email && !userRecord.imgUrl"
           ><p>
@@ -21,10 +21,10 @@
         <p v-if="showIds">
           {{ $t("CreateSession.form.User.Id") }}: {{ userRecord.id }}
         </p>
-        <button class="btn btn-primary m-1" v-if="showIds" disabled>
+        <button class="btn btn-primary me-2 mb-2" v-if="showIds" disabled>
           {{ $t("Edit") }}
         </button>
-        <button class="btn btn-danger m-1" v-if="showIds" disabled>
+        <button class="btn btn-danger me-2 mb-2" v-if="showIds" disabled>
           {{ $t("Remove") }}
         </button>
       </div>
@@ -39,11 +39,11 @@
       :initialValues="initialValues"
     >
       <div class="row py-3">
-        <div class="bg-light p-3 col-4 text-center">
+        <div class="p-3 col-4 text-center">
           <ProfilePicture fallback="wavatar" email="" imageUrl="" :size="0" />
         </div>
-        <div class="col-8 bg-light">
-          <div class="form-row form-group">
+        <div class="col-8 p-3">
+          <div class="form-row form-group mb-3">
             <label for="username">
               <strong>{{ $t("CreateSession.form.User.Name") }}</strong></label
             >
@@ -51,15 +51,16 @@
               as="input"
               name="username"
               class="form-control"
+              :class="{ 'is-invalid': errors.username }"
               id="userName"
             ></Field>
 
-            <small class="text-danger" v-if="errors.username">{{
+            <ErrorMessage name="username" class="text-danger" as="p">{{
               $t(errors.username)
-            }}</small>
+            }}</ErrorMessage>
           </div>
 
-          <div class="form-row form-group">
+          <div class="form-row form-group mb-3">
             <label for="useremail">
               <strong>{{ $t("CreateSession.form.User.Email") }}</strong></label
             >
@@ -67,12 +68,13 @@
               as="input"
               name="useremail"
               class="form-control"
+              :class="{ 'is-invalid': errors.useremail }"
               id="userEmail"
             ></Field>
 
-            <small class="text-danger" v-if="errors.useremail">{{
+            <ErrorMessage name="useremail" class="text-danger" as="p">{{
               $t(errors.useremail)
-            }}</small>
+            }}</ErrorMessage>
 
             <p>
               <small
@@ -82,7 +84,7 @@
             </p>
           </div>
 
-          <div class="form-row form-group">
+          <div class="form-row form-group mb-3">
             <label for="userimgurl">
               <strong>{{ $t("CreateSession.form.User.Image") }}</strong></label
             >
@@ -90,15 +92,16 @@
               as="input"
               name="userimgurl"
               class="form-control"
+              :class="{ 'is-invalid': errors.userimgurl }"
               id="userImgurl"
             ></Field>
 
-            <small class="text-danger" v-if="errors.userimgurl">{{
+            <ErrorMessage name="userimgurl" class="text-danger" as="p">{{
               $t(errors.userimgurl)
-            }}</small>
+            }}</ErrorMessage>
           </div>
 
-          <div class="form-row form-group" v-show="showIds">
+          <div class="form-row form-group mb-3" v-show="showIds">
             <label for="userid">
               <strong>{{ $t("CreateSession.form.User.Id") }}</strong></label
             >
@@ -106,17 +109,24 @@
               as="input"
               name="userid"
               class="form-control"
+              :class="{ 'is-invalid': errors.userid }"
               id="userId"
               :disabled="!editIds"
             ></Field>
 
-            <small class="text-danger" v-if="errors.userid">{{
+            <ErrorMessage name="userid" class="text-danger" as="p">{{
               $t(errors.userid)
-            }}</small>
+            }}</ErrorMessage>
           </div>
-          <button class="btn btn-primary" type="submit">
-            {{ $t("CreateSession.form.CreateUserData") }}
-          </button>
+
+          <div class="mt-3">
+            <button class="btn btn-primary me-2 mb-2" type="submit">
+              {{ $t("CreateSession.form.CreateUserData") }}
+            </button>
+            <button class="btn btn-primary me-2 mb-2" type="reset">
+              {{ $t("Reset") }}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -126,7 +136,7 @@
 </template>
 
 <script>
-import { Form, Field } from "vee-validate";
+import { Form, Field, ErrorMessage } from "vee-validate";
 import ProfilePicture from "@/components/ProfilePicture.vue";
 import { userValidationSchema } from "./validations";
 
@@ -136,6 +146,7 @@ export default {
     Form,
     Field,
     ProfilePicture,
+    ErrorMessage,
   },
   emits: {
     userSubmit(payload) {

@@ -6,7 +6,7 @@
       :initialValues="initialValues"
       :validation-schema="sessionValidationSchema"
     >
-      <div class="form-row form-group">
+      <div class="form-row form-group mb-3">
         <label for="sessiontitle">
           <strong>{{ $t("CreateSession.form.Session.Title") }}</strong></label
         >
@@ -23,7 +23,7 @@
         }}</ErrorMessage>
       </div>
 
-      <div class="form-row form-group">
+      <div class="form-row form-group mb-3">
         <label for="sessionsubtitle">
           <strong>{{
             $t("CreateSession.form.Session.Subtitle")
@@ -42,7 +42,7 @@
         }}</ErrorMessage>
       </div>
 
-      <div class="form-row form-group">
+      <div class="form-row form-group mb-3">
         <label for="sessiondescription">
           <strong>{{
             $t("CreateSession.form.Session.Description")
@@ -62,7 +62,7 @@
         }}</ErrorMessage>
       </div>
 
-      <div class="form-row form-group">
+      <div class="form-row form-group mb-3">
         <label for="sessionquorum">
           <strong>{{ $t("CreateSession.form.Session.Quorum") }}</strong></label
         >
@@ -92,7 +92,7 @@
         </p>
       </div>
 
-      <div class="form-row form-group">
+      <div class="form-row form-group mb-3">
         <label for="sessionimgurl">
           <strong>{{ $t("CreateSession.form.Session.Image") }}</strong></label
         >
@@ -109,7 +109,7 @@
         }}</ErrorMessage>
       </div>
 
-      <div class="form-row form-group" v-show="showIds">
+      <div class="form-row form-group mb-3" v-show="showIds">
         <label for="sessionid">
           <strong>{{ $t("CreateSession.form.Session.Id") }}</strong></label
         >
@@ -119,7 +119,7 @@
           class="form-control"
           :class="{ 'is-invalid': errors.sessionid }"
           id="sessionid"
-          :readonly="!editIds"
+          :disabled="!editIds"
         ></Field>
 
         <ErrorMessage name="sessionid" class="text-danger" as="p">{{
@@ -128,10 +128,10 @@
       </div>
 
       <div class="mt-3">
-        <button class="col-3 btn btn-primary" type="submit">
+        <button class="btn btn-primary me-2 mb-2" type="submit">
           {{ $t("CreateSession.form.CreateSessionData") }}
         </button>
-        <button class="col-3 offset-1 btn btn-primary" type="reset">
+        <button class="btn btn-primary me-2 mb-2" type="reset">
           {{ $t("Reset") }}
         </button>
       </div>

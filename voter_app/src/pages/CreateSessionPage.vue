@@ -78,7 +78,7 @@
       </div>
 
       <!-- Footer -->
-      <div class="alert alert-danger col-md-8 offset-md-2" v-if="error">
+      <div class="alert alert-danger mt-3" v-if="error">
         {{ errorDisplayText }}
       </div>
 

@@ -10,7 +10,7 @@
           style="width: 100%; max-width: 100%; object-fit: cover"
         />
       </div>
-      <div class="col-8 bg-light">
+      <div class="col-8 p-3 bg-light">
         <h4>{{ votingRecord.title }}</h4>
         <template v-if="votingRecord.description"
           ><p>
@@ -20,10 +20,10 @@
         <p v-if="showIds">
           {{ $t("CreateSession.form.Voting.Id") }}: {{ votingRecord.id }}
         </p>
-        <button class="btn btn-primary m-1" v-if="showIds" disabled>
+        <button class="btn btn-primary me-2 mb-2" v-if="showIds" disabled>
           {{ $t("Edit") }}
         </button>
-        <button class="btn btn-danger m-1" v-if="showIds" disabled>
+        <button class="btn btn-danger me-2 mb-2" v-if="showIds" disabled>
           {{ $t("Remove") }}
         </button>
       </div>
@@ -38,15 +38,15 @@
       :initialValues="initialValues"
     >
       <div class="row py-3">
-        <div class="bg-light p-3 col-4 text-center">
+        <div class="p-3 col-4 text-center">
           <img
             class="rounded-4 img-fluid d-block mx-auto d-fill"
             style="width: 100%; max-width: 100%; object-fit: cover"
             src="https://placeholder.com/150"
           />
         </div>
-        <div class="col-8 bg-light">
-          <div class="form-row form-group">
+        <div class="col-8 py-3">
+          <div class="form-row form-group mb-3">
             <label for="votingtitle">
               <strong>{{
                 $t("CreateSession.form.Voting.Title")
@@ -56,15 +56,16 @@
               as="input"
               name="votingtitle"
               class="form-control"
+              :class="{ 'is-invalid': errors.votingtitle }"
               id="votingTitle"
             ></Field>
 
-            <small class="text-danger" v-if="errors.votingtitle">{{
+            <ErrorMessage name="votingtitle" class="text-danger" as="p">{{
               $t(errors.votingtitle)
-            }}</small>
+            }}</ErrorMessage>
           </div>
 
-          <div class="form-row form-group">
+          <div class="form-row form-group mb-3">
             <label for="votingdescription">
               <strong>{{
                 $t("CreateSession.form.Voting.Description")
@@ -74,16 +75,17 @@
               as="textarea"
               name="votingdescription"
               class="form-control"
+              :class="{ 'is-invalid': errors.votingdescription }"
               id="votingDescription"
               rows="3"
             ></Field>
 
-            <small class="text-danger" v-if="errors.votingdescription">{{
+            <ErrorMessage name="votingdescription" class="text-danger" as="p">{{
               $t(errors.votingdescription)
-            }}</small>
+            }}</ErrorMessage>
           </div>
 
-          <div class="form-row form-group">
+          <div class="form-row form-group mb-3">
             <label for="votingimgurl">
               <strong>{{
                 $t("CreateSession.form.Voting.Image")
@@ -93,15 +95,16 @@
               as="input"
               name="votingimgurl"
               class="form-control"
+              :class="{ 'is-invalid': errors.votingimgurl }"
               id="votingImgurl"
             ></Field>
 
-            <small class="text-danger" v-if="errors.votingimgurl">{{
+            <ErrorMessage name="votingimgurl" class="text-danger" as="p">{{
               $t(errors.votingimgurl)
-            }}</small>
+            }}</ErrorMessage>
           </div>
 
-          <div class="form-row form-group" v-show="showIds">
+          <div class="form-row form-group mb-3" v-show="showIds">
             <label for="votingid">
               <strong>{{ $t("CreateSession.form.Voting.Id") }}</strong></label
             >
@@ -109,17 +112,24 @@
               as="input"
               name="votingid"
               class="form-control"
+              :class="{ 'is-invalid': errors.votingid }"
               id="votingId"
               :disabled="!editIds"
             ></Field>
 
-            <small class="text-danger" v-if="errors.votingid">{{
+            <ErrorMessage name="votingid" class="text-danger" as="p">{{
               $t(errors.votingid)
-            }}</small>
+            }}</ErrorMessage>
           </div>
-          <button class="btn btn-primary" type="submit">
-            {{ $t("CreateSession.form.CreateVotingData") }}
-          </button>
+
+          <div class="mt-3">
+            <button class="btn btn-primary me-2 mb-2" type="submit">
+              {{ $t("CreateSession.form.CreateVotingData") }}
+            </button>
+            <button class="btn btn-primary me-2 mb-2" type="reset">
+              {{ $t("Reset") }}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -129,7 +139,7 @@
 </template>
 
 <script>
-import { Form, Field } from "vee-validate";
+import { Form, Field, ErrorMessage } from "vee-validate";
 import { votingValidationSchema } from "./validations";
 
 export default {
@@ -137,6 +147,7 @@ export default {
   components: {
     Form,
     Field,
+    ErrorMessage,
   },
   emits: {
     votingSubmit(payload) {
