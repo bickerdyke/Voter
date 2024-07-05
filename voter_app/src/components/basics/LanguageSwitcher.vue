@@ -1,5 +1,5 @@
 <template>
-  <div class="btn-group dropup" id="languageSwitch">
+  <div class="btn-group dropup mx-3" id="languageSwitch">
     <button type="button" class="btn btn-light" v-html="currentFlag"></button>
     <button
       type="button"

@@ -2,7 +2,6 @@ const appRoutes = [
   {
     path: "/",
     alias: "/home",
-    /* component: HomePage, */
     component: () =>
       import(/*webpackChunkName: 'page-homepage' */ "@/pages/HomePage.vue"),
     /* beforeEnter: (to, from, next) => {

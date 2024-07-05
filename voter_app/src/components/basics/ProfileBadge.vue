@@ -1,14 +1,13 @@
 <template>
-  <div>
+  <div class="mx-3">
     <img
       :src="imgUrl"
-      height="70"
-      width="70"
+      height="40"
+      width="40"
       style=""
       alt=""
       class="rounded-circle"
     />
-    <img src="@/assets/profile/profile_anonymous.png" width="300" />
   </div>
 </template>
 
@@ -21,8 +20,8 @@ export default {
       // Im Moment sind nur anonyme Logins erlaubt.
       // Entsprechend ergänzen wenn "echte" Logins verwendet werden.
       return this.$store.getters.isAuthenticated
-        ? "@/assets/profile/profile_anonymous.png"
-        : "@/assets/profile/profile_loggedout.png";
+        ? require("@/assets/profile/profile_anonymous.png")
+        : require("@/assets/profile/profile_loggedout.png");
     },
   },
 };

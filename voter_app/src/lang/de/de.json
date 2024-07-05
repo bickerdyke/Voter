@@ -56,5 +56,10 @@
     "langName_de": "Deutsch",
     "langName_en-UK": "Englisch (UK)",
     "langName_en-US": "Englisch (US)"
+  },
+  "Pages": {
+    "Home": "Home",
+    "Create": "Neue Abstimmung",
+    "Legal": "Impressum und Datenschutz"
   }
 }
