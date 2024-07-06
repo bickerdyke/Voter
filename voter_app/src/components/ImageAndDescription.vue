@@ -1,5 +1,3 @@
-import SessionHeadline from '@/components/SessionHeadline'; import
-SlideVoteSelect from '@/components/voting/SlideVoteSelect';
 <template>
   <div class="row bg-light my-5">
     <div class="col-md-3 p-3 d-flex" :class="imageOrderClass">
@@ -18,6 +16,8 @@ SlideVoteSelect from '@/components/voting/SlideVoteSelect';
 </template>
 
 <script>
+// @todo: Switch ImageAndDescription to card template with rounded edges, nice background and maybe shadow
+// @todo: Umstellen der Texte von Props auf Slots. Ist bei Verwendung einfacher zu lesen.
 export default {
   name: "ImageAndDescription",
   components: {},
