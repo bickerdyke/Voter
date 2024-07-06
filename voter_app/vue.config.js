@@ -3,6 +3,12 @@ const webpack = require("webpack");
 
 module.exports = defineConfig({
   transpileDependencies: true,
+  pages: {
+    index: {
+      entry: 'src/main.js',
+      title: 'Easy-Vote'
+    }
+  },
   configureWebpack: {
     devServer: {
       headers: {
