@@ -3,8 +3,8 @@
 
 // Bootstrap-Builder: https://bootstrap.build/app/project/mJwvCtNdZQtg
 // Ausgangs-Theme: Spacelab
-@import "./_variables.scss";
+@import "./spacelab/_variables.scss";
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-@import "./custom.scss"; // ebenfalls Bootstrap-Builder
+@import "./spacelab/custom.scss"; // ebenfalls Bootstrap-Builder
