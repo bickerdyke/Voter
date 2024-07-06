@@ -1,5 +1,10 @@
 import * as yup from "yup";
 
+// @todo: An die einzelnen Felder ein ".label()" hängen und übersetzen um in
+// Fehlermeldungen auf den übersetzten Feldnamen zugreifen zu können.
+// import { useI18n } from "vue-i18n";
+// const { locale } = useI18n();
+
 export const sessionValidationSchema = yup.object().shape({
   sessiontitle: yup.string().required().trim().max(50),
   sessionsubtitle: yup.string().trim().max(150),

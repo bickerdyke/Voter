@@ -4,6 +4,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import "bootstrap";
 
 export default {
   name: "App",

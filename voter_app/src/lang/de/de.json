@@ -51,5 +51,15 @@
   "Remove": "Entfernen",
   "Voter-Service Title": "Easy-Vote",
   "Add": "Hinzufügen",
-  "Reset": "Zurücksetzen"
+  "Reset": "Zurücksetzen",
+  "i18n": {
+    "langName_de": "Deutsch",
+    "langName_en-UK": "Englisch (UK)",
+    "langName_en-US": "Englisch (US)"
+  },
+  "Pages": {
+    "Home": "Home",
+    "Create": "Neue Abstimmung",
+    "Legal": "Impressum und Datenschutz"
+  }
 }
