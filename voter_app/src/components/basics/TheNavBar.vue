@@ -1,17 +1,13 @@
 <template>
   <nav
-    class="navbar navbar-expand-lg fixed-bottom navbar-dark bg-dark"
+    class="navbar navbar-expand-lg fixed-bottom navbar-dark bg-primary"
     id="navbar"
   >
-    <router-link class="navbar-brand mx-3" to="/home">{{
-      $t("Voter-Service Title")
-    }}</router-link>
-
     <button
-      class="navbar-toggler"
+      class="navbar-toggler mx-3"
       type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
       aria-label="Toggle navigation"
@@ -19,8 +15,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+    <router-link class="navbar-brand mx-3" to="/home">{{
+      $t("Voter-Service Title")
+    }}</router-link>
+
+    <div class="collapse navbar-collapse mx-3" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item active">
           <router-link class="nav-link" to="/">{{
             $t("Pages.Home")
@@ -39,8 +39,8 @@
       </ul>
     </div>
 
-    <LanguageSwitcher />
-    <ProfileBadge />
+    <LanguageSwitcher class="ms-auto me-1" />
+    <ProfileBadge class="ms-1" />
   </nav>
 </template>
 

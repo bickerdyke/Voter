@@ -17,6 +17,7 @@
       </div>
     </main>
     <footer class="footer">
+      <div style="height: 7rem" />
       <TheNavBar />
     </footer>
   </div>
