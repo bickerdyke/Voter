@@ -11,25 +11,10 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 ## Benötigte Elemente
 
 - Startseite
-- Abstimmseite (Standalone)
-- Ergebnisseite (Standalone)
-- Session anlegen (Navigation/Übersicht in linker Spalte, einzelne Features rechts)
 - Abstimmungslinks (druckbar)
 - Impressum/About/Contact
 - Wartungsseite (mit script zum aktivieren)
 - NotFoundPage überarbeiten oder löschen
-
-## ToDos
-
-- @todo #1 auth-modul aus store entfernen (oder für Admin-Tools nutzen)
-- @todo #2 App.vue aufräumen (autologin, fetch products, eigenes css)
-- @todo #3 aufrufe des auth-moduls im Router entfernen
-- @todo #4 store aufräumen
-- @todo #5 alte Transitions raus - schöne neue rein
-- @todo #6 ordentliche Skalierung der Profil- und Voting-Bilder auch bei rechteckigen Bildvorlagen. Mit vernünftiger Dynamik
-- @todo #7 sanitize user input (html/Javascript incection)
-- @todo #8 ordentliche lokalisierung (Dezimaltrennzeichen in Ergebnisliste ist mal Punkt und mal Komma)
-- @todo #9 Benutzerdefinierte IDs validieren
 
 ## Benötigte Features
 
@@ -40,7 +25,6 @@ Es soll kein Benutzerkonto zur Nutzung nötig sein. Jede Session bekommt beim An
 
 - verschiedene Bewertungssysteme (Schulnoten, Punkte 1-10, Dafür/Dagegen/Enthaltung)
 - CSV-Download der Ergebnisse
-- @todo: #10 lokalisierung / Übersetzungen
 - verstecken der Ergebnisse bis alle Stimmen oder Stimmanteil abgegeben sind
 - Erzeugung druckbarer/klickbarer Liste mit Links zu den einzelnen Positionen für jeden Stimmberechtigten
 - Offene Abstimmung (kein vorheriges Anlegen der Stimmberechtigten)
