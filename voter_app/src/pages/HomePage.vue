@@ -23,6 +23,11 @@
         <router-link to="/create" class="btn btn-success"
           >Session anlegen</router-link
         >
+
+        <router-link to="/showvotinglinks/4711" class="btn btn-success"
+          >Zugangs-Urls abrufen</router-link
+        >
+
         <div>
           Für Zugang zu bestehenden Abstimmungen bitte Abstimmungs-Link
           verwenden.

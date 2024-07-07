@@ -47,11 +47,20 @@
       "invalid_GUID": "Muss eine gültige GUID sein"
     }
   },
+  "ShowLinks": {
+    "Warningtext": {
+      "p1": "Zugang zu der Session ist nur mit einer zugehörigen Url möglich. Sie finden alle benötigten URLs für diese Session auf dieser Seite:",
+      "p2": "Bitte speichern sie diese Url oder drucken oder speichern sie diese Seite."
+    },
+    "Go to Result Page": "Zur Ergebnis-Seite"
+  },
   "Edit": "Bearbeiten",
   "Remove": "Entfernen",
   "Voter-Service Title": "Easy-Vote",
   "Add": "Hinzufügen",
   "Reset": "Zurücksetzen",
+  "Clipboard Copy": "kopieren",
+  "Achtung": "Achtung!",
   "i18n": {
     "langName_de": "Deutsch",
     "langName_en-UK": "Englisch (UK)",

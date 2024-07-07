@@ -22,6 +22,14 @@ const appRoutes = [
     props: false,
   },
   {
+    path: "/showvotinglinks/:sessionId",
+    component: () =>
+      import(
+        /*webpackChunkName: 'page-homepage' */ "@/pages/ShowVotingLinks.vue"
+      ),
+    props: true,
+  },
+  {
     path: "/showresult/:sessionId",
     component: () =>
       import(/*webpackChunkName: 'page-results' */ "@/pages/ResultPage.vue"),

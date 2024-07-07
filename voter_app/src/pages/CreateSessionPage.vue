@@ -226,7 +226,7 @@ export default {
         .dispatch("addSession", payload)
         .then(() => {
           this.isLoading = false;
-          this.$router.push("/showresult/" + this.newSession.id);
+          this.$router.push("/showvotinglinks/" + this.newSession.id);
         })
         .catch((error) => {
           this.error = error.message;
