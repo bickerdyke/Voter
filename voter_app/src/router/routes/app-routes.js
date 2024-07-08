@@ -2,6 +2,7 @@ const appRoutes = [
   {
     path: "/",
     alias: "/home",
+    name: "home",
     component: () =>
       import(/*webpackChunkName: 'page-homepage' */ "@/pages/HomePage.vue"),
     /* beforeEnter: (to, from, next) => {
@@ -15,6 +16,7 @@ const appRoutes = [
   },
   {
     path: "/create",
+    name: "create",
     component: () =>
       import(
         /*webpackChunkName: 'page-homepage' */ "@/pages/CreateSessionPage.vue"
@@ -23,6 +25,7 @@ const appRoutes = [
   },
   {
     path: "/showvotinglinks/:sessionId",
+    name: "showlinks",
     component: () =>
       import(
         /*webpackChunkName: 'page-homepage' */ "@/pages/ShowVotingLinks.vue"
@@ -31,12 +34,14 @@ const appRoutes = [
   },
   {
     path: "/showresult/:sessionId",
+    name: "showresult",
     component: () =>
       import(/*webpackChunkName: 'page-results' */ "@/pages/ResultPage.vue"),
     props: true,
   },
   {
     path: "/vote/:sessionId/:userId/:votingId",
+    name: "vote",
     component: () =>
       import(/*webpackChunkName: 'page-vote' */ "@/pages/VotePage.vue"),
     props: true,

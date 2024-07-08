@@ -2,30 +2,47 @@
   <TheHomeLayout>
     <div>
       <!-- Header -->
-      <SessionHeadline v-if="isSessionLoaded" />
+      <SessionHeadline class="d-print-none" v-if="isSessionLoaded" />
 
       <!-- Alert -->
-      <div class="alert alert-danger">
+      <div
+        class="alert alert-danger shadow mb-5 d-print-none"
+        v-if="$route.query.created"
+      >
         <h3>{{ $t("Achtung") }}</h3>
         <p>{{ $t("ShowLinks.Warningtext.p1") }}</p>
         <p>
-          <a :href="currentUrl" class="user-select-all" id="showlinksUrl">{{
-            currentUrl
+          <a :href="linkPageUrl" class="user-select-all" id="showlinksUrl">{{
+            linkPageUrl
           }}</a
           >&nbsp;&nbsp;
 
+          <!-- @todo: Use icon instead of text-button -->
           <button
             class="btn btn-light btn-sm"
-            @click="copyToClipboard('showlinksUrl')"
+            @click="$root.copyToClipboard('showlinksUrl')"
           >
             {{ $t("ClipboardCopy") }}
           </button>
         </p>
         <p>{{ $t("ShowLinks.Warningtext.p2") }}</p>
+        <p>
+          <button class="btn btn-light btn-sm" @click="printpage">
+            {{ $t("PrintPage") }}
+          </button>
+        </p>
+        <!-- @todo: Button um direkt den Druck zu starten -->
       </div>
 
+      <!-- Links -->
+      <ShowVotingLinksCards
+        v-if="isSessionLoaded"
+        :linklink="linkPageUrl"
+        :resultlink="resultPageUrl"
+      ></ShowVotingLinksCards>
+
       <!-- Footer -->
-      <div class="d-grid mt-3">
+      <div class="d-grid mt-3 d-print-none">
         <router-link
           :to="'/showresult/' + currentSessionId"
           class="btn btn-primary"
@@ -41,12 +58,14 @@ import { mapGetters } from "vuex";
 
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
+import ShowVotingLinksCards from "@/components/voting/showlinks/ShowVotingLinksCards";
 
 export default {
   name: "ShowVotingLinks",
   components: {
     TheHomeLayout,
     SessionHeadline,
+    ShowVotingLinksCards,
   },
   computed: {
     ...mapGetters([
@@ -55,30 +74,28 @@ export default {
       "isAuthenticated",
       "isSessionLoaded",
     ]),
-    currentUrl() {
-      const route = this.$router.resolve(
-        "/showvotinglinks/" + this.currentSessionId
-      );
-      return new URL(
-        route.href,
-        window.location.origin // + window.location.pathname
-      ).href;
-      //@todo: Prüfen, wie sich diese Funktion mit einem gesetzten Base-Pfad verhält
+    linkPageUrl() {
+      const route = this.$router.resolve({
+        name: "showlinks",
+        params: {
+          sessionId: this.currentSessionId,
+        },
+      });
+      return new URL(route.href, window.location.origin).href;
+    },
+    resultPageUrl() {
+      const route = this.$router.resolve({
+        name: "showresult",
+        params: {
+          sessionId: this.currentSessionId,
+        },
+      });
+      return new URL(route.href, window.location.origin).href;
     },
   },
   methods: {
-    async copyToClipboard(paragraphId) {
-      try {
-        console.log("copy");
-        const element = document.querySelector("#" + paragraphId);
-        await navigator.clipboard.writeText(element.textContent);
-        console.log("copy done");
-        // Optional: Provide feedback or perform additional actions upon successful copy
-      } catch (error) {
-        console.error("Failed to copy to clipboard:", error);
-        // Optional: Handle and display the error to the user
-      }
-      console.log("function done");
+    printpage() {
+      window.print();
     },
   },
 };

@@ -40,6 +40,21 @@ export default {
       immediate: false,
     },
   },
+  methods: {
+    async copyToClipboard(paragraphId) {
+      try {
+        console.log("copy");
+        const element = document.querySelector("#" + paragraphId);
+        await navigator.clipboard.writeText(element.textContent);
+        console.log("copy done");
+        // Optional: Provide feedback or perform additional actions upon successful copy
+      } catch (error) {
+        console.error("Failed to copy to clipboard:", error);
+        // Optional: Handle and display the error to the user
+      }
+      console.log("function done");
+    },
+  },
 };
 </script>
 

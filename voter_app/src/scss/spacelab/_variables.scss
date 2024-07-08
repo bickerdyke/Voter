@@ -1,4 +1,3 @@
-
 $white: #fff;
 $gray-100: #f8f9fa;
 $gray-200: #eee;
@@ -10,16 +9,16 @@ $gray-700: #495057;
 $gray-800: #333;
 $gray-900: #2d2d2d;
 $black: #000;
-$blue: #446E9B;
+$blue: #446e9b;
 $indigo: #184867;
 $purple: #6f42c1;
 $pink: #e83e8c;
-$red: #CD0200;
+$red: #cd0200;
 $orange: #fd7e14;
-$yellow: #D47500;
-$green: #3CB521;
+$yellow: #d47500;
+$green: #3cb521;
 $teal: #20c997;
-$cyan: #3399F3;
+$cyan: #3399f3;
 $primary: $blue;
 $secondary: $gray-500;
 $success: $teal;
@@ -30,14 +29,14 @@ $light: #eaf4fa;
 $dark: $gray-800;
 $body-color: $indigo;
 $headings-color: $gray-900;
-$navbar-dark-color: rgba($white,.75);
+$navbar-dark-color: rgba($white, 0.75);
 $navbar-dark-hover-color: $white;
 $body-bg: #c7defc;
 $input-bg: $light;
 $enable-deprecation-messages: false;
 $print-page-size: a4;
 $font-family-sans-serif: "Inter",
- // Cross-platform generic font family (default user interface font)
+  // Cross-platform generic font family (default user interface font)
   system-ui,
   // Safari for macOS and iOS (San Francisco)
   -apple-system,
@@ -46,16 +45,19 @@ $font-family-sans-serif: "Inter",
   // Android
   Roboto,
   // Basic web fallback
-  "Helvetica Neue", Arial,
+  "Helvetica Neue",
+  Arial,
   // Linux
   "Noto Sans",
   "Liberation Sans",
   // Sans serif fallback
   sans-serif,
   // Emoji fonts
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $enable-gradients: true;
 $enable-shadows: true;
 $input-disabled-bg: $gray-300;
 $input-color: $indigo;
 $form-group-margin-bottom: 1.5rem;
+$card-height: 100%;

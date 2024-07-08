@@ -4,9 +4,11 @@ import routes from "./routes/index";
 
 import NotFoundPage from "@/pages/NotFoundPage.vue";
 
+const basePath = "/"; //"/app/";
+
 const router = createRouter({
   // Optionen
-  history: createWebHistory(),
+  history: createWebHistory(basePath),
   routes: [
     ...routes,
     {

@@ -44,22 +44,30 @@
       "invalid_email": "Keine gültige E-Mail-Adresse",
       "field_too_short": "{min}",
       "field_too_large": "{path} {max}",
-      "invalid_GUID": "Muss eine gültige GUID sein"
+      "invalid_GUID": "Ist keine gültige GUID"
     }
   },
   "ShowLinks": {
     "Warningtext": {
-      "p1": "Zugang zu der Session ist nur mit einer zugehörigen Url möglich. Sie finden alle benötigten URLs für diese Session auf dieser Seite:",
-      "p2": "Bitte speichern sie diese Url oder drucken oder speichern sie diese Seite."
+      "p1": "Zugang zu der Session ist nur mit einer zugehörigen Url möglich. Sie finden URLs für sie und die Teilnehmer auf dieser Seite oder unter dieser Adresse:",
+      "p2": "Geben sie diesen Link nicht an die Teilnehmer weiter. Nutzen sie stattdessen die Teilnehmer-Zugangsdaten weiter unten auf dieser Seite."
     },
-    "Go to Result Page": "Zur Ergebnis-Seite"
+    "Cards": {
+      "Heading": "Stimm-Karten",
+      "Introduction": "Hier finden sie vorgefertigte Stimm-Kärtchen für jeden angelegten Stimmberechtigten mit einem Link für jede Abstimm-Möglichkeit.",
+      "TitleAccessUrls": "Zugangsdaten",
+      "TitleResults": "Ergebnisse",
+      "CardFor": "Stimmkarte für"
+    },
+    "Go to Result Page": "Zur Stimm-Auszählung"
   },
   "Edit": "Bearbeiten",
   "Remove": "Entfernen",
   "Voter-Service Title": "Easy-Vote",
   "Add": "Hinzufügen",
   "Reset": "Zurücksetzen",
-  "Clipboard Copy": "kopieren",
+  "ClipboardCopy": "kopieren",
+  "PrintPage": "Seite drucken",
   "Achtung": "Achtung!",
   "i18n": {
     "langName_de": "Deutsch",
