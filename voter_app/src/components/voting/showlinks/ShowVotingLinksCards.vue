@@ -27,6 +27,7 @@
         :key="vId"
         :imgUrl="voting.imgUrl"
         :userId="uId"
+        :link="getVotingLink(currentSessionId, vId, uId)"
       >
         <template #title>{{ currentSessionData.title }}</template>
         <template #default
@@ -65,7 +66,22 @@ export default {
       "isSessionLoaded",
     ]),
   },
-  methods: {},
+  methods: {
+    getVotingLink(sId, vId, uId) {
+      const route = this.$router.resolve({
+        name: "vote",
+        params: {
+          sessionId: sId,
+          userId: uId,
+          votingId: vId,
+        },
+        query: {
+          autoclose: true,
+        },
+      });
+      return new URL(route.href, window.location.origin).href;
+    },
+  },
 };
 </script>
 
