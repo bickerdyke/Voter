@@ -31,10 +31,15 @@
             {{ $t("PrintPage") }}
           </button>
         </p>
-        <!-- @todo: Button um direkt den Druck zu starten -->
       </div>
 
       <!-- Links -->
+      <!--
+      @todo: Alternative Linkanzeige: Text für Emails/IM mit Clipboard-Copy
+      @todo: Alternative Linkanzeige: Cheatsheet für Moderator zum Drucken mit Beschreibung und Links
+      @todo: Alternative Linkanzeige: Karten mit Link zu vollständiger Voting-Liste
+      @todo: Alternative Linkanzeige: Auto-Close ein-und ausschalten
+      -->
       <ShowVotingLinksCards
         v-if="isSessionLoaded"
         :linklink="linkPageUrl"

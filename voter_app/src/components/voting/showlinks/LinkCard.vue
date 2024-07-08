@@ -1,4 +1,5 @@
 <template>
+  <!-- @todo: Bessere Platzausnutzung der KArte. z.B. ordentlicher Umfluss von Profilbild und QR-Code -->
   <div class="col">
     <div class="card">
       <div class="row h-100 g-0">
@@ -11,19 +12,25 @@
               <slot name="title">Card title</slot>
             </h5>
             <div class="card-text">
-              <!--<div class="position-absolute bottom-0 end-0">-->
               <div class="float-end">
                 <ProfilePicture
-                  class="m-2"
+                  class="m-2 float-end"
                   fallback="wavatar"
                   :email="currentSessionData.users[userId].email"
                   :imgUrl="currentSessionData.users[userId].imgUrl"
-                  :size="50"
+                  :size="70"
                   v-if="userId"
                 /><br />
 
                 <a :href="link" v-if="link">
-                  <ProfilePicture fallback="wavatar" class="m-2" :size="60" />
+                  <qrcode-vue
+                    :value="link"
+                    :size="100"
+                    level="M"
+                    render-as="svg"
+                    :margin="2"
+                    class="m-2"
+                  />
                 </a>
               </div>
               <div class="overflow-hidden">
@@ -45,11 +52,13 @@
 <script>
 import { mapGetters } from "vuex";
 import ProfilePicture from "@/components/ProfilePicture";
+import QrcodeVue from "qrcode.vue";
 
 export default {
   name: "LinkCard",
   components: {
     ProfilePicture,
+    QrcodeVue,
   },
   computed: {
     ...mapGetters([
