@@ -33,6 +33,15 @@ const appRoutes = [
     props: true,
   },
   {
+    path: "/uservoting/:sessionId/:userId",
+    name: "uservoting",
+    component: () =>
+      import(
+        /*webpackChunkName: 'page-homepage' */ "@/pages/UserVotingOverview.vue"
+      ),
+    props: true,
+  },
+  {
     path: "/showresult/:sessionId",
     name: "showresult",
     component: () =>
