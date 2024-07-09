@@ -15,6 +15,7 @@ const mutations = {
   },
 
   setSessionId(state, payload) {
+    state.loadComplete = false;
     state.currentSessionId = payload;
   },
 
@@ -38,6 +39,7 @@ const mutations = {
     }
 
     state.currentSessionData = payload;
+    state.loadComplete = true;
   },
 };
 const actions = {

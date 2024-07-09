@@ -1,18 +1,20 @@
 <template>
   <TheHomeLayout>
-    <div v-if="isSessionLoaded">
+    <div>
       <!-- Header -->
-      <SessionHeadline />
+      <SessionHeadline v-if="isLoaded" />
 
       <!-- Voting description -->
-      <ImageAndDescription
-        :imgUrl="voting.imgUrl"
-        :description="voting.description"
-        :imageRight="true"
-      ></ImageAndDescription>
+      <div class="row" v-if="isLoaded">
+        <ImageAndDescription
+          :imgUrl="voting.imgUrl"
+          :description="voting.description"
+          :imageRight="true"
+        ></ImageAndDescription>
+      </div>
 
+      <!-- Bereits Stimme abgegeben? -->
       <div class="row">
-        <!-- Bereits Stimme abgegeben? -->
         <div class="col-12 text-center" v-if="vote">
           <div class="card-title display-6 m-3">
             Sie haben für <i>{{ voting.title }}</i> abgestimmt:
@@ -21,14 +23,18 @@
             <VoteDisplay :votingId="votingId" :userId="userId" />
           </div>
         </div>
+      </div>
 
-        <!-- Abstimmen -->
+      <!-- Abstimmen -->
+      <div class="row">
         <div class="alert alert-danger col-12" v-if="errorMessage">
           <strong>Fehler</strong>
           <br />
           {{ errorMessage }}
         </div>
+      </div>
 
+      <div class="row" v-if="isLoaded">
         <div class="text-center col-12" v-if="!vote">
           <div class="display-6 m-3">
             Bitte ihre Meinung für <i>{{ voting.title }}</i> abgeben:
@@ -39,7 +45,7 @@
 
       <!-- Footer-Features-->
       <div class="row my-3">
-        <router-link :to="resultPage" class="btn btn-primary"
+        <router-link :to="resultPageRoute" class="btn btn-primary"
           >Ergebnis</router-link
         >
       </div>
@@ -67,6 +73,7 @@ export default {
   },
   data() {
     return {
+      isLoaded: false,
       errorMessage: "",
     };
   },
@@ -85,21 +92,20 @@ export default {
         ? this.$store.getters.vote(this.votingId, this.userId)
         : "";
     },
-    resultPage() {
-      const route = this.$router.resolve({
-        name: "showresult",
-        params: {
-          sessionId: this.currentSessionId,
-        },
-      });
-      return new URL(route.href, window.location.origin).href;
-    },
     ...mapGetters([
       "currentSessionId",
       "currentSessionData",
       "isAuthenticated",
       "isSessionLoaded",
     ]),
+    resultPageRoute() {
+      return this.$router.resolve({
+        name: "showresult",
+        params: {
+          sessionId: this.currentSessionId,
+        },
+      });
+    },
   },
   methods: {
     voted(vote) {
@@ -122,6 +128,14 @@ export default {
     },
     clearError() {
       this.errorMessage = "";
+    },
+  },
+  watch: {
+    isSessionLoaded: {
+      handler() {
+        this.isLoaded = this.isSessionLoaded;
+      },
+      immediate: true,
     },
   },
 };
