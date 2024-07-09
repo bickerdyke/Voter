@@ -137,7 +137,7 @@
 
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
-import ProfilePicture from "@/components/ProfilePicture.vue";
+import ProfilePicture from "@/components/ProfilePicture";
 import { userValidationSchema } from "./validations";
 
 export default {

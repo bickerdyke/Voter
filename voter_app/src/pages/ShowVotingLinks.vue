@@ -2,20 +2,56 @@
   <TheHomeLayout>
     <div>
       <!-- Header -->
-      <SessionHeadline v-if="isSessionLoaded" />
+      <SessionHeadline class="d-print-none" v-if="isSessionLoaded" />
 
-      
-      <!-- Session description -->
-      <ImageAndDescription
-        :imgUrl="currentSessionData.imgUrl"
-        :description="currentSessionData.description"
+      <!-- Alert -->
+      <div
+        class="alert alert-danger shadow mb-5 d-print-none"
+        v-if="$route.query.created"
+      >
+        <h3>{{ $t("Achtung") }}</h3>
+        <p>{{ $t("ShowLinks.Warningtext.p1") }}</p>
+        <p>
+          <a :href="linkPageUrl" class="user-select-all" id="showlinksUrl">{{
+            linkPageUrl
+          }}</a
+          >&nbsp;&nbsp;
+
+          <!-- @todo: Use icon instead of text-button -->
+          <button
+            class="btn btn-light btn-sm"
+            @click="$root.copyToClipboard('showlinksUrl')"
+          >
+            {{ $t("ClipboardCopy") }}
+          </button>
+        </p>
+        <p>{{ $t("ShowLinks.Warningtext.p2") }}</p>
+        <p>
+          <button class="btn btn-light btn-sm" @click="printpage">
+            {{ $t("PrintPage") }}
+          </button>
+        </p>
+      </div>
+
+      <!-- Links -->
+      <!--
+      @todo: Alternative Linkanzeige: Text für Emails/IM mit Clipboard-Copy
+      @todo: Alternative Linkanzeige: Cheatsheet für Moderator zum Drucken mit Beschreibung und Links
+      @todo: Alternative Linkanzeige: Karten mit Link zu vollständiger Voting-Liste
+      @todo: Alternative Linkanzeige: Auto-Close ein-und ausschalten
+      -->
+      <ShowVotingLinksCards
         v-if="isSessionLoaded"
-      ></ImageAndDescription>
+        :linklink="linkPageUrl"
+        :resultlink="resultPageUrl"
+      ></ShowVotingLinksCards>
 
-      <!-- Footer-Features-->
-      <div class="row my-3">
-        <router-link to="/" class="btn btn-primary"
-          >Neue Abstimmung anlegen</router-link
+      <!-- Footer -->
+      <div class="d-grid mt-3 d-print-none">
+        <router-link
+          :to="'/showresult/' + currentSessionId"
+          class="btn btn-primary"
+          >{{ $t("ShowLinks.Go to Result Page") }}</router-link
         >
       </div>
     </div>
@@ -27,12 +63,14 @@ import { mapGetters } from "vuex";
 
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
+import ShowVotingLinksCards from "@/components/voting/showlinks/ShowVotingLinksCards";
 
 export default {
-  name: "ResultPage",
+  name: "ShowVotingLinks",
   components: {
     TheHomeLayout,
     SessionHeadline,
+    ShowVotingLinksCards,
   },
   computed: {
     ...mapGetters([
@@ -41,6 +79,29 @@ export default {
       "isAuthenticated",
       "isSessionLoaded",
     ]),
+    linkPageUrl() {
+      const route = this.$router.resolve({
+        name: "showlinks",
+        params: {
+          sessionId: this.currentSessionId,
+        },
+      });
+      return new URL(route.href, window.location.origin).href;
+    },
+    resultPageUrl() {
+      const route = this.$router.resolve({
+        name: "showresult",
+        params: {
+          sessionId: this.currentSessionId,
+        },
+      });
+      return new URL(route.href, window.location.origin).href;
+    },
+  },
+  methods: {
+    printpage() {
+      window.print();
+    },
   },
 };
 </script>

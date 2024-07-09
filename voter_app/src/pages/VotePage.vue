@@ -30,7 +30,7 @@
           {{ errorMessage }}
         </div>
 
-        <div class="text-center col-12" v-if="!vote">
+        <div class="text-center col-12" v-if="isSessionLoaded && !vote">
           <div class="display-6 m-3">
             Bitte ihre Meinung für <i>{{ voting.title }}</i> abgeben:
           </div>
@@ -82,7 +82,7 @@ export default {
         : "";
     },
     vote() {
-      return this.isAuthenticated
+      return this.isSessionLoaded && this.isAuthenticated
         ? this.$store.getters.vote(this.votingId, this.userId)
         : "";
     },
@@ -107,7 +107,9 @@ export default {
 
       this.$store
         .dispatch("castVote", payload)
-        .then(() => {})
+        .then(() => {
+          // @todo: Auto-Close implementieren. (query-Parameter autoclose=true)
+        })
         .catch((err) => {
           this.errorMessage = err;
           console.error(err);

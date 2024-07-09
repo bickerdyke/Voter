@@ -3,11 +3,12 @@ const webpack = require("webpack");
 
 module.exports = defineConfig({
   transpileDependencies: true,
+  //publicPath: "/app/", // Server path. Also configure in router/index.js
   pages: {
     index: {
-      entry: 'src/main.js',
-      title: 'Easy-Vote'
-    }
+      entry: "src/main.js",
+      title: "Easy-Vote",
+    },
   },
   configureWebpack: {
     devServer: {

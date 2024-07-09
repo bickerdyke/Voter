@@ -226,7 +226,15 @@ export default {
         .dispatch("addSession", payload)
         .then(() => {
           this.isLoading = false;
-          this.$router.push("/showresult/" + this.newSession.id);
+          this.$router.push({
+            name: "showlinks",
+            params: {
+              sessionId: this.newSession.id,
+            },
+            query: {
+              created: true,
+            },
+          });
         })
         .catch((error) => {
           this.error = error.message;
