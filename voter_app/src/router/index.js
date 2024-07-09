@@ -27,13 +27,12 @@ router.beforeEach((to) => {
 
   console.log("Check for Routeupdate");
   const sessionId = to.params.sessionId;
-  if (!sessionId) {
-    return;
-  }
-  // Update session in store from database if neccessary
-  if (store.getters.currentSessionId !== sessionId) {
-    console.log("Updating session from Route");
-    store.commit("setSessionId", sessionId);
+  if (sessionId) {
+    // Update session in store from database if neccessary
+    if (store.getters.currentSessionId !== sessionId) {
+      console.log("Updating session from Route");
+      store.commit("setSessionId", sessionId);
+    }
   }
 });
 

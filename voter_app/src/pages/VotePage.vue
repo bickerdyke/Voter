@@ -1,18 +1,17 @@
 <template>
   <TheHomeLayout>
-    <div>
+    <div v-if="isSessionLoaded">
       <!-- Header -->
-      <SessionHeadline v-if="isSessionLoaded" />
+      <SessionHeadline />
 
       <!-- Voting description -->
       <ImageAndDescription
         :imgUrl="voting.imgUrl"
         :description="voting.description"
         :imageRight="true"
-        v-if="isSessionLoaded"
       ></ImageAndDescription>
 
-      <div class="row" v-if="isSessionLoaded">
+      <div class="row">
         <!-- Bereits Stimme abgegeben? -->
         <div class="col-12 text-center" v-if="vote">
           <div class="card-title display-6 m-3">
@@ -30,7 +29,7 @@
           {{ errorMessage }}
         </div>
 
-        <div class="text-center col-12" v-if="isSessionLoaded && !vote">
+        <div class="text-center col-12" v-if="!vote">
           <div class="display-6 m-3">
             Bitte ihre Meinung für <i>{{ voting.title }}</i> abgeben:
           </div>
@@ -77,7 +76,7 @@ export default {
   },
   computed: {
     voting() {
-      return this.isAuthenticated
+      return this.isSessionLoaded && this.isAuthenticated
         ? this.$store.getters.voting(this.votingId)
         : "";
     },
@@ -87,7 +86,13 @@ export default {
         : "";
     },
     resultPage() {
-      return "/showresult/" + this.currentSessionId;
+      const route = this.$router.resolve({
+        name: "showresult",
+        params: {
+          sessionId: this.currentSessionId,
+        },
+      });
+      return new URL(route.href, window.location.origin).href;
     },
     ...mapGetters([
       "currentSessionId",
