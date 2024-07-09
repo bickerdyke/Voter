@@ -2,7 +2,12 @@ export const getters = {
   currentSessionId: (state) => state.currentSessionId,
   currentSessionData: (state) => state.currentSessionData,
   isSessionLoaded: (state) => {
-    return !(!state.currentSessionId || !state.currentSessionData);
+    const status =
+      state.loadComplete &&
+      state.currentSessionId &&
+      state.currentSessionData &&
+      state.currentSessionData.votings;
+    return status;
   },
 
   voting: (state) => (votingId) => {

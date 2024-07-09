@@ -2,7 +2,7 @@
   <TheHomeLayout>
     <div>
       <!-- Header -->
-      <SessionHeadline class="d-print-none" v-if="isSessionLoaded" />
+      <SessionHeadline class="d-print-none" v-if="isLoaded" />
 
       <!-- Alert -->
       <div
@@ -41,18 +41,16 @@
       @todo: Alternative Linkanzeige: Auto-Close ein-und ausschalten
       -->
       <ShowVotingLinksCards
-        v-if="isSessionLoaded"
+        v-if="isLoaded"
         :linklink="linkPageUrl"
         :resultlink="resultPageUrl"
       ></ShowVotingLinksCards>
 
       <!-- Footer -->
       <div class="d-grid mt-3 d-print-none">
-        <router-link
-          :to="'/showresult/' + currentSessionId"
-          class="btn btn-primary"
-          >{{ $t("ShowLinks.Go to Result Page") }}</router-link
-        >
+        <router-link :to="resultPageRoute" class="btn btn-primary">{{
+          $t("ShowLinks.Go to Result Page")
+        }}</router-link>
       </div>
     </div>
   </TheHomeLayout>
@@ -72,6 +70,11 @@ export default {
     SessionHeadline,
     ShowVotingLinksCards,
   },
+  data() {
+    return {
+      isLoaded: false,
+    };
+  },
   computed: {
     ...mapGetters([
       "currentSessionId",
@@ -88,19 +91,29 @@ export default {
       });
       return new URL(route.href, window.location.origin).href;
     },
-    resultPageUrl() {
-      const route = this.$router.resolve({
+    resultPageRoute() {
+      return this.$router.resolve({
         name: "showresult",
         params: {
           sessionId: this.currentSessionId,
         },
       });
-      return new URL(route.href, window.location.origin).href;
+    },
+    resultPageUrl() {
+      return new URL(this.resultPageRoute.href, window.location.origin).href;
     },
   },
   methods: {
     printpage() {
       window.print();
+    },
+  },
+  watch: {
+    isSessionLoaded: {
+      handler() {
+        this.isLoaded = this.isSessionLoaded;
+      },
+      immediate: true,
     },
   },
 };
