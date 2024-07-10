@@ -2,7 +2,7 @@
   <TheHomeLayout>
     <div>
       <!-- Header -->
-      <SessionHeadline class="d-print-none" v-if="isLoaded" />
+      <SessionHeadline v-if="isLoaded" />
 
       <!-- Alert -->
       <div
@@ -37,7 +37,7 @@
       <p>{{ $t("ShowLinks.Introduction") }}</p>
 
       <!-- Optionen -->
-      <div>
+      <div class="d-print-none">
         <form>
           <div class="form-check form-check-inline">
             <input
@@ -85,8 +85,6 @@
       <!--
       @todo: Alternative Linkanzeige: Text für Emails/IM mit Clipboard-Copy
       @todo: Alternative Linkanzeige: Cheatsheet für Moderator zum Drucken mit Beschreibung und Links
-      @todo: Alternative Linkanzeige: Karten mit Link zu vollständiger Voting-Liste
-      @todo: Alternative Linkanzeige: Auto-Close ein-und ausschalten
       -->
 
       <div v-if="isLoaded">
