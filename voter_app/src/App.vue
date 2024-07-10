@@ -60,5 +60,6 @@ export default {
 
 <style lang="scss">
 @import "./scss/bootstrap.scss";
+@import "./scss/print.scss";
 @import "~animate.css/animate.min.css";
 </style>

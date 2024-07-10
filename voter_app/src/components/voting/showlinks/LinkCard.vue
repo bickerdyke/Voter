@@ -1,6 +1,6 @@
 <template>
   <!-- @todo: Bessere Platzausnutzung der KArte. z.B. ordentlicher Umfluss von Profilbild und QR-Code -->
-  <div class="col">
+  <div class="col col-print-6">
     <div class="card">
       <div class="row h-100 g-0">
         <div class="col-3 d-flex align-items-center" v-if="useImage">
@@ -25,7 +25,7 @@
                 <a :href="link" v-if="link">
                   <qrcode-vue
                     :value="link"
-                    :size="100"
+                    :size="70"
                     level="M"
                     render-as="svg"
                     :margin="2"

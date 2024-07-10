@@ -6,7 +6,9 @@
 
       <!-- Results-->
       <div class="row my-3">
-        <div class="col-12"><ResultTable v-if="isSessionLoaded" /></div>
+        <div class="col-12">
+          <ResultTable v-if="isSessionLoaded" :userfilter="userId" />
+        </div>
       </div>
 
       <!-- Session description -->
@@ -30,12 +32,15 @@ import SessionHeadline from "@/components/SessionHeadline";
 import ImageAndDescription from "@/components/ImageAndDescription";
 
 export default {
-  name: "ResultPage",
+  name: "UserVotingOverview",
   components: {
     TheHomeLayout,
     ResultTable,
     SessionHeadline,
     ImageAndDescription,
+  },
+  props: {
+    userId: String,
   },
   computed: {
     ...mapGetters([

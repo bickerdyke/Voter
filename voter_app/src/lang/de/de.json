@@ -52,14 +52,23 @@
       "p1": "Zugang zu der Session ist nur mit einer zugehörigen Url möglich. Sie finden URLs für sie und die Teilnehmer auf dieser Seite oder unter dieser Adresse:",
       "p2": "Geben sie diesen Link nicht an die Teilnehmer weiter. Nutzen sie stattdessen die Teilnehmer-Zugangsdaten weiter unten auf dieser Seite."
     },
+    "options": {
+      "cards": "Stimmkarten (zum Drucken)",
+      "text": "Text (Email oder Messenger)",
+      "singlevotes": "Einzelne Abstimmungen"
+    },
     "Cards": {
-      "Heading": "Stimm-Karten",
-      "Introduction": "Hier finden sie vorgefertigte Stimm-Kärtchen für jeden angelegten Stimmberechtigten mit einem Link für jede Abstimm-Möglichkeit.",
       "TitleAccessUrls": "Zugangsdaten",
       "TitleResults": "Ergebnisse",
       "CardFor": "Stimmkarte für"
     },
+    "Heading": "Stimm-Karten",
+    "Introduction": "Hier finden sie vorgefertigte Stimm-Kärtchen für jeden angelegten Stimmberechtigten mit einem Link für jede Abstimm-Möglichkeit.",
     "Go to Result Page": "Zur Stimm-Auszählung"
+  },
+  "Showresult": {
+    "Result": "Ergebnis",
+    "vote": "Abstimmen"
   },
   "Edit": "Bearbeiten",
   "Remove": "Entfernen",
