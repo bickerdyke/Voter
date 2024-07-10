@@ -33,6 +33,54 @@
         </p>
       </div>
 
+      <h4>{{ $t("ShowLinks.Heading") }}</h4>
+      <p>{{ $t("ShowLinks.Introduction") }}</p>
+
+      <!-- Optionen -->
+      <div>
+        <form>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="linkOutputStyleOptions"
+              id="optioncards"
+              value="cards"
+              v-model="linkstyle"
+            />
+            <label class="form-check-label" for="optioncards">{{
+              $t("ShowLinks.options.cards")
+            }}</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="linkOutputStyleOptions"
+              id="optiontext"
+              value="text"
+              v-model="linkstyle"
+              disabled
+            />
+            <label class="form-check-label" for="optiontext">{{
+              $t("ShowLinks.options.text")
+            }}</label>
+          </div>
+          <div class="form-check form-switch form-check-inline">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="optionsinglevote"
+              v-model="singlevote"
+            />
+            <label class="form-check-label" for="optionsinglevote">{{
+              $t("ShowLinks.options.singlevotes")
+            }}</label>
+          </div>
+        </form>
+      </div>
+
       <!-- Links -->
       <!--
       @todo: Alternative Linkanzeige: Text für Emails/IM mit Clipboard-Copy
@@ -40,11 +88,16 @@
       @todo: Alternative Linkanzeige: Karten mit Link zu vollständiger Voting-Liste
       @todo: Alternative Linkanzeige: Auto-Close ein-und ausschalten
       -->
-      <ShowVotingLinksCards
-        v-if="isLoaded"
-        :linklink="linkPageUrl"
-        :resultlink="resultPageUrl"
-      ></ShowVotingLinksCards>
+
+      <div v-if="isLoaded">
+        <ShowVotingLinksCards
+          v-if="linkstyle === 'cards'"
+          :linklink="linkPageUrl"
+          :resultlink="resultPageUrl"
+          :singlevotinglinks="singlevote"
+        ></ShowVotingLinksCards>
+        <p v-else-if="linkstyle === 'text'">Dummy-Text</p>
+      </div>
 
       <!-- Footer -->
       <div class="d-grid mt-3 d-print-none">
@@ -73,6 +126,8 @@ export default {
   data() {
     return {
       isLoaded: false,
+      linkstyle: "cards",
+      singlevote: true,
     };
   },
   computed: {

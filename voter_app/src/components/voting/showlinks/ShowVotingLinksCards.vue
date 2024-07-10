@@ -1,7 +1,5 @@
 <template>
   <!-- Links -->
-  <h4>{{ $t("ShowLinks.Cards.Heading") }}</h4>
-  <p>{{ $t("ShowLinks.Cards.Introduction") }}</p>
   <hr />
 
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
@@ -19,20 +17,40 @@
     >
   </div>
 
-  <template v-for="(user, uId) in currentSessionData.users" :key="uId">
+  <template v-if="singlevotinglinks">
+    <template v-for="(user, uId) in currentSessionData.users" :key="uId">
+      <hr style="page-break-after: always" />
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+        <LinkCard
+          v-for="(voting, vId) in currentSessionData.votings"
+          :key="vId"
+          :imgUrl="voting.imgUrl"
+          :userId="uId"
+          :link="getVotingLink(currentSessionId, vId, uId)"
+        >
+          <template #title>{{ currentSessionData.title }}</template>
+          <template #default
+            ><p>{{ voting.title }}</p>
+            <p>{{ $t("ShowLinks.Cards.CardFor") }} {{ user.name }}</p>
+          </template>
+        </LinkCard>
+      </div>
+    </template>
+  </template>
+  <template v-else>
     <hr style="page-break-after: always" />
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
       <LinkCard
-        v-for="(voting, vId) in currentSessionData.votings"
-        :key="vId"
-        :imgUrl="voting.imgUrl"
+        :imgUrl="currentSessionData.imgUrl"
         :userId="uId"
-        :link="getVotingLink(currentSessionId, vId, uId)"
+        :link="getVotingLink(currentSessionId, null, uId)"
+        v-for="(user, uId) in currentSessionData.users"
+        :key="uId"
       >
         <template #title>{{ currentSessionData.title }}</template>
         <template #default
-          >{{ voting.title }}<br />{{ $t("ShowLinks.Cards.CardFor") }}
-          {{ user.name }}
+          ><p>{{ currentSessionData.subtitle }}</p>
+          <p>{{ $t("ShowLinks.Cards.CardFor") }} {{ user.name }}</p>
         </template>
       </LinkCard>
     </div>
@@ -57,6 +75,10 @@ export default {
       type: String,
       required: true,
     },
+    singlevotinglinks: {
+      type: Boolean,
+      required: true,
+    },
   },
   computed: {
     ...mapGetters([
@@ -68,17 +90,28 @@ export default {
   },
   methods: {
     getVotingLink(sId, vId, uId) {
-      const route = this.$router.resolve({
-        name: "vote",
-        params: {
-          sessionId: sId,
-          userId: uId,
-          votingId: vId,
-        },
-        query: {
-          autoclose: true,
-        },
-      });
+      let route;
+      if (vId) {
+        route = this.$router.resolve({
+          name: "vote",
+          params: {
+            sessionId: sId,
+            userId: uId,
+            votingId: vId,
+          },
+          query: {
+            autoclose: true,
+          },
+        });
+      } else {
+        route = this.$router.resolve({
+          name: "uservoting",
+          params: {
+            sessionId: sId,
+            userId: uId,
+          },
+        });
+      }
       return new URL(route.href, window.location.origin).href;
     },
   },

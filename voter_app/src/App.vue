@@ -61,4 +61,8 @@ export default {
 <style lang="scss">
 @import "./scss/bootstrap.scss";
 @import "~animate.css/animate.min.css";
+
+.card {
+  break-inside: avoid;
+}
 </style>
