@@ -34,6 +34,7 @@ const appRoutes = [
   },
   {
     path: "/uservoting/:sessionId/:userId",
+    alias: "/showresult/:sessionId/:userId",
     name: "uservoting",
     component: () =>
       import(
