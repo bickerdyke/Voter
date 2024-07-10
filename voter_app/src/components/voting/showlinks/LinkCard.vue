@@ -1,10 +1,20 @@
 <template>
-  <!-- @todo: Bessere Platzausnutzung der KArte. z.B. ordentlicher Umfluss von Profilbild und QR-Code -->
   <div class="col col-print-6">
     <div class="card">
       <div class="row h-100 g-0">
-        <div class="col-3 d-flex align-items-center" v-if="useImage">
-          <img class="card-img-top w-100 m-1" :src="imgUrl" />
+        <div
+          class="col-3 d-flex flex-column align-items-center"
+          v-if="useImage"
+        >
+          <img class="w-100 m-1" :src="imgUrl" />
+          <ProfilePicture
+            class="m-1"
+            fallback="wavatar"
+            :email="currentSessionData.users[userId].email"
+            :imgUrl="currentSessionData.users[userId].imgUrl"
+            :size="70"
+            v-if="userId"
+          />
         </div>
         <div :class="useImage ? 'col-9' : 'col-12'">
           <div class="card-body">
@@ -12,35 +22,23 @@
               <slot name="title">Card title</slot>
             </h5>
             <div class="card-text">
-              <div class="float-end">
-                <ProfilePicture
-                  class="m-2 float-end"
-                  fallback="wavatar"
-                  :email="currentSessionData.users[userId].email"
-                  :imgUrl="currentSessionData.users[userId].imgUrl"
-                  :size="70"
-                  v-if="userId"
-                /><br />
-
+              <div class="float-end ms-1 mb-1">
                 <a :href="link" v-if="link">
                   <qrcode-vue
                     :value="link"
                     :size="70"
                     level="M"
                     render-as="svg"
-                    :margin="2"
-                    class="m-2"
+                    :margin="0"
                   />
                 </a>
               </div>
-              <div class="overflow-hidden">
-                <slot
-                  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                  obcaecati quis vero voluptate quam consectetur reiciendis!
-                  Animi voluptates maiores ratione omnis, earum ab temporibus
-                  consequatur facilis, eaque minima tempora iusto!
-                </slot>
-              </div>
+              <slot
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+                obcaecati quis vero voluptate quam consectetur reiciendis! Animi
+                voluptates maiores ratione omnis, earum ab temporibus
+                consequatur facilis, eaque minima tempora iusto!
+              </slot>
             </div>
           </div>
         </div>

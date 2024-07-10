@@ -28,7 +28,9 @@
           :userId="uId"
           :link="getVotingLink(currentSessionId, vId, uId)"
         >
-          <template #title>{{ currentSessionData.title }}</template>
+          <template #title
+            ><p>{{ currentSessionData.title }}</p></template
+          >
           <template #default
             ><p>{{ voting.title }}</p>
             <p>{{ $t("ShowLinks.Cards.CardFor") }} {{ user.name }}</p>
