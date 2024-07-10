@@ -1,9 +1,9 @@
 <template>
   <table class="table table-bordered border-secondary">
     <thead>
-      <tr class="text-center">
+      <tr class="text-center align-top">
         <th></th>
-        <th v-for="(user, userId) in currentSessionData.users" :key="userId">
+        <th v-for="(user, userId) in filteredUsers" :key="userId">
           <div class="my-1">
             <ProfilePicture
               :email="user.email"
@@ -17,8 +17,8 @@
             <span v-if="showIds">({{ userId }})</span> {{ user.name }}
           </div>
         </th>
-        <th>
-          <div class="my-1">Ergebnis</div>
+        <th v-if="!userfilter" class="align-bottom">
+          <div class="my-1">{{ $t("Showresult.Result") }}</div>
         </th>
       </tr>
     </thead>
@@ -26,6 +26,7 @@
       <tr
         v-for="(voting, votingId) in currentSessionData.votings"
         :key="votingId"
+        class="align-middle"
       >
         <td>
           <img
@@ -34,25 +35,50 @@
             style="width: 70px; height: 70px; object-fit: cover"
             v-if="voting.imgUrl"
           />
-          <div class="m-3">
+          <div class="m-3 text-left">
             <p class="fw-bolder d-none d-sm-block">
               <span v-if="showIds">({{ votingId }})</span>
               {{ voting.title }}
             </p>
-            <p class="d-none d-md-block">{{ voting.description }}</p>
+            <p class="d-none d-md-block" v-if="showDescriptions">
+              {{ voting.description }}
+            </p>
           </div>
         </td>
-        <td v-for="(user, userId) in currentSessionData.users" :key="userId">
-          <div class="text-right align-bottom">
-            <router-link :to="voteLink(currentSessionId, votingId, userId)"
-              ><font-awesome-icon icon="circle-arrow-right" class="fa-2xs"
-            /></router-link>
-          </div>
-          <div class="text-center align-middle display-6">
-            <VoteDisplay :votingId="votingId" :userId="userId" />
-          </div>
+        <td
+          v-for="(user, userId) in filteredUsers"
+          :key="userId"
+          class="text-center"
+        >
+          <template v-if="userfilter">
+            <!-- Display for single-User view -->
+            <div class="display-6">
+              <VoteDisplay
+                :votingId="votingId"
+                :userId="userId"
+                v-if="vote(votingId, userId)"
+              />
+              <router-link
+                :to="getVotingRoute(votingId, userId)"
+                class="btn btn-secondary"
+                v-else
+                ><font-awesome-icon
+                  icon="circle-arrow-right"
+                ></font-awesome-icon>
+                &nbsp; {{ $t("Showresult.vote") }}</router-link
+              >
+            </div>
+          </template>
+          <template v-else>
+            <!-- Display for regular result view -->
+            <!-- Identical at the moment, but
+              @todo: Ergebnis nicht anzeigen wenn Quorum noch nicht erreicht wurde -->
+            <div class="display-6">
+              <VoteDisplay :votingId="votingId" :userId="userId" />
+            </div>
+          </template>
         </td>
-        <td class="text-center align-middle display-6 fw-bold">
+        <td class="display-6 fw-bold" v-if="!userfilter">
           <VoteAverage :votingId="votingId" />
         </td>
       </tr>
@@ -81,16 +107,42 @@ export default {
       "isAuthenticated",
       "isSessionLoaded",
     ]),
+    filteredUsers() {
+      return !this.userfilter
+        ? this.currentSessionData.users
+        : { [this.userfilter]: this.currentSessionData.users[this.userfilter] };
+    },
   },
   props: {
     showIds: {
       type: Boolean,
       default: false,
     },
+    showDescriptions: {
+      type: Boolean,
+      default: false,
+    },
+    userfilter: {
+      type: String,
+      default: null,
+    },
   },
   methods: {
     voteLink(sId, vId, uId) {
       return `/vote/${sId}/${uId}/${vId}`;
+    },
+    vote(vId, uId) {
+      return this.$store.getters.vote(vId, uId) != null;
+    },
+    getVotingRoute(vId, uId) {
+      return this.$router.resolve({
+        name: "vote",
+        params: {
+          sessionId: this.currentSessionId,
+          userId: uId,
+          votingId: vId,
+        },
+      });
     },
   },
 };
