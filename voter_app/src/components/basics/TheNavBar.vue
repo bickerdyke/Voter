@@ -15,9 +15,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <router-link class="navbar-brand mx-3" to="/home">{{
-      $t("Voter-Service Title")
-    }}</router-link>
+    <router-link class="navbar-brand mx-3" to="/home"
+      ><font-awesome-icon
+        icon="square-poll-vertical"
+        class="text-light me-2"
+        size="2xl"
+      ></font-awesome-icon
+      >&nbsp;{{ $t("Voter-Service Title") }}</router-link
+    >
 
     <div class="collapse navbar-collapse mx-3" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">

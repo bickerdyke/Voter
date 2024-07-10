@@ -60,11 +60,13 @@
               />
               <router-link
                 :to="getVotingRoute(votingId, userId)"
-                class="btn btn-secondary"
+                class="btn btn-primary"
                 v-else
                 ><font-awesome-icon
-                  icon="circle-arrow-right"
-                ></font-awesome-icon>
+                  icon="square-poll-vertical"
+                  class="text-light"
+                  size="2xl"
+                />
                 &nbsp; {{ $t("Showresult.vote") }}</router-link
               >
             </div>

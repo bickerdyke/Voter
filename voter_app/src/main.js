@@ -5,14 +5,10 @@ import router from "./router";
 import i18n from "./lang/i18n";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faCircleArrowRight,
-  faCircleXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSquarePollVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faCircleArrowRight);
-library.add(faCircleXmark);
+library.add(faSquarePollVertical);
 
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);

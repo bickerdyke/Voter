@@ -37,12 +37,13 @@
       v-if="isEditing"
       :initialValues="initialValues"
     >
+      <!-- @todo: Platzhalter mit Logo versehen -->
       <div class="row py-3">
         <div class="p-3 col-4 text-center">
           <img
             class="rounded-4 img-fluid d-block mx-auto d-fill"
             style="width: 100%; max-width: 100%; object-fit: cover"
-            src="https://placeholder.com/150"
+            src="@/assets/placeholder.png"
           />
         </div>
         <div class="col-8 py-3">
