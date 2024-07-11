@@ -1,4 +1,19 @@
 {
+  "Voter-Service Title": "Easy-Vote",
+  "Voter-Service Tagline": "Abstimmungen leicht gemacht",
+  "Remove": "Entfernen",
+  "Add": "Hinzufügen",
+  "Reset": "Zurücksetzen",
+  "ClipboardCopy": "kopieren",
+  "PrintPage": "Seite drucken",
+  "Achtung": "Achtung!",
+  "Error": "Es ist ein Fehler aufgetreten:",
+  "Pages": {
+    "Home": "Home",
+    "Create": "Neue Abstimmung",
+    "Legal": "Impressum und Datenschutz"
+  },
+
   "CreateSession": {
     "introduction": "Erstellen sie eine neue Abstimmungssession. Geben sie dazu die wichtigsten Daten wie einen aussagekräftigen Namen und Beschreibung ein, sowie eine Liste der Abstimmungsposten und stimmberechtigten Nutzern.",
     "form": {
@@ -47,6 +62,7 @@
       "invalid_GUID": "Ist keine gültige GUID"
     }
   },
+
   "ShowLinks": {
     "Warningtext": {
       "p1": "Zugang zu der Session ist nur mit einer zugehörigen Url möglich. Sie finden URLs für sie und die Teilnehmer auf dieser Seite oder unter dieser Adresse:",
@@ -66,6 +82,7 @@
     "Introduction": "Hier finden sie vorgefertigte Stimm-Kärtchen für jeden angelegten Stimmberechtigten mit einem Link für jede Abstimm-Möglichkeit.",
     "Go to Result Page": "Zur Stimm-Auszählung"
   },
+
   "Voting": {
     "result": "Zur Auszählung",
     "pleaseVote": "Bitte ihre Meinung abgeben:",
@@ -75,27 +92,15 @@
     "votingSlider": "Bitte mit dem Schieberegler ihre Wertung einstellen.",
     "voteSliderPoints": "{pts} Punkte vergeben"
   },
+
   "Showresult": {
     "Result": "Ergebnis",
     "vote": "Abstimmen"
   },
-  "Edit": "Bearbeiten",
-  "Remove": "Entfernen",
-  "Voter-Service Title": "Easy-Vote",
-  "Add": "Hinzufügen",
-  "Reset": "Zurücksetzen",
-  "ClipboardCopy": "kopieren",
-  "PrintPage": "Seite drucken",
-  "Achtung": "Achtung!",
-  "Error": "Es ist ein Fehler aufgetreten:",
+
   "i18n": {
     "langName_de": "Deutsch",
     "langName_en-UK": "Englisch (UK)",
     "langName_en-US": "Englisch (US)"
-  },
-  "Pages": {
-    "Home": "Home",
-    "Create": "Neue Abstimmung",
-    "Legal": "Impressum und Datenschutz"
   }
 }
