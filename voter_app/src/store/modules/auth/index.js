@@ -51,7 +51,7 @@ const actions = {
           localStorage.setItem("expiresAt", new Date().getTime() + expiresIn);
 
           timer = setTimeout(() => {
-            //@todo: auto-refresh statt auto-Signout. Könnte ewig neue anonyme Nutzer in der Nutzerverwaltung anlegen
+            //@todo: #42 auto-refresh statt auto-Signout. Könnte ewig neue anonyme Nutzer in der Nutzerverwaltung anlegen
             context.dispatch("autoSignout");
           }, expiresIn);
 
@@ -150,7 +150,7 @@ const actions = {
             // Problem beim Token-Refresh beim Anmeldungsstart.
             // z.B. User-Account in Firebase gelöscht oder Session beendet
             // --> doch wieder neu anonym anmelden um eine Session zu bekommen
-            // @todo: evtl. unangemeldeten Status einführen
+            // @todo: #43 evtl. unangemeldeten Status einführen
             context.dispatch("signinAnonymous").then(() => {
               resolve();
             });

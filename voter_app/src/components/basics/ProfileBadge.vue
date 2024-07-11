@@ -12,7 +12,7 @@
 </template>
 
 <script>
-//@todo: Pop-Up mit aktueller Pseudonym-ID hinzufügen
+//@todo: #30 Pop-Up mit aktueller Pseudonym-ID hinzufügen
 export default {
   name: "ProfileBadge",
   computed: {

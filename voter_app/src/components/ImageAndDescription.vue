@@ -16,8 +16,8 @@
 </template>
 
 <script>
-// @todo: Switch ImageAndDescription to card template with rounded edges, nice background and maybe shadow
-// @todo: Umstellen der Texte von Props auf Slots. Ist bei Verwendung einfacher zu lesen.
+// @todo: #28 Switch ImageAndDescription to card template with rounded edges, nice background and maybe shadow
+// @todo: #29 Umstellen der Texte von Props auf Slots. Ist bei Verwendung einfacher zu lesen.
 export default {
   name: "ImageAndDescription",
   components: {},

@@ -17,7 +17,7 @@
           }}</a
           >&nbsp;&nbsp;
 
-          <!-- @todo: Use icon instead of text-button -->
+          <!-- @todo: #37 Use icon instead of text-button -->
           <button
             class="btn btn-light btn-sm"
             @click="$root.copyToClipboard('showlinksUrl')"
@@ -83,8 +83,8 @@
 
       <!-- Links -->
       <!--
-      @todo: Alternative Linkanzeige: Text für Emails/IM mit Clipboard-Copy
-      @todo: Alternative Linkanzeige: Cheatsheet für Moderator zum Drucken mit Beschreibung und Links
+      @todo: #38 Alternative Linkanzeige: Text für Emails/IM mit Clipboard-Copy
+      @todo: #39 Alternative Linkanzeige: Cheatsheet für Moderator zum Drucken mit Beschreibung und Links
       -->
 
       <div v-if="isLoaded">

@@ -92,6 +92,9 @@
         </p>
       </div>
 
+      <!-- @todo: #44 Alternative Wertungsverfahren implementieren: Schulnoten mit und ohne plusminus -->
+      <!-- @todo: #45 Alternatives Wertungsverfahren: Dafür, Dagegen, Enthaltung (Abstimmen mit Daumen hoch/runter-Icons) -->
+
       <div class="form-row form-group mb-3">
         <label for="sessionimgurl">
           <strong>{{ $t("CreateSession.form.Session.Image") }}</strong></label

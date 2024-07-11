@@ -7,6 +7,7 @@
         <template v-slot:subtitle>Abstimmungen leicht gemacht</template>
       </SessionHeadline>
 
+      <!-- @todo: #46 Startseite schreiben -->
       <div>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ea

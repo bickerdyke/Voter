@@ -37,7 +37,7 @@
       v-if="isEditing"
       :initialValues="initialValues"
     >
-      <!-- @todo: Platzhalter mit Logo versehen -->
+      <!-- @todo: #32 Platzhalter mit Logo versehen -->
       <div class="row py-3">
         <div class="p-3 col-4 text-center">
           <img

@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-// @todo: An die einzelnen Felder ein ".label()" hängen und übersetzen um in
+// @todo: #33 An die einzelnen Felder ein ".label()" hängen und übersetzen um in
 // Fehlermeldungen auf den übersetzten Feldnamen zugreifen zu können.
 // import { useI18n } from "vue-i18n";
 // const { locale } = useI18n();
@@ -28,7 +28,7 @@ export const userValidationSchema = yup.object().shape({
   userid: yup.string().required().trim().min(4).max(30),
 });
 
-//@todo: fix localized error messages.
+//@todo: #34 fix localized error messages.
 // Manchmal funktioniert dieser Code, aber nicht consistent
 export const localErrorMessages = yup.setLocale({
   // use constant translation keys for messages without values

@@ -172,6 +172,7 @@ const actions = {
     });
   },
 
+  //@todo: #53 automatisches Refresh der Session
   loadSession(context) {
     return new Promise((resolve, reject) => {
       console.log("loading upodated session information");

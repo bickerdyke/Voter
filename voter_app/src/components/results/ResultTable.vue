@@ -74,7 +74,7 @@
           <template v-else>
             <!-- Display for regular result view -->
             <!-- Identical at the moment, but
-              @todo: Ergebnis nicht anzeigen wenn Quorum noch nicht erreicht wurde -->
+              @todo: #31 Ergebnis nicht anzeigen wenn Quorum noch nicht erreicht wurde -->
             <div class="display-6">
               <VoteDisplay :votingId="votingId" :userId="userId" />
             </div>

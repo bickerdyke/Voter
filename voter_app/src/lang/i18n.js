@@ -3,8 +3,8 @@ import axios from "axios";
 import en from "@/lang/en/en.json";
 import de from "@/lang/de/de.json";
 
-// @todo: lazy loading of languaneg files
-// @todo: get locale from http request headers
+// @todo: #35 lazy loading of language files
+// @todo: #36 get locale from browser settings
 
 console.log("Applying locale settings");
 

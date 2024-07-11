@@ -119,7 +119,7 @@ export default {
       this.$store
         .dispatch("castVote", payload)
         .then(() => {
-          // @todo: Auto-Close implementieren. (query-Parameter autoclose=true)
+          // @todo: #40 Auto-Close implementieren. (query-Parameter autoclose=true)
         })
         .catch((err) => {
           this.errorMessage = err;
