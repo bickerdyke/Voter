@@ -14,13 +14,14 @@
     />
 
     <p>
-      <label for="pointVote" class="form-label"
-        >Bitte ihre Wertung einstellen</label
-      >
+      <label for="pointVote" class="form-label">{{
+        $t("Voting.votingSlider")
+      }}</label>
     </p>
   </div>
   <button class="btn btn-primary m-3" @click="voted">
-    {{ points }} Punkte vergeben
+    <font-awesome-icon icon="square-poll-vertical" /> &nbsp;
+    {{ $t("Voting.voteSliderPoints", { pts: points }) }}
   </button>
 </template>
 

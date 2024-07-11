@@ -16,9 +16,14 @@
       <!-- Bereits Stimme abgegeben? -->
       <div class="row">
         <div class="col-12 text-center" v-if="vote">
-          <div class="card-title display-6 m-3">
-            Sie haben für <i>{{ voting.title }}</i> abgestimmt:
-          </div>
+          <div
+            class="card-title display-6 m-3"
+            v-html="
+              voting.title
+                ? $t('Voting.votedFor', { item: voting.title })
+                : $t('Voting.voted')
+            "
+          />
           <div class="display-4 fw-bold">
             <VoteDisplay :votingId="votingId" :userId="userId" />
           </div>
@@ -28,7 +33,7 @@
       <!-- Abstimmen -->
       <div class="row">
         <div class="alert alert-danger col-12" v-if="errorMessage">
-          <strong>Fehler</strong>
+          <strong>{{ $t("Error") }}</strong>
           <br />
           {{ errorMessage }}
         </div>
@@ -36,17 +41,25 @@
 
       <div class="row" v-if="isLoaded">
         <div class="text-center col-12" v-if="!vote">
-          <div class="display-6 m-3">
-            Bitte ihre Meinung für <i>{{ voting.title }}</i> abgeben:
-          </div>
+          <div
+            class="display-6 m-3"
+            v-html="
+              voting.title
+                ? $t('Voting.pleaseVoteFor', { item: voting.title })
+                : $t('Voting.pleaseVote')
+            "
+          />
           <SlideVoteSelect @voted="voted" />
         </div>
       </div>
 
       <!-- Footer-Features-->
       <div class="row my-3">
-        <router-link :to="resultPageRoute" class="btn btn-primary"
-          >Ergebnis</router-link
+        <router-link
+          :to="resultPageRoute"
+          class="btn btn-primary"
+          v-if="!$route.query.autoclose"
+          >{{ $t("Voting.result") }}</router-link
         >
       </div>
     </div>
@@ -119,7 +132,8 @@ export default {
       this.$store
         .dispatch("castVote", payload)
         .then(() => {
-          // @todo: #40 Auto-Close implementieren. (query-Parameter autoclose=true)
+          // @wontfix: #40 Auto-Close implementieren. (query-Parameter autoclose=true)
+          // window.close-Funktion nicht mehr verfügbar
         })
         .catch((err) => {
           this.errorMessage = err;
