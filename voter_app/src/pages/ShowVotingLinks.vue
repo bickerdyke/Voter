@@ -17,18 +17,17 @@
           }}</a
           >&nbsp;&nbsp;
 
-          <!-- @todo: #37 Use icon instead of text-button -->
           <button
-            class="btn btn-light btn-sm"
+            class="btn btn-sm"
             @click="$root.copyToClipboard('showlinksUrl')"
           >
-            {{ $t("ClipboardCopy") }}
-          </button>
+            <font-awesome-icon icon="copy" /></button
+          ><!-- &nbsp;{{ $t("ClipboardCopy") }} -->
         </p>
         <p>{{ $t("ShowLinks.Warningtext.p2") }}</p>
         <p>
           <button class="btn btn-light btn-sm" @click="printpage">
-            {{ $t("PrintPage") }}
+            <font-awesome-icon icon="print" /> &nbsp;{{ $t("PrintPage") }}
           </button>
         </p>
       </div>
