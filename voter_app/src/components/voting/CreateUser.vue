@@ -161,7 +161,7 @@ export default {
   props: {
     showIds: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     editIds: {
       type: Boolean,

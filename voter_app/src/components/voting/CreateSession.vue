@@ -168,7 +168,7 @@ export default {
   props: {
     showIds: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     editIds: {
       type: Boolean,
@@ -180,7 +180,7 @@ export default {
       return {
         sessionquorum: 100,
         sessionid: this.createGuid(),
-        sessionimgurl: "https://picsum.photos/200",
+        sessionimgurl: "",
       };
     },
   },

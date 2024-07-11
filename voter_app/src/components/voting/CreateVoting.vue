@@ -162,7 +162,7 @@ export default {
   props: {
     showIds: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     editIds: {
       type: Boolean,
@@ -177,7 +177,7 @@ export default {
     initialValues() {
       return {
         votingid: this.makeid(6),
-        votingimgurl: "https://picsum.photos/100",
+        votingimgurl: "",
       };
     },
     isEditing() {

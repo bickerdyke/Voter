@@ -125,7 +125,7 @@ export default {
       isLoading: false,
       editingVoting: false,
       editingUser: false,
-      showIds: true,
+      showIds: false,
       editIds: false,
       newSession: {},
       newVotings: [],
