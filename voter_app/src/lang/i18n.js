@@ -4,13 +4,15 @@ import en from "@/lang/en/en.json";
 import de from "@/lang/de/de.json";
 
 // @todo: #35 lazy loading of language files
-// @todo: #36 get locale from browser settings
 
 console.log("Applying locale settings");
+console.log("Preferred languages: " + navigator.languages);
 
 const i18n = createI18n({
   legacy: false,
-  locale: localStorage.getItem("lang") || "en",
+  locale:
+    localStorage.getItem("lang") ||
+    (navigator.languages ? navigator.languages[0] : "en"),
   fallbackLocale: "en",
   messages: {
     en,
