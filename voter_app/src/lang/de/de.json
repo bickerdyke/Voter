@@ -66,6 +66,15 @@
     "Introduction": "Hier finden sie vorgefertigte Stimm-Kärtchen für jeden angelegten Stimmberechtigten mit einem Link für jede Abstimm-Möglichkeit.",
     "Go to Result Page": "Zur Stimm-Auszählung"
   },
+  "Voting": {
+    "result": "Zur Auszählung",
+    "pleaseVote": "Bitte ihre Meinung abgeben:",
+    "pleaseVoteFor": "Bitte ihre Meinung zu <i>{item}</i> abgeben:",
+    "voted": "Sie haben abgestimmt:",
+    "votedFor": "Sie haben für <i>{item}</i> abgestimmt:",
+    "votingSlider": "Bitte mit dem Schieberegler ihre Wertung einstellen.",
+    "voteSliderPoints": "{pts} Punkte vergeben"
+  },
   "Showresult": {
     "Result": "Ergebnis",
     "vote": "Abstimmen"
@@ -78,6 +87,7 @@
   "ClipboardCopy": "kopieren",
   "PrintPage": "Seite drucken",
   "Achtung": "Achtung!",
+  "Error": "Es ist ein Fehler aufgetreten:",
   "i18n": {
     "langName_de": "Deutsch",
     "langName_en-UK": "Englisch (UK)",
