@@ -85,11 +85,7 @@
           $t(errors.sessionquorum)
         }}</ErrorMessage>
 
-        <p>
-          <small class="form-row">{{
-            $t("CreateSession.form.hint.quorum")
-          }}</small>
-        </p>
+        <p class="form-text" v-t="'CreateSession.form.hint.quorum'" />
       </div>
 
       <!-- @todo: #44 Alternative Wertungsverfahren implementieren: Schulnoten mit und ohne plusminus -->
