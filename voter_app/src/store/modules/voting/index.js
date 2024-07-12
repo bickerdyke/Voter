@@ -1,8 +1,11 @@
 import { FIREBASE_RTDB_URL } from "@/config/firebase";
+import { SESSION_RELOAD_POLL_INTERVAL } from "@/config/misc";
 import axios from "axios";
 
 import { state } from "./state";
 import { getters } from "./getters";
+
+let reloadTimer;
 
 const mutations = {
   // Referenz auf state wird im payload durch die action mitgegeben
@@ -97,33 +100,6 @@ const actions = {
     });
   },
 
-  // Store current Session to firestore-DB
-  /*
-  storeSession(context ) {
-    const token = context.rootState.auth.token;
-
-    const sessionItem = {
-      ...state.session,
-    };
-
-    const sessionId = sessionItem.id;
-    delete sessionItem.id;
-
-    const url = `${FIREBASE_RTDB_URL}/${sessionId}.json?auth=${token}`;
-    console.log("RTDB-Url: " + url);
-    console.log("Data: " + sessionItem);
-
-    axios
-      .post(url, sessionItem)
-      .then((response) => {
-        console.log("success i think");
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },*/
-
   // add a new session to firebase DB
   addSession({ getters }, payload) {
     return new Promise((resolve, reject) => {
@@ -175,7 +151,8 @@ const actions = {
   //@todo: #53 automatisches Refresh der Session
   loadSession(context) {
     return new Promise((resolve, reject) => {
-      console.log("loading upodated session information");
+      clearTimeout(reloadTimer);
+      console.log("loading updated session information");
       const token = context.rootState.auth.token;
       if (!token) {
         reject(new Error("No token available for backend access"));
@@ -183,10 +160,17 @@ const actions = {
       const url = `${FIREBASE_RTDB_URL}/sessions/${state.currentSessionId}.json?auth=${token}`;
 
       axios
-        .get(url)
+        .get(url, {
+          headers: {
+            "X-Firebase-ETag": true,
+          },
+        })
         .then((response) => {
           context.commit("setSessionData", response.data);
           console.log("session information loaded");
+          this.reloadTimer = setTimeout(() => {
+            context.dispatch("loadSession");
+          }, SESSION_RELOAD_POLL_INTERVAL);
           resolve();
         })
         .catch((error) => {
