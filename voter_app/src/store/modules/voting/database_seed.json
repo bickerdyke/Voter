@@ -112,8 +112,8 @@
           }
         },
         "bier-2": {
-          "title": "Test-Subjekt breit",
-          "description": "Abstimmungsposten mit breitem Bild und weniger als der Hälfte der Stimmen",
+          "title": "Test-Subjekt <b>breit</b>",
+          "description": "Abstimmungsposten mit <b>breitem</b> Bild und weniger als der Hälfte der Stimmen",
           "imgUrl": "https://picsum.photos/200/100",
           "votes": {
             "abc": {
