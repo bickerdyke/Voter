@@ -10,19 +10,25 @@
       <BetaVersionAlert />
 
       <!-- @todo: #46 Startseite schreiben -->
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ea
-          aliquam deserunt, dolore incidunt reiciendis modi doloremque labore
-          error soluta! Animi tenetur itaque illum. Earum mollitia nostrum enim
-          assumenda asperiores.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet omnis
-          unde quidem, odit recusandae nostrum asperiores velit totam debitis
-          voluptate? Eum corporis ut voluptatum, dolore esse consequatur
-          eveniet? Officiis, perspiciatis?
-        </p>
+      <div class="row my-3">
+        <div class="col-md-9 col-sm-6">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ea
+            aliquam deserunt, dolore incidunt reiciendis modi doloremque labore
+            error soluta! Animi tenetur itaque illum. Earum mollitia nostrum
+            enim assumenda asperiores.
+          </p>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <img
+            src="@/assets/ballot.jpg"
+            class="border shadow rounded-3 w-100"
+          />
+        </div>
+      </div>
+
+      <div class="row">
         <router-link to="/create" class="btn btn-success"
           >Session anlegen</router-link
         >
