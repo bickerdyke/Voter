@@ -15,8 +15,8 @@ export default {
     votingId: String,
     userId: String,
     userfilter: {
-      type: String,
-      default: null,
+      type: Boolean,
+      default: false,
     },
     minDecimals: {
       type: Number,

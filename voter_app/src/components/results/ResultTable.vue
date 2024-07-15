@@ -146,6 +146,9 @@ export default {
           userId: uId,
           votingId: vId,
         },
+        query: {
+          userfilter: this.userfilter ? true : false,
+        },
       });
     },
   },

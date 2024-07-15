@@ -112,12 +112,22 @@ export default {
       "isSessionLoaded",
     ]),
     resultPageRoute() {
-      return this.$router.resolve({
-        name: "showresult",
-        params: {
-          sessionId: this.currentSessionId,
-        },
-      });
+      if (this.$route.query.userfilter) {
+        return this.$router.resolve({
+          name: "uservoting",
+          params: {
+            sessionId: this.currentSessionId,
+            userId: this.userId,
+          },
+        });
+      } else {
+        return this.$router.resolve({
+          name: "showresult",
+          params: {
+            sessionId: this.currentSessionId,
+          },
+        });
+      }
     },
   },
   methods: {
