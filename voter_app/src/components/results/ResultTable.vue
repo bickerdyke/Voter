@@ -56,6 +56,7 @@
               <VoteDisplay
                 :votingId="votingId"
                 :userId="userId"
+                :userfilter="true"
                 v-if="vote(votingId, userId)"
               />
               <router-link
@@ -72,11 +73,12 @@
             </div>
           </template>
           <template v-else>
-            <!-- Display for regular result view -->
-            <!-- Identical at the moment, but
-              @todo: #31 Ergebnis nicht anzeigen wenn Quorum noch nicht erreicht wurde -->
             <div class="display-6">
-              <VoteDisplay :votingId="votingId" :userId="userId" />
+              <VoteDisplay
+                :votingId="votingId"
+                :userId="userId"
+                :userfilter="false"
+              />
             </div>
           </template>
         </td>
