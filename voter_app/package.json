@@ -13,6 +13,7 @@
   "dependencies": {
     "@fontsource/inter": "^5.0.18",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "animate.css": "^4.1.1",

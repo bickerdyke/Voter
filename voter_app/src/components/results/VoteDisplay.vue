@@ -1,5 +1,17 @@
 <template>
-  <p>{{ voteFormatted }}</p>
+  <transition
+    enter-active-class="animate__animated animate__fadeIn"
+    leave-active-class="animate__animated animate__fadeOut"
+    mode="out-in"
+    appear
+    :key="$route.path"
+  >
+    <p v-if="isQuorumReached || userfilter">{{ voteFormatted }}</p>
+    <p v-else-if="vote">
+      <font-awesome-icon :icon="['far', 'circle-check']" />
+    </p>
+    <p v-else>&nbsp;</p></transition
+  >
 </template>
 
 <script>
@@ -10,13 +22,17 @@ export default {
   props: {
     votingId: String,
     userId: String,
+    userfilter: {
+      type: Boolean,
+      default: false,
+    },
     minDecimals: {
       type: Number,
       default: 0,
     },
     maxDecimals: {
       type: Number,
-      default: 4,
+      default: 2,
     },
   },
   computed: {
@@ -25,6 +41,23 @@ export default {
     },
     voteFormatted() {
       return this.vote ? this.format(Number(this.vote)) : "";
+    },
+    turnout() {
+      const votes = this.$store.getters.votes(this.votingId);
+      if (!votes) return 0;
+
+      const countVotes = votes.length;
+      const countUsers = Object.keys(this.currentSessionData.users).length;
+      const turnout = (countVotes / countUsers) * 100;
+
+      return turnout;
+    },
+    isQuorumReached() {
+      const quorum = this.currentSessionData.quorum
+        ? Number(this.currentSessionData.quorum)
+        : 100;
+
+      return this.turnout >= quorum;
     },
 
     ...mapGetters([

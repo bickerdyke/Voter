@@ -9,12 +9,16 @@ import {
   faSquarePollVertical,
   faCopy,
   faPrint,
+  //faUserCheck,
 } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(faSquarePollVertical);
 library.add(faCopy);
 library.add(faPrint);
+library.add(faCircleCheck);
+//library.add(faUserCheck);
 
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
