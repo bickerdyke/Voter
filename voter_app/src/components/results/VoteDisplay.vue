@@ -1,9 +1,17 @@
 <template>
-  <p v-if="isQuorumReached || userfilter">{{ voteFormatted }}</p>
-  <p v-else-if="vote">
-    <font-awesome-icon :icon="['far', 'circle-check']" />
-  </p>
-  <p v-else>&nbsp;</p>
+  <transition
+    enter-active-class="animate__animated animate__fadeIn"
+    leave-active-class="animate__animated animate__fadeOut"
+    mode="out-in"
+    appear
+    :key="$route.path"
+  >
+    <p v-if="isQuorumReached || userfilter">{{ voteFormatted }}</p>
+    <p v-else-if="vote">
+      <font-awesome-icon :icon="['far', 'circle-check']" />
+    </p>
+    <p v-else>&nbsp;</p></transition
+  >
 </template>
 
 <script>
