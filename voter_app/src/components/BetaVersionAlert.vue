@@ -3,8 +3,8 @@
     <h3>{{ $t("Achtung") }}</h3>
     <p>
       Dies ist die Testversion einer privaten Hobby-Webseite. Eingegebene Daten
-      werden regelmässig gelöscht. Die Nutzung erfolgt ohne Garantien oder
-      Zusicherungen jeglicher Art.
+      werden regelmässig gelöscht. Die Nutzung erfolgt ohne Garantie oder
+      Zusicherung jeglicher Art.
     </p>
     <hr />
     <p>
