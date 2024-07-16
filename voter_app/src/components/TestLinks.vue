@@ -1,5 +1,5 @@
 <template>
-  <div class="alert alert-success shadow my-5 d-print-none">
+  <div class="alert alert-success shadow my-4 d-print-none">
     <h3>Testlinks</h3>
     <p>Drei Beispiel Stimm-Auszählungen:</p>
     <div class="button-group">

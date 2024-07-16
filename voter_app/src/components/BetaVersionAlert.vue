@@ -1,5 +1,5 @@
 <template>
-  <div class="alert alert-danger shadow mb-5 d-print-none">
+  <div class="alert alert-danger shadow my-4 d-print-none">
     <h3>{{ $t("Achtung") }}</h3>
     <p>
       Dies ist die Testversion einer privaten Hobby-Webseite. Eingegebene Daten

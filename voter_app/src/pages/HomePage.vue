@@ -25,33 +25,55 @@
         </div>
       </div>
 
-      <BetaVersionAlert />
-
-      <!-- @todo: #46 Startseite schreiben -->
-      <div class="row my-3">
+      <div class="row my-4">
         <div class="col-md-9 col-sm-6">
+          <h3>Abstimmung anlegen</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ea
-            aliquam deserunt, dolore incidunt reiciendis modi doloremque labore
-            error soluta! Animi tenetur itaque illum. Earum mollitia nostrum
-            enim assumenda asperiores.
+            Alles beginnt mit dem Anlegen der Abstimmung. Für jede Abstimmung
+            können mehrere einzelne Punkte angelegt werden, für die Bewertungen
+            eingesammelt werden sollen.
           </p>
+          <p>
+            Hier kann zwischen verschiedenen Optionen entschieden werden, z.B.
+            Schulnoten oder eine Skala von 1 bis 10 Punkten.
+          </p>
+          <p>Ebenfalls werden hier die gewünschten Teilnehmer hinzugefügt.</p>
         </div>
 
         <div class="col-md-3 col-sm-6">
           <img
-            src="@/assets/ballot.jpg"
+            src="@/assets/screenshots/create.png"
             class="border shadow rounded-3 w-100"
           />
         </div>
       </div>
 
-      <div class="row">
+      <div class="row my-4">
+        <div class="col-md-3 col-sm-6">
+          <img
+            src="@/assets/screenshots/links.png"
+            class="border shadow rounded-3 w-100"
+          />
+        </div>
+        <div class="col-md-9 col-sm-6">
+          <h3>Links verteilen</h3>
+          <p>
+            Für jeden Teilnehmer werden personalisierte Links erstellt, über die
+            an der Abstimmung teilgenommen werden kann.
+          </p>
+          <p>
+            Sie können als QR-Codes ausgedruckt oder als Text versendet werden.
+          </p>
+        </div>
+      </div>
+
+      <div class="row my-4">
         <router-link to="/create" class="btn btn-success"
           >Session anlegen</router-link
         >
       </div>
 
+      <BetaVersionAlert />
       <TestLinks />
     </div>
   </TheHomeLayout>
