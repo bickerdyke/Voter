@@ -17,9 +17,9 @@
               Mit Easy-Vote schnell die Meinung einer Gruppe zu verschiedenen
               Punkten einholen - online oder vor Ort.
             </p>
-            <p>Abstimmung anlegen - Links verteilen - abstimmen - Fertig!</p>
-            <router-link to="{name: 'create'}" class="btn btn-success"
-              >Gleich loslegen</router-link
+            <p>Abstimmung anlegen - Links verteilen - Abstimmen - Fertig!</p>
+            <router-link :to="{ name: 'create' }" class="btn btn-success"
+              >Abstimmung anlegen und loslegen</router-link
             >
           </div>
         </div>
