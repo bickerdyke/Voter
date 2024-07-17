@@ -14,6 +14,36 @@
     "Legal": "Impressum und Datenschutz"
   },
 
+  "Homepage": {
+    "HeroBanner": {
+      "Headline": "Einfache Gruppenbefragungen",
+      "p1": "Mit Easy-Vote schnell die Meinung einer Gruppe zu verschiedenen Punkten einholen - online oder vor Ort.",
+      "p2": "Abstimmung anlegen - Links verteilen - Abstimmen - Fertig!",
+      "button": "Abstimmung anlegen und loslegen"
+    },
+    "CreateVoting": {
+      "Headline": "Abstimmung anlegen",
+      "p1": "Alles beginnt mit dem Anlegen der Abstimmung. Für jede Abstimmung können mehrere einzelne Punkte angelegt werden, für die Bewertungen eingesammelt werden sollen.",
+      "p2": "Hier kann zwischen verschiedenen Optionen entschieden werden, z.B. Schulnoten oder eine Skala von 1 bis 10 Punkten.",
+      "p3": "Ebenfalls werden hier die gewünschten Teilnehmer hinzugefügt."
+    },
+    "VotingLinks": {
+      "Headline": "Links verteilen",
+      "p1": "Für jeden Teilnehmer werden personalisierte Links erstellt, über die an der Abstimmung teilgenommen werden kann.",
+      "p2": "Sie können als QR-Codes ausgedruckt oder als Text versendet werden."
+    },
+    "Vote": {
+      "Headline": "Abstimmen",
+      "p1": "Jeder Teilnehmer nutzt seinen persönlichen Link um seine Bewertung zu den einzelnen Punkten abzugeben..."
+    },
+    "ShowResult": {
+      "Headline": "Ergebnis",
+      "p1": "...und die Ergebnisse werden in einer übersichtlichen Tabelle angezeigt, die ausgedruckt oder für alle sichtbar auf einem großen Monitor angezeigt werden kann.",
+      "p2": "Also einfach beginnen und eine eigene",
+      "button": "Abstimmung anlegen"
+    }
+  },
+
   "CreateSession": {
     "introduction": "Erstellen sie eine neue Abstimmungssession. Geben sie dazu die wichtigsten Daten wie einen aussagekräftigen Namen und Beschreibung ein, sowie eine Liste der Abstimmungsposten und stimmberechtigten Nutzern.",
     "form": {

@@ -12,32 +12,22 @@
       <div class="row">
         <div class="hero py-5 mt-2 mb-5">
           <div class="col-5 offset-1">
-            <h3>Einfache Gruppenbefragungen</h3>
-            <p>
-              Mit Easy-Vote schnell die Meinung einer Gruppe zu verschiedenen
-              Punkten einholen - online oder vor Ort.
-            </p>
-            <p>Abstimmung anlegen - Links verteilen - Abstimmen - Fertig!</p>
-            <router-link :to="{ name: 'create' }" class="btn btn-secondary"
-              >Abstimmung anlegen und loslegen</router-link
-            >
+            <h3>{{ $t("Homepage.HeroBanner.Headline") }}</h3>
+            <p>{{ $t("Homepage.HeroBanner.p1") }}</p>
+            <p>{{ $t("Homepage.HeroBanner.p2") }}</p>
+            <router-link :to="{ name: 'create' }" class="btn btn-secondary">{{
+              $t("Homepage.HeroBanner.button")
+            }}</router-link>
           </div>
         </div>
       </div>
 
       <div class="row my-4 d-flex align-items-center">
         <div class="col-md-9 col-sm-6 my-2">
-          <h3>Abstimmung anlegen</h3>
-          <p>
-            Alles beginnt mit dem Anlegen der Abstimmung. Für jede Abstimmung
-            können mehrere einzelne Punkte angelegt werden, für die Bewertungen
-            eingesammelt werden sollen.
-          </p>
-          <p>
-            Hier kann zwischen verschiedenen Optionen entschieden werden, z.B.
-            Schulnoten oder eine Skala von 1 bis 10 Punkten.
-          </p>
-          <p>Ebenfalls werden hier die gewünschten Teilnehmer hinzugefügt.</p>
+          <h3>{{ $t("Homepage.CreateVoting.Headline") }}</h3>
+          <p>{{ $t("Homepage.CreateVoting.p1") }}</p>
+          <p>{{ $t("Homepage.CreateVoting.p2") }}</p>
+          <p>{{ $t("Homepage.CreateVoting.p3") }}</p>
         </div>
 
         <div class="col-md-3 col-sm-6">
@@ -56,24 +46,16 @@
           />
         </div>
         <div class="col-md-9 col-sm-6 my-4">
-          <h3>Links verteilen</h3>
-          <p>
-            Für jeden Teilnehmer werden personalisierte Links erstellt, über die
-            an der Abstimmung teilgenommen werden kann.
-          </p>
-          <p>
-            Sie können als QR-Codes ausgedruckt oder als Text versendet werden.
-          </p>
+          <h3>{{ $t("Homepage.VotingLinks.Headline") }}</h3>
+          <p>{{ $t("Homepage.VotingLinks.p1") }}</p>
+          <p>{{ $t("Homepage.VotingLinks.p2") }}</p>
         </div>
       </div>
 
       <div class="row my-4 d-flex align-items-center">
         <div class="col-md-9 col-sm-6 my-4">
-          <h3>Abstimmen</h3>
-          <p>
-            Jeder Teilnehmer nutzt seinen persönlichen Link um seine Bewertung
-            zu den einzelnen Punkten abzugeben...
-          </p>
+          <h3>{{ $t("Homepage.Vote.Headline") }}</h3>
+          <p>{{ $t("Homepage.Vote.p1") }}</p>
         </div>
 
         <div class="col-md-3 col-sm-6">
@@ -92,17 +74,13 @@
           />
         </div>
         <div class="col-md-9 col-sm-6 my-4">
-          <h3>Ergebnis</h3>
+          <h3>{{ $t("Homepage.ShowResult.Headline") }}</h3>
+          <p>{{ $t("Homepage.ShowResult.p1") }}</p>
+          <p>{{ $t("Homepage.ShowResult.p2") }}</p>
           <p>
-            ... und die Ergebnisse werden in einer übersichtlichen Tabelle
-            angezeigt, die ausgedruckt oder für alle sichtbar auf einem großen
-            Monitor angezeigt werden kann.
-          </p>
-          <p>Also einfach beginnen und eine eigene</p>
-          <p>
-            <router-link to="/create" class="btn btn-secondary"
-              >Abstimmung anlegen</router-link
-            >
+            <router-link to="/create" class="btn btn-secondary">{{
+              $t("Homepage.ShowResult.button")
+            }}</router-link>
           </p>
         </div>
       </div>
