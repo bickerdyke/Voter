@@ -19,7 +19,7 @@
 
           <button
             class="btn btn-sm"
-            @click="$root.copyToClipboard('showlinksUrl')"
+            @click="$root.copyToClipboard('showlinksUrl', false)"
           >
             <font-awesome-icon icon="copy" /></button
           ><!-- &nbsp;{{ $t("ClipboardCopy") }} -->
@@ -59,7 +59,6 @@
               id="optiontext"
               value="text"
               v-model="linkstyle"
-              disabled
             />
             <label class="form-check-label" for="optiontext">{{
               $t("ShowLinks.options.text")
@@ -82,7 +81,6 @@
 
       <!-- Links -->
       <!--
-      @todo: #38 Alternative Linkanzeige: Text für Emails/IM mit Clipboard-Copy
       @todo: #39 Alternative Linkanzeige: Cheatsheet für Moderator zum Drucken mit Beschreibung und Links
       -->
 
@@ -93,7 +91,12 @@
           :resultlink="resultPageUrl"
           :singlevotinglinks="singlevote"
         ></ShowVotingLinksCards>
-        <p v-else-if="linkstyle === 'text'">Dummy-Text</p>
+        <ShowVotingLinksText
+          v-else-if="linkstyle === 'text'"
+          :linklink="linkPageUrl"
+          :resultlink="resultPageUrl"
+          :singlevotinglinks="singlevote"
+        ></ShowVotingLinksText>
       </div>
 
       <!-- Footer -->
@@ -112,6 +115,7 @@ import { mapGetters } from "vuex";
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import ShowVotingLinksCards from "@/components/voting/showlinks/ShowVotingLinksCards";
+import ShowVotingLinksText from "@/components/voting/showlinks/ShowVotingLinksText";
 
 export default {
   name: "ShowVotingLinks",
@@ -119,6 +123,7 @@ export default {
     TheHomeLayout,
     SessionHeadline,
     ShowVotingLinksCards,
+    ShowVotingLinksText,
   },
   data() {
     return {

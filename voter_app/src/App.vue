@@ -41,18 +41,22 @@ export default {
     },
   },
   methods: {
-    async copyToClipboard(paragraphId) {
+    async copyToClipboard(paragraphId, isHtml) {
       try {
-        console.log("copy");
-        const element = document.querySelector("#" + paragraphId);
-        await navigator.clipboard.writeText(element.textContent);
-        console.log("copy done");
+        const element = document.querySelector("#" + paragraphId); // blob: element.textContent
+        const type = isHtml ? "text/html" : "text/plain";
+        const blob = new Blob(
+          [isHtml ? element.innerText : element.textContent],
+          { type }
+        );
+        const data = [new ClipboardItem({ [type]: blob })];
+        await navigator.clipboard.write(data);
+
         // Optional: Provide feedback or perform additional actions upon successful copy
       } catch (error) {
         console.error("Failed to copy to clipboard:", error);
         // Optional: Handle and display the error to the user
       }
-      console.log("function done");
     },
   },
 };
