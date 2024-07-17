@@ -25,8 +25,8 @@
         </div>
       </div>
 
-      <div class="row my-4">
-        <div class="col-md-9 col-sm-6">
+      <div class="row my-4 d-flex align-items-center">
+        <div class="col-md-9 col-sm-6 my-2">
           <h3>Abstimmung anlegen</h3>
           <p>
             Alles beginnt mit dem Anlegen der Abstimmung. Für jede Abstimmung
@@ -48,14 +48,14 @@
         </div>
       </div>
 
-      <div class="row my-4">
+      <div class="row my-4 d-flex align-items-center">
         <div class="col-md-3 col-sm-6">
           <img
             src="@/assets/screenshots/links.png"
             class="border shadow rounded-3 w-100"
           />
         </div>
-        <div class="col-md-9 col-sm-6">
+        <div class="col-md-9 col-sm-6 my-4">
           <h3>Links verteilen</h3>
           <p>
             Für jeden Teilnehmer werden personalisierte Links erstellt, über die
@@ -67,8 +67,8 @@
         </div>
       </div>
 
-      <div class="row my-4">
-        <div class="col-md-9 col-sm-6">
+      <div class="row my-4 d-flex align-items-center">
+        <div class="col-md-9 col-sm-6 my-4">
           <h3>Abstimmen</h3>
           <p>
             Jeder Teilnehmer nutzt seinen persönlichen Link um seine Bewertung
@@ -84,14 +84,14 @@
         </div>
       </div>
 
-      <div class="row my-4">
+      <div class="row my-4 d-flex align-items-center">
         <div class="col-md-3 col-sm-6">
           <img
             src="@/assets/screenshots/links.png"
             class="border shadow rounded-3 w-100"
           />
         </div>
-        <div class="col-md-9 col-sm-6">
+        <div class="col-md-9 col-sm-6 my-4">
           <h3>Ergebnis</h3>
           <p>
             ... und die Ergebnisse werden in einer übersichtlichen Tabelle
