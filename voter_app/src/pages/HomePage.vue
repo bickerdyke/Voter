@@ -68,9 +68,43 @@
       </div>
 
       <div class="row my-4">
-        <router-link to="/create" class="btn btn-success"
-          >Session anlegen</router-link
-        >
+        <div class="col-md-9 col-sm-6">
+          <h3>Abstimmen</h3>
+          <p>
+            Jeder Teilnehmer nutzt seinen persönlichen Link um seine Bewertung
+            zu den einzelnen Punkten abzugeben...
+          </p>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <img
+            src="@/assets/screenshots/create.png"
+            class="border shadow rounded-3 w-100"
+          />
+        </div>
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-3 col-sm-6">
+          <img
+            src="@/assets/screenshots/links.png"
+            class="border shadow rounded-3 w-100"
+          />
+        </div>
+        <div class="col-md-9 col-sm-6">
+          <h3>Ergebnis</h3>
+          <p>
+            ... und die Ergebnisse werden in einer übersichtlichen Tabelle
+            angezeigt, die ausgedruckt oder für alle sichtbar auf einem großen
+            Monitor angezeigt werden kann.
+          </p>
+          <p>Also einfach beginnen und eine eigene</p>
+          <p>
+            <router-link to="/create" class="btn btn-success"
+              >Abstimmung anlegen</router-link
+            >
+          </p>
+        </div>
       </div>
 
       <BetaVersionAlert />
