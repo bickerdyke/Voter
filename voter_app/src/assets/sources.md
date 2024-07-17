@@ -11,3 +11,7 @@ Auflistung der Quellen der benutzten Photos
 
 ## Favicon:
 - fontawesome_ square-poll-vertical [https://gauger.io/fonticon/]
+
+## Startseite
+
+- [https://www.pexels.com/de-de/foto/papier-kopie-raum-politik-kennzeichen-8850709]

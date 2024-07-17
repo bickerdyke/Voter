@@ -2,50 +2,91 @@
   <TheHomeLayout>
     <div>
       <!-- Header -->
-      <SessionHeadline>
-        <template v-slot:headline>Herzlich Willkommen</template>
-        <template v-slot:subtitle>Abstimmungen leicht gemacht</template>
-      </SessionHeadline>
-
-      <!-- @todo: #46 Startseite schreiben -->
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ea
-          aliquam deserunt, dolore incidunt reiciendis modi doloremque labore
-          error soluta! Animi tenetur itaque illum. Earum mollitia nostrum enim
-          assumenda asperiores.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet omnis
-          unde quidem, odit recusandae nostrum asperiores velit totam debitis
-          voluptate? Eum corporis ut voluptatum, dolore esse consequatur
-          eveniet? Officiis, perspiciatis?
-        </p>
-        <router-link to="/create" class="btn btn-success"
-          >Session anlegen</router-link
-        >
-
-        <router-link to="/showvotinglinks/4711" class="btn btn-success"
-          >Zugangs-Urls abrufen</router-link
-        >
-
-        <div>
-          Für Zugang zu bestehenden Abstimmungen bitte Abstimmungs-Link
-          verwenden.
-        </div>
-        <p>
-          Beispiel-Ergebnis:
-          <router-link to="/showresult/4711" class="btn-success"
-            >Session #4711</router-link
-          >
-        </p>
-        <p>
-          Beispiel-Voting:
-          <router-link to="/vote/4711/0815/1" class="btn-success"
-            >Stimme abgeben</router-link
-          >
-        </p>
+      <div class="row">
+        <SessionHeadline>
+          <template v-slot:headline>{{ $t("Voter-Service Title") }}</template>
+          <template v-slot:subtitle>{{ $t("Voter-Service Tagline") }}</template>
+        </SessionHeadline>
       </div>
+
+      <div class="row">
+        <div class="hero py-5 mt-2 mb-5">
+          <div class="col-5 offset-1">
+            <h3>{{ $t("Homepage.HeroBanner.Headline") }}</h3>
+            <p>{{ $t("Homepage.HeroBanner.p1") }}</p>
+            <p>{{ $t("Homepage.HeroBanner.p2") }}</p>
+            <router-link :to="{ name: 'create' }" class="btn btn-secondary">{{
+              $t("Homepage.HeroBanner.button")
+            }}</router-link>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-4 d-flex align-items-center">
+        <div class="col-md-9 col-sm-6 my-2">
+          <h3>{{ $t("Homepage.CreateVoting.Headline") }}</h3>
+          <p>{{ $t("Homepage.CreateVoting.p1") }}</p>
+          <p>{{ $t("Homepage.CreateVoting.p2") }}</p>
+          <p>{{ $t("Homepage.CreateVoting.p3") }}</p>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <img
+            src="@/assets/screenshots/create.png"
+            class="border shadow rounded-3 w-100"
+          />
+        </div>
+      </div>
+
+      <div class="row my-4 d-flex align-items-center">
+        <div class="col-md-3 col-sm-6">
+          <img
+            src="@/assets/screenshots/links.png"
+            class="border shadow rounded-3 w-100"
+          />
+        </div>
+        <div class="col-md-9 col-sm-6 my-4">
+          <h3>{{ $t("Homepage.VotingLinks.Headline") }}</h3>
+          <p>{{ $t("Homepage.VotingLinks.p1") }}</p>
+          <p>{{ $t("Homepage.VotingLinks.p2") }}</p>
+        </div>
+      </div>
+
+      <div class="row my-4 d-flex align-items-center">
+        <div class="col-md-9 col-sm-6 my-4">
+          <h3>{{ $t("Homepage.Vote.Headline") }}</h3>
+          <p>{{ $t("Homepage.Vote.p1") }}</p>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <img
+            src="@/assets/screenshots/create.png"
+            class="border shadow rounded-3 w-100"
+          />
+        </div>
+      </div>
+
+      <div class="row my-4 d-flex align-items-center">
+        <div class="col-md-3 col-sm-6">
+          <img
+            src="@/assets/screenshots/links.png"
+            class="border shadow rounded-3 w-100"
+          />
+        </div>
+        <div class="col-md-9 col-sm-6 my-4">
+          <h3>{{ $t("Homepage.ShowResult.Headline") }}</h3>
+          <p>{{ $t("Homepage.ShowResult.p1") }}</p>
+          <p>{{ $t("Homepage.ShowResult.p2") }}</p>
+          <p>
+            <router-link to="/create" class="btn btn-secondary">{{
+              $t("Homepage.ShowResult.button")
+            }}</router-link>
+          </p>
+        </div>
+      </div>
+
+      <BetaVersionAlert />
+      <TestLinks />
     </div>
   </TheHomeLayout>
 </template>
@@ -53,14 +94,27 @@
 <script>
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
+import BetaVersionAlert from "@/components/BetaVersionAlert";
+import TestLinks from "@/components/TestLinks";
 
 export default {
   name: "HomePage",
   components: {
     TheHomeLayout,
     SessionHeadline,
+    BetaVersionAlert,
+    TestLinks,
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.hero {
+  width: 100vw;
+  min-height: 30vh;
+  height: auto;
+  background-image: url("@/assets/ballot_lg.jpg");
+  background-position: center;
+  background-size: cover;
+}
+</style>

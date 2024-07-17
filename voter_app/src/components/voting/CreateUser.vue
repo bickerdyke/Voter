@@ -76,12 +76,7 @@
               $t(errors.useremail)
             }}</ErrorMessage>
 
-            <p>
-              <small
-                class="form-row"
-                v-t="'CreateSession.form.hint.useremail'"
-              ></small>
-            </p>
+            <p class="form-text" v-t="'CreateSession.form.hint.useremail'" />
           </div>
 
           <div class="form-row form-group mb-3">
