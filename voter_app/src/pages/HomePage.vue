@@ -18,7 +18,7 @@
               Punkten einholen - online oder vor Ort.
             </p>
             <p>Abstimmung anlegen - Links verteilen - Abstimmen - Fertig!</p>
-            <router-link :to="{ name: 'create' }" class="btn btn-success"
+            <router-link :to="{ name: 'create' }" class="btn btn-secondary"
               >Abstimmung anlegen und loslegen</router-link
             >
           </div>
@@ -100,7 +100,7 @@
           </p>
           <p>Also einfach beginnen und eine eigene</p>
           <p>
-            <router-link to="/create" class="btn btn-success"
+            <router-link to="/create" class="btn btn-secondary"
               >Abstimmung anlegen</router-link
             >
           </p>
