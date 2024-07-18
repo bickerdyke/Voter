@@ -28,7 +28,24 @@
   <hr />
 
   <template v-for="(user, uId) in currentSessionData.users" :key="uId">
-    <div :id="'invitationtext' + user.name">
+    <!-- Hidden pre-formatted text to copy&paste -->
+    <pre :id="'invitationtext' + user.name" v-show="false">
+{{ $t("ShowLinks.Text.salutation", { name: user.name }) }}
+<template v-if="singlevotinglinks">
+{{$t("ShowLinks.Text.introductionSinglelinks", {name: currentSessionData.title,})}}
+<template v-for="(voting, vId) in currentSessionData.votings" :key="vId">
+{{ currentSessionData.votings[vId].title }}:&nbsp;{{ getVotingLink(currentSessionId, vId, uId) }}</template>
+</template>
+<template v-else>
+{{$t("ShowLinks.Text.introductionUservoting", {name: currentSessionData.title,})}}
+
+{{ getVotingLink(currentSessionId, null, uId) }}
+</template>
+{{ $t("ShowLinks.Text.sendoff") }}
+    </pre>
+    <!-- End Hidden pre-formatted text to copy&paste -->
+
+    <div>
       <p>{{ $t("ShowLinks.Text.salutation", { name: user.name }) }}<br /></p>
 
       <template v-if="singlevotinglinks">
@@ -72,55 +89,13 @@
 
     <button
       class="btn btn-sm"
-      @click="$root.copyToClipboard('invitationtext' + user.name, true)"
+      @click="$root.copyToClipboard('invitationtext' + user.name)"
     >
       <font-awesome-icon icon="copy" />
     </button>
     <hr />
   </template>
-  <!--
-
-  <template v-if="singlevotinglinks">
-    <template v-for="(user, uId) in currentSessionData.users" :key="uId">
-      <hr style="page-break-after: always" />
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-        <LinkCard
-          v-for="(voting, vId) in currentSessionData.votings"
-          :key="vId"
-          :imgUrl="voting.imgUrl"
-          :userId="uId"
-          :link="getVotingLink(currentSessionId, vId, uId)"
-        >
-          <template #title
-            ><p>{{ currentSessionData.title }}</p></template
-          >
-          <template #default
-            ><p>{{ voting.title }}</p>
-            <p>{{ $t("ShowLinks.Cards.CardFor") }} {{ user.name }}</p>
-          </template>
-        </LinkCard>
-      </div>
-    </template>
-  </template>
-  <template v-else>
-    <hr style="page-break-after: always" />
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-      <LinkCard
-        :imgUrl="currentSessionData.imgUrl"
-        :userId="uId"
-        :link="getVotingLink(currentSessionId, null, uId)"
-        v-for="(user, uId) in currentSessionData.users"
-        :key="uId"
-      >
-        <template #title>{{ currentSessionData.title }}</template>
-        <template #default
-          ><p>{{ currentSessionData.subtitle }}</p>
-          <p>{{ $t("ShowLinks.Cards.CardFor") }} {{ user.name }}</p>
-        </template>
-      </LinkCard>
-    </div>
-  </template>
---></template>
+</template>
 
 <script>
 import { mapGetters } from "vuex";

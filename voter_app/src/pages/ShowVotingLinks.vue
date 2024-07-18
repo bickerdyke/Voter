@@ -19,7 +19,7 @@
 
           <button
             class="btn btn-sm"
-            @click="$root.copyToClipboard('showlinksUrl', false)"
+            @click="$root.copyToClipboard('showlinksUrl')"
           >
             <font-awesome-icon icon="copy" /></button
           ><!-- &nbsp;{{ $t("ClipboardCopy") }} -->

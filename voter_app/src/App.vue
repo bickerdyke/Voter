@@ -41,14 +41,11 @@ export default {
     },
   },
   methods: {
-    async copyToClipboard(paragraphId, isHtml) {
+    async copyToClipboard(paragraphId) {
       try {
         const element = document.querySelector("#" + paragraphId); // blob: element.textContent
-        const type = isHtml ? "text/html" : "text/plain";
-        const blob = new Blob(
-          [isHtml ? element.innerText : element.textContent],
-          { type }
-        );
+        const type = "text/plain";
+        const blob = new Blob([element.textContent], { type });
         const data = [new ClipboardItem({ [type]: blob })];
         await navigator.clipboard.write(data);
 
