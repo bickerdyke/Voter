@@ -6,14 +6,12 @@
     <LinkCard :imgUrl="currentSessionData.imgUrl" :link="linklink"
       ><template #title>{{ currentSessionData.title }}</template>
       <template #default>{{
-        $t("ShowLinks.Cards.TitleAccessUrls")
+        $t("ShowLinks.TitleAccessUrls")
       }}</template></LinkCard
     >
     <LinkCard :imgUrl="currentSessionData.imgUrl" :link="resultlink"
       ><template #title>{{ currentSessionData.title }}</template>
-      <template #default>{{
-        $t("ShowLinks.Cards.TitleResults")
-      }}</template></LinkCard
+      <template #default>{{ $t("ShowLinks.TitleResults") }}</template></LinkCard
     >
   </div>
 

@@ -82,7 +82,7 @@
             </div>
           </template>
         </td>
-        <td class="display-6 fw-bold" v-if="!userfilter">
+        <td class="display-6 fw-bold text-center" v-if="!userfilter">
           <VoteAverage :votingId="votingId" />
         </td>
       </tr>

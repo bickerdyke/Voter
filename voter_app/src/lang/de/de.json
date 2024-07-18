@@ -5,6 +5,7 @@
   "Add": "Hinzufügen",
   "Reset": "Zurücksetzen",
   "ClipboardCopy": "kopieren",
+  "ClipboardCopySuccess": "In Zwischenablage kopiert",
   "PrintPage": "Seite drucken",
   "Achtung": "Achtung!",
   "Error": "Es ist ein Fehler aufgetreten:",
@@ -104,10 +105,16 @@
       "singlevotes": "Einzelne Abstimmungen"
     },
     "Cards": {
-      "TitleAccessUrls": "Zugangsdaten",
-      "TitleResults": "Ergebnisse",
       "CardFor": "Stimmkarte für"
     },
+    "Text": {
+      "salutation": "Hallo {name},",
+      "introductionSinglelinks": "Hier sind die Zugangslinks für die Abstimmung \"{name}\":",
+      "introductionUservoting": "Hier ist der Zugangslink für die Abstimmung \"{name}\":",
+      "sendoff": "Viel Spaß!"
+    },
+    "TitleAccessUrls": "Zugangsdaten",
+    "TitleResults": "Ergebnisse",
     "Heading": "Stimm-Karten",
     "Introduction": "Hier finden sie vorgefertigte Stimm-Kärtchen für jeden angelegten Stimmberechtigten mit einem Link für jede Abstimm-Möglichkeit.",
     "Go to Result Page": "Zur Stimm-Auszählung"

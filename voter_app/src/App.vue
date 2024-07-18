@@ -1,10 +1,29 @@
 <template>
   <router-view></router-view>
+  <div
+    class="toast position-fixed top-0 end-0 m-4 bg-success"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    data-bs-delay="2000"
+    id="copytoast"
+  >
+    <!-- Debug: style="display: block" -->
+    <div class="toast-header">
+      <strong class="me-auto">{{ $t("ClipboardCopySuccess") }}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import "bootstrap";
+import { Toast } from "bootstrap";
 
 export default {
   name: "App",
@@ -43,16 +62,25 @@ export default {
   methods: {
     async copyToClipboard(paragraphId) {
       try {
-        console.log("copy");
-        const element = document.querySelector("#" + paragraphId);
-        await navigator.clipboard.writeText(element.textContent);
-        console.log("copy done");
-        // Optional: Provide feedback or perform additional actions upon successful copy
+        const element = document.querySelector("#" + paragraphId); // blob: element.textContent
+        const type = "text/plain";
+        const blob = new Blob([element.textContent], { type });
+        const data = [new ClipboardItem({ [type]: blob })];
+        await navigator.clipboard.write(data);
+
+        const copytoastToast = Toast.getOrCreateInstance(
+          document.getElementById("copytoast")
+        );
+
+        if (copytoastToast) {
+          copytoastToast.show();
+        } else {
+          console.error("Toast-Message not loaded");
+        }
       } catch (error) {
         console.error("Failed to copy to clipboard:", error);
         // Optional: Handle and display the error to the user
       }
-      console.log("function done");
     },
   },
 };
