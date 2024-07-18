@@ -3,7 +3,7 @@
   <hr />
 
   <div class="row my-4 d-flex align-items-center">
-    <div class="col-md-3">
+    <div class="col-md-3" v-if="currentSessionData.imgUrl">
       <img
         :src="currentSessionData.imgUrl"
         class="border shadow rounded-3 w-100"
