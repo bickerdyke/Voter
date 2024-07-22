@@ -38,6 +38,9 @@ export default {
       "isAuthenticated",
       "isSessionLoaded",
     ]),
+    isDevMode() {
+      return process.env.NODE_ENV == "development";
+    },
   },
   watch: {
     currentSessionId: {

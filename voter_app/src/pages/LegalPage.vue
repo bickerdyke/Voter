@@ -5,7 +5,7 @@
       <div class="row">
         <SessionHeadline>
           <template v-slot:headline>{{ $t("Voter-Service Title") }}</template>
-          <template v-slot:subtitle>{{ $t("Voter-Service Tagline") }}</template>
+          <template v-slot:subtitle>{{ $t("Pages.Legal") }}</template>
         </SessionHeadline>
       </div>
 

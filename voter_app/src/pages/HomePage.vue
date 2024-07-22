@@ -60,7 +60,7 @@
 
         <div class="col-md-3 col-sm-6">
           <img
-            src="@/assets/screenshots/create.png"
+            src="@/assets/screenshots/vote.png"
             class="border shadow rounded-3 w-100"
           />
         </div>
@@ -69,7 +69,7 @@
       <div class="row my-4 d-flex align-items-center">
         <div class="col-md-3 col-sm-6">
           <img
-            src="@/assets/screenshots/links.png"
+            src="@/assets/screenshots/result.png"
             class="border shadow rounded-3 w-100"
           />
         </div>
@@ -85,8 +85,7 @@
         </div>
       </div>
 
-      <BetaVersionAlert />
-      <TestLinks />
+      <TestLinks v-if="$root.isDevMode" />
     </div>
   </TheHomeLayout>
 </template>
@@ -94,7 +93,6 @@
 <script>
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
-import BetaVersionAlert from "@/components/BetaVersionAlert";
 import TestLinks from "@/components/TestLinks";
 
 export default {
@@ -102,7 +100,6 @@ export default {
   components: {
     TheHomeLayout,
     SessionHeadline,
-    BetaVersionAlert,
     TestLinks,
   },
 };
