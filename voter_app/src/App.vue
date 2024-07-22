@@ -41,6 +41,9 @@ export default {
     isDevMode() {
       return process.env.NODE_ENV == "development";
     },
+    isTestMode() {
+      return process.env.NODE_ENV == "test";
+    },
   },
   watch: {
     currentSessionId: {

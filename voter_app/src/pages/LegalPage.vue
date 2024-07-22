@@ -9,16 +9,32 @@
         </SessionHeadline>
       </div>
 
+      <BetaVersionAlert v-if="$root.isTestMode" />
       <TheImprint />
 
       <div class="row my-4">
         <h3>{{ $t("Legal.Privacy.Headline") }}</h3>
         <p>{{ $t("Legal.Privacy.p1") }}</p>
         <p>{{ $t("Legal.Privacy.p2") }}</p>
-        <p>{{ $t("Legal.Privacy.p3") }}</p>
+
+        <h4>{{ $t("Legal.Privacy.UserGenerated.Name") }}</h4>
+        <p>{{ $t("Legal.Privacy.UserGenerated.p1") }}</p>
+        <p>{{ $t("Legal.Privacy.UserGenerated.p2") }}</p>
+        <p>{{ $t("Legal.Privacy.UserGenerated.p3") }}</p>
+
+        <h4>{{ $t("Legal.Privacy.ExternalServices") }}</h4>
+        <h5>{{ $t("Legal.Privacy.Gravatar.Name") }}</h5>
+        <p>{{ $t("Legal.Privacy.Gravatar.p1") }}</p>
+        <p>
+          {{ $t("Legal.MoreInformation") }}&nbsp;<a
+            href="https://www.gravatar.com/"
+            target="blank"
+            >https://www.gravatar.com/</a
+          >
+        </p>
       </div>
 
-      <BetaVersionAlert />
+      <HobbyAlert />
     </div>
   </TheHomeLayout>
 </template>
@@ -27,6 +43,7 @@
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import BetaVersionAlert from "@/components/BetaVersionAlert";
+import HobbyAlert from "@/components/basics/HobbyAlert";
 import TheImprint from "@/components/basics/TheImprint";
 
 export default {
@@ -35,6 +52,7 @@ export default {
     TheHomeLayout,
     SessionHeadline,
     BetaVersionAlert,
+    HobbyAlert,
     TheImprint,
   },
 };

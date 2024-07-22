@@ -85,6 +85,7 @@
         </div>
       </div>
 
+      <BetaVersionAlert v-if="$root.isTestMode" />
       <TestLinks v-if="$root.isDevMode" />
     </div>
   </TheHomeLayout>
@@ -94,6 +95,7 @@
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import TestLinks from "@/components/TestLinks";
+import BetaVersionAlert from "@/components/BetaVersionAlert";
 
 export default {
   name: "HomePage",
@@ -101,6 +103,7 @@ export default {
     TheHomeLayout,
     SessionHeadline,
     TestLinks,
+    BetaVersionAlert,
   },
 };
 </script>
