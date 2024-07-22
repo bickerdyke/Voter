@@ -10,6 +10,7 @@
       </div>
 
       <BetaVersionAlert v-if="$root.isTestMode" />
+
       <TheImprint />
 
       <div class="row my-4">
