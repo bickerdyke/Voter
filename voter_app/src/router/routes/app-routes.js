@@ -15,6 +15,13 @@ const appRoutes = [
     props: false,
   },
   {
+    path: "/legal",
+    name: "legal",
+    component: () =>
+      import(/*webpackChunkName: 'page-homepage' */ "@/pages/LegalPage.vue"),
+    props: false,
+  },
+  {
     path: "/create",
     name: "create",
     component: () =>

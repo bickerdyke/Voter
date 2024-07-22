@@ -37,7 +37,7 @@
           }}</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link disabled" to="/legal">{{
+          <router-link class="nav-link" to="/legal">{{
             $t("Pages.Legal")
           }}</router-link>
         </li>
