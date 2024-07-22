@@ -1,5 +1,5 @@
 export const firebaseConfig = {
-  apiKey: "PROVIDED",
+  apiKey: "PROVIDED -- base32 encoded",
   authDomain: "BY",
   projectId: "FIREBASE INIT",
   storageBucket: "SCRIPT",

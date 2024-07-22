@@ -1,5 +1,5 @@
 <template>
-  <table class="table table-bordered border-secondary">
+  <table class="table table-bordered border-primary">
     <thead>
       <tr class="text-center align-top">
         <th></th>
