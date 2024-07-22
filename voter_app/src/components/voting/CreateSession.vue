@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Form
+    <vForm
       @submit="submitSession"
       v-slot="{ errors }"
       :initialValues="initialValues"
@@ -134,18 +134,18 @@
           {{ $t("Reset") }}
         </button>
       </div>
-    </Form>
+    </vForm>
   </div>
 </template>
 
 <script>
-import { Form, Field, ErrorMessage } from "vee-validate";
+import { Form as vForm, Field, ErrorMessage } from "vee-validate";
 import { sessionValidationSchema, localErrorMessages } from "./validations";
 
 export default {
   name: "CreateSession",
   components: {
-    Form,
+    vForm,
     Field,
     ErrorMessage,
   },

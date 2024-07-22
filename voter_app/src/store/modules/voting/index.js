@@ -30,14 +30,14 @@ const mutations = {
     if (Array.isArray(payload.votings)) {
       payload.votings = payload.votings.reduce(
         (a, v, i) => (v ? { ...a, [i]: v } : { ...a }),
-        {}
+        {},
       );
     }
 
     if (Array.isArray(payload.users)) {
       payload.users = payload.users.reduce(
         (a, v, i) => (v ? { ...a, [i]: v } : { ...a }),
-        {}
+        {},
       );
     }
 

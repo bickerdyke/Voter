@@ -68,7 +68,7 @@ const actions = {
         .catch((error) => {
           // console.log({ error });
           reject(
-            new Error(error.response.data.error.message || "UNKNOWN_ERROR")
+            new Error(error.response.data.error.message || "UNKNOWN_ERROR"),
           );
         });
     });
@@ -111,7 +111,7 @@ const actions = {
       })
       .catch((error) => {
         const errorMessage = new Error(
-          error.response.data.error.message || "UNKNOWN_ERROR"
+          error.response.data.error.message || "UNKNOWN_ERROR",
         );
         throw errorMessage;
       });

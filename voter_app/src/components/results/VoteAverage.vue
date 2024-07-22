@@ -33,7 +33,7 @@ export default {
         return "";
       }
       return this.format(
-        votes.reduce((summe, wert) => summe + Number(wert), 0) / votes.length
+        votes.reduce((summe, wert) => summe + Number(wert), 0) / votes.length,
       );
     },
     turnout() {

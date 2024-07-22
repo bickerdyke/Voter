@@ -30,7 +30,7 @@
     </div>
 
     <!-- Edit User -->
-    <Form
+    <vForm
       @submit="updateVoting"
       v-slot="{ errors }"
       :validation-schema="votingValidationSchema"
@@ -134,18 +134,18 @@
       </div>
 
       <!-- Ende Form -->
-    </Form>
+    </vForm>
   </div>
 </template>
 
 <script>
-import { Form, Field, ErrorMessage } from "vee-validate";
+import { Form as vForm, Field, ErrorMessage } from "vee-validate";
 import { votingValidationSchema } from "./validations";
 
 export default {
   name: "CreateVoting",
   components: {
-    Form,
+    vForm,
     Field,
     ErrorMessage,
   },
@@ -202,7 +202,7 @@ export default {
       let counter = 0;
       while (counter < length) {
         result += characters.charAt(
-          Math.floor(Math.random() * charactersLength)
+          Math.floor(Math.random() * charactersLength),
         );
         counter += 1;
       }
