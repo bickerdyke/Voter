@@ -5,6 +5,8 @@ import {
 } from "@/config/firebase";
 import axios from "axios";
 
+var base32 = require("base32-encoding");
+
 let timer;
 
 const state = {
@@ -26,13 +28,14 @@ const actions = {
         returnSecureToken: true,
       };
 
+      const apikey = base32.parse(firebaseConfig.apiKey);
       let url = "";
       if (payload.mode === "signin") {
-        url = `${FIREBASE_AUTH_URL}:signInWithPassword?key=${firebaseConfig.apiKey}`;
+        url = `${FIREBASE_AUTH_URL}:signInWithPassword?key=${apikey}`;
       } else if (payload.mode === "signup") {
-        url = `${FIREBASE_AUTH_URL}:signUp?key=${firebaseConfig.apiKey}`;
+        url = `${FIREBASE_AUTH_URL}:signUp?key=${apikey}`;
       } else if (payload.mode === "anonymous") {
-        url = `${FIREBASE_AUTH_URL}:signUp?key=${firebaseConfig.apiKey}`;
+        url = `${FIREBASE_AUTH_URL}:signUp?key=${apikey}`;
         delete authDO.email;
         delete authDO.password;
       } else {
@@ -82,7 +85,8 @@ const actions = {
       refresh_token: refreshToken,
     };
 
-    let url = `${FIREBASE_REFRESH_URL}?key=${firebaseConfig.apiKey}`;
+    const apikey = base32.parse(firebaseConfig.apiKey);
+    let url = `${FIREBASE_REFRESH_URL}?key=${apikey}`;
 
     return axios
       .post(url, refreshDO)
