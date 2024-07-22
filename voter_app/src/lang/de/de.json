@@ -135,6 +135,22 @@
     "vote": "Abstimmen"
   },
 
+  "Legal": {
+    "Imprint": {
+      "Imprint": "Impressum",
+      "Responsible": "Betreiber:",
+      "Contact": "Kontaktdaten:",
+      "Email": "E-Mail-Adresse:",
+      "UserGenerated": {
+        "Headline": "Nutzergenerierte Inhalte",
+        "p1": "Diese Webseite beinhaltet nutzergenerierte Inhalte. Diese sind nur Verwendung durch den entsprechenden Nutzer gedacht. Diese Inhalte und deren Verbreitung (z.B. durch Links) liegen in der Verantwortung des jeweiligen Inhaltserstellers."
+      }
+    },
+    "Privacy": {
+      "Headline": "Datenschutzerklärung"
+    }
+  },
+
   "i18n": {
     "langName_de": "Deutsch",
     "langName_en-UK": "Englisch (UK)",

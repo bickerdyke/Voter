@@ -94,7 +94,9 @@
     },
     "4712": {
       "title": "Zweite Testsession",
-      "subtitle": "Default mit <b>interessanten</b> Eigenschaften. Drei User, Erste Abstimmung hat alle Stimmen abgegeben, zweite nur 1 (<50%), dritte keine.",
+      "subtitle": "Default mit <b>interessanten</b> Eigenschaften.",
+      "description": "Drei User, Erste Abstimmung hat alle Stimmen abgegeben, zweite nur 1 (<50%), dritte keine. Verschiedene Interessante, falsche und potentiell gefährliche Inhalte. z.B. HTML-Tags in den Texten oder ungültige Bild-Urls.",
+      "imgUrl": "https://picsum.photos/",
       "votings": {
         "bier-1": {
           "title": "Test-Subjekt lang",
@@ -127,6 +129,16 @@
           "description": "Abstimmungsposten mit quadratischem Bild und ohne Stimmen",
           "imgUrl": "https://picsum.photos/100/",
           "votes": {}
+        },
+        "bier-4": {
+          "title": "Bild-Injektion",
+          "description": "Der Bild-Link enthält HTML-Tags zur Injektion",
+          "imgUrl": "https://picsum.photos/200\"/><p>Test</p><img src=\"",
+          "votes": {
+            "abc": {
+              "vote": "5"
+            }
+          }
         }
       },
       "users": {

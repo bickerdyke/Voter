@@ -9,13 +9,13 @@
         </SessionHeadline>
       </div>
 
-      <div class="row my-4 d-flex align-items-center">
-        <div class="col-md-9 col-sm-6 my-2">
-          <h3>{{ $t("Homepage.CreateVoting.Headline") }}</h3>
-          <p>{{ $t("Homepage.CreateVoting.p1") }}</p>
-          <p>{{ $t("Homepage.CreateVoting.p2") }}</p>
-          <p>{{ $t("Homepage.CreateVoting.p3") }}</p>
-        </div>
+      <TheImprint />
+
+      <div class="row my-4">
+        <h3>{{ $t("Legal.Privacy.Headline") }}</h3>
+        <p>{{ $t("Legal.Privacy.p1") }}</p>
+        <p>{{ $t("Legal.Privacy.p2") }}</p>
+        <p>{{ $t("Legal.Privacy.p3") }}</p>
       </div>
 
       <BetaVersionAlert />
@@ -27,6 +27,7 @@
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import BetaVersionAlert from "@/components/BetaVersionAlert";
+import TheImprint from "@/components/basics/TheImprint";
 
 export default {
   name: "LegalPage",
@@ -34,6 +35,7 @@ export default {
     TheHomeLayout,
     SessionHeadline,
     BetaVersionAlert,
+    TheImprint,
   },
 };
 </script>
