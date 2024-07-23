@@ -166,6 +166,11 @@
     "Disclaimer": "Dies ist eine private Hobby-Webseite. Die Benutzung ist ausdrücklich gestattet, erfolgt jedoch ohne Garantie oder jegliche Zusicherung bezüglich Funktion oder Verfügbarkeit."
   },
 
+  "NotFoundPage": {
+    "pageNotFound": "Seite nicht gefunden",
+    "backToHome": "Zurück zur Startseite"
+  },
+
   "i18n": {
     "langName_de": "Deutsch",
     "langName_en-UK": "Englisch (UK)",

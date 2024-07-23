@@ -166,6 +166,11 @@
     "Disclaimer": "This is a personal website developed and operated as hobby. Permission for general use is explicitly granted, but no guarantee or assurance is given regarding function, or availability of the site or any stored content."
   },
 
+  "NotFoundPage": {
+    "pageNotFound": "Page not found",
+    "backToHome": "Back to Homepage"
+  },
+
   "i18n": {
     "langName_de": "German",
     "langName_en-UK": "English (UK)",
