@@ -6,15 +6,12 @@
     },
     {
       "path": "voter_app"
-    },
-    {
-      "path": "bootstrap-sandbox"
     }
   ],
   "settings": {
     "files.exclude": {
-      "voter_app": true,
-      "bootstrap-sandbox": true
-    }
+      "voter_app": true
+    },
+    "i18n-ally.localesPaths": ["voter_app/src/lang"]
   }
 }

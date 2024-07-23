@@ -16,8 +16,6 @@
       {{ $t("Legal.Imprint.Email") }}&nbsp;{{ ImprintEmail }}
     </p>
 
-    <!-- Im Englischen ist die Bezeichnung. “Legal Information” oder “Legal notice” zu empfehlen -->
-
     <b>{{ $t("Legal.Imprint.UserGenerated.Headline") }}</b>
     <p>{{ $t("Legal.Imprint.UserGenerated.p1") }}</p>
   </div>
