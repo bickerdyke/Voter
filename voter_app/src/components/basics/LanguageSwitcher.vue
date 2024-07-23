@@ -14,7 +14,7 @@
           &#x1F1E9;&#x1F1EA; {{ $t("i18n.langName_de") }}
         </button>
       </li>
-      <li>
+      <!--<li>
         <button
           class="dropdown-item"
           type="button"
@@ -22,7 +22,7 @@
         >
           &#x1F1EC;&#x1F1E7; {{ $t("i18n.langName_en-UK") }}
         </button>
-      </li>
+      </li>-->
       <li>
         <button
           class="dropdown-item"

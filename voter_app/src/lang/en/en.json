@@ -1,54 +1,174 @@
 {
+  "Voter-Service Title": "Easy-Vote",
+  "Voter-Service Tagline": "Votings made easy",
+  "Remove": "Remove",
+  "Add": "Add",
+  "Reset": "Clear",
+  "ClipboardCopy": "Copy to clipboard",
+  "ClipboardCopySuccess": "Copied to clipboard",
+  "PrintPage": "Print Page",
+  "Achtung": "Attention!",
+  "Error": "An Error occurred:",
+  "Pages": {
+    "Home": "Home",
+    "Create": "New Voting",
+    "Legal": "Legal information"
+  },
+
+  "Homepage": {
+    "HeroBanner": {
+      "Headline": "Simple Group-Votings",
+      "p1": "Use Easy-Vote to collect a groups opinion about anything - online or in person.",
+      "p2": "Create voting - Hand out links - Vote - and done!",
+      "button": "Create voting and start"
+    },
+    "CreateVoting": {
+      "Headline": "Create Voting",
+      "p1": "To start, create a voting. Each voting can be for several items where the results will be collected.",
+      "p2": "You have several options here like for example school-lke grades or a rating scale from 1 to 10 points.",
+      "p3": "The participants of your voting can also be added here."
+    },
+    "VotingLinks": {
+      "Headline": "Hand out links",
+      "p1": "Personalized URLs are created for each participant to join the voting.",
+      "p2": "They can be printed out as QR-Codes for use with mobiles or forwarded as text by email or instant messenger."
+    },
+    "Vote": {
+      "Headline": "Vote",
+      "p1": "Everyone now can use their personal URL to vote for the items..."
+    },
+    "ShowResult": {
+      "Headline": "Result",
+      "p1": "...and the results will be summarized in a single table that can be printed or displayed on a monitor for all to see at in person meetings.",
+      "p2": "So why not just start and ...",
+      "button": "Create your voting!"
+    }
+  },
+
   "CreateSession": {
+    "introduction": "Create a new voting session. Enter a name and a short description, add a list of items to the voting ballot and a list of participants.",
     "form": {
-      "Session": {
-        "Title": "",
-        "Subtitle": "",
-        "Description": "",
-        "Quorum": "",
-        "Image": "",
-        "Id": ""
-      },
       "hint": {
-        "quorum": "",
-        "useremail": ""
+        "useremail": "This mail address will not be stored or transmitted. It will only be used to find a public profile picture if available.",
+        "quorum": "Selects the minimum number of votes that need to be cast before first results become visible. 0% will immediately show results, 100% will hide results until everyone has voted."
       },
-      "CreateSessionData": "",
-      "CreateVotingData": "",
+      "Session": {
+        "Title": "Session Name",
+        "Subtitle": "Tagline",
+        "Description": "Description",
+        "Quorum": "Quorum",
+        "Image": "Image-Url",
+        "Id": "Voting-Code"
+      },
+      "CreateSessionData": "Create Voting",
+      "CreateVotingData": "Create Item",
       "User": {
-        "Name": "",
-        "Email": "",
-        "Image": "",
-        "Id": ""
+        "Name": "Name",
+        "Email": "E-Mail-Address",
+        "Image": "Profile Picture (Url)",
+        "Id": "User-Code"
       },
-      "CreateUserData": "",
+      "CreateUserData": "Create User",
       "Voting": {
-        "Title": "",
-        "Description": "",
-        "Image": "",
-        "Id": ""
+        "Title": "Title",
+        "Description": "Description",
+        "Image": "Image-Url",
+        "Id": "Id"
       },
-      "Create Session Button": ""
+      "Create Session Button": "Save Voting data and continue"
     },
     "Headline": {
-      "Page Sub-Headline": "",
-      "Votings": "",
-      "User": ""
+      "Page Sub-Headline": "Create Voting",
+      "Votings": "Voting Items",
+      "User": "Participants"
     },
     "errors": {
-      "votings and users required": "",
-      "required_field": "This field is required",
-      "field_invalid": "",
-      "invalid_url": "",
-      "invalid_email": "",
+      "votings and users required": "At least one voting item and participant required.",
+      "required_field": "Is a required field",
+      "field_invalid": "Invalid Field",
+      "invalid_url": "Invalid Url",
+      "invalid_email": "Invalid E-Mail-Adress",
       "field_too_short": "{min}",
-      "field_too_large": "{max}"
-    },
-    "introduction": ""
+      "field_too_large": "{path} {max}",
+      "invalid_GUID": "Not a valid Guid"
+    }
   },
-  "Edit": "",
-  "Remove": "",
-  "Voter-Service Title": "Easy-Vote",
-  "Add": "",
-  "Reset": ""
+
+  "ShowLinks": {
+    "Warningtext": {
+      "p1": "Accessing the voting session requires a voting link. You can find your and the other participants' links here on this page or at this Url:",
+      "p2": "Bookmark this link, but do not forward it to the participants. For forwarding, use the personalized links on this page below."
+    },
+    "options": {
+      "cards": "Voting Cards (print)",
+      "text": "Text only",
+      "singlevotes": "Itemized links"
+    },
+    "Cards": {
+      "CardFor": "Voting card for"
+    },
+    "Text": {
+      "salutation": "Hello {name},",
+      "introductionSinglelinks": "Here are the access links for the \"{name}\" voting:",
+      "introductionUservoting": "Here is the access link for the \"{name}\" voting:",
+      "sendoff": "Bye!"
+    },
+    "TitleAccessUrls": "Access Urls",
+    "TitleResults": "Results",
+    "Heading": "Voting Cards",
+    "Introduction": "Here you can find the personalized voting links. You can choose between creating a separate link for each voting item of a single link to vote for all items. You can also choose between a text template that can be used for Emails or messenger, and cards with QR codes (for printing).",
+    "Go to Result Page": "See results"
+  },
+
+  "Voting": {
+    "result": "Go to results",
+    "pleaseVote": "Please vote:",
+    "pleaseVoteFor": "Please vote for <i>{item}</i>:",
+    "voted": "You have voted:",
+    "votedFor": "You have voted for <i>{item}</i>:",
+    "votingSlider": "Please use the slider to select your rating.",
+    "voteSliderPoints": "Award {pts} points"
+  },
+
+  "Showresult": {
+    "Result": "Result",
+    "vote": "Vote"
+  },
+
+  "Legal": {
+    "MoreInformation": "Further information:",
+    "Imprint": {
+      "Imprint": "Legal Information",
+      "Responsible": "This page is operated by:",
+      "Contact": "Contact:",
+      "Email": "E-Mail-Address:",
+      "UserGenerated": {
+        "Headline": "User-generated Content",
+        "p1": "This website contains user generated content. Content and distribution are the responsibility of the user."
+      }
+    },
+    "Privacy": {
+      "Headline": "Privacy Policy",
+      "p1": "This website does not require or collect Personally Identifiable Information (PII). Creating a user account is not required. Content is connected to users by using an anonymous, randomly created ID and the session ID contained in the voting url",
+      "p2": "There is currently neither a reach measurement nor an advertising display. There is no evaluation or transfer of user data here either.",
+      "UserGenerated": {
+        "Name": "User-generated Content",
+        "p1": "The website offers users the opportunity to store their own content and link to external graphics. Responsibility for this content lies with its creators and users. All stored data can be accessed and viewed using the generated access URL. This corresponds to the purpose of this service. Offending content and content can be reported to the email address given in the legal notice, stating the relevant session ID (\"voting link\").",
+        "p2": "The participants' email addresses requested during data entry are optional and are only used to search for a publicly available profile picture and are not saved.",
+        "p3": "There is no evaluation, transfer or processing of the data beyond the purpose of the website. User-generated content can be deleted after 30 days at the latest. There is no guarantee as to the availability of the service or the stored data."
+      },
+      "ExternalServices": "Externel Services",
+      "Gravatar": {
+        "Name": "Gravatar",
+        "p1": "This website uses Gravatar. This service provides a place for profile pictures that can be used from several other websites. To locate these profile pictures, a cryptographically derived hash value is provided, but no email address."
+      }
+    },
+    "Disclaimer": "This is a personal website developed and operated as hobby. Permission for general use is explicitly granted, but no guarantee or assurance is given regarding function, or availability of the site or any stored content."
+  },
+
+  "i18n": {
+    "langName_de": "German",
+    "langName_en-UK": "English (UK)",
+    "langName_en-US": "English"
+  }
 }
