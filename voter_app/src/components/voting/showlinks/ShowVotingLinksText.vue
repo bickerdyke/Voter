@@ -11,6 +11,14 @@
       />
     </div>
 
+    <!-- Hidden pre-formatted text to copy&paste -->
+    <pre v-show="false" id="mainlinks"
+      >{{ currentSessionData.title }}
+
+{{ $t("ShowLinks.TitleAccessUrls") }}: {{ linklink }}
+{{ $t("ShowLinks.TitleResults") }}: {{ resultlink }}
+    </pre>
+
     <div class="col-md-9 my-2">
       <h3 class="mb-4">{{ currentSessionData.title }}</h3>
 
@@ -22,6 +30,9 @@
         <b>{{ $t("ShowLinks.TitleResults") }}: &nbsp;</b>
         <a :href="resultlink">{{ resultlink }}</a>
       </p>
+      <button class="btn btn-sm" @click="$root.copyToClipboard('mainlinks')">
+        <font-awesome-icon icon="copy" />&nbsp; {{ $t("ClipboardCopy") }}
+      </button>
     </div>
   </div>
 
@@ -91,7 +102,7 @@
       class="btn btn-sm"
       @click="$root.copyToClipboard('invitationtext' + user.name)"
     >
-      <font-awesome-icon icon="copy" />
+      <font-awesome-icon icon="copy" />&nbsp; {{ $t("ClipboardCopy") }}
     </button>
     <hr />
   </template>
