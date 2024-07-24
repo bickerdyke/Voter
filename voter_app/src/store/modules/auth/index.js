@@ -47,15 +47,16 @@ const actions = {
         .then((response) => {
           // Daten im LocalStorage speichern
           const expiresIn = Number(response.data.expiresIn) * 1000; // Lebensdauer in ms
+          const expiresAt = new Date(new Date().getTime() + expiresIn);
 
           localStorage.setItem("token", response.data.idToken);
           localStorage.setItem("userId", response.data.localId);
           localStorage.setItem("refreshToken", response.data.refreshToken);
-          localStorage.setItem("expiresAt", new Date().getTime() + expiresIn);
+          localStorage.setItem("expiresAt", expiresAt);
+          //localStorage.setItem("expiresAtDate", expiresAt.toISOString());
 
           timer = setTimeout(() => {
-            //@todo: #42 auto-refresh statt auto-Signout. Könnte ewig neue anonyme Nutzer in der Nutzerverwaltung anlegen
-            context.dispatch("autoSignout");
+            context.dispatch("refresh");
           }, expiresIn);
 
           context.commit("setUser", {
@@ -66,7 +67,6 @@ const actions = {
           resolve();
         })
         .catch((error) => {
-          // console.log({ error });
           reject(
             new Error(error.response.data.error.message || "UNKNOWN_ERROR"),
           );
@@ -154,7 +154,6 @@ const actions = {
             // Problem beim Token-Refresh beim Anmeldungsstart.
             // z.B. User-Account in Firebase gelöscht oder Session beendet
             // --> doch wieder neu anonym anmelden um eine Session zu bekommen
-            // @todo: #43 evtl. unangemeldeten Status einführen
             context.dispatch("signinAnonymous").then(() => {
               resolve();
             });
@@ -167,21 +166,20 @@ const actions = {
     });
   },
   signout(context) {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("expiresAt");
-    localStorage.removeItem("refreshToken");
+    return new Promise((resolve) => {
+      localStorage.removeItem("token");
+      localStorage.removeItem("userId");
+      localStorage.removeItem("expiresAt");
+      localStorage.removeItem("refreshToken");
 
-    clearTimeout(timer);
+      clearTimeout(timer);
 
-    context.commit("setUser", {
-      token: null,
-      userId: null,
+      context.commit("setUser", {
+        token: null,
+        userId: null,
+      });
+      resolve();
     });
-  },
-  autoSignout(context) {
-    // Server-Kommunikation, falls notwendig
-    context.dispatch("signout");
   },
 };
 

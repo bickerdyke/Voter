@@ -9,7 +9,7 @@
               :email="user.email"
               :emailHash="user.emailHash"
               :imageUrl="user.imgUrl"
-              :size="80"
+              :size="70"
               fallback="wavatar"
             />
           </div>
@@ -31,8 +31,8 @@
         <td>
           <img
             :src="voting.imgUrl"
-            class="float-start m-3 rounded-4"
-            style="width: 70px; height: 70px; object-fit: cover"
+            class="float-start me-2 rounded-4"
+            style="width: 60px; height: 60px; object-fit: cover"
             v-if="voting.imgUrl"
           />
           <div class="m-3 text-left">

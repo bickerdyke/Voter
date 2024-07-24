@@ -66,4 +66,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+p {
+  margin-bottom: 0;
+}
+</style>
