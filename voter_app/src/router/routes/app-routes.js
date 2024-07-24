@@ -12,6 +12,9 @@ const appRoutes = [
         next();
       }
     }, */
+    meta: {
+      requiresAuth: false,
+    },
     props: false,
   },
   {
@@ -19,6 +22,9 @@ const appRoutes = [
     name: "legal",
     component: () =>
       import(/*webpackChunkName: 'page-homepage' */ "@/pages/LegalPage.vue"),
+    meta: {
+      requiresAuth: false,
+    },
     props: false,
   },
   {
@@ -28,6 +34,9 @@ const appRoutes = [
       import(
         /*webpackChunkName: 'page-homepage' */ "@/pages/CreateSessionPage.vue"
       ),
+    meta: {
+      requiresAuth: true,
+    },
     props: false,
   },
   {
@@ -37,6 +46,9 @@ const appRoutes = [
       import(
         /*webpackChunkName: 'page-homepage' */ "@/pages/ShowVotingLinks.vue"
       ),
+    meta: {
+      requiresAuth: true,
+    },
     props: true,
   },
   {
@@ -47,6 +59,9 @@ const appRoutes = [
       import(
         /*webpackChunkName: 'page-homepage' */ "@/pages/UserVotingOverview.vue"
       ),
+    meta: {
+      requiresAuth: true,
+    },
     props: true,
   },
   {
@@ -54,6 +69,9 @@ const appRoutes = [
     name: "showresult",
     component: () =>
       import(/*webpackChunkName: 'page-results' */ "@/pages/ResultPage.vue"),
+    meta: {
+      requiresAuth: true,
+    },
     props: true,
   },
   {
@@ -62,6 +80,9 @@ const appRoutes = [
     component: () =>
       import(/*webpackChunkName: 'page-vote' */ "@/pages/VotePage.vue"),
     props: true,
+    meta: {
+      requiresAuth: true,
+    },
   },
 ];
 

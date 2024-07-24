@@ -154,7 +154,6 @@ const actions = {
             // Problem beim Token-Refresh beim Anmeldungsstart.
             // z.B. User-Account in Firebase gelöscht oder Session beendet
             // --> doch wieder neu anonym anmelden um eine Session zu bekommen
-            // @todo: #43 evtl. unangemeldeten Status einführen
             context.dispatch("signinAnonymous").then(() => {
               resolve();
             });
@@ -167,16 +166,19 @@ const actions = {
     });
   },
   signout(context) {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("expiresAt");
-    localStorage.removeItem("refreshToken");
+    return new Promise((resolve) => {
+      localStorage.removeItem("token");
+      localStorage.removeItem("userId");
+      localStorage.removeItem("expiresAt");
+      localStorage.removeItem("refreshToken");
 
-    clearTimeout(timer);
+      clearTimeout(timer);
 
-    context.commit("setUser", {
-      token: null,
-      userId: null,
+      context.commit("setUser", {
+        token: null,
+        userId: null,
+      });
+      resolve();
     });
   },
 };

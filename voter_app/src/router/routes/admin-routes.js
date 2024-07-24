@@ -5,9 +5,18 @@ const adminRoutes = [
     path: "/logout",
     component: () =>
       import(/*webpackChunkName: 'page-homepage' */ "@/pages/HomePage.vue"),
+    meta: {
+      requiresAuth: false,
+    },
     beforeEnter: () => {
-      store.dispatch("signout");
-      return "/";
+      return store
+        .dispatch("signout")
+        .then(() => {
+          return "/";
+        })
+        .catch(() => {
+          return "/notfound";
+        });
     },
   },
 ];
