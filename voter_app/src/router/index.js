@@ -27,7 +27,7 @@ router.beforeEach((to) => {
     // Session bei Bedarf wird auch geladen wenn wir von vorneherein angemeldet sind.
     // Das ganze ist nur etwas verwirrend geschrieben da loasSessionFromRoute warten muss bis der Autologin beendet ist,
     // also in den "then"-Pfad muss
-    store
+    return store
       .dispatch("autoSignin")
       .then(() => {
         loadSessionFromRoute(to.params.sessionId);
@@ -38,19 +38,21 @@ router.beforeEach((to) => {
   }
 
   if (store.getters.isAuthenticated) {
-    loadSessionFromRoute(to.params.sessionId);
+    return loadSessionFromRoute(to.params.sessionId);
   }
 });
 
 function loadSessionFromRoute(sessionId) {
-  console.log("Check for Routeupdate");
-  if (sessionId) {
-    // Update session in store from database if neccessary
-    if (store.getters.currentSessionId !== sessionId) {
-      console.log("Updating session from Route");
-      store.commit("setSessionId", sessionId);
+  return new Promise(() => {
+    console.log("Check for Routeupdate");
+    if (sessionId) {
+      // Update session in store from database if neccessary
+      if (store.getters.currentSessionId !== sessionId) {
+        console.log("Updating session from Route");
+        store.commit("setSessionId", sessionId);
+      }
     }
-  }
+  });
 }
 
 export default router;
