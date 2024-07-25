@@ -25,7 +25,7 @@ router.beforeEach((to) => {
     // Wir nehmen hier an dass ein anonymes Login immer klappt und nach dem autoSignin auf jeden Fall
     // DB-Zugang besteht und wir bei Bedarf eine Session laden können.
     // Session bei Bedarf wird auch geladen wenn wir von vorneherein angemeldet sind.
-    // Das ganze ist nur etwas verwirrend geschrieben da loasSessionFromRoute warten muss bis der Autologin beendet ist,
+    // Das ganze ist nur etwas verwirrend geschrieben da loadSessionFromRoute warten muss bis der Autologin beendet ist,
     // also in den "then"-Pfad muss
     return store
       .dispatch("autoSignin")
@@ -49,6 +49,8 @@ function loadSessionFromRoute(sessionId) {
       // Update session in store from database if necessary
       if (store.getters.currentSessionId !== sessionId) {
         store.commit("setSessionId", sessionId);
+        resolve();
+      } else {
         resolve();
       }
     } else {

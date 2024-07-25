@@ -159,6 +159,7 @@ export default {
       this.newSession.description = values.description;
       this.newSession.quorum = values.quorum;
       this.newSession.imgUrl = values.imgUrl;
+      this.newSession.token = values.token;
     },
     addVotingButton() {
       this.editingVoting = true;
@@ -233,6 +234,7 @@ export default {
             },
             query: {
               created: true,
+              t: this.newSession.token,
             },
           });
         })

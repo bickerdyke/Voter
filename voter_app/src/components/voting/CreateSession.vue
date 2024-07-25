@@ -192,8 +192,23 @@ export default {
         description: values.sessiondescription,
         quorum: values.sessionquorum,
         imgUrl: values.sessionimgurl,
+        token: this.createToken(),
       };
       this.$emit("sessionSubmit", sessiondata);
+    },
+    createToken() {
+      const length = 5;
+      let result = "";
+      const characters = "abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
+      const charactersLength = characters.length;
+      let counter = 0;
+      while (counter < length) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength),
+        );
+        counter += 1;
+      }
+      return result;
     },
   },
 };

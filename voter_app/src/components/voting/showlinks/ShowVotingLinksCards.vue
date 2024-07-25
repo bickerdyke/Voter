@@ -100,7 +100,7 @@ export default {
             votingId: vId,
           },
           query: {
-            autoclose: true,
+            ac: 1,
           },
         });
       } else {

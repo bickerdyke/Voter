@@ -3,7 +3,7 @@
   <hr />
 
   <div class="row my-4 d-flex align-items-center">
-    <div class="col-md-3" v-if="currentSessionData.imgUrl">
+    <div class="col-md-3 col-print-3" v-if="currentSessionData.imgUrl">
       <img
         :src="currentSessionData.imgUrl"
         class="border shadow rounded-3 w-100"
@@ -19,7 +19,7 @@
 {{ $t("ShowLinks.TitleResults") }}: {{ resultlink }}
     </pre>
 
-    <div class="col-md-9 my-2">
+    <div class="col-md-9 col-print-9 my-2">
       <h3 class="mb-4">{{ currentSessionData.title }}</h3>
 
       <p>
@@ -30,13 +30,16 @@
         <b>{{ $t("ShowLinks.TitleResults") }}: &nbsp;</b>
         <a :href="resultlink">{{ resultlink }}</a>
       </p>
-      <button class="btn btn-sm" @click="$root.copyToClipboard('mainlinks')">
+      <button
+        class="btn btn-sm d-print-none"
+        @click="$root.copyToClipboard('mainlinks')"
+      >
         <font-awesome-icon icon="copy" />&nbsp; {{ $t("ClipboardCopy") }}
       </button>
     </div>
   </div>
 
-  <hr />
+  <hr style="page-break-after: always" />
 
   <template v-for="(user, uId) in currentSessionData.users" :key="uId">
     <!-- Hidden pre-formatted text to copy&paste -->
@@ -99,12 +102,12 @@
     </div>
 
     <button
-      class="btn btn-sm"
+      class="btn btn-sm d-print-none"
       @click="$root.copyToClipboard('invitationtext' + user.name)"
     >
       <font-awesome-icon icon="copy" />&nbsp; {{ $t("ClipboardCopy") }}
     </button>
-    <hr />
+    <hr style="page-break-after: always" />
   </template>
 </template>
 
@@ -148,7 +151,7 @@ export default {
             votingId: vId,
           },
           query: {
-            autoclose: true,
+            ac: 1,
           },
         });
       } else {

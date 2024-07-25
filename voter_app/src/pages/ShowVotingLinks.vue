@@ -7,7 +7,7 @@
       <!-- Alert -->
       <div
         class="alert alert-danger shadow mb-5 d-print-none"
-        v-if="$route.query.created"
+        v-if="$route.query.created && $root.isSessionAdmin"
       >
         <h3>{{ $t("Achtung") }}</h3>
         <p>{{ $t("ShowLinks.Warningtext.p1") }}</p>
@@ -84,20 +84,27 @@
       @todo: #39 Alternative Linkanzeige: Cheatsheet für Moderator zum Drucken mit Beschreibung und Links
       -->
 
-      <div v-if="isLoaded">
-        <ShowVotingLinksCards
-          v-if="linkstyle === 'cards'"
-          :linklink="linkPageUrl"
-          :resultlink="resultPageUrl"
-          :singlevotinglinks="singlevote"
-        ></ShowVotingLinksCards>
-        <ShowVotingLinksText
-          v-else-if="linkstyle === 'text'"
-          :linklink="linkPageUrl"
-          :resultlink="resultPageUrl"
-          :singlevotinglinks="singlevote"
-        ></ShowVotingLinksText>
-      </div>
+      <template v-if="$root.isSessionAdmin">
+        <div v-if="isLoaded">
+          <ShowVotingLinksCards
+            v-if="linkstyle === 'cards'"
+            :linklink="linkPageUrl"
+            :resultlink="resultPageUrl"
+            :singlevotinglinks="singlevote"
+          ></ShowVotingLinksCards>
+          <ShowVotingLinksText
+            v-else-if="linkstyle === 'text'"
+            :linklink="linkPageUrl"
+            :resultlink="resultPageUrl"
+            :singlevotinglinks="singlevote"
+          ></ShowVotingLinksText>
+        </div>
+        <div class="mt-3 d-print-none">
+          <button class="btn btn-light btn-sm" @click="printpage">
+            <font-awesome-icon icon="print" /> &nbsp;{{ $t("PrintPage") }}
+          </button>
+        </div>
+      </template>
 
       <!-- Footer -->
       <div class="d-grid mt-3 d-print-none">
@@ -144,6 +151,9 @@ export default {
         name: "showlinks",
         params: {
           sessionId: this.currentSessionId,
+        },
+        query: {
+          t: this.currentSessionData.token,
         },
       });
       return new URL(route.href, window.location.origin).href;
