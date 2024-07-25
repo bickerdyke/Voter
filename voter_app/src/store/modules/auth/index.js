@@ -1,8 +1,4 @@
-import {
-  firebaseConfig,
-  FIREBASE_AUTH_URL,
-  FIREBASE_REFRESH_URL,
-} from "@/config/firebase";
+import { FIREBASE_AUTH_URL, FIREBASE_REFRESH_URL } from "@/config/firebase";
 import axios from "axios";
 
 var base32 = require("base32-encoding");
@@ -28,7 +24,7 @@ const actions = {
         returnSecureToken: true,
       };
 
-      const apikey = base32.parse(firebaseConfig.apiKey);
+      const apikey = base32.parse(process.env.VUE_APP_FIREBASE_APIKEY);
       let url = "";
       if (payload.mode === "signin") {
         url = `${FIREBASE_AUTH_URL}:signInWithPassword?key=${apikey}`;
@@ -85,7 +81,7 @@ const actions = {
       refresh_token: refreshToken,
     };
 
-    const apikey = base32.parse(firebaseConfig.apiKey);
+    const apikey = base32.parse(process.env.VUE_APP_FIREBASE_APIKEY);
     let url = `${FIREBASE_REFRESH_URL}?key=${apikey}`;
 
     return axios

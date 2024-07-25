@@ -11,6 +11,9 @@ permissions:
 jobs:
   build_and_preview:
     #if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    env:
+      VUE_APP_FIREBASE_APIKEY: ${{ secrets.FIREBASE_API_KEY }}
+      VUE_APP_FIREBASE_PROJECTID: ${{ secrets.FIREBASE_PROJECTID }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
