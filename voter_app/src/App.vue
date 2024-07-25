@@ -37,12 +37,31 @@ export default {
       "currentSessionData",
       "isAuthenticated",
       "isSessionLoaded",
+      "userId",
     ]),
     isDevMode() {
       return process.env.NODE_ENV == "development";
     },
     isTestMode() {
       return process.env.NODE_ENV == "test";
+    },
+    isSessionAdmin() {
+      const SessionAuthorId = this.currentSessionData.author;
+      const SessionToken = this.currentSessionData.token;
+
+      if (!SessionAuthorId && !SessionToken) {
+        return true; // No owner information available --> session in truly public
+      }
+
+      if (SessionAuthorId == this.userId) {
+        return true;
+      }
+
+      if (SessionToken == this.$route.query.t) {
+        return true;
+      }
+
+      return false;
     },
   },
   watch: {

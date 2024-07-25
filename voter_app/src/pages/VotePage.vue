@@ -58,7 +58,7 @@
         <router-link
           :to="resultPageRoute"
           class="btn btn-primary"
-          v-if="!$route.query.autoclose"
+          v-if="!$route.query.ac"
           >{{ $t("Voting.result") }}</router-link
         >
       </div>
@@ -142,7 +142,7 @@ export default {
       this.$store
         .dispatch("castVote", payload)
         .then(() => {
-          // @wontfix: #40 Auto-Close implementieren. (query-Parameter autoclose=true)
+          // @wontfix: #40 Auto-Close implementieren. (query-Parameter ac=1)
           // window.close-Funktion nicht mehr verfügbar
         })
         .catch((err) => {
