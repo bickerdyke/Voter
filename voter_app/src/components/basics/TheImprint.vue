@@ -13,7 +13,8 @@
     <p>
       <b>{{ $t("Legal.Imprint.Contact") }}</b
       ><br />
-      {{ $t("Legal.Imprint.Email") }}&nbsp;{{ ImprintEmail }}
+      {{ $t("Legal.Imprint.Email") }}&nbsp;{{ ImprintEmail1
+      }}<font-awesome-icon icon="at" />{{ ImprintEmail2 }}
     </p>
 
     <b>{{ $t("Legal.Imprint.UserGenerated.Headline") }}</b>
@@ -34,8 +35,13 @@ export default {
     ImprintAddress2() {
       return process.env.VUE_APP_IMPRINT_ADDRESS2;
     },
-    ImprintEmail() {
-      return process.env.VUE_APP_IMPRINT_EMAIL;
+    ImprintEmail1() {
+      const mail = process.env.VUE_APP_IMPRINT_EMAIL;
+      return mail.split(" (at) ")[0];
+    },
+    ImprintEmail2() {
+      const mail = process.env.VUE_APP_IMPRINT_EMAIL;
+      return mail.split(" (at) ")[1];
     },
   },
 };

@@ -9,6 +9,7 @@ import {
   faSquarePollVertical,
   faCopy,
   faPrint,
+  faAt,
   //faUserCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
@@ -18,6 +19,7 @@ library.add(faSquarePollVertical);
 library.add(faCopy);
 library.add(faPrint);
 library.add(faCircleCheck);
+library.add(faAt);
 //library.add(faUserCheck);
 
 const app = createApp(App);
