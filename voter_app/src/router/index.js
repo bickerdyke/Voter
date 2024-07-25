@@ -46,15 +46,12 @@ function loadSessionFromRoute(sessionId) {
   return new Promise((resolve) => {
     console.log("Check for Routeupdate");
     if (sessionId) {
-      console.log("we have sessionId: " + sessionId);
       // Update session in store from database if necessary
       if (store.getters.currentSessionId !== sessionId) {
-        console.log("Updating session from Route");
         store.commit("setSessionId", sessionId);
         resolve();
       }
     } else {
-      console.log("No session id");
       resolve();
     }
   });

@@ -1,9 +1,11 @@
+const projectId = process.env.VUE_APP_FIREBASE_PROJECTID;
+
 export const firebaseConfig = {
-  authDomain: `${process.env.VUE_APP_FIREBASE_PROJECTID}.firebaseapp.com`,
-  storageBucket: `${process.env.VUE_APP_FIREBASE_PROJECTID}.appspot.com`,
+  authDomain: `${projectId}.firebaseapp.com`,
+  storageBucket: `${projectId}.appspot.com`,
 };
 
-export const FIREBASE_RTDB_URL = `https://${process.env.VUE_APP_FIREBASE_PROJECTID}-default-rtdb.europe-west1.firebasedatabase.app/`;
+export const FIREBASE_RTDB_URL = `https://${projectId}-default-rtdb.europe-west1.firebasedatabase.app/`;
 
 export const FIREBASE_AUTH_URL =
   "https://identitytoolkit.googleapis.com/v1/accounts";
