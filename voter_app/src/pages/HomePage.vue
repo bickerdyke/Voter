@@ -85,7 +85,7 @@
         </div>
       </div>
 
-      <BetaVersionAlert v-if="!$root.isDevMode" />
+      <!-- <BetaVersionAlert v-if="!$root.isDevMode" /> -->
       <TestLinks v-if="$root.isDevMode" />
     </div>
   </TheHomeLayout>
