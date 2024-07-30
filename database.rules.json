@@ -1,8 +1,86 @@
 {
   "rules": {
+    /* block any top-level access without session-ID */
+    ".read": "false",
+    ".write": "false",
     "sessions": {
-      ".read": "auth != null",
-      ".write": "auth != null"
+      "$sessionId": {
+        ".read": "auth != null",
+        ".write": "auth != null && !data.exists()",
+        ".indexOn": ["author"],
+        ".validate": "newData.hasChildren(['author', 'timestamp', 'title']) || newData.hasChild('votings')",
+        "author": {
+          ".validate": "newData.isString() && newData.val() == auth.uid"
+        },
+        "timestamp": {
+          ".validate": "newData.val() <= now"
+        },
+        "title": {
+          ".validate": "newData.isString() && newData.val().length <= 100"
+        },
+        "subtitle": {
+          ".validate": "newData.isString() && newData.val().length <= 150"
+        },
+        "description": {
+          ".validate": "newData.isString() && newData.val().length <= 2000"
+        },
+        "imgUrl": {
+          ".validate": "newData.isString() && newData.val().length <= 500 && newData.val().beginsWith('http')"
+        },
+        "quorum": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100"
+        },
+        "$other": { ".validate": "false" },
+        "users": {
+          ".validate": "newData.exists()",
+          "$userId": {
+            "name": {
+              ".validate": "newData.isString() && newData.val().length <= 50"
+            },
+            "email": {
+              ".validate": "newData.isString() && newData.val().length < 70"
+            },
+            "emailHash": {
+              ".validate": "newData.isString() && newData.val().length < 70"
+            },
+            "imgUrl": {
+              ".validate": "newData.isString() && newData.val().length <= 500 && newData.val().beginsWith('http')"
+            },
+            "$other": { ".validate": "false" }
+          }
+        },
+        "votings": {
+          ".validate": "newData.exists()",
+          "$votingId": {
+            "title": {
+              ".validate": "newData.isString() && newData.val().length <= 100"
+            },
+            "description": {
+              ".validate": "newData.isString() && newData.val().length <= 2000"
+            },
+            "imgUrl": {
+              ".validate": "newData.isString() && newData.val().length <= 500 && newData.val().beginsWith('http')"
+            },
+            "$other": { ".validate": "false" },
+            "votes": {
+              ".write": "auth != null && !data.exists()",
+              "$userId": {
+                ".validate": "newData.hasChildren(['author', 'timestamp', 'vote'])",
+                "author": {
+                  ".validate": "newData.isString() && newData.val() == auth.uid"
+                },
+                "timestamp": {
+                  ".validate": "newData.val() <= now"
+                },
+                "vote": {
+                  ".validate": "newData.isString() && newData.val().length < 50"
+                },
+                "$other": { ".validate": "false" }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

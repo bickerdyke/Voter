@@ -6,7 +6,7 @@ import * as yup from "yup";
 // const { locale } = useI18n();
 
 export const sessionValidationSchema = yup.object().shape({
-  sessiontitle: yup.string().required().trim().max(50),
+  sessiontitle: yup.string().required().trim().max(100),
   sessionsubtitle: yup.string().trim().max(150),
   sessiondescription: yup.string().trim().max(2000),
   sessionimgurl: yup.string().trim().url(),
