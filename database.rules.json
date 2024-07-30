@@ -5,18 +5,20 @@
     ".write": "false",
     "sessions": {
       "$sessionId": {
+        /* Allow new sessions and added votes */
         ".read": "auth != null",
         ".write": "auth != null && !data.exists()",
         ".indexOn": ["author"],
-        ".validate": "newData.hasChildren(['author', 'timestamp', 'title']) || newData.hasChild('votings')",
+        ".validate": "newData.hasChild('votings')",
+        /* Validate Session Data */
         "author": {
-          ".validate": "newData.isString() && newData.val() == auth.uid"
+          ".validate": "newData.isString() && newData.val() == auth.uid && newData.parent().child('timestamp').exists()"
         },
         "timestamp": {
           ".validate": "newData.val() <= now"
         },
         "title": {
-          ".validate": "newData.isString() && newData.val().length <= 100"
+          ".validate": "newData.isString() && newData.val().length <= 100 && newData.parent().child('author').exists()"
         },
         "subtitle": {
           ".validate": "newData.isString() && newData.val().length <= 150"
@@ -64,6 +66,7 @@
             "$other": { ".validate": "false" },
             "votes": {
               ".write": "auth != null && !data.exists()",
+              ".validate": "!newData.parent().parent().parent().child('title').exists() && !newData.parent().parent().parent().child('description').exists() && !newData.parent().parent().parent().child('subtitle').exists() && !newData.parent().parent().parent().child('users').exists()",
               "$userId": {
                 ".validate": "newData.hasChildren(['author', 'timestamp', 'vote'])",
                 "author": {
