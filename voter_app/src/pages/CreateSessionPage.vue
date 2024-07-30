@@ -94,6 +94,14 @@
           }}</span>
           <span v-else class="spinner-border spinner-border-sm"></span>
         </button>
+        <button
+          class="btn btn-danger mt-2"
+          :disabled="isLoading || !readyToShow"
+          v-if="readyToShow"
+          @click="resetSession"
+        >
+          <span>{{ $t("Reset") }}</span>
+        </button>
       </div>
     </div>
   </TheHomeLayout>
@@ -160,6 +168,11 @@ export default {
       this.newSession.quorum = values.quorum;
       this.newSession.imgUrl = values.imgUrl;
       this.newSession.token = values.token;
+    },
+    resetSession() {
+      this.newSession = {};
+      this.newVotings = [];
+      this.newUsers = [];
     },
     addVotingButton() {
       this.editingVoting = true;
