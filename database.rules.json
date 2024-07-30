@@ -69,7 +69,6 @@
             "$other": { ".validate": "false" },
             "votes": {
               ".write": "auth != null && !data.exists()",
-              ".validate": "!newData.parent().parent().parent().child('title').exists() && !newData.parent().parent().parent().child('description').exists() && !newData.parent().parent().parent().child('subtitle').exists() && !newData.parent().parent().parent().child('users').exists()",
               "$userId": {
                 ".validate": "newData.hasChildren(['author', 'timestamp', 'vote'])",
                 "author": {
@@ -79,7 +78,7 @@
                   ".validate": "newData.exists()" /*"newData.val() <= now"*/
                 },
                 "vote": {
-                  ".validate": "newData.isString() && newData.val().length < 50"
+                  ".validate": "newData.isString() && newData.val().length <= 50"
                 },
                 "$other": { ".validate": "false" }
               }
