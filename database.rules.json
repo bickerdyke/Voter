@@ -14,6 +14,9 @@
         "author": {
           ".validate": "newData.isString() && newData.val() == auth.uid && newData.parent().child('timestamp').exists()"
         },
+        "token": {
+          ".validate": "newData.isString() && newData.val().length <= 20"
+        },
         "timestamp": {
           ".validate": "newData.val() <= now"
         },
