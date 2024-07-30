@@ -99,9 +99,9 @@ export default {
             userId: uId,
             votingId: vId,
           },
-          query: {
+          /*query: {
             ac: 1,
-          },
+          },*/
         });
       } else {
         route = this.$router.resolve({
