@@ -18,7 +18,7 @@
           ".validate": "newData.isString() && newData.val().length <= 20"
         },
         "timestamp": {
-          ".validate": "newData.val() <= now"
+          ".validate": "newData.exists()" /*"newData.val() <= now"*/
         },
         "title": {
           ".validate": "newData.isString() && newData.val().length <= 100 && newData.parent().child('author').exists()"
@@ -76,7 +76,7 @@
                   ".validate": "newData.isString() && newData.val() == auth.uid"
                 },
                 "timestamp": {
-                  ".validate": "newData.val() <= now"
+                  ".validate": "newData.exists()" /*"newData.val() <= now"*/
                 },
                 "vote": {
                   ".validate": "newData.isString() && newData.val().length < 50"
