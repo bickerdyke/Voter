@@ -81,6 +81,11 @@ const actions = {
       refresh_token: refreshToken,
     };
 
+    if (!process.env.VUE_APP_FIREBASE_APIKEY) {
+      console.error("API-Key is missing");
+      throw new Error("API-Key Missing");
+    }
+
     const apikey = base32.parse(process.env.VUE_APP_FIREBASE_APIKEY);
     let url = `${FIREBASE_REFRESH_URL}?key=${apikey}`;
 
@@ -146,10 +151,11 @@ const actions = {
           .then(() => {
             resolve();
           })
-          .catch(() => {
+          .catch((err) => {
             // Problem beim Token-Refresh beim Anmeldungsstart.
             // z.B. User-Account in Firebase gelöscht oder Session beendet
             // --> doch wieder neu anonym anmelden um eine Session zu bekommen
+            console.error(err);
             context.dispatch("signinAnonymous").then(() => {
               resolve();
             });

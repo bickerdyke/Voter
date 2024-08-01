@@ -32,8 +32,9 @@ router.beforeEach((to) => {
       .then(() => {
         loadSessionFromRoute(to.params.sessionId);
       })
-      .catch(() => {
-        router.next("/");
+      .catch((err) => {
+        console.error(err);
+        return { name: "hone" };
       });
   }
 
