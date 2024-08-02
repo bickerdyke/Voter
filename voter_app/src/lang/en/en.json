@@ -136,7 +136,15 @@
     "voted": "You have voted:",
     "votedFor": "You have voted for {item}:",
     "votingSlider": "Please use the slider to select your rating.",
-    "voteSliderPoints": "Award {pts} points"
+    "voteSliderPoints": "Award {pts} points",
+    "grades": {
+      "1": "Very good",
+      "2": "Good",
+      "3": "Satisfactory",
+      "4": "Fair",
+      "5": "Poor",
+      "6": "Fail"
+    }
   },
 
   "Showresult": {

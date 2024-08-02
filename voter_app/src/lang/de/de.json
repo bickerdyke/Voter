@@ -136,7 +136,15 @@
     "voted": "Sie haben abgestimmt:",
     "votedFor": "Sie haben für {item} abgestimmt:",
     "votingSlider": "Bitte mit dem Schieberegler ihre Wertung einstellen.",
-    "voteSliderPoints": "{pts} Punkte vergeben"
+    "voteSliderPoints": "{pts} Punkte vergeben",
+    "grades": {
+      "1": "Sehr gut",
+      "2": "Gut",
+      "3": "Befriedigend",
+      "4": "Ausreichend",
+      "5": "Mangelhaft",
+      "6": "Ungenügend"
+    }
   },
 
   "Showresult": {
