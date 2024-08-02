@@ -1,212 +1,190 @@
 <template>
   <div class="mx-5 my-2 row">
-    <div class="col-md-6 offset-md-3">
-      <table class="table table-bordered border-primary">
-        <tbody>
-          <tr>
-            <th class="align-middle text-end">{{ $t("Voting.grades.1") }}</th>
-            <td>&nbsp;</td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('0.7')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 1+
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-primary" @click="voted('1')">
-                <font-awesome-icon icon="square-poll-vertical" /> 1
-              </button>
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('1.3')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 1-
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle text-end">{{ $t("Voting.grades.2") }}</th>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('1.5')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 1&#8209;2
-              </button>
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('1.7')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 2+
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-primary" @click="voted('2')">
-                <font-awesome-icon icon="square-poll-vertical" /> 2
-              </button>
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('2.3')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 2-
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle text-end">
-              {{ $t("Voting.grades.3") }}
-            </th>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('2.5')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 2&#8209;3
-              </button>
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('2.7')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 3+
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-primary" @click="voted('3')">
-                <font-awesome-icon icon="square-poll-vertical" /> 3
-              </button>
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('3.3')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 3-
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle text-end">
-              {{ $t("Voting.grades.4") }}
-            </th>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('3.5')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 3&#8209;4
-              </button>
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('3.7')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 4+
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-primary" @click="voted('4')">
-                <font-awesome-icon icon="square-poll-vertical" /> 4
-              </button>
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('4.3')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 4-
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle text-end">
-              {{ $t("Voting.grades.5") }}
-            </th>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('4.5')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 4&#8209;5
-              </button>
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('4.7')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 5+
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-primary" @click="voted('5')">
-                <font-awesome-icon icon="square-poll-vertical" /> 5
-              </button>
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('5.3')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 5-
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle text-end">
-              {{ $t("Voting.grades.6") }}
-            </th>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('5.5')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 5&#8209;6
-              </button>
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="voted('5.7')"
-              >
-                <font-awesome-icon icon="square-poll-vertical" /> 6+
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-primary" @click="voted('6')">
-                <font-awesome-icon icon="square-poll-vertical" /> 6
-              </button>
-            </td>
-            <td>&nbsp;</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="buttongroup">
+      <button type="button" class="btn btn-primary m-3" @click="select(1)">
+        {{ $t("Voting.grades.1") }}
+      </button>
+      <button type="button" class="btn btn-primary m-3" @click="select(2)">
+        {{ $t("Voting.grades.2") }}
+      </button>
+      <button type="button" class="btn btn-primary m-3" @click="select(3)">
+        {{ $t("Voting.grades.3") }}
+      </button>
+      <button type="button" class="btn btn-primary m-3" @click="select(4)">
+        {{ $t("Voting.grades.4") }}
+      </button>
+      <button type="button" class="btn btn-primary m-3" @click="select(5)">
+        {{ $t("Voting.grades.5") }}
+      </button>
+      <button type="button" class="btn btn-primary m-3" @click="select(6)">
+        {{ $t("Voting.grades.6") }}
+      </button>
+    </div>
+  </div>
+  <div class="mx-5 my-2 row" v-if="selection == 1">
+    <div class="buttongroup">
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        v-if="plusminus"
+        @click="voted('0.7')"
+      >
+        <font-awesome-icon icon="square-poll-vertical" /> 1+
+      </button>
+
+      <button type="button" class="btn btn-primary m-3" @click="voted('1')">
+        <font-awesome-icon icon="square-poll-vertical" /> 1
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        v-if="plusminus"
+        @click="voted('1.3')"
+      >
+        <font-awesome-icon icon="square-poll-vertical" /> 1-
+      </button>
+    </div>
+  </div>
+
+  <div class="mx-5 my-2 row" v-if="selection == 2">
+    <div class="buttongroup">
+      <button type="button" class="btn btn-primary m-3" @click="voted('1.5')">
+        <font-awesome-icon icon="square-poll-vertical" /> 1&#8209;2
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        v-if="plusminus"
+        @click="voted('1.7')"
+      >
+        <font-awesome-icon icon="square-poll-vertical" /> 2+
+      </button>
+
+      <button type="button" class="btn btn-primary m-3" @click="voted('2')">
+        <font-awesome-icon icon="square-poll-vertical" /> 2
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        v-if="plusminus"
+        @click="voted('2.3')"
+      >
+        <font-awesome-icon icon="square-poll-vertical" /> 2-
+      </button>
+    </div>
+  </div>
+
+  <div class="mx-5 my-2 row" v-if="selection == 3">
+    <div class="buttongroup">
+      <button type="button" class="btn btn-primary m-3" @click="voted('2.5')">
+        <font-awesome-icon icon="square-poll-vertical" /> 2&#8209;3
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        v-if="plusminus"
+        @click="voted('2.7')"
+      >
+        <font-awesome-icon icon="square-poll-vertical" /> 3+
+      </button>
+
+      <button type="button" class="btn btn-primary m-3" @click="voted('3')">
+        <font-awesome-icon icon="square-poll-vertical" /> 3
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        v-if="plusminus"
+        @click="voted('3.3')"
+      >
+        <font-awesome-icon icon="square-poll-vertical" /> 3-
+      </button>
+    </div>
+  </div>
+
+  <div class="mx-5 my-2 row" v-if="selection == 4">
+    <div class="buttongroup">
+      <button type="button" class="btn btn-primary m-3" @click="voted('3.5')">
+        <font-awesome-icon icon="square-poll-vertical" /> 3&#8209;4
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        v-if="plusminus"
+        @click="voted('3.7')"
+      >
+        <font-awesome-icon icon="square-poll-vertical" /> 4+
+      </button>
+
+      <button type="button" class="btn btn-primary m-3" @click="voted('4')">
+        <font-awesome-icon icon="square-poll-vertical" /> 4
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        v-if="plusminus"
+        @click="voted('4.3')"
+      >
+        <font-awesome-icon icon="square-poll-vertical" /> 4-
+      </button>
+    </div>
+  </div>
+
+  <div class="mx-5 my-2 row" v-if="selection == 5">
+    <div class="buttongroup">
+      <button type="button" class="btn btn-primary m-3" @click="voted('4.5')">
+        <font-awesome-icon icon="square-poll-vertical" /> 4&#8209;5
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        v-if="plusminus"
+        @click="voted('4.7')"
+      >
+        <font-awesome-icon icon="square-poll-vertical" /> 5+
+      </button>
+
+      <button type="button" class="btn btn-primary m-3" @click="voted('5')">
+        <font-awesome-icon icon="square-poll-vertical" /> 5
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        v-if="plusminus"
+        @click="voted('5.3')"
+      >
+        <font-awesome-icon icon="square-poll-vertical" /> 5-
+      </button>
+    </div>
+  </div>
+
+  <div class="mx-5 my-2 row" v-if="selection == 6">
+    <div class="buttongroup">
+      <button type="button" class="btn btn-primary m-3" @click="voted('5.5')">
+        <font-awesome-icon icon="square-poll-vertical" /> 5&#8209;6
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        v-if="plusminus"
+        @click="voted('5.7')"
+      >
+        <font-awesome-icon icon="square-poll-vertical" /> 6+
+      </button>
+
+      <button type="button" class="btn btn-primary m-3" @click="voted('6')">
+        <font-awesome-icon icon="square-poll-vertical" /> 6
+      </button>
     </div>
   </div>
 </template>
@@ -220,22 +198,27 @@ export default {
     },
   },
   components: {},
-  props: {},
+  data() {
+    return {
+      selection: 0,
+    };
+  },
+  props: {
+    plusminus: {
+      type: Boolean,
+      default: true,
+    },
+  },
   computed: {},
   methods: {
     voted(val) {
       this.$emit("voted", val);
     },
+    select(val) {
+      this.selection = val;
+    },
   },
 };
 </script>
 
-<style scoped>
-td {
-  text-align: center;
-}
-td button {
-  width: 100%;
-  height: 100%;
-}
-</style>
+<style scoped></style>

@@ -17,7 +17,9 @@
   },
   "Votingmode": {
     "score": "Punkte",
-    "school_de": "Schulnoten"
+    "school_de": "Schulnoten",
+    "school_de_noplusminus": "Schulnoten ohne plus und minus",
+    "school_us": "Schulnoten (USA)"
   },
 
   "Homepage": {
