@@ -20,7 +20,9 @@
             class="card-title display-6 m-3"
             v-html="
               voting.title
-                ? $t('Voting.votedFor', { item: voting.title })
+                ? $t('Voting.votedFor', {
+                    item: new String('<i>' + voting.title + '</i>'),
+                  })
                 : $t('Voting.voted')
             "
           />
@@ -45,7 +47,9 @@
             class="display-6 m-3"
             v-html="
               voting.title
-                ? $t('Voting.pleaseVoteFor', { item: voting.title })
+                ? $t('Voting.pleaseVoteFor', {
+                    item: '<i>' + voting.title + '</i>',
+                  })
                 : $t('Voting.pleaseVote')
             "
           />

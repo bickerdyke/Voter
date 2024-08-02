@@ -132,9 +132,9 @@
   "Voting": {
     "result": "Zur Auszählung",
     "pleaseVote": "Bitte ihre Meinung abgeben:",
-    "pleaseVoteFor": "Bitte ihre Meinung zu <i>{item}</i> abgeben:",
+    "pleaseVoteFor": "Bitte ihre Meinung zu {item} abgeben:",
     "voted": "Sie haben abgestimmt:",
-    "votedFor": "Sie haben für <i>{item}</i> abgestimmt:",
+    "votedFor": "Sie haben für {item} abgestimmt:",
     "votingSlider": "Bitte mit dem Schieberegler ihre Wertung einstellen.",
     "voteSliderPoints": "{pts} Punkte vergeben"
   },

@@ -15,7 +15,7 @@
     "Create": "New Voting",
     "Legal": "Legal information",
     "Votingmode": {
-      "score": "Scoring",
+      "score": "Score",
       "school_de": "Grades"
     }
   },
@@ -132,9 +132,9 @@
   "Voting": {
     "result": "Go to results",
     "pleaseVote": "Please vote:",
-    "pleaseVoteFor": "Please vote for <i>{item}</i>:",
+    "pleaseVoteFor": "Please vote for {item}:",
     "voted": "You have voted:",
-    "votedFor": "You have voted for <i>{item}</i>:",
+    "votedFor": "You have voted for {item}:",
     "votingSlider": "Please use the slider to select your rating.",
     "voteSliderPoints": "Award {pts} points"
   },
