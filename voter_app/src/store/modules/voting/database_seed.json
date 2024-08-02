@@ -168,7 +168,7 @@
       "description": "Frische Session ohne Votes in der Standardeinstellung",
       "imgUrl": "https://picsum.photos/200",
       "quorum": 50,
-      "votingmode": "school(de)",
+      "votingmode": "school_de",
       "votings": {
         "1": {
           "title": "Test-Subjekt 1",

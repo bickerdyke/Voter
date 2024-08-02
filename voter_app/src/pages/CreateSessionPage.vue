@@ -173,7 +173,8 @@ export default {
       this.newSession.subtitle = values.subtitle;
       this.newSession.description = values.description;
       this.newSession.quorum = values.quorum;
-      this.newSession.imgUrl = values.imgUrl;
+      (this.newSession.votingmode = values.votingmode),
+        (this.newSession.imgUrl = values.imgUrl);
       this.newSession.token = values.token;
     },
     resetSession() {

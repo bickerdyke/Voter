@@ -88,8 +88,33 @@
         <p class="form-text" v-t="'CreateSession.form.hint.quorum'" />
       </div>
 
-      <!-- @todo: #44 Alternative Wertungsverfahren implementieren: Schulnoten mit und ohne plusminus -->
-      <!-- @todo: #45 Alternatives Wertungsverfahren: Dafür, Dagegen, Enthaltung (Abstimmen mit Daumen hoch/runter-Icons) -->
+      <div class="form-row form-group mb-3">
+        <label for="sessionvotingmode">
+          <strong>{{
+            $t("CreateSession.form.Session.Votingmode")
+          }}</strong></label
+        >
+        <div class="form-row d-flex">
+          <Field
+            as="select"
+            name="sessionvotingmode"
+            class="form-select"
+            :class="{ 'is-invalid': errors.sessionvotingmode }"
+            id="sessionvotingmode"
+            :value="Object.keys(votingmodes)[0]"
+          >
+            <option v-for="(mode, key) in votingmodes" :key="key" :value="key">
+              {{ $t(`Votingmode.${key}`) }}
+            </option>
+          </Field>
+        </div>
+
+        <ErrorMessage name="sessionvotingmode" class="text-danger" as="p">{{
+          $t(errors.sessionvotingmode)
+        }}</ErrorMessage>
+
+        <p class="form-text" v-t="'CreateSession.form.hint.votingmode'" />
+      </div>
 
       <div class="form-row form-group mb-3">
         <label for="sessionimgurl">
@@ -141,6 +166,7 @@
 <script>
 import { Form as vForm, Field, ErrorMessage } from "vee-validate";
 import { sessionValidationSchema, localErrorMessages } from "./validations";
+import { VOTINGMODES } from "@/config/misc";
 
 export default {
   name: "CreateSession",
@@ -159,6 +185,7 @@ export default {
       sessionValidationSchema,
       localErrorMessages,
       sessionQuorum: 100,
+      votingmodes: VOTINGMODES,
     };
   },
   props: {
@@ -191,6 +218,7 @@ export default {
         subtitle: values.sessionsubtitle,
         description: values.sessiondescription,
         quorum: values.sessionquorum,
+        votingmode: values.sessionvotingmode,
         imgUrl: values.sessionimgurl,
         token: this.createToken(),
       };
@@ -204,7 +232,7 @@ export default {
       let counter = 0;
       while (counter < length) {
         result += characters.charAt(
-          Math.floor(Math.random() * charactersLength),
+          Math.floor(Math.random() * charactersLength)
         );
         counter += 1;
       }

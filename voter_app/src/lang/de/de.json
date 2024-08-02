@@ -15,6 +15,10 @@
     "Create": "Neue Abstimmung",
     "Legal": "Impressum und Datenschutz"
   },
+  "Votingmode": {
+    "score": "Punkte",
+    "school_de": "Schulnoten"
+  },
 
   "Homepage": {
     "HeroBanner": {
@@ -51,13 +55,15 @@
     "form": {
       "hint": {
         "useremail": "Die angegebene Emailadresse wird nicht übermittelt oder gespeichert. Sie dient lediglich zur Suche nach einem vorhandenen Profilbild.",
-        "quorum": "Legt das Minimum der abgegebenen Stimmen fest bis die ersten Ergebnisse angezeigt werden. Dabei bedeuten 0% alle Ergebnisse werden sofort angezeigt und 100% erst wenn alle Stimmen abgegeben wurden, werden Ergebnisse angezeigt."
+        "quorum": "Legt das Minimum der abgegebenen Stimmen fest bis die ersten Ergebnisse angezeigt werden. Dabei bedeuten 0% alle Ergebnisse werden sofort angezeigt und 100% erst wenn alle Stimmen abgegeben wurden, werden Ergebnisse angezeigt.",
+        "votingmode": "Wie soll abgestimmt werden? Möglichkeiten sind z.B: Punkte von 1-10 oder Schulnoten"
       },
       "Session": {
         "Title": "Titel der Abstimmung",
         "Subtitle": "Kurzbeschreibung",
         "Description": "Beschreibung",
         "Quorum": "Quorum",
+        "Votingmode": "Abstimmungsmodus",
         "Image": "Bild-Url",
         "Id": "Abstimmungs-Code"
       },
