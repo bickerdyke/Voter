@@ -1,22 +1,52 @@
 <template>
   <div class="mx-5 my-2 row">
     <div class="buttongroup">
-      <button type="button" class="btn btn-primary m-3" @click="select(1)">
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        @click="select(1)"
+        :class="{ active: selection == 1 }"
+      >
         {{ $t("Voting.grades.1") }}
       </button>
-      <button type="button" class="btn btn-primary m-3" @click="select(2)">
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        @click="select(2)"
+        :class="{ active: selection == 2 }"
+      >
         {{ $t("Voting.grades.2") }}
       </button>
-      <button type="button" class="btn btn-primary m-3" @click="select(3)">
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        @click="select(3)"
+        :class="{ active: selection == 3 }"
+      >
         {{ $t("Voting.grades.3") }}
       </button>
-      <button type="button" class="btn btn-primary m-3" @click="select(4)">
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        @click="select(4)"
+        :class="{ active: selection == 4 }"
+      >
         {{ $t("Voting.grades.4") }}
       </button>
-      <button type="button" class="btn btn-primary m-3" @click="select(5)">
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        @click="select(5)"
+        :class="{ active: selection == 5 }"
+      >
         {{ $t("Voting.grades.5") }}
       </button>
-      <button type="button" class="btn btn-primary m-3" @click="select(6)">
+      <button
+        type="button"
+        class="btn btn-primary m-3"
+        @click="select(6)"
+        :class="{ active: selection == 6 }"
+      >
         {{ $t("Voting.grades.6") }}
       </button>
     </div>
@@ -221,4 +251,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+button.active {
+  background-color: var(--bs-success);
+}
+</style>
