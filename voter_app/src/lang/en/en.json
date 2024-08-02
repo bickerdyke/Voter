@@ -85,6 +85,8 @@
     },
     "errors": {
       "votings and users required": "At least one voting item and participant required.",
+      "not_authenticated": "Database access not available",
+      "session_exists": "Session already exists",
       "required_field": "Is a required field",
       "field_invalid": "Invalid Field",
       "invalid_url": "Invalid Url",

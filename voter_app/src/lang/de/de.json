@@ -85,6 +85,8 @@
     },
     "errors": {
       "votings and users required": "Mindestens je ein Abstimmungsposten und -berechtigter erforderlich",
+      "not_authenticated": "Kein Datenbankzugriff vorhanden",
+      "session_exists": "Session bereits vorhanden",
       "required_field": "ist ein Pflichtfeld",
       "field_invalid": "ungültiges Feld",
       "invalid_url": "Keine gültige Url",
