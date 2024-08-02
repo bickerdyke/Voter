@@ -53,7 +53,8 @@
           <template v-if="userfilter">
             <!-- Display for single-User view -->
             <div class="display-6">
-              <VoteDisplay
+              <component
+                :is="displaycomponent"
                 :votingId="votingId"
                 :userId="userId"
                 :userfilter="true"
@@ -74,7 +75,8 @@
           </template>
           <template v-else>
             <div class="display-6">
-              <VoteDisplay
+              <component
+                :is="displaycomponent"
                 :votingId="votingId"
                 :userId="userId"
                 :userfilter="false"
@@ -92,9 +94,12 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { VOTINGMODES } from "@/config/misc";
 
 import ProfilePicture from "@/components/ProfilePicture";
 import VoteDisplay from "@/components/results/VoteDisplay";
+import GradeDisplay from "@/components/results/GradeDisplay.vue";
+import GradeUsDisplay from "@/components/results/GradeUsDisplay.vue";
 import VoteAverage from "@/components/results/VoteAverage";
 
 export default {
@@ -102,7 +107,14 @@ export default {
   components: {
     ProfilePicture,
     VoteDisplay,
+    GradeDisplay,
+    GradeUsDisplay,
     VoteAverage,
+  },
+  data() {
+    return {
+      votingmodes: VOTINGMODES,
+    };
   },
   computed: {
     ...mapGetters([
@@ -115,6 +127,10 @@ export default {
       return !this.userfilter
         ? this.currentSessionData.users
         : { [this.userfilter]: this.currentSessionData.users[this.userfilter] };
+    },
+    displaycomponent() {
+      return this.votingmodes[this.currentSessionData.votingmode]
+        .displaycomponent;
     },
   },
   props: {

@@ -27,7 +27,11 @@
             "
           />
           <div class="display-4 fw-bold">
-            <VoteDisplay :votingId="votingId" :userId="userId" />
+            <component
+              :is="displaycomponent"
+              :votingId="votingId"
+              :userId="userId"
+            />
           </div>
         </div>
       </div>
@@ -77,6 +81,8 @@ import { VOTINGMODES } from "@/config/misc";
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import VoteDisplay from "@/components/results/VoteDisplay";
+import GradeDisplay from "@/components/results/GradeDisplay.vue";
+import GradeUsDisplay from "@/components/results/GradeUsDisplay.vue";
 import SlideVoteSelect from "@/components/voting/SlideVoteSelect";
 import SchoolDeVoteSelect from "@/components/voting/SchoolDeVoteSelect";
 import SchoolDeNoPlusminusVoteSelect from "@/components/voting/SchoolDeNoPlusminusVoteSelect";
@@ -89,6 +95,8 @@ export default {
     TheHomeLayout,
     SessionHeadline,
     VoteDisplay,
+    GradeDisplay,
+    GradeUsDisplay,
     SlideVoteSelect,
     SchoolDeVoteSelect,
     SchoolDeNoPlusminusVoteSelect,
@@ -110,6 +118,10 @@ export default {
     ballotcomponent() {
       return this.votingmodes[this.currentSessionData.votingmode]
         .ballotcomponent;
+    },
+    displaycomponent() {
+      return this.votingmodes[this.currentSessionData.votingmode]
+        .displaycomponent;
     },
     voting() {
       return this.isSessionLoaded && this.isAuthenticated
