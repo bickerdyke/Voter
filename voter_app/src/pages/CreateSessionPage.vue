@@ -108,6 +108,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import CreateSession from "@/components/voting/CreateSession";
@@ -141,6 +142,12 @@ export default {
     };
   },
   computed: {
+    ...mapGetters([
+      "currentSessionId",
+      "currentSessionData",
+      "isAuthenticated",
+      "isSessionLoaded",
+    ]),
     errorDisplayText() {
       if (this.error) {
         return this.error; //"Es ist ein unbekannter Fehler aufgetreten. Bitte versuchen Sie es noch einmal.";
@@ -173,6 +180,8 @@ export default {
       this.newSession = {};
       this.newVotings = [];
       this.newUsers = [];
+      this.isLoading = false;
+      this.error = "";
     },
     addVotingButton() {
       this.editingVoting = true;
@@ -200,12 +209,28 @@ export default {
       this.newUsers.push(newUser);
       this.editingUser = false;
     },
-    saveSession() {
+    async saveSession() {
       this.isLoading = true;
       this.error = "";
 
       if (this.newUsers.length < 1 || this.newVotings.length < 1) {
         this.error = this.$t("CreateSession.errors.votings and users required");
+        this.isLoading = false;
+        return;
+      }
+
+      if (!this.isAuthenticated) {
+        this.error = this.$t("CreateSession.errors.not_authenticated");
+        this.isLoading = false;
+        return;
+      }
+
+      const exist = await this.$store.dispatch(
+        "sessionExists",
+        this.newSession.id,
+      );
+      if (exist) {
+        this.error = this.$t("CreateSession.errors.session_exists");
         this.isLoading = false;
         return;
       }

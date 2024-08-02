@@ -178,6 +178,31 @@ const actions = {
         });
     });
   },
+  sessionExists(context, id) {
+    const token = context.rootState.auth.token;
+    if (!token) {
+      console.error("No authentication token available.");
+      throw new Error("No authentication token available.");
+    }
+
+    return axios
+      .get(`${FIREBASE_RTDB_URL}/sessions/${id}.json?auth=${token}`)
+      .then((result) => {
+        switch (result.status) {
+          case 200:
+            return result.data != null;
+          case 404:
+            return false;
+          default:
+            console.error("Fehler bei der DB-Abfrage: " + result);
+            return false;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        throw error;
+      });
+  },
 };
 
 const votingModule = {

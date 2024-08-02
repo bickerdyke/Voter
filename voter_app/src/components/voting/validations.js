@@ -11,7 +11,13 @@ export const sessionValidationSchema = yup.object().shape({
   sessiondescription: yup.string().trim().max(2000),
   sessionimgurl: yup.string().trim().url(),
   sessionquorum: yup.number().truncate().min(0).max(100),
-  sessionid: yup.string().required().trim().min(5).max(50).uuid(),
+  sessionid: yup
+    .string()
+    .required()
+    .trim()
+    .min(5)
+    .max(50)
+    .matches("^[A-Za-z0-9+_!-]+$"), //#9 for firebase restrictions
 });
 
 export const votingValidationSchema = yup.object().shape({
