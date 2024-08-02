@@ -36,7 +36,7 @@
           ".validate": "newData.exists() && newData.isNumber() && newData.val() >= 0 && newData.val() <= 100"
         },
         "votingmode": {
-          ".validate": "newData.exists() && newData.isString() && newData.val().length <= 20"
+          ".validate": "newData.exists() && newData.isString() && newData.val().length <= 30"
         },
         "$other": { ".validate": "false" },
         "users": {
@@ -71,9 +71,9 @@
             },
             "$other": { ".validate": "false" },
             "votes": {
-              ".write": "auth != null && !data.exists()",
+              ".write": "auth != null",
               "$userId": {
-                ".validate": "newData.hasChildren(['author', 'timestamp', 'vote'])",
+                ".validate": "!data.exists() && newData.hasChildren(['author', 'timestamp', 'vote'])",
                 "author": {
                   ".validate": "newData.isString() && newData.val() == auth.uid"
                 },

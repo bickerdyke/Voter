@@ -1,9 +1,9 @@
 <template>
-  <SchoolDeVoteSelect plusminus="false" @voted="voted" />
+  <SchoolDeVoteSelect :plusminus="false" @voted="votedRelay" />
 </template>
 
 <script>
-import { SchoolDeVoteSelect } from "@/components/voting/SchoolDeVoteSelect";
+import SchoolDeVoteSelect from "@/components/voting/SchoolDeVoteSelect";
 export default {
   name: "SchoolDeNoPlusminusVoteSelect",
   emits: {
@@ -14,16 +14,8 @@ export default {
   components: {
     SchoolDeVoteSelect,
   },
-  data() {},
-  props: {
-    plusminus: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  computed: {},
   methods: {
-    voted(val) {
+    votedRelay(val) {
       this.$emit("voted", val);
     },
   },

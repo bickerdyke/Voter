@@ -13,13 +13,14 @@
   "Pages": {
     "Home": "Home",
     "Create": "New Voting",
-    "Legal": "Legal information",
-    "Votingmode": {
-      "score": "Score",
-      "school_de": "Grades",
-      "school_de_noplusminus": "Grades (no plus or minus)",
-      "school_us": "Grades (USA)"
-    }
+    "Legal": "Legal information"
+  },
+
+  "Votingmode": {
+    "score": "Score",
+    "school_de": "Grades",
+    "school_de_noplusminus": "Grades (no plus or minus)",
+    "school_us": "Grades (USA)"
   },
 
   "Homepage": {

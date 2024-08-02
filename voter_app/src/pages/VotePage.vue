@@ -79,6 +79,8 @@ import SessionHeadline from "@/components/SessionHeadline";
 import VoteDisplay from "@/components/results/VoteDisplay";
 import SlideVoteSelect from "@/components/voting/SlideVoteSelect";
 import SchoolDeVoteSelect from "@/components/voting/SchoolDeVoteSelect";
+import SchoolDeNoPlusminusVoteSelect from "@/components/voting/SchoolDeNoPlusminusVoteSelect";
+import SchoolUsVoteSelect from "@/components/voting/SchoolUsVoteSelect";
 import ImageAndDescription from "@/components/ImageAndDescription";
 
 export default {
@@ -89,6 +91,8 @@ export default {
     VoteDisplay,
     SlideVoteSelect,
     SchoolDeVoteSelect,
+    SchoolDeNoPlusminusVoteSelect,
+    SchoolUsVoteSelect,
     ImageAndDescription,
   },
   data() {
