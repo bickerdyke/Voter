@@ -49,7 +49,7 @@
                 : $t('Voting.pleaseVote')
             "
           />
-          <SlideVoteSelect @voted="voted" />
+          <component :is="ballotcomponent" @voted="voted" />
         </div>
       </div>
 
@@ -68,11 +68,13 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { VOTINGMODES } from "@/config/misc";
 
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import VoteDisplay from "@/components/results/VoteDisplay";
 import SlideVoteSelect from "@/components/voting/SlideVoteSelect";
+import SchoolDeVoteSelect from "@/components/voting/SchoolDeVoteSelect";
 import ImageAndDescription from "@/components/ImageAndDescription";
 
 export default {
@@ -82,12 +84,14 @@ export default {
     SessionHeadline,
     VoteDisplay,
     SlideVoteSelect,
+    SchoolDeVoteSelect,
     ImageAndDescription,
   },
   data() {
     return {
       isLoaded: false,
       errorMessage: "",
+      votingmodes: VOTINGMODES,
     };
   },
   props: {
@@ -95,6 +99,10 @@ export default {
     userId: String,
   },
   computed: {
+    ballotcomponent() {
+      return this.votingmodes[this.currentSessionData.votingmode]
+        .ballotcomponent;
+    },
     voting() {
       return this.isSessionLoaded && this.isAuthenticated
         ? this.$store.getters.voting(this.votingId)
