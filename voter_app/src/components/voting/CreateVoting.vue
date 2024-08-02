@@ -2,7 +2,7 @@
   <div>
     <!-- Display existing voting -->
     <div class="row py-3" v-if="!isEditing">
-      <div class="bg-light p-3 col-4 text-center">
+      <div class="bg-light p-3 col-4 col-md-3 text-center">
         <img
           :src="votingRecord.imgUrl"
           v-if="votingRecord.imgUrl"
@@ -10,7 +10,7 @@
           style="width: 100%; max-width: 100%; object-fit: cover"
         />
       </div>
-      <div class="col-8 p-3 bg-light">
+      <div class="col-8 col-md-9 p-3 bg-light">
         <h4>{{ votingRecord.title }}</h4>
         <template v-if="votingRecord.description"
           ><p>
@@ -38,14 +38,14 @@
       :initialValues="initialValues"
     >
       <div class="row py-3">
-        <div class="p-3 col-4 text-center">
+        <div class="p-3 col-4 col-md-3 text-center">
           <img
             class="rounded-4 img-fluid d-block mx-auto d-fill"
             style="width: 100%; max-width: 100%; object-fit: cover"
             src="@/assets/placeholder.svg"
           />
         </div>
-        <div class="col-8 py-3">
+        <div class="col-8 col-md-9 py-3">
           <div class="form-row form-group mb-3">
             <label for="votingtitle">
               <strong>{{

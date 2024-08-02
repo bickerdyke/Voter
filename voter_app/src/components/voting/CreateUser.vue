@@ -2,7 +2,7 @@
   <div>
     <!-- Display existing user -->
     <div class="row py-3" v-if="!isEditing">
-      <div class="p-3 col-4 text-center bg-light">
+      <div class="bg-light p-3 col-4 col-md-3 text-center">
         <ProfilePicture
           fallback="wavatar"
           :email="userRecord.email"
@@ -10,7 +10,7 @@
           :size="0"
         />
       </div>
-      <div class="col-8 p-3 bg-light">
+      <div class="col-8 col-md-9 p-3 bg-light">
         <h4>{{ userRecord.name }}</h4>
         <template v-if="userRecord.email && !userRecord.imgUrl"
           ><p>
@@ -39,10 +39,10 @@
       :initialValues="initialValues"
     >
       <div class="row py-3">
-        <div class="p-3 col-4 text-center">
+        <div class="p-3 col-4 col-md-3 text-center">
           <ProfilePicture fallback="wavatar" email="" imageUrl="" :size="0" />
         </div>
-        <div class="col-8 p-3">
+        <div class="col-8 col-md-9 p-3">
           <div class="form-row form-group mb-3">
             <label for="username">
               <strong>{{ $t("CreateSession.form.User.Name") }}</strong></label
