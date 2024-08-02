@@ -70,6 +70,9 @@
               class="form-control"
               :class="{ 'is-invalid': errors.useremail }"
               id="userEmail"
+              v-model="userprofileemail"
+              v-slot="{ meta }"
+              v-bind:data-blarg="meta.valid"
             ></Field>
 
             <ErrorMessage name="useremail" class="text-danger" as="p">{{
@@ -127,6 +130,7 @@
 
       <!-- Ende Form -->
     </vForm>
+    <div>{{ profilePicEmail }}</div>
   </div>
 </template>
 
@@ -151,6 +155,8 @@ export default {
   data() {
     return {
       userValidationSchema,
+      userprofileemail: "foo",
+      meta: {},
     };
   },
   props: {
@@ -176,6 +182,19 @@ export default {
     isEditing() {
       return this.userRecord ? false : true;
     },
+    profilePicEmail() {
+      /*if (
+        Object.keys(this.fields).some((key) => {
+          this.fields[key].touched || this.fields[key].invalid;
+        })
+      ) {
+        return this.userprofileemail;
+      } else {
+        return null;
+      }*/
+      console.log(document.getElementById("userEmail"));
+      return document.getElementById("userEmail");
+    },
   },
   methods: {
     updateUser(values) {
@@ -194,7 +213,7 @@ export default {
       let counter = 0;
       while (counter < length) {
         result += characters.charAt(
-          Math.floor(Math.random() * charactersLength),
+          Math.floor(Math.random() * charactersLength)
         );
         counter += 1;
       }
