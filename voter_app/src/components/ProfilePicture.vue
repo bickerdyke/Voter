@@ -50,7 +50,7 @@ export default {
     imgSizeStyle() {
       return this.size != 0
         ? `width: ${this.size.toString()}px; height: ${this.size.toString()}px; object-fit: cover;`
-        : "";
+        : `width: 100%; object-fit: cover;`;
     },
     imgClass() {
       return this.size == 0
