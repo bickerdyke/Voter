@@ -13,6 +13,11 @@
 
       <TheImprint />
 
+      <div class="alert alert-light shadow my-4">
+        <h3>{{ $t("Legal.Imprint.SoftwareInfo") }}</h3>
+        Version: {{ softwareversion }}
+      </div>
+
       <div class="row my-4">
         <h3>{{ $t("Legal.Privacy.Headline") }}</h3>
         <p>{{ $t("Legal.Privacy.p1") }}</p>
@@ -55,6 +60,11 @@ export default {
     BetaVersionAlert,
     HobbyAlert,
     TheImprint,
+  },
+  computed: {
+    softwareversion() {
+      return process.env.VUE_APP_SOFTWARE_VERSION;
+    },
   },
 };
 </script>

@@ -165,7 +165,8 @@
       "UserGenerated": {
         "Headline": "Nutzergenerierte Inhalte",
         "p1": "Diese Webseite beinhaltet nutzergenerierte Inhalte. Diese sind nur Verwendung durch den entsprechenden Nutzer gedacht. Diese Inhalte und deren Verbreitung (z.B. durch Links) liegen in der Verantwortung des jeweiligen Inhaltserstellers."
-      }
+      },
+      "SoftwareInfo": "Software-Information"
     },
     "Privacy": {
       "Headline": "Datenschutzerklärung",

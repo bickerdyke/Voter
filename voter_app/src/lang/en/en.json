@@ -165,7 +165,8 @@
       "UserGenerated": {
         "Headline": "User-generated Content",
         "p1": "This website contains user generated content. Content and distribution are the responsibility of the user."
-      }
+      },
+      "SoftwareInfo": "Software Information"
     },
     "Privacy": {
       "Headline": "Privacy Policy",
