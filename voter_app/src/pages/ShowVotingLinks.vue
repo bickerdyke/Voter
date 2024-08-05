@@ -4,9 +4,9 @@
       <!-- Header -->
       <SessionHeadline v-if="isLoaded" />
 
-      <!-- Alert -->
+      <!-- Alert bei neuer Session -->
       <div
-        class="alert alert-danger shadow mb-5 d-print-none"
+        class="alert alert-danger shadow my-4 d-print-none"
         v-if="$route.query.created && $root.isSessionAdmin"
       >
         <h3>{{ $t("Achtung") }}</h3>
@@ -32,8 +32,12 @@
         </p>
       </div>
 
-      <h4>{{ $t("ShowLinks.Heading") }}</h4>
-      <p>{{ $t("ShowLinks.Introduction") }}</p>
+      <!-- Invalid access -->
+      <AccessDeniedAlert v-if="!$root.isSessionAdmin" />
+
+      <!-- Introduction -->
+      <h4 class="d-print-none">{{ $t("ShowLinks.Heading") }}</h4>
+      <p class="d-print-none">{{ $t("ShowLinks.Introduction") }}</p>
 
       <!-- Optionen -->
       <div class="d-print-none">
@@ -64,6 +68,19 @@
               $t("ShowLinks.options.text")
             }}</label>
           </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="linkOutputStyleOptions"
+              id="optionagenda"
+              value="agenda"
+              v-model="linkstyle"
+            />
+            <label class="form-check-label" for="optiontext">{{
+              $t("ShowLinks.options.agenda")
+            }}</label>
+          </div>
           <div class="form-check form-switch form-check-inline">
             <input
               class="form-check-input"
@@ -80,35 +97,24 @@
       </div>
 
       <!-- Links -->
-      <!--
-      @todo: #39 Alternative Linkanzeige: Cheatsheet für Moderator zum Drucken mit Beschreibung und Links
-      -->
 
-      <template v-if="$root.isSessionAdmin">
-        <div v-if="isLoaded">
-          <ShowVotingLinksCards
-            v-if="linkstyle === 'cards'"
-            :linklink="linkPageUrl"
-            :resultlink="resultPageUrl"
-            :singlevotinglinks="singlevote"
-          ></ShowVotingLinksCards>
-          <ShowVotingLinksText
-            v-else-if="linkstyle === 'text'"
-            :linklink="linkPageUrl"
-            :resultlink="resultPageUrl"
-            :singlevotinglinks="singlevote"
-          ></ShowVotingLinksText>
-        </div>
-        <div class="mt-3 d-print-none">
-          <button class="btn btn-light btn-sm" @click="printpage">
-            <font-awesome-icon icon="print" /> &nbsp;{{ $t("PrintPage") }}
-          </button>
-        </div>
-      </template>
+      <div v-if="isLoaded && $root.isSessionAdmin">
+        <component
+          :is="showlinkcomponent"
+          :linklink="linkPageUrl"
+          :resultlink="resultPageUrl"
+          :singlevotinglinks="singlevote"
+        ></component>
+      </div>
+      <div class="mt-3 d-print-none">
+        <button class="btn btn-light btn-sm shadow" @click="printpage">
+          <font-awesome-icon icon="print" /> &nbsp;{{ $t("PrintPage") }}
+        </button>
+      </div>
 
       <!-- Footer -->
       <div class="d-grid mt-3 d-print-none">
-        <router-link :to="resultPageRoute" class="btn btn-primary">{{
+        <router-link :to="resultPageRoute" class="btn btn-primary shadow">{{
           $t("ShowLinks.Go to Result Page")
         }}</router-link>
       </div>
@@ -121,16 +127,20 @@ import { mapGetters } from "vuex";
 
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
+import AccessDeniedAlert from "@/components/banner/AccessDeniedAlert";
 import ShowVotingLinksCards from "@/components/voting/showlinks/ShowVotingLinksCards";
 import ShowVotingLinksText from "@/components/voting/showlinks/ShowVotingLinksText";
+import ShowVotingLinksAgenda from "@/components/voting/showlinks/ShowVotingLinksAgenda";
 
 export default {
   name: "ShowVotingLinks",
   components: {
     TheHomeLayout,
     SessionHeadline,
+    AccessDeniedAlert,
     ShowVotingLinksCards,
     ShowVotingLinksText,
+    ShowVotingLinksAgenda,
   },
   data() {
     return {
@@ -146,6 +156,17 @@ export default {
       "isAuthenticated",
       "isSessionLoaded",
     ]),
+    showlinkcomponent() {
+      switch (this.linkstyle) {
+        case "agenda":
+          return ShowVotingLinksAgenda;
+        case "text":
+          return ShowVotingLinksText;
+        case "cards":
+        default:
+          return ShowVotingLinksCards;
+      }
+    },
     linkPageUrl() {
       const route = this.$router.resolve({
         name: "showlinks",

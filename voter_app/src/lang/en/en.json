@@ -9,6 +9,7 @@
   "ClipboardCopySuccess": "Copied to clipboard",
   "PrintPage": "Print Page",
   "Achtung": "Attention!",
+  "AccessDenied": "Invalid Credentials. We can not confirm that you are the owner of this session",
   "Error": "An Error occurred:",
   "Pages": {
     "Home": "Home",
@@ -114,6 +115,7 @@
     "options": {
       "cards": "Voting Cards (print)",
       "text": "Text only",
+      "agenda": "Agenda",
       "singlevotes": "Itemized links"
     },
     "Cards": {

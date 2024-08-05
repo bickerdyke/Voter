@@ -26,7 +26,11 @@
     <p>Die dazu passenden Zugangs-Urls:</p>
     <div class="button-group">
       <router-link
-        :to="{ name: 'showlinks', params: { sessionId: '4711' } }"
+        :to="{
+          name: 'showlinks',
+          params: { sessionId: '4711' },
+          query: { t: 'lujHqw9h8' },
+        }"
         class="btn btn-success"
         >Session #4711</router-link
       >
