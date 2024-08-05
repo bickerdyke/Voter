@@ -29,8 +29,8 @@
 <script>
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
-import TestLinks from "@/components/TestLinks";
-import BetaVersionAlert from "@/components/BetaVersionAlert";
+import TestLinks from "@/components/banner/TestLinks";
+import BetaVersionAlert from "@/components/banner/BetaVersionAlert";
 
 export default {
   name: "NotFoundPage",

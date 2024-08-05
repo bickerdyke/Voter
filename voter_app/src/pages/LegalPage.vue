@@ -48,8 +48,8 @@
 <script>
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
-import BetaVersionAlert from "@/components/BetaVersionAlert";
-import HobbyAlert from "@/components/basics/HobbyAlert";
+import BetaVersionAlert from "@/components/banner/BetaVersionAlert";
+import HobbyAlert from "@/components/banner/HobbyAlert";
 import TheImprint from "@/components/basics/TheImprint";
 
 export default {

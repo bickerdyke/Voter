@@ -94,7 +94,7 @@
 <script>
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
-import TestLinks from "@/components/TestLinks";
+import TestLinks from "@/components/banner/TestLinks";
 
 export default {
   name: "HomePage",

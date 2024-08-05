@@ -9,6 +9,7 @@
   "ClipboardCopySuccess": "In Zwischenablage kopiert",
   "PrintPage": "Seite drucken",
   "Achtung": "Achtung!",
+  "AccessDenied": "Ungültige Zugangsdaten. Wir können nicht bestätigen dass sie der Inhaber dieser Session sind.",
   "Error": "Es ist ein Fehler aufgetreten:",
   "Pages": {
     "Home": "Home",
@@ -114,6 +115,7 @@
     "options": {
       "cards": "Stimmkarten (QR-Codes)",
       "text": "nur Text",
+      "agenda": "Ablaufplan",
       "singlevotes": "Einzelne Abstimmungen"
     },
     "Cards": {
