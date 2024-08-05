@@ -27,11 +27,7 @@
             "
           />
           <div class="display-4 fw-bold">
-            <component
-              :is="displaycomponent"
-              :votingId="votingId"
-              :userId="userId"
-            />
+            <DisplayWrapper :votingId="votingId" :userId="userId" />
           </div>
         </div>
       </div>
@@ -76,32 +72,26 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { VOTINGMODES } from "@/config/misc";
 
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
-import VoteDisplay from "@/components/results/VoteDisplay";
-import GradeDisplay from "@/components/results/GradeDisplay.vue";
-import GradeUsDisplay from "@/components/results/GradeUsDisplay.vue";
 import ImageAndDescription from "@/components/ImageAndDescription";
 import VoteWrapper from "@/components/voting/VoteWrapper";
+import DisplayWrapper from "@/components/results/DisplayWrapper";
 
 export default {
   name: "VotePage",
   components: {
     TheHomeLayout,
     SessionHeadline,
-    VoteDisplay,
-    GradeDisplay,
-    GradeUsDisplay,
     ImageAndDescription,
     VoteWrapper,
+    DisplayWrapper,
   },
   data() {
     return {
       isLoaded: false,
       errorMessage: "",
-      votingmodes: VOTINGMODES,
     };
   },
   props: {
@@ -109,10 +99,6 @@ export default {
     userId: String,
   },
   computed: {
-    displaycomponent() {
-      return this.votingmodes[this.currentSessionData.votingmode]
-        .displaycomponent;
-    },
     voting() {
       return this.isSessionLoaded && this.isAuthenticated
         ? this.$store.getters.voting(this.votingId)

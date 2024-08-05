@@ -33,6 +33,10 @@ export default {
       votingmodes: VOTINGMODES,
     };
   },
+  props: {
+    votingId: String,
+    userId: String,
+  },
   computed: {
     ballotcomponent() {
       return this.votingmodes[this.currentSessionData.votingmode]
