@@ -21,7 +21,8 @@
     "score": "Score",
     "school_de": "Grades",
     "school_de_noplusminus": "Grades (no plus or minus)",
-    "school_us": "Grades (USA)"
+    "school_us": "Grades (USA)",
+    "thumbs": "Yes or No"
   },
 
   "Homepage": {
@@ -149,6 +150,11 @@
       "4": "Fair",
       "5": "Poor",
       "6": "Fail"
+    },
+    "thumbs": {
+      "aye": "Aye!",
+      "nay": "Nay!",
+      "meh": "Meh!"
     }
   },
 

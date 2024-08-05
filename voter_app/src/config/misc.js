@@ -21,4 +21,9 @@ export const VOTINGMODES = {
     displaycomponent: "GradeUsDisplay",
     resultcomponent: "",
   },
+  thumbs: {
+    ballotcomponent: "ThumbsVoteSelect",
+    displaycomponent: "ThumbsDisplay",
+    resultcomponent: "ThumbsResult",
+  },
 };

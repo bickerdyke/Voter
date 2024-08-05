@@ -21,7 +21,8 @@
     "score": "Punkte",
     "school_de": "Schulnoten",
     "school_de_noplusminus": "Schulnoten ohne plus und minus",
-    "school_us": "Schulnoten (USA)"
+    "school_us": "Schulnoten (USA)",
+    "thumbs": "Dafür und Dagegen"
   },
 
   "Homepage": {
@@ -149,6 +150,11 @@
       "4": "Ausreichend",
       "5": "Mangelhaft",
       "6": "Ungenügend"
+    },
+    "thumbs": {
+      "aye": "Dafür!",
+      "nay": "Nö!",
+      "meh": "Tja..."
     }
   },
 
