@@ -6,7 +6,9 @@ name: Deploy to Firebase Hosting PROD
 #on: pull_request
 on:
   release:
-    types: [released]
+    types:
+      - released
+      - prereleased
   workflow_dispatch:
 
 permissions:
