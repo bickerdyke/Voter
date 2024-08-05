@@ -1,10 +1,10 @@
 <template>
-  <div class="row bg-light my-5">
+  <div class="row bg-light my-5 rounded-3 shadow">
     <div class="col-md-3 p-3 d-flex" :class="imageOrderClass">
       <img
         :src="imgUrl"
         v-if="imgUrl"
-        class="rounded-4 img-fluid d-block mx-auto d-fill"
+        class="rounded-3 shadow img-fluid d-block mx-auto d-fill"
         style="width: 100%; max-width: 100%; object-fit: cover"
       />
     </div>

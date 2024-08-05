@@ -9,18 +9,16 @@
         </SessionHeadline>
       </div>
 
-      <div class="row">
-        <div class="hero py-5 mt-2 mb-5">
-          <div class="col-5 offset-1">
-            <h3>{{ $t("Homepage.HeroBanner.Headline") }}</h3>
-            <p>{{ $t("Homepage.HeroBanner.p1") }}</p>
-            <p>{{ $t("Homepage.HeroBanner.p2") }}</p>
-            <router-link :to="{ name: 'create' }" class="btn btn-secondary">{{
-              $t("Homepage.HeroBanner.button")
-            }}</router-link>
-          </div>
-        </div>
-      </div>
+      <HeroBanner
+        ><h3>{{ $t("Homepage.HeroBanner.Headline") }}</h3>
+        <p>{{ $t("Homepage.HeroBanner.p1") }}</p>
+        <p>{{ $t("Homepage.HeroBanner.p2") }}</p>
+        <router-link
+          :to="{ name: 'create' }"
+          class="btn btn-secondary shadow"
+          >{{ $t("Homepage.HeroBanner.button") }}</router-link
+        ></HeroBanner
+      >
 
       <div class="row my-4 d-flex align-items-center">
         <div class="col-md-9 col-sm-6 my-2">
@@ -78,7 +76,7 @@
           <p>{{ $t("Homepage.ShowResult.p1") }}</p>
           <p>{{ $t("Homepage.ShowResult.p2") }}</p>
           <p>
-            <router-link to="/create" class="btn btn-secondary">{{
+            <router-link to="/create" class="btn btn-secondary shadow">{{
               $t("Homepage.ShowResult.button")
             }}</router-link>
           </p>
@@ -95,6 +93,7 @@
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import TestLinks from "@/components/banner/TestLinks";
+import HeroBanner from "@/components/banner/HeroBanner";
 
 export default {
   name: "HomePage",
@@ -102,17 +101,9 @@ export default {
     TheHomeLayout,
     SessionHeadline,
     TestLinks,
+    HeroBanner,
   },
 };
 </script>
 
-<style scoped>
-.hero {
-  width: 100vw;
-  min-height: 30vh;
-  height: auto;
-  background-image: url("@/assets/ballot_lg.jpg");
-  background-position: center;
-  background-size: cover;
-}
-</style>
+<style scoped></style>

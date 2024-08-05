@@ -1,23 +1,23 @@
 <template>
-  <div class="alert alert-success shadow my-4 d-print-none">
+  <div class="alert alert-success shadow my-4 d-print-none rounded-3">
     <h3>Testlinks</h3>
     <p>Drei Beispiel Stimm-Auszählungen:</p>
     <div class="button-group">
       <router-link
         :to="{ name: 'showresult', params: { sessionId: '4711' } }"
-        class="btn btn-success"
+        class="btn btn-success shadow"
         >Session #4711</router-link
       >
       &nbsp;
       <router-link
         :to="{ name: 'showresult', params: { sessionId: '4712' } }"
-        class="btn btn-success"
+        class="btn btn-success shadow"
         >Session #4712</router-link
       >
       &nbsp;
       <router-link
         :to="{ name: 'showresult', params: { sessionId: '4713' } }"
-        class="btn btn-success"
+        class="btn btn-success shadow"
       >
         Session #4713</router-link
       >
@@ -31,13 +31,13 @@
           params: { sessionId: '4711' },
           query: { t: 'lujHqw9h8' },
         }"
-        class="btn btn-success"
+        class="btn btn-success shadow"
         >Session #4711</router-link
       >
       &nbsp;
       <router-link
         :to="{ name: 'showlinks', params: { sessionId: '4712' } }"
-        class="btn btn-success"
+        class="btn btn-success shadow"
         >Session #4712</router-link
       >
       &nbsp;
@@ -47,7 +47,7 @@
           params: { sessionId: '4713' },
           query: { created: true },
         }"
-        class="btn btn-success"
+        class="btn btn-success shadow"
       >
         Session #4713 (wie frisch angelegt)</router-link
       >
@@ -59,7 +59,7 @@
         name: 'uservoting',
         params: { sessionId: '4711', userId: 'jl7as' },
       }"
-      class="btn btn-success"
+      class="btn btn-success shadow"
       >Gustav, Session #4711</router-link
     >
     &nbsp;
@@ -68,7 +68,7 @@
         name: 'uservoting',
         params: { sessionId: '4713', userId: '0815' },
       }"
-      class="btn btn-success"
+      class="btn btn-success shadow"
       >Heinz, Session #4713 (alle Posten offen)</router-link
     >
     <hr />

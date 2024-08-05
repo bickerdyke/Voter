@@ -1,16 +1,16 @@
 <template>
   <div>
     <!-- Display existing voting -->
-    <div class="row py-3" v-if="!isEditing">
-      <div class="bg-light p-3 col-4 col-md-3 text-center">
+    <div class="row py-3 bg-light rounded-3 shadow my-3" v-if="!isEditing">
+      <div class="p-3 col-4 col-md-3 text-center">
         <img
           :src="votingRecord.imgUrl"
           v-if="votingRecord.imgUrl"
-          class="rounded-4 img-fluid d-block mx-auto d-fill"
+          class="rounded-3 shadow img-fluid d-block mx-auto d-fill"
           style="width: 100%; max-width: 100%; object-fit: cover"
         />
       </div>
-      <div class="col-8 col-md-9 p-3 bg-light">
+      <div class="col-8 col-md-9 p-3">
         <h4>{{ votingRecord.title }}</h4>
         <template v-if="votingRecord.description"
           ><p>
@@ -20,10 +20,14 @@
         <p v-if="showIds">
           {{ $t("CreateSession.form.Voting.Id") }}: {{ votingRecord.id }}
         </p>
-        <button class="btn btn-primary me-2 mb-2" v-if="showIds" disabled>
+        <button
+          class="btn btn-primary me-2 mb-2 shadow"
+          v-if="showIds"
+          disabled
+        >
           {{ $t("Edit") }}
         </button>
-        <button class="btn btn-danger me-2 mb-2" v-if="showIds" disabled>
+        <button class="btn btn-danger me-2 mb-2 shadow" v-if="showIds" disabled>
           {{ $t("Remove") }}
         </button>
       </div>
@@ -40,7 +44,7 @@
       <div class="row py-3">
         <div class="p-3 col-4 col-md-3 text-center">
           <img
-            class="rounded-4 img-fluid d-block mx-auto d-fill"
+            class="rounded-3 shadow img-fluid d-block mx-auto d-fill"
             style="width: 100%; max-width: 100%; object-fit: cover"
             src="@/assets/placeholder.svg"
           />
@@ -55,7 +59,7 @@
             <Field
               as="input"
               name="votingtitle"
-              class="form-control"
+              class="form-control shadow"
               :class="{ 'is-invalid': errors.votingtitle }"
               id="votingTitle"
             ></Field>
@@ -74,7 +78,7 @@
             <Field
               as="textarea"
               name="votingdescription"
-              class="form-control"
+              class="form-control shadow"
               :class="{ 'is-invalid': errors.votingdescription }"
               id="votingDescription"
               rows="3"
@@ -94,7 +98,7 @@
             <Field
               as="input"
               name="votingimgurl"
-              class="form-control"
+              class="form-control shadow"
               :class="{ 'is-invalid': errors.votingimgurl }"
               id="votingImgurl"
             ></Field>
@@ -123,10 +127,10 @@
           </div>
 
           <div class="mt-3">
-            <button class="btn btn-primary me-2 mb-2" type="submit">
+            <button class="btn btn-primary me-2 mb-2 shadow" type="submit">
               {{ $t("CreateSession.form.CreateVotingData") }}
             </button>
-            <button class="btn btn-primary me-2 mb-2" type="reset">
+            <button class="btn btn-primary me-2 mb-2 shadow" type="reset">
               {{ $t("Reset") }}
             </button>
           </div>

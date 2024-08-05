@@ -1,37 +1,37 @@
 <template>
   <div class="mx-5 my-2 row">
-    <div class="buttongroup">
+    <div>
       <button
         type="button"
-        class="btn btn-primary btn-lg m-3"
+        class="btn btn-primary shadow btn-lg m-3"
         @click="voted('4')"
       >
         <font-awesome-icon icon="square-poll-vertical" /> A
       </button>
       <button
         type="button"
-        class="btn btn-primary btn-lg m-3"
+        class="btn btn-primary shadow btn-lg m-3"
         @click="voted('3')"
       >
         <font-awesome-icon icon="square-poll-vertical" /> B
       </button>
       <button
         type="button"
-        class="btn btn-primary btn-lg m-3"
+        class="btn btn-primary shadow btn-lg m-3"
         @click="voted('2')"
       >
         <font-awesome-icon icon="square-poll-vertical" /> C
       </button>
       <button
         type="button"
-        class="btn btn-primary btn-lg m-3"
+        class="btn btn-primary shadow btn-lg m-3"
         @click="voted('1')"
       >
         <font-awesome-icon icon="square-poll-vertical" /> D
       </button>
       <button
         type="button"
-        class="btn btn-primary btn-lg m-3"
+        class="btn btn-warning shadow btn-lg m-3"
         @click="voted('0')"
       >
         <font-awesome-icon icon="square-poll-vertical" /> F

@@ -37,7 +37,7 @@
           <div class="d-flex flex-row">
             <h3 class="me-auto">{{ $t("CreateSession.Headline.Votings") }}</h3>
             <button
-              class="btn btn-primary"
+              class="btn btn-primary shadow"
               @click="addVotingButton"
               :disabled="editingVoting"
             >
@@ -62,7 +62,7 @@
           <div class="d-flex flex-row">
             <h3 class="me-auto">{{ $t("CreateSession.Headline.User") }}</h3>
             <button
-              class="btn btn-primary"
+              class="btn btn-primary shadow"
               @click="addUserButton"
               :disabled="editingUser"
             >
@@ -78,11 +78,11 @@
       </div>
 
       <!-- Footer -->
-      <div class="alert alert-danger mt-3" v-if="error">
+      <div class="alert alert-danger mt-3 rounded-3 shadow" v-if="error">
         {{ errorDisplayText }}
       </div>
 
-      <div class="d-grid mt-3">
+      <div class="d-grid mt-3 shadow">
         <button
           class="btn btn-primary"
           :disabled="isLoading || !readyToShow"
@@ -95,7 +95,7 @@
           <span v-else class="spinner-border spinner-border-sm"></span>
         </button>
         <button
-          class="btn btn-danger mt-2"
+          class="btn btn-danger mt-2 shadow"
           :disabled="isLoading || !readyToShow"
           v-if="readyToShow"
           @click="resetSession"

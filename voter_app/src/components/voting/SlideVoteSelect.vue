@@ -19,7 +19,7 @@
       }}</label>
     </p>
   </div>
-  <button class="btn btn-primary m-3" @click="voted">
+  <button class="btn btn-primary shadow m-3" @click="voted">
     <font-awesome-icon icon="square-poll-vertical" /> &nbsp;
     {{ $t("Voting.voteSliderPoints", { pts: points }) }}
   </button>

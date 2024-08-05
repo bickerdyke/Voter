@@ -13,7 +13,7 @@
         <Field
           as="input"
           name="sessiontitle"
-          class="form-control"
+          class="form-control shadow"
           :class="{ 'is-invalid': errors.sessiontitle }"
           id="sessiontitle"
         ></Field>
@@ -32,7 +32,7 @@
         <Field
           as="input"
           name="sessionsubtitle"
-          class="form-control"
+          class="form-control shadow"
           :class="{ 'is-invalid': errors.sessionsubtitle }"
           id="sessionsubtitle"
         ></Field>
@@ -51,7 +51,7 @@
         <Field
           as="textarea"
           name="sessiondescription"
-          class="form-control"
+          class="form-control shadow"
           :class="{ 'is-invalid': errors.sessiondescription }"
           id="sessiondescription"
           rows="3"
@@ -98,7 +98,7 @@
           <Field
             as="select"
             name="sessionvotingmode"
-            class="form-select"
+            class="form-select shadow"
             :class="{ 'is-invalid': errors.sessionvotingmode }"
             id="sessionvotingmode"
             :value="Object.keys(votingmodes)[0]"
@@ -123,7 +123,7 @@
         <Field
           as="input"
           name="sessionimgurl"
-          class="form-control"
+          class="form-control shadow"
           :class="{ 'is-invalid': errors.sessionimgurl }"
           id="sessionimgurl"
         ></Field>
@@ -152,10 +152,10 @@
       </div>
 
       <div class="mt-3">
-        <button class="btn btn-primary me-2 mb-2" type="submit">
+        <button class="btn btn-primary shadow me-2 mb-2" type="submit">
           {{ $t("CreateSession.form.CreateSessionData") }}
         </button>
-        <button class="btn btn-primary me-2 mb-2" type="reset">
+        <button class="btn btn-primary shadow me-2 mb-2" type="reset">
           {{ $t("Reset") }}
         </button>
       </div>

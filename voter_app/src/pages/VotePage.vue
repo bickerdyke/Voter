@@ -65,7 +65,7 @@
       <div class="row my-3">
         <router-link
           :to="resultPageRoute"
-          class="btn btn-primary"
+          class="btn btn-primary shadow"
           v-if="!$route.query.ac"
           >{{ $t("Voting.result") }}</router-link
         >

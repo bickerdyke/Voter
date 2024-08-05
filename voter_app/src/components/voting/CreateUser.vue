@@ -1,16 +1,17 @@
 <template>
   <div>
     <!-- Display existing user -->
-    <div class="row py-3" v-if="!isEditing">
-      <div class="bg-light p-3 col-4 col-md-3 text-center">
+    <div class="row py-3 bg-light rounded-3 shadow my-3" v-if="!isEditing">
+      <div class="p-3 col-4 col-md-3 text-center">
         <ProfilePicture
           fallback="wavatar"
           :email="userRecord.email"
           :imageUrl="userRecord.imgUrl"
           :size="0"
+          class="rounded-3 shadow img-fluid d-block mx-auto d-fill"
         />
       </div>
-      <div class="col-8 col-md-9 p-3 bg-light">
+      <div class="col-8 col-md-9 p-3">
         <h4>{{ userRecord.name }}</h4>
         <template v-if="userRecord.email && !userRecord.imgUrl"
           ><p>
@@ -21,10 +22,14 @@
         <p v-if="showIds">
           {{ $t("CreateSession.form.User.Id") }}: {{ userRecord.id }}
         </p>
-        <button class="btn btn-primary me-2 mb-2" v-if="showIds" disabled>
+        <button
+          class="btn btn-primary shadow me-2 mb-2"
+          v-if="showIds"
+          disabled
+        >
           {{ $t("Edit") }}
         </button>
-        <button class="btn btn-danger me-2 mb-2" v-if="showIds" disabled>
+        <button class="btn btn-danger shadow me-2 mb-2" v-if="showIds" disabled>
           {{ $t("Remove") }}
         </button>
       </div>
@@ -40,7 +45,13 @@
     >
       <div class="row py-3">
         <div class="p-3 col-4 col-md-3 text-center">
-          <ProfilePicture fallback="wavatar" email="" imageUrl="" :size="0" />
+          <ProfilePicture
+            fallback="wavatar"
+            email=""
+            imageUrl=""
+            :size="0"
+            class="rounded-3 shadow"
+          />
         </div>
         <div class="col-8 col-md-9 p-3">
           <div class="form-row form-group mb-3">
@@ -50,7 +61,7 @@
             <Field
               as="input"
               name="username"
-              class="form-control"
+              class="form-control shadow"
               :class="{ 'is-invalid': errors.username }"
               id="userName"
             ></Field>
@@ -67,7 +78,7 @@
             <Field
               as="input"
               name="useremail"
-              class="form-control"
+              class="form-control shadow"
               :class="{ 'is-invalid': errors.useremail }"
               id="userEmail"
             ></Field>
@@ -86,7 +97,7 @@
             <Field
               as="input"
               name="userimgurl"
-              class="form-control"
+              class="form-control shadow"
               :class="{ 'is-invalid': errors.userimgurl }"
               id="userImgurl"
             ></Field>
@@ -103,7 +114,7 @@
             <Field
               as="input"
               name="userid"
-              class="form-control"
+              class="form-control shadow"
               :class="{ 'is-invalid': errors.userid }"
               id="userId"
               :disabled="!editIds"
@@ -115,10 +126,10 @@
           </div>
 
           <div class="mt-3">
-            <button class="btn btn-primary me-2 mb-2" type="submit">
+            <button class="btn btn-primary shadow me-2 mb-2" type="submit">
               {{ $t("CreateSession.form.CreateUserData") }}
             </button>
-            <button class="btn btn-primary me-2 mb-2" type="reset">
+            <button class="btn btn-primary shadow me-2 mb-2" type="reset">
               {{ $t("Reset") }}
             </button>
           </div>

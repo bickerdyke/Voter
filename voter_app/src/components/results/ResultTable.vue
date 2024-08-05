@@ -1,5 +1,5 @@
 <template>
-  <table class="table table-bordered border-primary">
+  <table class="table table-bordered border-primary shadow">
     <thead>
       <tr class="text-center align-top">
         <th></th>
@@ -31,7 +31,7 @@
         <td>
           <img
             :src="voting.imgUrl"
-            class="float-start me-2 rounded-4"
+            class="float-start me-2 rounded-3"
             style="width: 60px; height: 60px; object-fit: cover"
             v-if="voting.imgUrl"
           />
@@ -62,7 +62,7 @@
               />
               <router-link
                 :to="getVotingRoute(votingId, userId)"
-                class="btn btn-primary"
+                class="btn btn-primary shadow"
                 v-else
                 ><font-awesome-icon
                   icon="square-poll-vertical"

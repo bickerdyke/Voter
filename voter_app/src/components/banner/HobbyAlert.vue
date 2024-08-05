@@ -1,5 +1,5 @@
 <template>
-  <div class="alert alert-danger shadow my-4 d-print-none">
+  <div class="alert alert-danger shadow my-4 d-print-none rounded-3">
     <h3>{{ $t("Achtung") }}</h3>
     <p>
       {{ $t("Legal.Disclaimer") }}
