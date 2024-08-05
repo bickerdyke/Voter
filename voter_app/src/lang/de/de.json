@@ -178,7 +178,7 @@
     },
     "Privacy": {
       "Headline": "Datenschutzerklärung",
-      "p1": "Diese Webseite erhebt bei der Nutzung keine persönlichen Daten und die Nutzung ist ohne Angabe persönlicher Daten möglich. Die Nutzung ist ohne Nutzeraccount möglich. Die Zuordnung der nutzergenerierten Daten zum Benutzer findet über eine beim Seitenzugriff zufällig generierte Zeichenfolge und die in der Url enthaltene ID statt.",
+      "p1": "Diese Webseite erhebt bei der Nutzung keine persönlichen Daten und die Nutzung ist ohne Angabe persönlicher Daten möglich. Die Nutzung ist ohne Nutzeraccount möglich. Die Zuordnung der nutzergenerierten Daten zum Benutzer findet über eine zufällig generierte Session-ID und die in der Url enthaltene ID statt.",
       "p2": "Es findet zur Zeit weder eine Reichweitenmessung noch eine Werbeausspielung statt. Es erfolgt also auch hier keine Auswertung oder Weitergabe von Nutzerdaten.",
       "UserGenerated": {
         "Name": "Nutzergenerierte Inhalte",
