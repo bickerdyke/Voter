@@ -5,7 +5,7 @@
       <SessionHeadline v-if="isLoaded" />
 
       <!-- Voting description -->
-      <div class="row" v-if="isLoaded">
+      <div class="row" v-if="isLoaded && voting.description">
         <ImageAndDescription
           :imgUrl="voting.imgUrl"
           :description="voting.description"
