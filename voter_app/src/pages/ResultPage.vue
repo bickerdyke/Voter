@@ -13,7 +13,7 @@
       <ImageAndDescription
         :imgUrl="currentSessionData.imgUrl"
         :description="currentSessionData.description"
-        v-if="isSessionLoaded"
+        v-if="isSessionLoaded && currentSessionData.description"
       ></ImageAndDescription>
 
       <!-- Footer-Features-->

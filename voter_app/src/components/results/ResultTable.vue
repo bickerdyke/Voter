@@ -53,8 +53,7 @@
           <template v-if="userfilter">
             <!-- Display for single-User view -->
             <div class="display-6">
-              <component
-                :is="displaycomponent"
+              <DisplayWrapper
                 :votingId="votingId"
                 :userId="userId"
                 :userfilter="true"
@@ -75,8 +74,7 @@
           </template>
           <template v-else>
             <div class="display-6">
-              <component
-                :is="displaycomponent"
+              <DisplayWrapper
                 :votingId="votingId"
                 :userId="userId"
                 :userfilter="false"
@@ -84,8 +82,8 @@
             </div>
           </template>
         </td>
-        <td class="display-6 fw-bold text-center" v-if="!userfilter">
-          <VoteAverage :votingId="votingId" />
+        <td v-if="!userfilter">
+          <ResultWrapper :votingId="votingId" />
         </td>
       </tr>
     </tbody>
@@ -94,27 +92,17 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { VOTINGMODES } from "@/config/misc";
 
 import ProfilePicture from "@/components/ProfilePicture";
-import VoteDisplay from "@/components/results/VoteDisplay";
-import GradeDisplay from "@/components/results/GradeDisplay.vue";
-import GradeUsDisplay from "@/components/results/GradeUsDisplay.vue";
-import VoteAverage from "@/components/results/VoteAverage";
+import ResultWrapper from "@/components/results/ResultWrapper";
+import DisplayWrapper from "@/components/results/DisplayWrapper";
 
 export default {
   name: "ResultTable",
   components: {
     ProfilePicture,
-    VoteDisplay,
-    GradeDisplay,
-    GradeUsDisplay,
-    VoteAverage,
-  },
-  data() {
-    return {
-      votingmodes: VOTINGMODES,
-    };
+    ResultWrapper,
+    DisplayWrapper,
   },
   computed: {
     ...mapGetters([
@@ -127,10 +115,6 @@ export default {
       return !this.userfilter
         ? this.currentSessionData.users
         : { [this.userfilter]: this.currentSessionData.users[this.userfilter] };
-    },
-    displaycomponent() {
-      return this.votingmodes[this.currentSessionData.votingmode]
-        .displaycomponent;
     },
   },
   props: {

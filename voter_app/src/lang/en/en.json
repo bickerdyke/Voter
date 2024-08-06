@@ -21,7 +21,8 @@
     "score": "Score",
     "school_de": "Grades",
     "school_de_noplusminus": "Grades (no plus or minus)",
-    "school_us": "Grades (USA)"
+    "school_us": "Grades (USA)",
+    "thumbs": "Yes or No"
   },
 
   "Homepage": {
@@ -149,6 +150,11 @@
       "4": "Fair",
       "5": "Poor",
       "6": "Fail"
+    },
+    "thumbs": {
+      "aye": "Aye!",
+      "nay": "Nay!",
+      "meh": "Meh!"
     }
   },
 
@@ -172,7 +178,7 @@
     },
     "Privacy": {
       "Headline": "Privacy Policy",
-      "p1": "This website does not require or collect Personally Identifiable Information (PII). Creating a user account is not required. Content is connected to users by using an anonymous, randomly created ID and the session ID contained in the voting url",
+      "p1": "This website does not require or collect Personally Identifiable Information (PII). Creating a user account is not required. Content is connected to users by using an anonymous, randomly created Session-ID and the ID contained in the voting url.",
       "p2": "There is currently neither a reach measurement nor an advertising display. There is no evaluation or transfer of user data here either.",
       "UserGenerated": {
         "Name": "User-generated Content",

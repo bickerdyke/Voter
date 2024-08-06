@@ -206,6 +206,55 @@
           "name": "Gustav"
         }
       }
+    },
+    "ProContra": {
+      "imgUrl": "https://cdn.pixabay.com/photo/2017/08/13/21/10/justitia-2638601_1280.png",
+      "quorum": 65,
+      "title": "Pro und Contra",
+      "subtitle": "Test-Abstimmung für Dafür und Dagegen",
+      "description": "Hat ein Quorum von 66% --> 2 Stimmen decken auf",
+      "users": {
+        "7uti2": {
+          "emailHash": "e9b5b0e465f8548ec68a024b9a5d663d4ed32f47f0dc453b48a879f36e2dad91",
+          "name": "Heinz"
+        },
+        "na2b2": {
+          "emailHash": "5f05e73d8ad8fff6fb77b131e8c12da352cfd3432c7c84bbaa8766034ad42be1",
+          "name": "Shannon"
+        },
+        "ztk1z": {
+          "emailHash": "8ed915ef3787d34dbff3e5b420461f2b4bb5e1f11b1bb223eb29b27689f29aba",
+          "name": "Herbert"
+        }
+      },
+      "votingmode": "thumbs",
+      "votings": {
+        "6F7WNV": {
+          "imgUrl": "",
+          "title": "Posten 1",
+          "votes": {
+            "7uti2": {
+              "vote": "aye"
+            },
+            "na2b2": {
+              "vote": "nay"
+            }
+          }
+        },
+        "MNWGZJ": {
+          "imgUrl": "",
+          "title": "Option 2",
+          "votes": {
+            "ztk1z": {
+              "vote": "aye"
+            }
+          }
+        },
+        "X7C32U": {
+          "imgUrl": "",
+          "title": "Posten 3"
+        }
+      }
     }
   }
 }

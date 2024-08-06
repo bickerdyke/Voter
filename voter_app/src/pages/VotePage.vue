@@ -5,7 +5,7 @@
       <SessionHeadline v-if="isLoaded" />
 
       <!-- Voting description -->
-      <div class="row" v-if="isLoaded">
+      <div class="row" v-if="isLoaded && voting.description">
         <ImageAndDescription
           :imgUrl="voting.imgUrl"
           :description="voting.description"
@@ -27,10 +27,10 @@
             "
           />
           <div class="display-4 fw-bold">
-            <component
-              :is="displaycomponent"
+            <DisplayWrapper
               :votingId="votingId"
               :userId="userId"
+              :userfilter="true"
             />
           </div>
         </div>
@@ -57,7 +57,7 @@
                 : $t('Voting.pleaseVote')
             "
           />
-          <component :is="ballotcomponent" @voted="voted" />
+          <VoteWrapper @voted="voted" />
         </div>
       </div>
 
@@ -76,38 +76,26 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { VOTINGMODES } from "@/config/misc";
 
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
-import VoteDisplay from "@/components/results/VoteDisplay";
-import GradeDisplay from "@/components/results/GradeDisplay.vue";
-import GradeUsDisplay from "@/components/results/GradeUsDisplay.vue";
-import SlideVoteSelect from "@/components/voting/SlideVoteSelect";
-import SchoolDeVoteSelect from "@/components/voting/SchoolDeVoteSelect";
-import SchoolDeNoPlusminusVoteSelect from "@/components/voting/SchoolDeNoPlusminusVoteSelect";
-import SchoolUsVoteSelect from "@/components/voting/SchoolUsVoteSelect";
 import ImageAndDescription from "@/components/ImageAndDescription";
+import VoteWrapper from "@/components/voting/VoteWrapper";
+import DisplayWrapper from "@/components/results/DisplayWrapper";
 
 export default {
   name: "VotePage",
   components: {
     TheHomeLayout,
     SessionHeadline,
-    VoteDisplay,
-    GradeDisplay,
-    GradeUsDisplay,
-    SlideVoteSelect,
-    SchoolDeVoteSelect,
-    SchoolDeNoPlusminusVoteSelect,
-    SchoolUsVoteSelect,
     ImageAndDescription,
+    VoteWrapper,
+    DisplayWrapper,
   },
   data() {
     return {
       isLoaded: false,
       errorMessage: "",
-      votingmodes: VOTINGMODES,
     };
   },
   props: {
@@ -115,14 +103,6 @@ export default {
     userId: String,
   },
   computed: {
-    ballotcomponent() {
-      return this.votingmodes[this.currentSessionData.votingmode]
-        .ballotcomponent;
-    },
-    displaycomponent() {
-      return this.votingmodes[this.currentSessionData.votingmode]
-        .displaycomponent;
-    },
     voting() {
       return this.isSessionLoaded && this.isAuthenticated
         ? this.$store.getters.voting(this.votingId)

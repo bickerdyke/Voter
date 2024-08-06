@@ -4,21 +4,26 @@ export const VOTINGMODES = {
   score: {
     ballotcomponent: "SlideVoteSelect",
     displaycomponent: "VoteDisplay",
-    resultcomponent: "",
+    resultcomponent: "VoteAverage",
   },
   school_de: {
     ballotcomponent: "SchoolDeVoteSelect",
     displaycomponent: "GradeDisplay",
-    resultcomponent: "",
+    resultcomponent: "VoteAverage",
   },
   school_de_noplusminus: {
     ballotcomponent: "SchoolDeNoPlusminusVoteSelect",
     displaycomponent: "GradeDisplay",
-    resultcomponent: "",
+    resultcomponent: "VoteAverage",
   },
   school_us: {
     ballotcomponent: "SchoolUsVoteSelect",
     displaycomponent: "GradeUsDisplay",
-    resultcomponent: "",
+    resultcomponent: "VoteAverage",
+  },
+  thumbs: {
+    ballotcomponent: "ThumbsVoteSelect",
+    displaycomponent: "ThumbsDisplay",
+    resultcomponent: "ThumbsResult",
   },
 };

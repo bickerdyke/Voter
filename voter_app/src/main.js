@@ -12,7 +12,12 @@ import {
   faAt,
   //faUserCheck,
 } from "@fortawesome/free-solid-svg-icons";
-import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
+import {
+  faCircleCheck,
+  faThumbsUp,
+  faThumbsDown,
+  faFaceMeh,
+} from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(faSquarePollVertical);
@@ -20,6 +25,9 @@ library.add(faCopy);
 library.add(faPrint);
 library.add(faCircleCheck);
 library.add(faAt);
+library.add(faThumbsUp);
+library.add(faThumbsDown);
+library.add(faFaceMeh);
 //library.add(faUserCheck);
 
 const app = createApp(App);
