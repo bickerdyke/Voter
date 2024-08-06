@@ -8,7 +8,9 @@
     >
       <div class="form-row form-group mb-3">
         <label for="sessiontitle">
-          <strong>{{ $t("CreateSession.form.Session.Title") }}</strong></label
+          <strong>{{
+            $t("CreateSession.form.Session.sessiontitle")
+          }}</strong></label
         >
         <Field
           as="input"
@@ -19,14 +21,14 @@
         ></Field>
 
         <ErrorMessage name="sessiontitle" class="text-danger" as="p">{{
-          $t(errors.sessiontitle)
+          $root.translateError(errors.sessiontitle)
         }}</ErrorMessage>
       </div>
 
       <div class="form-row form-group mb-3">
         <label for="sessionsubtitle">
           <strong>{{
-            $t("CreateSession.form.Session.Subtitle")
+            $t("CreateSession.form.Session.sessionsubtitle")
           }}</strong></label
         >
         <Field
@@ -38,14 +40,14 @@
         ></Field>
 
         <ErrorMessage name="sessionsubtitle" class="text-danger" as="p">{{
-          $t(errors.sessionsubtitle)
+          $root.translateError(errors.sessionsubtitle)
         }}</ErrorMessage>
       </div>
 
       <div class="form-row form-group mb-3">
         <label for="sessiondescription">
           <strong>{{
-            $t("CreateSession.form.Session.Description")
+            $t("CreateSession.form.Session.sessiondescription")
           }}</strong></label
         >
         <Field
@@ -58,13 +60,15 @@
         ></Field>
 
         <ErrorMessage name="sessiondescription" class="text-danger" as="p">{{
-          $t(errors.sessiondescription)
+          $root.translateError(errors.sessiondescription)
         }}</ErrorMessage>
       </div>
 
       <div class="form-row form-group mb-3">
         <label for="sessionquorum">
-          <strong>{{ $t("CreateSession.form.Session.Quorum") }}</strong></label
+          <strong>{{
+            $t("CreateSession.form.Session.sessionquorum")
+          }}</strong></label
         >
         <div class="form-row d-flex">
           <Field
@@ -82,7 +86,7 @@
         </div>
 
         <ErrorMessage name="sessionquorum" class="text-danger" as="p">{{
-          $t(errors.sessionquorum)
+          $root.translateError(errors.sessionquorum)
         }}</ErrorMessage>
 
         <p class="form-text" v-t="'CreateSession.form.hint.quorum'" />
@@ -91,7 +95,7 @@
       <div class="form-row form-group mb-3">
         <label for="sessionvotingmode">
           <strong>{{
-            $t("CreateSession.form.Session.Votingmode")
+            $t("CreateSession.form.Session.sessionvotingmode")
           }}</strong></label
         >
         <div class="form-row d-flex">
@@ -110,7 +114,7 @@
         </div>
 
         <ErrorMessage name="sessionvotingmode" class="text-danger" as="p">{{
-          $t(errors.sessionvotingmode)
+          $root.translateError(errors.sessionvotingmode)
         }}</ErrorMessage>
 
         <p class="form-text" v-t="'CreateSession.form.hint.votingmode'" />
@@ -118,7 +122,9 @@
 
       <div class="form-row form-group mb-3">
         <label for="sessionimgurl">
-          <strong>{{ $t("CreateSession.form.Session.Image") }}</strong></label
+          <strong>{{
+            $t("CreateSession.form.Session.sessionimgurl")
+          }}</strong></label
         >
         <Field
           as="input"
@@ -129,13 +135,15 @@
         ></Field>
 
         <ErrorMessage name="sessionimgurl" class="text-danger" as="p">{{
-          $t(errors.sessionimgurl)
+          $root.translateError(errors.sessionimgurl)
         }}</ErrorMessage>
       </div>
 
       <div class="form-row form-group mb-3" v-show="showIds">
         <label for="sessionid">
-          <strong>{{ $t("CreateSession.form.Session.Id") }}</strong></label
+          <strong>{{
+            $t("CreateSession.form.Session.sessionid")
+          }}</strong></label
         >
         <Field
           as="input"
@@ -147,7 +155,7 @@
         ></Field>
 
         <ErrorMessage name="sessionid" class="text-danger" as="p">{{
-          $t(errors.sessionid)
+          $root.translateError(errors.sessionid)
         }}</ErrorMessage>
       </div>
 
@@ -228,12 +236,10 @@ export default {
       const length = 5;
       let result = "";
       const characters = "abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
-      const charactersLength = characters.length;
+      const len = characters.length;
       let counter = 0;
       while (counter < length) {
-        result += characters.charAt(
-          Math.floor(Math.random() * charactersLength),
-        );
+        result += characters.charAt(Math.floor(Math.random() * len));
         counter += 1;
       }
       return result;
