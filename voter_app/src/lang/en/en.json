@@ -64,13 +64,13 @@
         "votingmode": "How do you want to rate? Pick for example scores from 1-10 or school grades"
       },
       "Session": {
-        "Title": "Session Name",
-        "Subtitle": "Tagline",
-        "Description": "Description",
-        "Quorum": "Quorum",
-        "Votingmode": "Voting Mode",
-        "Image": "Image-Url",
-        "Id": "Voting-Code"
+        "sessiontitle": "Session Name",
+        "sessionsubtitle": "Tagline",
+        "sessiondescription": "Description",
+        "sessionquorum": "Quorum",
+        "sessionvotingmode": "Voting Mode",
+        "sessionimgurl": "Image-Url",
+        "sessionid": "Voting-Code"
       },
       "CreateSessionData": "Create Voting",
       "CreateVotingData": "Create Item",
@@ -98,13 +98,15 @@
       "votings and users required": "At least one voting item and participant required.",
       "not_authenticated": "Database access not available",
       "session_exists": "Session already exists",
-      "required_field": "Is a required field",
+      "required_field": "{name_t} is a required",
       "field_invalid": "Invalid Field",
+      "field_too_short": "Minimum length for {name_t} is {minimum} Charakters",
+      "field_too_large": "Maximum length for {name_t} is {maximum} Charakters",
+      "value_too_large": "{name_t} must not exceed {maximum}",
+      "value_too_small": "{name_t} can't be smaller than {minimum}",
+      "invalid_GUID": "Not a valid GUID",
       "invalid_url": "Invalid Url",
-      "invalid_email": "Invalid E-Mail-Adress",
-      "field_too_short": "{min}",
-      "field_too_large": "{path} {max}",
-      "invalid_GUID": "Not a valid Guid"
+      "invalid_email": "Invalid E-Mail-Adress"
     }
   },
 

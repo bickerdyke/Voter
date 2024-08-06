@@ -64,13 +64,13 @@
         "votingmode": "Wie soll abgestimmt werden? Möglichkeiten sind z.B: Punkte von 1-10 oder Schulnoten"
       },
       "Session": {
-        "Title": "Titel der Abstimmung",
-        "Subtitle": "Kurzbeschreibung",
-        "Description": "Beschreibung",
-        "Quorum": "Quorum",
-        "Votingmode": "Abstimmungsmodus",
-        "Image": "Bild-Url",
-        "Id": "Abstimmungs-Code"
+        "sessiontitle": "Titel der Abstimmung",
+        "sessionsubtitle": "Kurzbeschreibung",
+        "sessiondescription": "Beschreibung",
+        "sessionquorum": "Quorum",
+        "sessionvotingmode": "Abstimmungsmodus",
+        "sessionimgurl": "Bild-Url",
+        "sessionid": "Abstimmungs-Code"
       },
       "CreateSessionData": "Abstimmung anlegen",
       "CreateVotingData": "Posten anlegen",
@@ -98,13 +98,15 @@
       "votings and users required": "Mindestens je ein Abstimmungsposten und -berechtigter erforderlich",
       "not_authenticated": "Kein Datenbankzugriff vorhanden",
       "session_exists": "Session bereits vorhanden",
-      "required_field": "ist ein Pflichtfeld",
-      "field_invalid": "ungültiges Feld",
+      "required_field": "{name_t} ist ein Pflichtfeld",
+      "field_invalid": "Ungültiges Feld",
+      "field_too_short": "Minimale Länge für {name_t}: {minimum} Zeichen",
+      "field_too_large": "Maximale Länge für {name_t}: {maximum} Zeichen",
+      "value_too_large": "{name_t} darf nicht größer als {maximum} sein",
+      "value_too_small": "{name_t} darf nicht kleiner als {minimum} sein",
+      "invalid_GUID": "Keine gültige GUID",
       "invalid_url": "Keine gültige Url",
-      "invalid_email": "Keine gültige E-Mail-Adresse",
-      "field_too_short": "{min}",
-      "field_too_large": "{path} {max}",
-      "invalid_GUID": "Ist keine gültige GUID"
+      "invalid_email": "Keine gültige E-Mail-Adresse"
     }
   },
 

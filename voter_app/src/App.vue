@@ -107,6 +107,20 @@ export default {
         // Optional: Handle and display the error to the user
       }
     },
+    translateError(err) {
+      if (typeof err === "string") {
+        return this.$t(err);
+      }
+
+      if (!err.values) {
+        return this.$t(err.key);
+      }
+
+      return this.$t(err.key, {
+        ...err.values,
+        name_t: this.$t(`CreateSession.form.Session.${err.values.path}`),
+      });
+    },
   },
 };
 </script>
