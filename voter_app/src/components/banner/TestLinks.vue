@@ -21,6 +21,16 @@
       >
         Session #4713</router-link
       >
+      &nbsp;
+      <router-link
+        :to="{
+          name: 'showresult',
+          params: { sessionId: 'ProContra' },
+        }"
+        class="btn btn-success shadow"
+      >
+        Session mit Thumbs</router-link
+      >
     </div>
     <hr />
     <p>Die dazu passenden Zugangs-Urls:</p>
@@ -46,6 +56,15 @@
           name: 'showlinks',
           params: { sessionId: '4713' },
           query: { created: true },
+        }"
+        class="btn btn-success shadow"
+      >
+        Session #4713 (wie frisch angelegt)</router-link
+      >&nbsp;
+      <router-link
+        :to="{
+          name: 'showlinks',
+          params: { sessionId: 'ProContra' },
         }"
         class="btn btn-success shadow"
       >

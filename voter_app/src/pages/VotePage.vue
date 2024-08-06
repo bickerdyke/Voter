@@ -27,7 +27,11 @@
             "
           />
           <div class="display-4 fw-bold">
-            <DisplayWrapper :votingId="votingId" :userId="userId" />
+            <DisplayWrapper
+              :votingId="votingId"
+              :userId="userId"
+              :userfilter="true"
+            />
           </div>
         </div>
       </div>

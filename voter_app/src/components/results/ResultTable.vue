@@ -82,8 +82,8 @@
             </div>
           </template>
         </td>
-        <td class="display-6 fw-bold text-center" v-if="!userfilter">
-          <VoteAverage :votingId="votingId" />
+        <td v-if="!userfilter">
+          <ResultWrapper :votingId="votingId" />
         </td>
       </tr>
     </tbody>
@@ -94,14 +94,14 @@
 import { mapGetters } from "vuex";
 
 import ProfilePicture from "@/components/ProfilePicture";
-import VoteAverage from "@/components/results/VoteAverage";
+import ResultWrapper from "@/components/results/ResultWrapper";
 import DisplayWrapper from "@/components/results/DisplayWrapper";
 
 export default {
   name: "ResultTable",
   components: {
     ProfilePicture,
-    VoteAverage,
+    ResultWrapper,
     DisplayWrapper,
   },
   computed: {

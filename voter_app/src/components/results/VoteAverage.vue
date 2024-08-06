@@ -1,13 +1,7 @@
 <template>
-  <transition
-    enter-active-class="animate__animated animate__fadeIn"
-    leave-active-class="animate__animated animate__fadeOut"
-    mode="out-in"
-    appear
-    :key="$route.path"
-  >
-    <p v-if="isQuorumReached">{{ voteAverage }}</p>
-  </transition>
+  <div class="display-6 fw-bold text-center">
+    {{ voteAverage }}
+  </div>
 </template>
 
 <script>
@@ -32,9 +26,8 @@ export default {
       if (!votes || votes.length == 0) {
         return "";
       }
-      return this.format(
-        votes.reduce((summe, wert) => summe + Number(wert), 0) / votes.length,
-      );
+      const avg = votes.reduce((s, w) => s + Number(w), 0) / votes.length;
+      return this.format(avg);
     },
     turnout() {
       const votes = this.$store.getters.votes(this.votingId);
