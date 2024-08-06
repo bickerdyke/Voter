@@ -15,12 +15,13 @@
         <h4>{{ userRecord.name }}</h4>
         <template v-if="userRecord.email && !userRecord.imgUrl"
           ><p>
-            {{ $t("CreateSession.form.User.Email") }}: {{ userRecord.email }}
+            {{ $t("CreateSession.form.User.useremail") }}:
+            {{ userRecord.email }}
           </p>
           <!-- <p>{{ $t("CreateSession.form.hint.useremail") }}</p> -->
         </template>
         <p v-if="showIds">
-          {{ $t("CreateSession.form.User.Id") }}: {{ userRecord.id }}
+          {{ $t("CreateSession.form.User.userid") }}: {{ userRecord.id }}
         </p>
         <button
           class="btn btn-primary shadow me-2 mb-2"
@@ -56,7 +57,9 @@
         <div class="col-8 col-md-9 p-3">
           <div class="form-row form-group mb-3">
             <label for="username">
-              <strong>{{ $t("CreateSession.form.User.Name") }}</strong></label
+              <strong>{{
+                $t("CreateSession.form.User.username")
+              }}</strong></label
             >
             <Field
               as="input"
@@ -67,13 +70,15 @@
             ></Field>
 
             <ErrorMessage name="username" class="text-danger" as="p">{{
-              $t(errors.username)
+              $root.translateError(errors.username)
             }}</ErrorMessage>
           </div>
 
           <div class="form-row form-group mb-3">
             <label for="useremail">
-              <strong>{{ $t("CreateSession.form.User.Email") }}</strong></label
+              <strong>{{
+                $t("CreateSession.form.User.useremail")
+              }}</strong></label
             >
             <Field
               as="input"
@@ -84,7 +89,7 @@
             ></Field>
 
             <ErrorMessage name="useremail" class="text-danger" as="p">{{
-              $t(errors.useremail)
+              $root.translateError(errors.useremail)
             }}</ErrorMessage>
 
             <p class="form-text" v-t="'CreateSession.form.hint.useremail'" />
@@ -92,7 +97,9 @@
 
           <div class="form-row form-group mb-3">
             <label for="userimgurl">
-              <strong>{{ $t("CreateSession.form.User.Image") }}</strong></label
+              <strong>{{
+                $t("CreateSession.form.User.userimgurl")
+              }}</strong></label
             >
             <Field
               as="input"
@@ -103,13 +110,13 @@
             ></Field>
 
             <ErrorMessage name="userimgurl" class="text-danger" as="p">{{
-              $t(errors.userimgurl)
+              $root.translateError(errors.userimgurl)
             }}</ErrorMessage>
           </div>
 
           <div class="form-row form-group mb-3" v-show="showIds">
             <label for="userid">
-              <strong>{{ $t("CreateSession.form.User.Id") }}</strong></label
+              <strong>{{ $t("CreateSession.form.User.userid") }}</strong></label
             >
             <Field
               as="input"
@@ -121,7 +128,7 @@
             ></Field>
 
             <ErrorMessage name="userid" class="text-danger" as="p">{{
-              $t(errors.userid)
+              $root.translateError(errors.userid)
             }}</ErrorMessage>
           </div>
 

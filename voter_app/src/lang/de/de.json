@@ -75,17 +75,17 @@
       "CreateSessionData": "Abstimmung anlegen",
       "CreateVotingData": "Posten anlegen",
       "User": {
-        "Name": "Name",
-        "Email": "E-Mail-Adresse",
-        "Image": "Profilbild (Url)",
-        "Id": "Nutzer-Code"
+        "username": "Name",
+        "useremail": "E-Mail-Adresse",
+        "userimgurl": "Profilbild (Url)",
+        "userid": "Nutzer-Code"
       },
       "CreateUserData": "Nutzer anlegen",
       "Voting": {
-        "Title": "Bezeichnung",
-        "Description": "Beschreibung",
-        "Image": "Bild-Url",
-        "Id": "Id"
+        "votingtitle": "Bezeichnung",
+        "votingdescription": "Beschreibung",
+        "votingimgurl": "Bild-Url",
+        "votingid": "Id"
       },
       "Create Session Button": "Abstimmung abspeichern und fortfahren"
     },

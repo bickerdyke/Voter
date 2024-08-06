@@ -18,7 +18,7 @@
           </p>
         </template>
         <p v-if="showIds">
-          {{ $t("CreateSession.form.Voting.Id") }}: {{ votingRecord.id }}
+          {{ $t("CreateSession.form.Voting.votingid") }}: {{ votingRecord.id }}
         </p>
         <button
           class="btn btn-primary me-2 mb-2 shadow"
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <!-- Edit User -->
+    <!-- Edit Voting -->
     <vForm
       @submit="updateVoting"
       v-slot="{ errors }"
@@ -53,7 +53,7 @@
           <div class="form-row form-group mb-3">
             <label for="votingtitle">
               <strong>{{
-                $t("CreateSession.form.Voting.Title")
+                $t("CreateSession.form.Voting.votingtitle")
               }}</strong></label
             >
             <Field
@@ -65,14 +65,14 @@
             ></Field>
 
             <ErrorMessage name="votingtitle" class="text-danger" as="p">{{
-              $t(errors.votingtitle)
+              $root.translateError(errors.votingtitle)
             }}</ErrorMessage>
           </div>
 
           <div class="form-row form-group mb-3">
             <label for="votingdescription">
               <strong>{{
-                $t("CreateSession.form.Voting.Description")
+                $t("CreateSession.form.Voting.votingdescription")
               }}</strong></label
             >
             <Field
@@ -85,14 +85,14 @@
             ></Field>
 
             <ErrorMessage name="votingdescription" class="text-danger" as="p">{{
-              $t(errors.votingdescription)
+              $root.translateError(errors.votingdescription)
             }}</ErrorMessage>
           </div>
 
           <div class="form-row form-group mb-3">
             <label for="votingimgurl">
               <strong>{{
-                $t("CreateSession.form.Voting.Image")
+                $t("CreateSession.form.Voting.votingimgurl")
               }}</strong></label
             >
             <Field
@@ -104,13 +104,15 @@
             ></Field>
 
             <ErrorMessage name="votingimgurl" class="text-danger" as="p">{{
-              $t(errors.votingimgurl)
+              $root.translateError(errors.votingimgurl)
             }}</ErrorMessage>
           </div>
 
           <div class="form-row form-group mb-3" v-show="showIds">
             <label for="votingid">
-              <strong>{{ $t("CreateSession.form.Voting.Id") }}</strong></label
+              <strong>{{
+                $t("CreateSession.form.Voting.votingid")
+              }}</strong></label
             >
             <Field
               as="input"
@@ -122,7 +124,7 @@
             ></Field>
 
             <ErrorMessage name="votingid" class="text-danger" as="p">{{
-              $t(errors.votingid)
+              $root.translateError(errors.votingid)
             }}</ErrorMessage>
           </div>
 

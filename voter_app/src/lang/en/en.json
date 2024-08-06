@@ -75,17 +75,17 @@
       "CreateSessionData": "Create Voting",
       "CreateVotingData": "Create Item",
       "User": {
-        "Name": "Name",
-        "Email": "E-Mail-Address",
-        "Image": "Profile Picture (Url)",
-        "Id": "User-Code"
+        "username": "Name",
+        "useremail": "E-Mail-Address",
+        "userimgurl": "Profile Picture (Url)",
+        "userid": "User-Code"
       },
       "CreateUserData": "Create User",
       "Voting": {
-        "Title": "Title",
-        "Description": "Description",
-        "Image": "Image-Url",
-        "Id": "Id"
+        "votingtitle": "Title",
+        "votingdescription": "Description",
+        "votingimgurl": "Image-Url",
+        "votingid": "Id"
       },
       "Create Session Button": "Save Voting data and continue"
     },

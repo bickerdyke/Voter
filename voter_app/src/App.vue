@@ -116,9 +116,14 @@ export default {
         return this.$t(err.key);
       }
 
+      let domain = "";
+      if (err.values.path.startsWith("session")) domain = "Session";
+      else if (err.values.path.startsWith("voting")) domain = "Voting";
+      else if (err.values.path.startsWith("user")) domain = "User";
+
       return this.$t(err.key, {
         ...err.values,
-        name_t: this.$t(`CreateSession.form.Session.${err.values.path}`),
+        name_t: this.$t(`CreateSession.form.${domain}.${err.values.path}`),
       });
     },
   },
