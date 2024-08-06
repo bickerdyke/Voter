@@ -24,6 +24,7 @@ setLocale({
       values: { path: path, minimum: min },
     }),
     uuid: "invalid_GUID",
+    matches: "CreateSession.errors.invalid_id",
   },
   number: {
     max: ({ max, path }) => ({
@@ -57,12 +58,24 @@ export const votingValidationSchema = yup.object().shape({
   votingtitle: yup.string().required().trim().max(50),
   votingimgurl: yup.string().trim().url().max(2000),
   votingdescription: yup.string().trim().max(2000),
-  votingid: yup.string().required().trim().min(5).max(50),
+  votingid: yup
+    .string()
+    .required()
+    .trim()
+    .min(5)
+    .max(50)
+    .matches("^[A-Za-z0-9+_!-]+$"),
 });
 
 export const userValidationSchema = yup.object().shape({
   username: yup.string().required().trim().max(50),
   useremail: yup.string().trim().email().max(100),
   userimgurl: yup.string().trim().url().max(2000),
-  userid: yup.string().required().trim().min(4).max(30),
+  userid: yup
+    .string()
+    .required()
+    .trim()
+    .min(4)
+    .max(30)
+    .matches("^[A-Za-z0-9+_!-]+$"),
 });

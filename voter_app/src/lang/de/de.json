@@ -106,7 +106,8 @@
       "value_too_small": "{name_t} darf nicht kleiner als {minimum} sein",
       "invalid_GUID": "Keine gültige GUID",
       "invalid_url": "Keine gültige Url",
-      "invalid_email": "Keine gültige E-Mail-Adresse"
+      "invalid_email": "Keine gültige E-Mail-Adresse",
+      "invalid_id": "Unerlaubte Zeichen vorhanden. Nur Buchstaben, Zahlen sowie +, -, !, - und _ möglich"
     }
   },
 
