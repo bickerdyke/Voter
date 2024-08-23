@@ -234,7 +234,7 @@ export default {
 
       const exist = await this.$store.dispatch(
         "sessionExists",
-        this.newSession.id
+        this.newSession.id,
       );
       if (exist) {
         this.error = this.$t("CreateSession.errors.session_exists");

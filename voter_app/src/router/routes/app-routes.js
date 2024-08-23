@@ -3,8 +3,7 @@ const appRoutes = [
     path: "/",
     alias: "/home",
     name: "home",
-    component: () =>
-      import("@/pages/HomePage.vue"),
+    component: () => import("@/pages/HomePage.vue"),
     /* beforeEnter: (to, from, next) => {
       if (store.getters.isAuthenticated) {
         next("/shop");
@@ -20,8 +19,7 @@ const appRoutes = [
   {
     path: "/legal",
     name: "legal",
-    component: () =>
-      import("@/pages/LegalPage.vue"),
+    component: () => import("@/pages/LegalPage.vue"),
     meta: {
       requiresAuth: false,
     },
@@ -30,10 +28,7 @@ const appRoutes = [
   {
     path: "/create",
     name: "create",
-    component: () =>
-      import(
-        "@/pages/CreateSessionPage.vue"
-      ),
+    component: () => import("@/pages/CreateSessionPage.vue"),
     meta: {
       requiresAuth: true,
     },
@@ -42,10 +37,7 @@ const appRoutes = [
   {
     path: "/showvotinglinks/:sessionId",
     name: "showlinks",
-    component: () =>
-      import(
-        "@/pages/ShowVotingLinks.vue"
-      ),
+    component: () => import("@/pages/ShowVotingLinks.vue"),
     meta: {
       requiresAuth: true,
     },
@@ -55,10 +47,7 @@ const appRoutes = [
     path: "/uservoting/:sessionId/:userId",
     alias: "/showresult/:sessionId/:userId",
     name: "uservoting",
-    component: () =>
-      import(
-        "@/pages/UserVotingOverview.vue"
-      ),
+    component: () => import("@/pages/UserVotingOverview.vue"),
     meta: {
       requiresAuth: true,
     },
@@ -67,8 +56,7 @@ const appRoutes = [
   {
     path: "/showresult/:sessionId",
     name: "showresult",
-    component: () =>
-      import("@/pages/ResultPage.vue"),
+    component: () => import("@/pages/ResultPage.vue"),
     meta: {
       requiresAuth: true,
     },
@@ -77,8 +65,7 @@ const appRoutes = [
   {
     path: "/vote/:sessionId/:userId/:votingId",
     name: "vote",
-    component: () =>
-      import("@/pages/VotePage.vue"),
+    component: () => import("@/pages/VotePage.vue"),
     props: true,
     meta: {
       requiresAuth: true,

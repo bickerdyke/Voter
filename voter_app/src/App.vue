@@ -94,7 +94,7 @@ export default {
         await navigator.clipboard.write(data);
 
         const copytoastToast = Toast.getOrCreateInstance(
-          document.getElementById("copytoast")
+          document.getElementById("copytoast"),
         );
 
         if (copytoastToast) {

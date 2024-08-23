@@ -10,8 +10,8 @@ module.exports = {
     "plugin:prettier/recommended",
   ],
   rules: {
-    "no-console": import.meta.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": import.meta.env.NODE_ENV === "production" ? "warn" : "off",
+    //"no-console": import.meta.env.PROD ? "warn" : "off",
+    //"no-debugger": import.meta.env.PROD ? "warn" : "off",
     "prettier/prettier": ["error", { endOfLine: "crlf" }],
     "linebreak-style": 0,
   },
