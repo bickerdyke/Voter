@@ -22,6 +22,10 @@ export default {
       return this.$store.getters.vote(this.votingId, this.userId);
     },
     voteFormatted() {
+      if (this.vote==null) {
+        return "";
+      }
+
       const result = Number(this.vote);
       switch (result) {
         case 4:
