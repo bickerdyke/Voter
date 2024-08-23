@@ -6,7 +6,7 @@
           class="col-3 d-flex flex-column align-items-center"
           v-if="useImage"
         >
-          <img class="w-100 m-1" :src="imgUrl" />
+          <img class="w-100 m-1" :src="imgUrl" v-if="imgUrl"/>
           <ProfilePicture
             class="m-1"
             fallback="wavatar"
@@ -31,6 +31,7 @@
                     level="M"
                     render-as="svg"
                     :margin="0"
+                    class="m-1"
                   />
                 </a>
               </div>
@@ -67,7 +68,9 @@ export default {
       "isSessionLoaded",
     ]),
     useImage() {
-      return this.imgUrl ? true : false;
+      // #88 kein Profilbild ohne Sessionbild
+      return true;
+      //return this.imgUrl ? true : false;
     },
   },
   props: {
