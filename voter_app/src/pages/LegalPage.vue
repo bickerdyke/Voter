@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     softwareversion() {
-      return process.env.VUE_APP_SOFTWARE_VERSION;
+      return import.meta.env.VITE_SOFTWARE_VERSION;
     },
   },
 };

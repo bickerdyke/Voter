@@ -12,6 +12,9 @@
 </template>
 
 <script>
+import anonImg from "@/assets/profile/profile_anonymous.png";
+import loggedoutImg from "@/assets/profile/profile_loggedout.png";
+
 //@todo: #30 Pop-Up mit aktueller Pseudonym-ID hinzufügen
 export default {
   name: "ProfileBadge",
@@ -19,9 +22,7 @@ export default {
     imgUrl() {
       // Im Moment sind nur anonyme Logins erlaubt.
       // Entsprechend ergänzen wenn "echte" Logins verwendet werden.
-      return this.$store.getters.isAuthenticated
-        ? require("@/assets/profile/profile_anonymous.png")
-        : require("@/assets/profile/profile_loggedout.png");
+      return this.$store.getters.isAuthenticated ? anonImg : loggedoutImg;
     },
   },
 };

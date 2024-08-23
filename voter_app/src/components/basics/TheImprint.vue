@@ -27,20 +27,20 @@ export default {
   name: "TheImprint",
   computed: {
     ImprintName() {
-      return process.env.VUE_APP_IMPRINT_NAME;
+      return import.meta.env.VITE_IMPRINT_NAME;
     },
     ImprintAddress() {
-      return process.env.VUE_APP_IMPRINT_ADDRESS;
+      return import.meta.env.VITE_IMPRINT_ADDRESS;
     },
     ImprintAddress2() {
-      return process.env.VUE_APP_IMPRINT_ADDRESS2;
+      return import.meta.env.VITE_IMPRINT_ADDRESS2;
     },
     ImprintEmail1() {
-      const mail = process.env.VUE_APP_IMPRINT_EMAIL;
+      const mail = import.meta.env.VITE_IMPRINT_EMAIL;
       return mail.split(" (at) ")[0];
     },
     ImprintEmail2() {
-      const mail = process.env.VUE_APP_IMPRINT_EMAIL;
+      const mail = import.meta.env.VITE_IMPRINT_EMAIL;
       return mail.split(" (at) ")[1];
     },
   },

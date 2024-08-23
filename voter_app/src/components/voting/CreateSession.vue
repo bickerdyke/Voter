@@ -173,7 +173,7 @@
 
 <script>
 import { Form as vForm, Field, ErrorMessage } from "vee-validate";
-import { sessionValidationSchema, localErrorMessages } from "./validations";
+import { sessionValidationSchema } from "./validations";
 import { VOTINGMODES } from "@/config/misc";
 
 export default {
@@ -191,7 +191,6 @@ export default {
   data() {
     return {
       sessionValidationSchema,
-      localErrorMessages,
       sessionQuorum: 100,
       votingmodes: VOTINGMODES,
     };

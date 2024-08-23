@@ -117,7 +117,7 @@ import CreateVoting from "@/components/voting/CreateVoting";
 import CreateUser from "@/components/voting/CreateUser";
 import ImageAndDescription from "@/components/ImageAndDescription";
 
-const sha256 = require("js-sha256");
+import sha256 from "js-sha256";
 
 export default {
   name: "CreateSesionPage",
