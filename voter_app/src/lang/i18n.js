@@ -1,5 +1,4 @@
 import { createI18n } from "vue-i18n";
-import axios from "axios";
 import en from "@/lang/en/en.json";
 import de from "@/lang/de/de.json";
 
@@ -19,14 +18,5 @@ const i18n = createI18n({
     de,
   },
 });
-
-const loadedLanguages = ["en"]; // our default language that is preloaded
-
-function setI18nLanguage(lang) {
-  i18n.locale = lang;
-  axios.defaults.headers.common["Accept-Language"] = lang;
-  document.querySelector("html").setAttribute("lang", lang);
-  return lang;
-}
 
 export default i18n;

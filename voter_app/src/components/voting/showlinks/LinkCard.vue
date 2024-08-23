@@ -6,7 +6,7 @@
           class="col-3 d-flex flex-column align-items-center"
           v-if="useImage"
         >
-          <img class="w-100 m-1" :src="imgUrl" v-if="imgUrl"/>
+          <img class="w-100 m-1" :src="imgUrl" v-if="imgUrl" />
           <ProfilePicture
             class="m-1"
             fallback="wavatar"

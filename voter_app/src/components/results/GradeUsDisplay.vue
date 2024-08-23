@@ -22,7 +22,7 @@ export default {
       return this.$store.getters.vote(this.votingId, this.userId);
     },
     voteFormatted() {
-      if (this.vote==null) {
+      if (this.vote == null) {
         return "";
       }
 
