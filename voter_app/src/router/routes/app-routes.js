@@ -4,7 +4,7 @@ const appRoutes = [
     alias: "/home",
     name: "home",
     component: () =>
-      import(/*webpackChunkName: 'page-homepage' */ "@/pages/HomePage.vue"),
+      import("@/pages/HomePage.vue"),
     /* beforeEnter: (to, from, next) => {
       if (store.getters.isAuthenticated) {
         next("/shop");
@@ -21,7 +21,7 @@ const appRoutes = [
     path: "/legal",
     name: "legal",
     component: () =>
-      import(/*webpackChunkName: 'page-homepage' */ "@/pages/LegalPage.vue"),
+      import("@/pages/LegalPage.vue"),
     meta: {
       requiresAuth: false,
     },
@@ -32,7 +32,7 @@ const appRoutes = [
     name: "create",
     component: () =>
       import(
-        /*webpackChunkName: 'page-homepage' */ "@/pages/CreateSessionPage.vue"
+        "@/pages/CreateSessionPage.vue"
       ),
     meta: {
       requiresAuth: true,
@@ -44,7 +44,7 @@ const appRoutes = [
     name: "showlinks",
     component: () =>
       import(
-        /*webpackChunkName: 'page-homepage' */ "@/pages/ShowVotingLinks.vue"
+        "@/pages/ShowVotingLinks.vue"
       ),
     meta: {
       requiresAuth: true,
@@ -57,7 +57,7 @@ const appRoutes = [
     name: "uservoting",
     component: () =>
       import(
-        /*webpackChunkName: 'page-homepage' */ "@/pages/UserVotingOverview.vue"
+        "@/pages/UserVotingOverview.vue"
       ),
     meta: {
       requiresAuth: true,
@@ -68,7 +68,7 @@ const appRoutes = [
     path: "/showresult/:sessionId",
     name: "showresult",
     component: () =>
-      import(/*webpackChunkName: 'page-results' */ "@/pages/ResultPage.vue"),
+      import("@/pages/ResultPage.vue"),
     meta: {
       requiresAuth: true,
     },
@@ -78,7 +78,7 @@ const appRoutes = [
     path: "/vote/:sessionId/:userId/:votingId",
     name: "vote",
     component: () =>
-      import(/*webpackChunkName: 'page-vote' */ "@/pages/VotePage.vue"),
+      import("@/pages/VotePage.vue"),
     props: true,
     meta: {
       requiresAuth: true,

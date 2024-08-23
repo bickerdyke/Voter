@@ -4,7 +4,7 @@ const adminRoutes = [
   {
     path: "/logout",
     component: () =>
-      import(/*webpackChunkName: 'page-homepage' */ "@/pages/HomePage.vue"),
+      import("@/pages/HomePage.vue"),
     meta: {
       requiresAuth: false,
     },

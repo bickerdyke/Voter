@@ -29,25 +29,4 @@ function setI18nLanguage(lang) {
   return lang;
 }
 
-export function loadLanguageAsync(lang) {
-  // If the same language
-  if (i18n.locale === lang) {
-    return Promise.resolve(setI18nLanguage(lang));
-  }
-
-  // If the language was already loaded
-  if (loadedLanguages.includes(lang)) {
-    return Promise.resolve(setI18nLanguage(lang));
-  }
-
-  // If the language hasn't been loaded yet
-  return import(
-    /* webpackChunkName: "lang-[request]" */ `@/lang/${lang}.js`
-  ).then((messages) => {
-    i18n.setLocaleMessage(lang, messages.default);
-    loadedLanguages.push(lang);
-    return setI18nLanguage(lang);
-  });
-}
-
 export default i18n;

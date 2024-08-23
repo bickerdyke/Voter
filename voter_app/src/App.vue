@@ -40,10 +40,10 @@ export default {
       "userId",
     ]),
     isDevMode() {
-      return process.env.NODE_ENV == "development";
+      return import.meta.env.DEV;
     },
     isTestMode() {
-      return process.env.NODE_ENV == "test";
+      return import.meta.env.PROD;
     },
     isSessionAdmin() {
       const SessionAuthorId = this.currentSessionData.author;
@@ -94,7 +94,7 @@ export default {
         await navigator.clipboard.write(data);
 
         const copytoastToast = Toast.getOrCreateInstance(
-          document.getElementById("copytoast"),
+          document.getElementById("copytoast")
         );
 
         if (copytoastToast) {
@@ -133,5 +133,5 @@ export default {
 <style lang="scss">
 @import "./scss/bootstrap.scss";
 @import "./scss/print.scss";
-@import "~animate.css/animate.min.css";
+@import "animate.css/animate.min.css";
 </style>

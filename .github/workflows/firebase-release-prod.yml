@@ -19,13 +19,13 @@ jobs:
   build_and_preview:
     #if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     env:
-      VUE_APP_FIREBASE_APIKEY: ${{ secrets.FIREBASE_API_KEY }}
-      VUE_APP_FIREBASE_PROJECTID: ${{ secrets.FIREBASE_PROJECTID }}
-      VUE_APP_IMPRINT_NAME: ${{ secrets.IMPRINT_NAME}}
-      VUE_APP_IMPRINT_ADDRESS: ${{ secrets.IMPRINT_ADDRESS}}
-      VUE_APP_IMPRINT_ADDRESS2: ${{ secrets.IMPRINT_ADDRESS2}}
-      VUE_APP_IMPRINT_EMAIL: ${{ secrets.IMPRINT_EMAIL}}
-      VUE_APP_SOFTWARE_VERSION: ${{ github.event.release.tag_name }}
+      VITE_FIREBASE_APIKEY: ${{ secrets.FIREBASE_API_KEY }}
+      VITE_FIREBASE_PROJECTID: ${{ secrets.FIREBASE_PROJECTID }}
+      VITE_IMPRINT_NAME: ${{ secrets.IMPRINT_NAME}}
+      VITE_IMPRINT_ADDRESS: ${{ secrets.IMPRINT_ADDRESS}}
+      VITE_IMPRINT_ADDRESS2: ${{ secrets.IMPRINT_ADDRESS2}}
+      VITE_IMPRINT_EMAIL: ${{ secrets.IMPRINT_EMAIL}}
+      VITE_SOFTWARE_VERSION: ${{ github.event.release.tag_name }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

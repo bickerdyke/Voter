@@ -1,4 +1,4 @@
-const projectId = process.env.VUE_APP_FIREBASE_PROJECTID;
+const projectId = import.meta.env.VITE_FIREBASE_PROJECTID;
 
 export const firebaseConfig = {
   authDomain: `${projectId}.firebaseapp.com`,

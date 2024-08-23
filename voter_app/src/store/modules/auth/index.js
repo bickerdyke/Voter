@@ -1,7 +1,7 @@
 import { FIREBASE_AUTH_URL, FIREBASE_REFRESH_URL } from "@/config/firebase";
 import axios from "axios";
 
-var base32 = require("base32-encoding");
+import base32 from "base32";
 
 let timer;
 
@@ -24,7 +24,7 @@ const actions = {
         returnSecureToken: true,
       };
 
-      const apikey = base32.parse(process.env.VUE_APP_FIREBASE_APIKEY);
+      const apikey = base32.decode(import.meta.env.VITE_FIREBASE_APIKEY);
       let url = "";
       if (payload.mode === "signin") {
         url = `${FIREBASE_AUTH_URL}:signInWithPassword?key=${apikey}`;
@@ -81,12 +81,11 @@ const actions = {
       refresh_token: refreshToken,
     };
 
-    if (!process.env.VUE_APP_FIREBASE_APIKEY) {
+    if (!import.meta.env.VITE_FIREBASE_APIKEY) {
       console.error("API-Key is missing");
       throw new Error("API-Key Missing");
     }
-
-    const apikey = base32.parse(process.env.VUE_APP_FIREBASE_APIKEY);
+    const apikey = base32.decode(import.meta.env.VITE_FIREBASE_APIKEY);
     let url = `${FIREBASE_REFRESH_URL}?key=${apikey}`;
 
     return axios

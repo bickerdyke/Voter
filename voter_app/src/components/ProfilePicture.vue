@@ -3,7 +3,8 @@
 </template>
 
 <script>
-const sha256 = require("js-sha256");
+import sha256 from "js-sha256";
+
 export default {
   name: "ProfilePicture",
   components: {},

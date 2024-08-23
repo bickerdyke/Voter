@@ -117,7 +117,7 @@ import CreateVoting from "@/components/voting/CreateVoting";
 import CreateUser from "@/components/voting/CreateUser";
 import ImageAndDescription from "@/components/ImageAndDescription";
 
-const sha256 = require("js-sha256");
+import sha256 from "js-sha256";
 
 export default {
   name: "CreateSesionPage",
@@ -234,7 +234,7 @@ export default {
 
       const exist = await this.$store.dispatch(
         "sessionExists",
-        this.newSession.id,
+        this.newSession.id
       );
       if (exist) {
         this.error = this.$t("CreateSession.errors.session_exists");
