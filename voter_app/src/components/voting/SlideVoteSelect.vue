@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      points: 5,
+      points: "5",
     };
   },
   components: {},
