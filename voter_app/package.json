@@ -13,14 +13,14 @@
     "translation:update": "vue-i18n-extract --add --remove --noEmptyTranslation --vueFiles ./src/**/*.vue --languageFiles ./src/lang/**/*.json"
   },
   "dependencies": {
-    "@fontsource/inter": "^5.0.19",
+    "@fontsource/inter": "^5.0.20",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@popperjs/core": "^2.11.8",
     "animate.css": "^4.1.1",
-    "axios": "^1.7.2",
+    "axios": "^1.7.5",
     "base32": "^0.0.7",
     "bootstrap": "^5.3.3",
     "country-flag-emoji-polyfill": "^0.1.8",
