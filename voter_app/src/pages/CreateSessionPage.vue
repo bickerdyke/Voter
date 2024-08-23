@@ -51,6 +51,7 @@
         </template>
         <CreateVoting
           v-if="editingVoting"
+          :votingCount="votingCounter"
           @votingSubmit="createVoting"
         ></CreateVoting>
 
@@ -165,6 +166,9 @@ export default {
         Object.keys(this.newSession.users).length > 0
       );
     },
+    votingCounter() {
+      return this.newVotings.length;
+    },
   },
   methods: {
     createSession(values) {
@@ -182,6 +186,8 @@ export default {
       this.newVotings = [];
       this.newUsers = [];
       this.isLoading = false;
+      this.editingUser = false;
+      this.editingVoting = false;
       this.error = "";
     },
     addVotingButton() {

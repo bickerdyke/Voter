@@ -174,6 +174,9 @@ export default {
       type: Boolean,
       default: false,
     },
+    votingCount: {
+      type: Number,
+    },
     votingRecord: {
       type: Object,
       default: null,
@@ -205,6 +208,14 @@ export default {
       let result = "";
       const characters = "ABCDEFGHJKLMNPQRSTUVWXYZ123456789";
       const charactersLength = characters.length;
+
+      //#82 include position in ID. (Items will be sorted by ID later)
+      if (this.votingCount < 10) {
+        result += "0";
+      }
+      result += this.votingCount.toString();
+      result += "-";
+
       let counter = 0;
       while (counter < length) {
         result += characters.charAt(
