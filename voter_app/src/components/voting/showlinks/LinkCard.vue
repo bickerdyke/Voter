@@ -11,7 +11,8 @@
             class="m-1"
             fallback="wavatar"
             :email="currentSessionData.users[userId].email"
-            :imgUrl="currentSessionData.users[userId].imgUrl"
+            :emailHash="currentSessionData.users[userId].emailHash"
+            :imageUrl="currentSessionData.users[userId].imgUrl"
             :size="70"
             v-if="userId"
           />
