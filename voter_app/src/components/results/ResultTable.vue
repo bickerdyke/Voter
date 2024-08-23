@@ -36,7 +36,6 @@
             v-if="voting.imgUrl"
           />
           <div class="m-3 text-left">
-            <!-- @todo #81 -->
             <p
               class="fw-bolder d-sm-block"
               :class="{ 'd-none': voting.imgUrl }"
