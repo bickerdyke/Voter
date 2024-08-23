@@ -36,7 +36,10 @@
             v-if="voting.imgUrl"
           />
           <div class="m-3 text-left">
-            <p class="fw-bolder d-none d-sm-block">
+            <p
+              class="fw-bolder d-sm-block"
+              :class="{ 'd-none': voting.imgUrl }"
+            >
               <span v-if="showIds">({{ votingId }})</span>
               {{ voting.title }}
             </p>
