@@ -68,9 +68,14 @@ export default {
       return turnout;
     },
     isQuorumReached() {
-      const quorum = this.currentSessionData.quorum
+      let quorum = this.currentSessionData.quorum
         ? Number(this.currentSessionData.quorum)
         : 100;
+
+      // #80 Quorum Fehler. Quorum von "0" wird als "false" und gibt 100% als Default
+      if (this.currentSessionData.quorum == "0") {
+        quorum = 0;
+      }
 
       return this.turnout >= quorum;
     },
