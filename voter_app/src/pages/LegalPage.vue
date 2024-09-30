@@ -9,7 +9,7 @@
         </SessionHeadline>
       </div>
 
-      <BetaVersionAlert v-if="$root.isTestMode" />
+      <BetaVersionAlert v-if="$root.isDevMode" />
 
       <TheImprint />
 

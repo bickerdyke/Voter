@@ -42,9 +42,6 @@ export default {
     isDevMode() {
       return import.meta.env.DEV;
     },
-    isTestMode() {
-      return import.meta.env.PROD;
-    },
     isSessionAdmin() {
       const SessionAuthorId = this.currentSessionData.author;
       const SessionToken = this.currentSessionData.token;
@@ -94,7 +91,7 @@ export default {
         await navigator.clipboard.write(data);
 
         const copytoastToast = Toast.getOrCreateInstance(
-          document.getElementById("copytoast"),
+          document.getElementById("copytoast")
         );
 
         if (copytoastToast) {
