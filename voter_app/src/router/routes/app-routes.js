@@ -35,6 +35,15 @@ const appRoutes = [
     props: false,
   },
   {
+    path: "/myvotings",
+    name: "myvotings",
+    component: () => import("@/pages/ShowMySessionsPage.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+    props: false,
+  },
+  {
     path: "/showvotinglinks/:sessionId",
     name: "showlinks",
     component: () => import("@/pages/ShowVotingLinks.vue"),

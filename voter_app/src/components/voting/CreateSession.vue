@@ -216,7 +216,8 @@ export default {
   },
   methods: {
     createGuid() {
-      return self.crypto.randomUUID();
+      let prefix = $root.isDevMode ? "test-" : "";
+      return prefix + self.crypto.randomUUID();
     },
     submitSession(values) {
       const sessiondata = {

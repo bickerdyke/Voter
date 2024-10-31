@@ -4,6 +4,7 @@
     ".read": "false",
     ".write": "false",
     "sessions": {
+      ".read": "auth != null",
       "$sessionId": {
         /* Allow new sessions and added votes */
         ".read": "auth != null",
