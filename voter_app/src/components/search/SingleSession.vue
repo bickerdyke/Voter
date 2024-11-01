@@ -1,16 +1,17 @@
 <template>
-  Hello
-  {{ session.title }}
-  <br />>{{ session }}
+  <b>{{ sessionData.title }}</b
+  >&nbsp; Autor:{{ sessionData.author }}
 </template>
 
 <script>
 export default {
   name: "SingleSession",
   props: {
-    session: object,
+    sessionData: {
+      type: Object,
+      required: true,
+    },
   },
-  computed: {},
 };
 </script>
 

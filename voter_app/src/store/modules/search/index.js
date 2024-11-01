@@ -4,22 +4,28 @@ import axios from "axios";
 const actions = {
   loadSessions(context, payload) {
     return new Promise((resolve, reject) => {
-      console.log("loading list of all sessions" + payload.uid ? " for user " + payload.uid : "");
+      if (payload.uId) {
+        console.log("loading list sessions for user " + payload.uId);
+      } else {
+        console.log("loading list of all sessions");
+      }
+
       const token = context.rootState.auth.token;
       if (!token) {
         reject(new Error("No token available for backend access"));
       }
-      const url = `${FIREBASE_RTDB_URL}/sessions.json?auth=${token}`;
+
+      let url = `${FIREBASE_RTDB_URL}sessions.json?auth=${token}`;
+      if (payload.uId) {
+        url += '&orderBy="author"&equalTo="' + payload.uId + '"';
+      }
 
       axios
         .get(url, {
-          headers: {
-            "X-Firebase-ETag": true,
-          },
         })
         .then((response) => {
           console.log("session list received");
-          resolve(response);
+          resolve(response.data);
         })
         .catch((error) => {
           reject(error);

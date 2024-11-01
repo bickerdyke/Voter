@@ -22,13 +22,11 @@
         </div>
       </div>
 
-      <!--<ul>
-        <li>
-          <SingleSession session="currentSessionData" />
+      <ul>
+        <li v-for="(session, sId) in sessionList" :key="sId">
+          <SingleSession :sessionData="session" />
         </li>
-      </ul> -->
-
-      {{ sessionList }}
+      </ul>
 
       <!-- Footer-Features-->
     </div>
@@ -40,7 +38,7 @@ import { mapGetters } from "vuex";
 
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
-//import SingleSession from "@/components/search/SingleSession";
+import SingleSession from "@/components/search/SingleSession";
 //import ImageAndDescription from "@/components/ImageAndDescription";
 
 export default {
@@ -48,6 +46,7 @@ export default {
   components: {
     TheHomeLayout,
     SessionHeadline,
+    SingleSession,
   },
   data() {
     return {

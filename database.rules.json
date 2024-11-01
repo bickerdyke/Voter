@@ -5,11 +5,11 @@
     ".write": "false",
     "sessions": {
       ".read": "auth != null",
+      ".indexOn": ["author"],
       "$sessionId": {
         /* Allow new sessions and added votes */
         ".read": "auth != null",
         ".write": "auth != null && !data.exists()",
-        ".indexOn": ["author"],
         ".validate": "newData.hasChild('votings')",
         /* Validate Session Data */
         "author": {
