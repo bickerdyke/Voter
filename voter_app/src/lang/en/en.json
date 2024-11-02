@@ -185,7 +185,7 @@
       "p2": "There is currently neither a reach measurement nor an advertising display. There is no evaluation or transfer of user data here either.",
       "UserGenerated": {
         "Name": "User-generated Content",
-        "p1": "The website offers users the opportunity to store their own content and link to external graphics. Responsibility for this content lies with its creators and users. All stored data can be accessed and viewed using the generated access URL, including data not displayed directly. This corresponds to the purpose of this service. Offending content and content can be reported to the email address given in the legal notice, stating the relevant session ID (\"voting link\").",
+        "p1": "The website offers users the opportunity to store their own content and link to external graphics. Responsibility for this content lies with its creators and users. All stored data can be accessed and viewed using the generated access URL, including data not displayed directly. This corresponds to the purpose of this service. Offending or illegal content can be reported to the email address given in the legal notice, stating the relevant session ID (\"voting link\").",
         "p2": "The participants' email addresses requested during data entry are optional and are only used to search for a publicly available profile picture and are not saved.",
         "p3": "There is no evaluation, transfer or processing of the data beyond the purpose of the website. User-generated content can be deleted after 30 days at the latest. There is no guarantee as to the availability of the service or the stored data."
       },
