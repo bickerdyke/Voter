@@ -192,7 +192,7 @@
       "ExternalServices": "Externe Dienste",
       "Gravatar": {
         "Name": "Gravatar",
-        "p1": "Die Webseite nutzt Gravatar. Dieser Dienst bietet Nutzern die Möglichkeit, ein Profilbild zu hinterlegen, dass von anderen Webseiten verwendet werden kann. Es wird dazu lediglich ein krypotpgraphisch abgesicherter Hashwert und nicht die E-Mail-Adresse selbst übertragen."
+        "p1": "Die Webseite nutzt Gravatar. Dieser Dienst bietet Nutzern die Möglichkeit, zu ihrer Mailadresse ein Profilbild zu hinterlegen, dass von anderen Webseiten verwendet werden kann. Es wird dazu lediglich ein krypotpgraphisch abgesicherter Hashwert und nicht die E-Mail-Adresse übertragen."
       }
     },
     "Disclaimer": "Dies ist eine private Hobby-Webseite. Die Benutzung ist ausdrücklich gestattet, erfolgt jedoch ohne Garantie oder jegliche Zusicherung bezüglich Funktion oder Verfügbarkeit."
