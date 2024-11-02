@@ -14,6 +14,7 @@
   "Pages": {
     "Home": "Home",
     "Create": "Neue Abstimmung",
+    "Search": "Meine Abstimmungen",
     "Legal": "Impressum und Datenschutz"
   },
 
@@ -166,6 +167,12 @@
     "vote": "Abstimmen"
   },
 
+  "Search": {
+    "Headline": "Meine Abstimmungen",
+    "NoResults": "Keine Abstimmungen gefunden",
+    "NoResultsDetails": "Es konnten keine von ihnen angelegten Abstimmungen gefunden werden."
+  },
+
   "Legal": {
     "MoreInformation": "Weitere Informationen:",
     "Imprint": {
@@ -185,7 +192,7 @@
       "p2": "Es findet zur Zeit weder eine Reichweitenmessung noch eine Werbeausspielung statt. Es erfolgt also auch hier keine Auswertung oder Weitergabe von Nutzerdaten.",
       "UserGenerated": {
         "Name": "Nutzergenerierte Inhalte",
-        "p1": "Die Webseite bietet Nutzern die Möglichkeit, eigene Inhalte zu hinterlegen so wie auf externe Grafiken zu verlinken. Die Verantwortung für diese Inhalte liegt bei deren Erstellern und deren Verwendern. Alle gespeicherten Daten können mittels der generierten Zugangs-Url abgerufen und eingesehen werden. Dies gilt auch für nicht direkt angezeigte Daten. Das entspricht dem Zweck dieses Dienstes. Offensichtlich illegale Inhalte und Inhalte können unter der im Impressum angegebenen Mailadresse unter Angabe der betreffenden Session-ID (\"Abstimmungslink\") gemeldet werden.",
+        "p1": "Die Webseite bietet Nutzern die Möglichkeit, eigene Inhalte zu hinterlegen so wie auf externe Grafiken zu verlinken. Die Verantwortung für diese Inhalte liegt bei deren Erstellern und deren Verwendern. Alle gespeicherten Daten können mittels der generierten Zugangs-Url abgerufen und eingesehen werden. Dies gilt auch für nicht direkt angezeigte Daten. Das entspricht dem Zweck dieses Dienstes. Offensichtlich illegale und andere Inhalte können unter der im Impressum angegebenen Mailadresse unter Angabe der betreffenden Session-ID (\"Abstimmungslink\") gemeldet werden.",
         "p2": "Die während der Dateneingabe angefragte E-Mail-Adressen der Teilnehmer ist optional und dient lediglich der Suche nach einem öffentlich verfügbaren Profilbild und werden nicht gespeichert.",
         "p3": "Es findet keine Auswertung, Weitergabe oder über den Zweck der Webseite hinausgehende Verarbeitung der Daten statt. Nutzergenerierte Inhalte können nach spätestens 30 Tagen gelöscht werden. Es gibt keine Zusicherung auf Verfügbarkeit des Dienstes oder der gespeicherten Daten."
       },

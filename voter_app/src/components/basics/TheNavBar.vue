@@ -38,7 +38,7 @@
         </li>
         <li class="nav-item active">
           <router-link class="nav-link" to="/myvotings">{{
-            $t("Pages.MyVotings")
+            $t("Pages.Search")
           }}</router-link>
         </li>
         <li class="nav-item">

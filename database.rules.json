@@ -3,9 +3,12 @@
     /* block any top-level access without session-ID */
     ".read": "false",
     ".write": "false",
+    "admins": {
+      /* blocked by general parent rule. Manuell editing only. */
+    },
     "sessions": {
-      ".read": "auth != null",
       ".indexOn": ["author"],
+      ".read": "auth.uid != null && (root.child('admins/' + auth.uid).val() == true || query.orderByChild == 'author' && query.equalTo == auth.uid)",
       "$sessionId": {
         /* Allow new sessions and added votes */
         ".read": "auth != null",

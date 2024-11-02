@@ -5,14 +5,12 @@
       <!-- Header -->
       <div class="row">
         <SessionHeadline>
-          <template v-slot:headline>{{
-            $t("Voter-Service MyVotings")
-          }}</template>
+          <template v-slot:headline>{{ $t("Search.Headline") }}</template>
           <template v-slot:subtitle>&nbsp;</template>
         </SessionHeadline>
       </div>
 
-      <p>Show my votings from Database</p>
+      <!-- if this.$store.getters.isAuthenticated -->
 
       <div class="row">
         <div class="alert alert-danger col-12" v-if="errorMessage">
@@ -20,6 +18,16 @@
           <br />
           {{ errorMessage }}
         </div>
+      </div>
+
+      <div
+        class="alert alert-warning shadow my-4"
+        v-if="!sessionList || Object.keys(sessionList).length === 0"
+      >
+        <h3>{{ $t("Search.NoResults") }}</h3>
+        <p>
+          {{ $t("Search.NoResultsDetails") }}
+        </p>
       </div>
 
       <ul>
@@ -39,7 +47,6 @@ import { mapGetters } from "vuex";
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
 import SingleSession from "@/components/search/SingleSession";
-//import ImageAndDescription from "@/components/ImageAndDescription";
 
 export default {
   name: "ShowMySessionsPage",
@@ -54,9 +61,6 @@ export default {
       sessionListData: null,
     };
   },
-  props: {
-    userId: String,
-  },
   computed: {
     ...mapGetters([
       "currentSessionId",
@@ -70,7 +74,7 @@ export default {
         // Load SessionList
         this.clearError();
         const payload = {
-          uId: this.userId,
+          uId: this.$store.getters.userId,
         };
 
         this.$store
