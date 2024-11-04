@@ -170,7 +170,9 @@
   "Search": {
     "Headline": "Meine Abstimmungen",
     "NoResults": "Keine Abstimmungen gefunden",
-    "NoResultsDetails": "Es konnten keine von ihnen angelegten Abstimmungen gefunden werden."
+    "NoResultsDetails": "Es konnten keine von ihnen angelegten Abstimmungen gefunden werden.",
+    "Results": "Ergebnis",
+    "Links": "Links"
   },
 
   "Legal": {

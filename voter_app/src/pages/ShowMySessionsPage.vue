@@ -32,7 +32,7 @@
 
       <ul>
         <li v-for="(session, sId) in sessionList" :key="sId">
-          <SingleSession :sessionData="session" />
+          <SingleSession :sessionData="session" :sessionKey="sId" />
         </li>
       </ul>
 
