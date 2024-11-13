@@ -36,6 +36,11 @@
             $t("Pages.Create")
           }}</router-link>
         </li>
+        <li class="nav-item active">
+          <router-link class="nav-link" to="/myvotings">{{
+            $t("Pages.Search")
+          }}</router-link>
+        </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/legal">{{
             $t("Pages.Legal")

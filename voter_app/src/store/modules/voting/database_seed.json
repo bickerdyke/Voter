@@ -1,10 +1,14 @@
 {
+  "admins": {
+    "GvjYPNupBHaXAlug9knV7kK5Qwu1": true
+  },
   "sessions": {
     "4711": {
       "title": "Testing-Session",
       "subtitle": "Testing-Session vom 11.11.2011",
       "description": "Anwesend waren alle stimmberechtigten Personen. lorem Ipsum und so weiter...  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.          Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut          labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.          Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
       "imgUrl": "https://picsum.photos/200",
+      "author": "GvjYPNupBHaXAlug9knV7kK5Qwu1",
       "quorum": 100,
       "votingmode": "score",
       "token": "lujHqw9h8",
@@ -98,6 +102,7 @@
       "title": "Zweite Testsession",
       "subtitle": "Default mit <b>interessanten</b> Eigenschaften.",
       "description": "Drei User, Erste Abstimmung hat alle Stimmen abgegeben, zweite nur 1 (<50%), dritte keine. Verschiedene Interessante, falsche und potentiell gefährliche Inhalte. z.B. HTML-Tags in den Texten oder ungültige Bild-Urls.",
+      "author": "GvjYPNupBHaXAlug9knV7kK5Qwu1",
       "imgUrl": "https://picsum.photos/",
       "votingmode": "score",
       "votings": {
@@ -166,6 +171,7 @@
       "title": "Frische Session",
       "subtitle": "Alles neu macht der Mai",
       "description": "Frische Session ohne Votes in der Standardeinstellung",
+      "author": "GvjYPNupBHaXAlug9knV7kK5Qwu1",
       "imgUrl": "https://picsum.photos/200",
       "quorum": 50,
       "votingmode": "school_de",
@@ -209,6 +215,7 @@
     },
     "ProContra": {
       "imgUrl": "https://cdn.pixabay.com/photo/2017/08/13/21/10/justitia-2638601_1280.png",
+      "author": "GvjYPNupBHaXAlug9knV7kK5Qwu1",
       "quorum": 65,
       "title": "Pro und Contra",
       "subtitle": "Test-Abstimmung für Dafür und Dagegen",
