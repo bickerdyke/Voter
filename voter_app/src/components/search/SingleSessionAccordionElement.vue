@@ -9,17 +9,30 @@
         aria-expanded="false"
         :aria-controls="htmlkey"
       >
-        <img
-          class="m-1"
-          :src="imgUrl"
-          :class="imgClass"
-          :style="imgSizeStyle"
-          v-if="imgUrl"
-        />
-        <b>{{ sessionData.title }}</b
-        ><span class="d-none d-md-block" v-if="sessionData.subtitle"
-          >&nbsp;&ndash;&nbsp;{{ sessionData.subtitle }}</span
+        <img :src="imgUrl" :style="imgSizeStyle" v-if="imgUrl" />
+        <div v-else :style="imgSizeStyle">&nbsp;</div>
+
+        <div
+          class="progress mx-3"
+          style="width: 60px"
+          role="progressbar"
+          aria-label="Success striped example"
+          :aria-valuenow="filledOutPct"
+          aria-valuemin="0"
+          aria-valuemax="100"
         >
+          <div
+            class="progress-bar progress-bar-striped bg-success"
+            :style="{ width: filledOutPct + '%' }"
+          ></div>
+        </div>
+
+        <div>
+          <b>{{ sessionData.title }}</b>
+        </div>
+        <div class="d-none d-md-block" v-if="sessionData.subtitle">
+          &nbsp;&ndash;&nbsp;{{ sessionData.subtitle }}
+        </div>
       </button>
     </h2>
     <div
@@ -89,14 +102,24 @@ export default {
       return this.sessionData.imgUrl;
     },
     imgSizeStyle() {
-      return this.size != 0
+      return this.imgSize != 0
         ? `width: ${this.imgSize.toString()}px; height: ${this.imgSize.toString()}px; object-fit: cover;`
         : `width: 100%; object-fit: cover;`;
     },
-    imgClass() {
-      return this.size == 0
-        ? "rounded-4 img-fluid d-block mx-auto d-fill"
-        : "rounded-4 me-4";
+    filledOutPct() {
+      var countVotes = 0;
+      for (const [key, value] of Object.entries(this.sessionData.votings)) {
+        if (value.votes && Object.keys(value.votes).length > 0) {
+          countVotes += Object.keys(value.votes).length;
+        }
+      }
+      const countUsers =
+        Object.keys(this.sessionData.votings).length *
+        Object.keys(this.sessionData.users).length; //Object.keys(this.currentSessionData.users).length;
+      console.log(countVotes + " / " + countUsers);
+      const turnout = (countVotes / countUsers) * 100;
+      console.log(turnout + "%");
+      return turnout;
     },
   },
 };

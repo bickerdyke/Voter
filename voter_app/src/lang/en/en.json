@@ -174,8 +174,9 @@
     "Results": "Results",
     "Links": "Links",
     "DataNote": "Your votings are retrieved based on a session-Id stored in your browser. Clearing your browser cache will remove the search results.",
-    "Votes": "votes received",
-    "MoreDetails": "Details..."
+    "Votes": "votes",
+    "MoreDetails": "Details...",
+    "CreateButton": "Create Voting"
   },
 
   "Legal": {

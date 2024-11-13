@@ -28,6 +28,13 @@
         <p>
           {{ $t("Search.NoResultsDetails") }}
         </p>
+        <p>
+          <router-link
+            :to="{ name: 'create' }"
+            class="btn btn-success shadow"
+            >{{ $t("Search.CreateButton") }}</router-link
+          >
+        </p>
       </div>
 
       <!-- Array for sorting only and splitted in key + object again -->

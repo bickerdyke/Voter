@@ -174,8 +174,9 @@
     "Results": "Ergebnis",
     "Links": "Links",
     "DataNote": "Die Zuordnung zu den erstellten Abstimmungen erfolgt durch ihren Browser. Löschen ihres Browsercaches löscht diese Verbindung.",
-    "Votes": "Stimmen abgegeben",
-    "MoreDetails": "Details..."
+    "Votes": "Stimmen",
+    "MoreDetails": "Details...",
+    "CreateButton": "Abstimmung anlegen"
   },
 
   "Legal": {
