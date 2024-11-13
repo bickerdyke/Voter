@@ -27,7 +27,12 @@
             }}</template></ImageAndDescription
           >
         </div>
-        <CreateSession @sessionSubmit="createSession" v-if="!readyToShow" />
+        <CreateSession
+          @sessionSubmit="createSession"
+          v-if="!readyToShow"
+          :showIds="$root.isDevMode"
+          :editIds="$root.isDevMode"
+        />
 
         <!-- Create votings -->
 
@@ -234,7 +239,7 @@ export default {
 
       const exist = await this.$store.dispatch(
         "sessionExists",
-        this.newSession.id,
+        this.newSession.id
       );
       if (exist) {
         this.error = this.$t("CreateSession.errors.session_exists");

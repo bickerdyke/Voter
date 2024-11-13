@@ -14,6 +14,7 @@
   "Pages": {
     "Home": "Home",
     "Create": "New Voting",
+    "Search": "My Votings",
     "Legal": "Legal information"
   },
 
@@ -60,7 +61,7 @@
     "form": {
       "hint": {
         "useremail": "This mail address will not be stored or transmitted. It will only be used to find a public profile picture if available.",
-        "quorum": "Selects the minimum number of votes that need to be cast before first results become visible. 0% will immediately show results, 100% will hide results until everyone has voted.",
+        "quorum": "Minimum number of votes needed to be cast before results become visible. 0% will immediately show results, 100% will hide results until everyone has voted.",
         "votingmode": "How do you want to rate? Pick for example scores from 1-10 or school grades"
       },
       "Session": {
@@ -166,6 +167,18 @@
     "vote": "Vote"
   },
 
+  "Search": {
+    "Headline": "My Votings",
+    "NoResults": "No votings found",
+    "NoResultsDetails": "We were not able to find any voting sessions you may have created.",
+    "Results": "Results",
+    "Links": "Links",
+    "DataNote": "Your votings are retrieved based on a session-Id stored in your browser. Clearing your browser cache will remove the search results.",
+    "Votes": "votes",
+    "MoreDetails": "Details...",
+    "CreateButton": "Create Voting"
+  },
+
   "Legal": {
     "MoreInformation": "Further information:",
     "Imprint": {
@@ -189,7 +202,7 @@
         "p2": "The participants' email addresses requested during data entry are optional and are only used to search for a publicly available profile picture and are not saved.",
         "p3": "There is no evaluation, transfer or processing of the data beyond the purpose of the website. User-generated content can be deleted after 30 days at the latest. There is no guarantee as to the availability of the service or the stored data."
       },
-      "ExternalServices": "Externel Services",
+      "ExternalServices": "External Services",
       "Gravatar": {
         "Name": "Gravatar",
         "p1": "This website uses Gravatar. This service provides a place for profile pictures that can be used from several other websites. To locate these profile pictures, a cryptographically derived hash value is provided, but no email address."

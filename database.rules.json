@@ -3,12 +3,16 @@
     /* block any top-level access without session-ID */
     ".read": "false",
     ".write": "false",
+    "admins": {
+      /* blocked by general parent rule. Manuell editing only. */
+    },
     "sessions": {
+      ".indexOn": ["author"],
+      ".read": "auth.uid != null && (root.child('admins/' + auth.uid).val() == true || query.orderByChild == 'author' && query.equalTo == auth.uid)",
       "$sessionId": {
         /* Allow new sessions and added votes */
         ".read": "auth != null",
         ".write": "auth != null && !data.exists()",
-        ".indexOn": ["author"],
         ".validate": "newData.hasChild('votings')",
         /* Validate Session Data */
         "author": {
