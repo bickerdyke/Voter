@@ -9,6 +9,13 @@
         aria-expanded="false"
         :aria-controls="htmlkey"
       >
+        <img
+          class="h-50 m-1"
+          :src="imgUrl"
+          :class="imgClass"
+          :style="imgSizeStyle"
+          v-if="imgUrl"
+        />
         <b>{{ sessionData.title }}</b
         ><template v-if="sessionData.subtitle"
           >&nbsp;&ndash;&nbsp;{{ sessionData.subtitle }}</template
@@ -68,10 +75,28 @@ export default {
       type: String,
       required: true,
     },
+    imgSize: {
+      // 0 for automatic size with d-flex
+      type: Number,
+      default: 50,
+    },
   },
   computed: {
     htmlkey() {
       return "clps-" + this.sessionKey;
+    },
+    imgUrl() {
+      return this.sessionData.imgUrl;
+    },
+    imgSizeStyle() {
+      return this.size != 0
+        ? `width: ${this.imgSize.toString()}px; height: ${this.imgSize.toString()}px; object-fit: cover;`
+        : `width: 100%; object-fit: cover;`;
+    },
+    imgClass() {
+      return this.size == 0
+        ? "rounded-4 img-fluid d-block mx-auto d-fill"
+        : "rounded-4 me-4";
     },
   },
 };

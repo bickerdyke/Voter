@@ -198,11 +198,11 @@ export default {
   props: {
     showIds: {
       type: Boolean,
-      default: this.$root.isDevMode,
+      default: false,
     },
     editIds: {
       type: Boolean,
-      default: this.$root.isDevMode,
+      default: false,
     },
   },
   computed: {
