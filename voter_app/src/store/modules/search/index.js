@@ -21,8 +21,7 @@ const actions = {
       }
 
       axios
-        .get(url, {
-        })
+        .get(url, {})
         .then((response) => {
           console.log("session list received");
           resolve(response.data);
@@ -32,7 +31,6 @@ const actions = {
         });
     });
   },
-
 };
 
 const votingModule = {
