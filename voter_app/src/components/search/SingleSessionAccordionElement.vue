@@ -1,5 +1,5 @@
 <template>
-  <div class="accordion-item">
+  <div class="accordion-item border-1 border-primary bg-light">
     <h2 class="accordion-header">
       <button
         class="accordion-button collapsed"
@@ -10,15 +10,15 @@
         :aria-controls="htmlkey"
       >
         <img
-          class="h-50 m-1"
+          class="m-1"
           :src="imgUrl"
           :class="imgClass"
           :style="imgSizeStyle"
           v-if="imgUrl"
         />
         <b>{{ sessionData.title }}</b
-        ><template v-if="sessionData.subtitle"
-          >&nbsp;&ndash;&nbsp;{{ sessionData.subtitle }}</template
+        ><span class="d-none d-md-block" v-if="sessionData.subtitle"
+          >&nbsp;&ndash;&nbsp;{{ sessionData.subtitle }}</span
         >
       </button>
     </h2>
