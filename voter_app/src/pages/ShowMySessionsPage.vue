@@ -30,12 +30,22 @@
         </p>
       </div>
 
-      <ul>
+      <!-- Array for sorting only and splitted in key + object again -->
+      <!--<ul>
         <li v-for="session in sessionList" :key="session.sId">
           <SingleSession :sessionData="session" :sessionKey="session.sId" />
-          <!-- Array for sorting only and splitted in key + object again -->
         </li>
-      </ul>
+      </ul>-->
+
+      <div class="accordion accordion" :id="accordionId">
+        <template v-for="session in sessionList" :key="session.sId">
+          <SingleSession
+            :sessionData="session"
+            :sessionKey="session.sId"
+            :parentId="accordionId"
+          />
+        </template>
+      </div>
 
       <div>{{ $t("Search.DataNote") }}</div>
 
@@ -51,7 +61,7 @@ import { mapGetters } from "vuex";
 
 import TheHomeLayout from "@/layouts/TheHomeLayout";
 import SessionHeadline from "@/components/SessionHeadline";
-import SingleSession from "@/components/search/SingleSession";
+import SingleSession from "@/components/search/SingleSessionAccordionElement.vue";
 
 export default {
   name: "ShowMySessionsPage",
@@ -64,6 +74,7 @@ export default {
     return {
       errorMessage: "",
       sessionListData: null,
+      accordionId: "accordionSearchList",
     };
   },
   computed: {
