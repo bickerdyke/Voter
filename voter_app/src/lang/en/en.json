@@ -202,7 +202,7 @@
         "p2": "The participants' email addresses requested during data entry are optional and are only used to search for a publicly available profile picture and are not saved.",
         "p3": "There is no evaluation, transfer or processing of the data beyond the purpose of the website. User-generated content can be deleted after 30 days at the latest. There is no guarantee as to the availability of the service or the stored data."
       },
-      "ExternalServices": "Externel Services",
+      "ExternalServices": "External Services",
       "Gravatar": {
         "Name": "Gravatar",
         "p1": "This website uses Gravatar. This service provides a place for profile pictures that can be used from several other websites. To locate these profile pictures, a cryptographically derived hash value is provided, but no email address."
