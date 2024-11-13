@@ -172,7 +172,10 @@
     "NoResults": "Keine Abstimmungen gefunden",
     "NoResultsDetails": "Es konnten keine von ihnen angelegten Abstimmungen gefunden werden.",
     "Results": "Ergebnis",
-    "Links": "Links"
+    "Links": "Links",
+    "DataNote": "Die Zuordnung zu den erstellten Abstimmungen erfolgt durch ihren Browser. Löschen ihres Browsercaches löscht diese Verbindung.",
+    "Votes": "Stimmen abgegeben",
+    "MoreDetails": "Details..."
   },
 
   "Legal": {

@@ -31,10 +31,15 @@
       </div>
 
       <ul>
-        <li v-for="(session, sId) in sessionList" :key="sId">
-          <SingleSession :sessionData="session" :sessionKey="sId" />
+        <li v-for="session in sessionList" :key="session.sId">
+          <SingleSession :sessionData="session" :sessionKey="session.sId" />
+          <!-- Array for sorting only and splitted in key + object again -->
         </li>
       </ul>
+
+      <div>{{ $t("Search.DataNote") }}</div>
+
+      <!-- <div>{{ sessionList }}</div> -->
 
       <!-- Footer-Features-->
     </div>
@@ -71,8 +76,9 @@ export default {
     sessionList() {
       console.log("Zugriff Session-Liste");
       if (!this.sessionListData) {
-        // Load SessionList
+        console.log("Lade Session-Liste...");
         this.clearError();
+
         const payload = {
           uId: this.$store.getters.userId,
         };
@@ -80,13 +86,20 @@ export default {
         this.$store
           .dispatch("loadSessions", payload)
           .then((result) => {
-            this.sessionListData = result;
+            // Convert to sorted Array
+            this.sessionListData = Object.keys(result)
+              .map((key) => ({
+                sId: key,
+                ...result[key],
+              }))
+              .sort((a, b) => a.timestamp - b.timestamp);
           })
           .catch((err) => {
             this.errorMessage = err;
             console.error(err);
           });
       }
+
       return this.sessionListData;
     },
   },

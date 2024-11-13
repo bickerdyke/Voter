@@ -198,11 +198,11 @@ export default {
   props: {
     showIds: {
       type: Boolean,
-      default: false,
+      default: this.$root.isDevMode,
     },
     editIds: {
       type: Boolean,
-      default: false,
+      default: this.$root.isDevMode,
     },
   },
   computed: {
@@ -216,7 +216,7 @@ export default {
   },
   methods: {
     createGuid() {
-      let prefix = $root.isDevMode ? "test-" : "";
+      let prefix = this.$root.isDevMode ? "test-" : "";
       return prefix + self.crypto.randomUUID();
     },
     submitSession(values) {
