@@ -47,7 +47,9 @@
         </template>
       </div>
 
-      <div>{{ $t("Search.DataNote") }}</div>
+      <div class="mt-5 small text-body-secondary">
+        {{ $t("Search.DataNote") }}
+      </div>
 
       <!-- <div>{{ sessionList }}</div> -->
 

@@ -167,6 +167,17 @@
     "vote": "Vote"
   },
 
+  "Search": {
+    "Headline": "My Votings",
+    "NoResults": "No votings found",
+    "NoResultsDetails": "We were not able to find any voting sessions you may have created.",
+    "Results": "Results",
+    "Links": "Links",
+    "DataNote": "Your votings are retrieved based on a session-Id stored in your browser. Clearing your browser cache will remove the search results.",
+    "Votes": "votes received",
+    "MoreDetails": "Details..."
+  },
+
   "Legal": {
     "MoreInformation": "Further information:",
     "Imprint": {
