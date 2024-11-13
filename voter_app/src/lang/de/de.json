@@ -61,7 +61,7 @@
     "form": {
       "hint": {
         "useremail": "Die angegebene Emailadresse wird nicht übermittelt oder gespeichert. Sie dient lediglich zur Suche nach einem vorhandenen Profilbild.",
-        "quorum": "Legt das Minimum der abgegebenen Stimmen fest bis die ersten Ergebnisse angezeigt werden. Dabei bedeuten 0% alle Ergebnisse werden sofort angezeigt und 100% erst wenn alle Stimmen abgegeben wurden, werden Ergebnisse angezeigt.",
+        "quorum": "Minimum der abgegebenen Stimmen fest bis ein Ergebnis angezeigt wird. 0%: sofort anzeigen; 100%: Anzeige erst, wenn alle Stimmen abgegeben wurden.",
         "votingmode": "Wie soll abgestimmt werden? Möglichkeiten sind z.B: Punkte von 1-10 oder Schulnoten"
       },
       "Session": {

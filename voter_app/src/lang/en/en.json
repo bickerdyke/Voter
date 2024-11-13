@@ -61,7 +61,7 @@
     "form": {
       "hint": {
         "useremail": "This mail address will not be stored or transmitted. It will only be used to find a public profile picture if available.",
-        "quorum": "Selects the minimum number of votes that need to be cast before first results become visible. 0% will immediately show results, 100% will hide results until everyone has voted.",
+        "quorum": "Minimum number of votes needed to be cast before results become visible. 0% will immediately show results, 100% will hide results until everyone has voted.",
         "votingmode": "How do you want to rate? Pick for example scores from 1-10 or school grades"
       },
       "Session": {
