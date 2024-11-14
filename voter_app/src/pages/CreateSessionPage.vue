@@ -52,7 +52,10 @@
         </div>
 
         <template v-for="voting in newVotings" :key="voting.id">
-          <CreateVoting :votingRecord="voting"></CreateVoting>
+          <CreateVoting
+            :votingRecord="voting"
+            @votingDelete="removeVoting"
+          ></CreateVoting>
         </template>
         <CreateVoting
           v-if="editingVoting"
@@ -78,7 +81,7 @@
         </div>
 
         <template v-for="user in newUsers" :key="user.id">
-          <CreateUser :userRecord="user"></CreateUser>
+          <CreateUser :userRecord="user" @userDelete="removeUser"></CreateUser>
         </template>
         <CreateUser v-if="editingUser" @userSubmit="createUser"></CreateUser>
       </div>
@@ -211,6 +214,10 @@ export default {
       this.newVotings.push(newVoting);
       this.editingVoting = false;
     },
+    removeVoting(values) {
+      const itemIndex = this.newVotings.findIndex((v) => v.id == values.id);
+      this.newVotings.splice(itemIndex, 1);
+    },
     createUser(values) {
       const newUser = {
         id: values.id,
@@ -220,6 +227,10 @@ export default {
       };
       this.newUsers.push(newUser);
       this.editingUser = false;
+    },
+    removeUser(values) {
+      const userIndex = this.newUsers.findIndex((u) => u.id == values.id);
+      this.newUsers.splice(userIndex, 1);
     },
     async saveSession() {
       this.isLoading = true;

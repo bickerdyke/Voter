@@ -27,7 +27,10 @@
         >
           {{ $t("Edit") }}
         </button>
-        <button class="btn btn-danger me-2 mb-2 shadow" v-if="showIds" disabled>
+        <button
+          class="btn btn-danger me-2 mb-2 shadow"
+          @click="deleteVoting(votingRecord.id)"
+        >
           {{ $t("Remove") }}
         </button>
       </div>
@@ -159,6 +162,9 @@ export default {
     votingSubmit(payload) {
       return payload ? true : false;
     },
+    votingDelete(payload) {
+      return payload ? true : false;
+    },
   },
   data() {
     return {
@@ -203,6 +209,13 @@ export default {
       };
 
       this.$emit("votingSubmit", votingdata);
+    },
+    deleteVoting(id) {
+      const votingdata = {
+        id: id,
+      };
+
+      this.$emit("votingDelete", votingdata);
     },
     makeid(length) {
       let result = "";

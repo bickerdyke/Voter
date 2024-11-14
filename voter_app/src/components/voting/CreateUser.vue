@@ -30,7 +30,10 @@
         >
           {{ $t("Edit") }}
         </button>
-        <button class="btn btn-danger shadow me-2 mb-2" v-if="showIds" disabled>
+        <button
+          class="btn btn-danger shadow me-2 mb-2"
+          @click="deleteUser(userRecord.id)"
+        >
           {{ $t("Remove") }}
         </button>
       </div>
@@ -165,6 +168,9 @@ export default {
     userSubmit(payload) {
       return payload ? true : false;
     },
+    userDelete(payload) {
+      return payload ? true : false;
+    },
   },
   data() {
     return {
@@ -197,13 +203,19 @@ export default {
   },
   methods: {
     updateUser(values) {
-      const userdata = {
+      const userData = {
         id: values.userid,
         name: values.username,
         email: values.useremail,
         imgUrl: values.userimgurl,
       };
-      this.$emit("userSubmit", userdata);
+      this.$emit("userSubmit", userData);
+    },
+    deleteUser(id) {
+      const userData = {
+        id: id,
+      };
+      this.$emit("userDelete", userData);
     },
     makeid(length) {
       let result = "";
