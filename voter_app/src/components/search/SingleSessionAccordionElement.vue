@@ -108,7 +108,7 @@ export default {
     },
     filledOutPct() {
       var countVotes = 0;
-      for (const [key, value] of Object.entries(this.sessionData.votings)) {
+      for (const value of Object.values(this.sessionData.votings)) {
         if (value.votes && Object.keys(value.votes).length > 0) {
           countVotes += Object.keys(value.votes).length;
         }

@@ -2,7 +2,6 @@
   <TheHomeLayout>
     <div>
       <!-- Header -->
-      <!-- Header -->
       <div class="row">
         <SessionHeadline>
           <template v-slot:headline>{{ $t("Search.Headline") }}</template>
@@ -22,7 +21,7 @@
 
       <div
         class="alert alert-warning shadow my-4"
-        v-if="!sessionList || Object.keys(sessionList).length === 0"
+        v-if="!sessionListData || Object.keys(sessionListData).length === 0"
       >
         <h3>{{ $t("Search.NoResults") }}</h3>
         <p>
@@ -39,13 +38,13 @@
 
       <!-- Array for sorting only and splitted in key + object again -->
       <!--<ul>
-        <li v-for="session in sessionList" :key="session.sId">
+        <li v-for="session in sessionListData" :key="session.sId">
           <SingleSession :sessionData="session" :sessionKey="session.sId" />
         </li>
       </ul>-->
 
       <div class="accordion accordion" :id="accordionId">
-        <template v-for="session in sessionList" :key="session.sId">
+        <template v-for="session in sessionListData" :key="session.sId">
           <SingleSession
             :sessionData="session"
             :sessionKey="session.sId"
@@ -84,6 +83,7 @@ export default {
       errorMessage: "",
       sessionListData: null,
       accordionId: "accordionSearchList",
+      currentUserId: null,
     };
   },
   computed: {
@@ -93,14 +93,23 @@ export default {
       "isAuthenticated",
       "isSessionLoaded",
     ]),
-    sessionList() {
-      console.log("Zugriff Session-Liste");
-      if (!this.sessionListData) {
-        console.log("Lade Session-Liste...");
+  },
+  methods: {
+    clearError() {
+      this.errorMessage = "";
+    },
+  },
+  watch: {
+    currentUserId: {
+      handler() {
         this.clearError();
+        if (!this.currentUserId) {
+          this.currentUserId = this.$store.getters.userId;
+        }
+        console.log("Lade Session-Liste...");
 
         const payload = {
-          uId: this.$store.getters.userId,
+          uId: this.currentUserId,
         };
 
         this.$store
@@ -118,14 +127,8 @@ export default {
             this.errorMessage = err;
             console.error(err);
           });
-      }
-
-      return this.sessionListData;
-    },
-  },
-  methods: {
-    clearError() {
-      this.errorMessage = "";
+      },
+      immediate: true,
     },
   },
 };
