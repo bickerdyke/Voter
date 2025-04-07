@@ -42,7 +42,7 @@ export const sessionValidationSchema = yup.object().shape({
   sessiontitle: yup.string().required().trim().max(100),
   sessionsubtitle: yup.string().trim().max(150),
   sessiondescription: yup.string().trim().max(2000),
-  sessionimgurl: yup.string().trim().url().max(2000),
+  sessionimgurl: yup.string().trim().url().max(700),
   sessionquorum: yup.number().truncate().min(0).max(100),
   sessionvotingmode: yup.string().required().trim().max(30),
   sessionid: yup
@@ -56,7 +56,7 @@ export const sessionValidationSchema = yup.object().shape({
 
 export const votingValidationSchema = yup.object().shape({
   votingtitle: yup.string().required().trim().max(50),
-  votingimgurl: yup.string().trim().url().max(2000),
+  votingimgurl: yup.string().trim().url().max(700),
   votingdescription: yup.string().trim().max(2000),
   votingid: yup
     .string()
@@ -70,7 +70,7 @@ export const votingValidationSchema = yup.object().shape({
 export const userValidationSchema = yup.object().shape({
   username: yup.string().required().trim().max(50),
   useremail: yup.string().trim().email().max(100),
-  userimgurl: yup.string().trim().url().max(2000),
+  userimgurl: yup.string().trim().url().max(700),
   userid: yup
     .string()
     .required()
