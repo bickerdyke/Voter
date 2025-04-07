@@ -13,7 +13,7 @@ const compat = new FlatCompat({
 });
 
 export default [...compat.extends(
-    "plugin:vue/vue3-essential",
+    "plugin:vue/essential",
     "eslint:recommended",
     "plugin:prettier/recommended",
 ), {

@@ -33,6 +33,7 @@
 </template>
 
 <script>
+/* global localStorage */
 export default {
   name: "DebugLoginInfo",
   computed: {

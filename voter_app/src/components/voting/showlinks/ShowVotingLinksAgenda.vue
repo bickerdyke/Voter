@@ -55,6 +55,7 @@
 </template>
 
 <script>
+/* global window */
 import { mapGetters } from "vuex";
 import QrcodeVue from "qrcode.vue";
 

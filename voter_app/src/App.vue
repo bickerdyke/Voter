@@ -22,6 +22,8 @@
 </template>
 
 <script>
+/* global document */
+/* global ClipboardItem */
 import { mapGetters } from "vuex";
 import { Toast } from "bootstrap";
 
