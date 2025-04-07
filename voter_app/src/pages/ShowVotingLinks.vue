@@ -123,6 +123,7 @@
 </template>
 
 <script>
+/* global window */
 import { mapGetters } from "vuex";
 
 import TheHomeLayout from "@/layouts/TheHomeLayout";

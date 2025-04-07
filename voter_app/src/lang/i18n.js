@@ -1,3 +1,4 @@
+/* global localStorage */
 import { createI18n } from "vue-i18n";
 import en from "@/lang/en/en.json";
 import de from "@/lang/de/de.json";

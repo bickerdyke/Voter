@@ -172,6 +172,7 @@
 </template>
 
 <script>
+/* global self */
 import { Form as vForm, Field, ErrorMessage } from "vee-validate";
 import { sessionValidationSchema } from "./validations";
 import { VOTINGMODES } from "@/config/misc";

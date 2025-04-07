@@ -1,3 +1,5 @@
+/* global localStorage */
+
 import { FIREBASE_AUTH_URL, FIREBASE_REFRESH_URL } from "@/config/firebase";
 import axios from "axios";
 
