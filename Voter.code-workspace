@@ -2,16 +2,17 @@
   "folders": [
     {
       "path": ".",
-      "ignore": ["/bootstrap-sandbox", "/voter_app"]
+      "ignore": ["/bootstrap-sandbox", "/voter_app"],
     },
     {
-      "path": "voter_app"
-    }
+      "path": "voter_app",
+    },
   ],
   "settings": {
     "files.exclude": {
-      "voter_app": true
+      "voter_app": true,
     },
-    "i18n-ally.localesPaths": ["voter_app/src/lang"]
-  }
+    "i18n-ally.localesPaths": ["voter_app/src/lang"],
+    "cSpell.words": ["popperjs", "qrcode"],
+  },
 }
