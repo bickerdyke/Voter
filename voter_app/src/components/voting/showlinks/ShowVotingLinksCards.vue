@@ -58,7 +58,6 @@
 </template>
 
 <script>
-/* global window */
 import { mapGetters } from "vuex";
 import LinkCard from "@/components/voting/showlinks/LinkCard";
 

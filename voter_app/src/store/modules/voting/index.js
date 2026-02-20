@@ -5,7 +5,7 @@ import axios from "axios";
 import { state } from "./state";
 import { getters } from "./getters";
 
-let reloadTimer;
+let reloadTimer = null;
 
 const mutations = {
   // Referenz auf state wird im payload durch die action mitgegeben

@@ -112,7 +112,6 @@
 </template>
 
 <script>
-/* global window */
 import { mapGetters } from "vuex";
 
 export default {
