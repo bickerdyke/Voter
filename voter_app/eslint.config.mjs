@@ -1,41 +1,12 @@
-import globals from "globals";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+import globals from "globals";
+import tseslint from "typescript-eslint";
+import pluginVue from "eslint-plugin-vue";
+import { defineConfig } from "eslint/config";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
-});
-
-export default [...compat.extends(
-    "plugin:vue/essential",
-    "eslint:recommended",
-    "plugin:prettier/recommended",
-), {
-    languageOptions: {
-        globals: {
-            ...globals.node,
-        },
-    },
-
-    rules: {
-        "prettier/prettier": ["error", {
-            endOfLine: "crlf",
-        }],
-
-        "linebreak-style": 0,
-    },
-}, {
-    files: ["**/__tests__/*.{j,t}s?(x)", "**/tests/unit/**/*.spec.{j,t}s?(x)"],
-
-    languageOptions: {
-        globals: {
-            ...globals.mocha,
-        },
-    },
-}];
+export default defineConfig([
+  { files: ["**/*.{js,mjs,cjs,ts,mts,cts,vue}"], plugins: { js }, extends: ["js/recommended"], languageOptions: { globals: globals.browser } },
+  tseslint.configs.recommended,
+  pluginVue.configs["flat/essential"],
+  { files: ["**/*.vue"], languageOptions: { parserOptions: { parser: tseslint.parser } } },
+]);
