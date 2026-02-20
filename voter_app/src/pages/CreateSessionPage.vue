@@ -41,24 +41,25 @@
 
           <div class="d-flex flex-row">
             <h3 class="me-auto">{{ $t("CreateSession.Headline.Votings") }}</h3>
-            <button
-              class="btn btn-primary shadow"
-              @click="addVotingButton"
-              :disabled="editingVoting"
-            >
-              {{ $t("Add") }}
-            </button>
           </div>
-        </div>
 
-        <template v-for="voting in newVotings" :key="voting.id">
-          <CreateVoting :votingRecord="voting"></CreateVoting>
-        </template>
-        <CreateVoting
-          v-if="editingVoting"
-          :votingCount="votingCounter"
-          @votingSubmit="createVoting"
-        ></CreateVoting>
+          <template v-for="voting in newVotings" :key="voting.id">
+            <CreateVoting :votingRecord="voting"></CreateVoting>
+          </template>
+          <CreateVoting
+            v-if="editingVoting"
+            :votingCount="votingCounter"
+            @votingSubmit="createVoting"
+          ></CreateVoting>
+
+          <button
+            class="btn btn-primary shadow"
+            @click="addVotingButton"
+            :disabled="editingVoting"
+          >
+            {{ $t("Add") }}
+          </button>
+        </div>
 
         <!-- Create users -->
 
@@ -67,20 +68,20 @@
 
           <div class="d-flex flex-row">
             <h3 class="me-auto">{{ $t("CreateSession.Headline.User") }}</h3>
-            <button
-              class="btn btn-primary shadow"
-              @click="addUserButton"
-              :disabled="editingUser"
-            >
-              {{ $t("Add") }}
-            </button>
           </div>
-        </div>
 
-        <template v-for="user in newUsers" :key="user.id">
-          <CreateUser :userRecord="user"></CreateUser>
-        </template>
-        <CreateUser v-if="editingUser" @userSubmit="createUser"></CreateUser>
+          <template v-for="user in newUsers" :key="user.id">
+            <CreateUser :userRecord="user"></CreateUser>
+          </template>
+          <CreateUser v-if="editingUser" @userSubmit="createUser"></CreateUser>
+          <button
+            class="btn btn-primary shadow"
+            @click="addUserButton"
+            :disabled="editingUser"
+          >
+            {{ $t("Add") }}
+          </button>
+        </div>
       </div>
 
       <!-- Footer -->
