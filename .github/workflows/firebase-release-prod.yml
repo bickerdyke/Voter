@@ -26,6 +26,7 @@ jobs:
       VITE_IMPRINT_ADDRESS2: ${{ secrets.IMPRINT_ADDRESS2}}
       VITE_IMPRINT_EMAIL: ${{ secrets.IMPRINT_EMAIL}}
       VITE_SOFTWARE_VERSION: ${{ github.event.release.tag_name }}
+      VITE_HOMEPAGE_URL: ${{ vars.HOMEPAGE_URL }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
