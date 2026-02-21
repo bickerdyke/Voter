@@ -10,7 +10,8 @@ Auflistung der Quellen der benutzten Photos
 - profile_anonymous.png [https://www.pexels.com/de-de/foto/foto-der-person-die-guy-fawkes-maske-tragt-1851243/]
 
 ## Favicon:
-- fontawesome_ square-poll-vertical [https://gauger.io/fonticon/]
+
+- fontawesome square-poll-vertical [https://gauger.io/fonticon/]
 
 ## Startseite
 
