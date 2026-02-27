@@ -1,4 +1,4 @@
-# Voter
+# Easy-Vote
 
 Small web application for creating and running simple named voting sessions.
 
