@@ -95,7 +95,7 @@ I'm using github actions to deploy the static files of the web app to firebase s
 
 ## License
 
-No license file is included in this repository. Add a `LICENSE` file if you want to make the terms explicit.
+This project is licensed under the GNU General Public License version 3.
 
 Contact / more info
 
