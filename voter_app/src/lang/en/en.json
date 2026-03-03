@@ -1,6 +1,6 @@
- {
+{
   "Voter-Service Title": "Easy-Vote",
-  "Voter-Service Tagline": "Votings made easy",
+  "Voter-Service Tagline": "Polls made easy",
   "Remove": "Remove",
   "Add": "Add",
   "Edit": "Edit",
@@ -13,8 +13,8 @@
   "Error": "An Error occurred:",
   "Pages": {
     "Home": "Home",
-    "Create": "New Voting",
-    "Search": "My Votings",
+    "Create": "New Poll",
+    "Search": "My Polls",
     "Legal": "Legal information"
   },
 
@@ -28,16 +28,16 @@
 
   "Homepage": {
     "HeroBanner": {
-      "Headline": "Simple Group-Votings",
+      "Headline": "Simple Group-Polls",
       "p1": "Use Easy-Vote to collect a groups opinion about anything - online or in person.",
-      "p2": "Create voting - Hand out links - Vote - and done!",
-      "button": "Create voting and start"
+      "p2": "Create Polls - Hand out links - Vote - and done!",
+      "button": "Create poll and start"
     },
     "CreateVoting": {
-      "Headline": "Create Voting",
-      "p1": "To start, create a voting. Each voting can be for several items where the results will be collected.",
+      "Headline": "Create Poll",
+      "p1": "To start, create a poll. Each poll can be for several items where the results will be collected.",
       "p2": "You have several options here like for example school-lke grades or a rating scale from 1 to 10 points.",
-      "p3": "The participants of your voting can also be added here."
+      "p3": "The participants of your polls can also be added here."
     },
     "VotingLinks": {
       "Headline": "Hand out links",
@@ -52,20 +52,20 @@
       "Headline": "Result",
       "p1": "...and the results will be summarized in a single table that can be printed or displayed on a monitor for all to see at in person meetings.",
       "p2": "So why not just start and ...",
-      "button": "Create your voting!"
+      "button": "Create your poll!"
     }
   },
 
   "CreateSession": {
-    "introduction": "Create a new voting session. Enter a name and a short description, add a list of items to the voting ballot and a list of participants.",
+    "introduction": "Create a new polling session. Enter a name and a short description, add a list of items to the ballot and a list of participants.",
     "form": {
       "hint": {
-        "useremail": "This mail address will not be stored or transmitted. It will only be used to find a public profile picture if available.",
+        "useremail": "This mail address will not be stored or transmitted. It will only be used to find a public profile picture. (if available)",
         "quorum": "Minimum number of votes needed to be cast before results become visible. 0% will immediately show results, 100% will hide results until everyone has voted.",
         "votingmode": "How do you want to rate? Pick for example scores from 1-10 or school grades"
       },
       "Session": {
-        "sessiontitle": "Session Name",
+        "sessiontitle": "Poll Name",
         "sessionsubtitle": "Tagline",
         "sessiondescription": "Description",
         "sessionquorum": "Quorum",
@@ -73,7 +73,7 @@
         "sessionimgurl": "Image-Url",
         "sessionid": "Voting-Code"
       },
-      "CreateSessionData": "Create Voting",
+      "CreateSessionData": "Create Poll",
       "CreateVotingData": "Create Item",
       "User": {
         "username": "Name",
@@ -91,18 +91,18 @@
       "Create Session Button": "Save Voting data and continue"
     },
     "Headline": {
-      "Page Sub-Headline": "Create Voting",
-      "Votings": "Voting Items",
+      "Page Sub-Headline": "Create Poll",
+      "Votings": "Poll Items",
       "User": "Participants"
     },
     "errors": {
-      "votings and users required": "At least one voting item and participant required.",
+      "votings and users required": "At least one poll item and participant required.",
       "not_authenticated": "Database access not available",
       "session_exists": "Session already exists",
-      "required_field": "{name_t} is a required",
+      "required_field": "{name_t} is a required field",
       "field_invalid": "Invalid Field",
-      "field_too_short": "Minimum length for {name_t} is {minimum} Charakters",
-      "field_too_large": "Maximum length for {name_t} is {maximum} Charakters",
+      "field_too_short": "Minimum length for {name_t} is {minimum} Characters",
+      "field_too_large": "Maximum length for {name_t} is {maximum} Characters",
       "value_too_large": "{name_t} must not exceed {maximum}",
       "value_too_small": "{name_t} can't be smaller than {minimum}",
       "invalid_GUID": "Not a valid GUID",
@@ -114,7 +114,7 @@
 
   "ShowLinks": {
     "Warningtext": {
-      "p1": "Accessing the voting session requires a voting link. You can find your and the other participants' links here on this page or at this Url:",
+      "p1": "Accessing the poll data requires a voting link. You can find yours and the other participants' links here on this page or at this Url:",
       "p2": "Bookmark this link, but do not forward it to the participants. For forwarding, use the personalized links on this page below."
     },
     "options": {
@@ -168,15 +168,15 @@
   },
 
   "Search": {
-    "Headline": "My Votings",
-    "NoResults": "No votings found",
-    "NoResultsDetails": "We were not able to find any voting sessions you may have created.",
+    "Headline": "My Polls",
+    "NoResults": "No polls found",
+    "NoResultsDetails": "We were not able to find any polls you may have created.",
     "Results": "Results",
     "Links": "Links",
-    "DataNote": "Your votings are retrieved based on a session-Id stored in your browser. Clearing your browser cache will remove the search results.",
+    "DataNote": "Your polls are located based on a session-Id stored in your browser. Clearing your browser cache will remove the search results.",
     "Votes": "votes",
     "MoreDetails": "Details...",
-    "CreateButton": "Create Voting"
+    "CreateButton": "Create Poll"
   },
 
   "Legal": {
