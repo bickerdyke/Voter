@@ -46,5 +46,8 @@
     "typescript-eslint": "^8.65.0",
     "vite": "^8.1.5",
     "vue-i18n-extract": "^2.0.7"
+  },
+  "overrides": {
+    "glob": "^10.5.0"
   }
 }
