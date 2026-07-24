@@ -20,14 +20,15 @@ jobs:
       VITE_IMPRINT_ADDRESS: ${{ secrets.IMPRINT_ADDRESS}}
       VITE_IMPRINT_ADDRESS2: ${{ secrets.IMPRINT_ADDRESS2}}
       VITE_IMPRINT_EMAIL: ${{ secrets.IMPRINT_EMAIL}}
-      VITE_SOFTWARE_VERSION: preview 
+      VITE_SOFTWARE_VERSION: preview
       VITE_HOMEPAGE_URL: ${{ vars.HOMEPAGE_URL }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: npm ci && npm run lint && npm run build
         working-directory: ./voter_app
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0.11.0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_VOTER_61D81 }}
